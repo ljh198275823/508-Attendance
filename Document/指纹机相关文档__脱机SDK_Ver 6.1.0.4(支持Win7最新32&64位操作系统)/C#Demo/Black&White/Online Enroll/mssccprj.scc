@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[OnlineEnroll.sln]
+SCC_Aux_Path = "\\tfs\RALID Source DB"
+SCC_Project_Name = "$/010-软件系统/108 一卡通系统/广晟一卡通系统/Documents/10 相关文档/指纹机相关文档__脱机SDK_Ver 6.1.0.4(支持Win7最新32&64位操作系统)/C#Demo/Black&White/Online Enroll", KIKFAAAA
+
+[OnlineEnroll.csproj]
+SCC_Aux_Path = "\\tfs\RALID Source DB"
+SCC_Project_Name = "$/010-软件系统/108 一卡通系统/广晟一卡通系统/Documents/10 相关文档/指纹机相关文档__脱机SDK_Ver 6.1.0.4(支持Win7最新32&64位操作系统)/C#Demo/Black&White/Online Enroll", KIKFAAAA

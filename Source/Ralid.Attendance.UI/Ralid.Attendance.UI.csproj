@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D7B0DDB7-3F9D-4585-A6B2-E09EF334C835}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ralid.Attendance.UI</RootNamespace>
+    <AssemblyName>Ralid.Attendance.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>attendance.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ralid.GeneralLibrary">
+      <HintPath>..\Reference\Ralid.GeneralLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\AttendanceUnitComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\AttendanceUnitComboBox.Designer.cs">
+      <DependentUpon>AttendanceUnitComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DepartmentTreeview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DepartmentTreeview.Designer.cs">
+      <DependentUpon>DepartmentTreeview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FunctionTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FunctionTree.designer.cs">
+      <DependentUpon>FunctionTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RoleCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoleCombobox.designer.cs">
+      <DependentUpon>RoleCombobox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextValueItem.cs" />
+    <Compile Include="Controls\UCDateTimeInterval.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCDateTimeInterval.designer.cs">
+      <DependentUpon>UCDateTimeInterval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAboat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAboat.designer.cs">
+      <DependentUpon>frmAboat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAttendanceLogReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAttendanceLogReport.Designer.cs">
+      <DependentUpon>FrmAttendanceLogReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAttendanceReaderSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAttendanceReaderSelection.Designer.cs">
+      <DependentUpon>FrmAttendanceReaderSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAttendanceRules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAttendanceRules.Designer.cs">
+      <DependentUpon>FrmAttendanceRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChangePwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChangePwd.designer.cs">
+      <DependentUpon>FrmChangePwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmColumnSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmColumnSelection.designer.cs">
+      <DependentUpon>FrmColumnSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCopyToDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCopyToDate.Designer.cs">
+      <DependentUpon>FrmCopyToDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCopyToOtherStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCopyToOtherStaff.Designer.cs">
+      <DependentUpon>FrmCopyToOtherStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAttendanceAnalyst.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAttendanceAnalyst.Designer.cs">
+      <DependentUpon>FrmAttendanceAnalyst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDepartmentMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDepartmentMaster.Designer.cs">
+      <DependentUpon>FrmDepartmentMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetailBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetailBase.designer.cs">
+      <DependentUpon>FrmDetailBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHolidayDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHolidayDetail.designer.cs">
+      <DependentUpon>FrmHolidayDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHolidayMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHolidayMaster.Designer.cs">
+      <DependentUpon>FrmHolidayMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManualLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManualLog.Designer.cs">
+      <DependentUpon>FrmManualLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMasterBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMasterBase.designer.cs">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOperatorDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOperatorDetail.designer.cs">
+      <DependentUpon>FrmOperatorDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOperators.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOperators.designer.cs">
+      <DependentUpon>FrmOperators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftTemplateApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftTemplateApply.Designer.cs">
+      <DependentUpon>FrmShiftTemplateApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftTemplateDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftTemplateDetail.Designer.cs">
+      <DependentUpon>FrmShiftTemplateDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftTemplateMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftTemplateMaster.Designer.cs">
+      <DependentUpon>FrmShiftTemplateMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTASheetGroupDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTASheetGroupDetail.Designer.cs">
+      <DependentUpon>FrmTASheetGroupDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTASheetGroupMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTASheetGroupMaster.Designer.cs">
+      <DependentUpon>FrmTASheetGroupMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOTTypeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOTTypeDetail.Designer.cs">
+      <DependentUpon>FrmOTTypeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOTTypeMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOTTypeMaster.Designer.cs">
+      <DependentUpon>FrmOTTypeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProcessing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProcessing.designer.cs">
+      <DependentUpon>FrmProcessing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportBase.designer.cs">
+      <DependentUpon>FrmReportBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRoleDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRoleDetail.designer.cs">
+      <DependentUpon>FrmRoleDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRoles.designer.cs">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftArrange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftArrange.Designer.cs">
+      <DependentUpon>FrmShiftArrange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftDetail.Designer.cs">
+      <DependentUpon>FrmShiftDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftMaster.Designer.cs">
+      <DependentUpon>FrmShiftMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftResultDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftResultDetail.Designer.cs">
+      <DependentUpon>FrmShiftResultDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftResultStatistics2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftResultStatistics2.Designer.cs">
+      <DependentUpon>FrmShiftResultStatistics2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftResultStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftResultStatistics.Designer.cs">
+      <DependentUpon>FrmShiftResultStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftSelection.Designer.cs">
+      <DependentUpon>FrmShiftSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaff.Designer.cs">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaffSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffSelection.Designer.cs">
+      <DependentUpon>FrmStaffSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTripTypeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTripTypeDetail.Designer.cs">
+      <DependentUpon>FrmTripTypeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTripTypeMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTripTypeMaster.Designer.cs">
+      <DependentUpon>FrmTripTypeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVacationTypeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVacationTypeDetail.Designer.cs">
+      <DependentUpon>FrmVacationTypeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVacationTypeMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVacationTypeMaster.Designer.cs">
+      <DependentUpon>FrmVacationTypeMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemAddedEventArgs.cs" />
+    <Compile Include="ItemUpdatedEventArgs.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSystemOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSystemOptions.Designer.cs">
+      <DependentUpon>FrmSystemOptions.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\DepartmentTreeview.resx">
+      <DependentUpon>DepartmentTreeview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FunctionTree.resx">
+      <DependentUpon>FunctionTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCDateTimeInterval.resx">
+      <DependentUpon>UCDateTimeInterval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAboat.en.resx">
+      <DependentUpon>frmAboat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAboat.resx">
+      <DependentUpon>frmAboat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAboat.zh-Hant.resx">
+      <DependentUpon>frmAboat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAttendanceLogReport.resx">
+      <DependentUpon>FrmAttendanceLogReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAttendanceReaderSelection.resx">
+      <DependentUpon>FrmAttendanceReaderSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAttendanceRules.resx">
+      <DependentUpon>FrmAttendanceRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangePwd.en.resx">
+      <DependentUpon>FrmChangePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangePwd.resx">
+      <DependentUpon>FrmChangePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangePwd.zh-Hant.resx">
+      <DependentUpon>FrmChangePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmColumnSelection.resx">
+      <DependentUpon>FrmColumnSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCopyToDate.resx">
+      <DependentUpon>FrmCopyToDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCopyToOtherStaff.resx">
+      <DependentUpon>FrmCopyToOtherStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAttendanceAnalyst.resx">
+      <DependentUpon>FrmAttendanceAnalyst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDepartmentMaster.resx">
+      <DependentUpon>FrmDepartmentMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetailBase.en.resx">
+      <DependentUpon>FrmDetailBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetailBase.resx">
+      <DependentUpon>FrmDetailBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetailBase.zh-Hant.resx">
+      <DependentUpon>FrmDetailBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHolidayDetail.en.resx">
+      <DependentUpon>FrmHolidayDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHolidayDetail.resx">
+      <DependentUpon>FrmHolidayDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHolidayDetail.zh-Hant.resx">
+      <DependentUpon>FrmHolidayDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHolidayMaster.resx">
+      <DependentUpon>FrmHolidayMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.en.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.zh-Hant.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManualLog.resx">
+      <DependentUpon>FrmManualLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMasterBase.en.resx">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMasterBase.resx">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMasterBase.zh-Hant.resx">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOperatorDetail.en.resx">
+      <DependentUpon>FrmOperatorDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOperatorDetail.resx">
+      <DependentUpon>FrmOperatorDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOperatorDetail.zh-Hant.resx">
+      <DependentUpon>FrmOperatorDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOperators.en.resx">
+      <DependentUpon>FrmOperators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOperators.resx">
+      <DependentUpon>FrmOperators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOperators.zh-Hant.resx">
+      <DependentUpon>FrmOperators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftTemplateApply.resx">
+      <DependentUpon>FrmShiftTemplateApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftTemplateDetail.resx">
+      <DependentUpon>FrmShiftTemplateDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftTemplateMaster.resx">
+      <DependentUpon>FrmShiftTemplateMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTASheetGroupDetail.resx">
+      <DependentUpon>FrmTASheetGroupDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTASheetGroupMaster.resx">
+      <DependentUpon>FrmTASheetGroupMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOTTypeDetail.resx">
+      <DependentUpon>FrmOTTypeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOTTypeMaster.resx">
+      <DependentUpon>FrmOTTypeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProcessing.resx">
+      <DependentUpon>FrmProcessing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportBase.en.resx">
+      <DependentUpon>FrmReportBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportBase.resx">
+      <DependentUpon>FrmReportBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportBase.zh-Hant.resx">
+      <DependentUpon>FrmReportBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRoleDetail.en.resx">
+      <DependentUpon>FrmRoleDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRoleDetail.resx">
+      <DependentUpon>FrmRoleDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRoleDetail.zh-Hant.resx">
+      <DependentUpon>FrmRoleDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRoles.en.resx">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRoles.resx">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftArrange.resx">
+      <DependentUpon>FrmShiftArrange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftDetail.resx">
+      <DependentUpon>FrmShiftDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftMaster.resx">
+      <DependentUpon>FrmShiftMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftResultStatistics2.resx">
+      <DependentUpon>FrmShiftResultStatistics2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftResultDetail.resx">
+      <DependentUpon>FrmShiftResultDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftResultStatistics.resx">
+      <DependentUpon>FrmShiftResultStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftSelection.resx">
+      <DependentUpon>FrmShiftSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaff.resx">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffSelection.resx">
+      <DependentUpon>FrmStaffSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTripTypeDetail.resx">
+      <DependentUpon>FrmTripTypeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTripTypeMaster.resx">
+      <DependentUpon>FrmTripTypeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVacationTypeDetail.resx">
+      <DependentUpon>FrmVacationTypeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVacationTypeMaster.resx">
+      <DependentUpon>FrmVacationTypeMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSystemOptions.resx">
+      <DependentUpon>FrmSystemOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ralid.Attendance.BLL\Ralid.Attendance.BLL.csproj">
+      <Project>{BAB9FBE7-1614-41D5-9404-0B9982819E32}</Project>
+      <Name>Ralid.Attendance.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ralid.Attendance.Model\Ralid.Attendance.Model.csproj">
+      <Project>{E5BCDE1E-DC97-4956-BEAB-CA7720C8EEF5}</Project>
+      <Name>Ralid.Attendance.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\department.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\columns.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RalidTA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shiftArrange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\holiday.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drive_work.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analysis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reportDetail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blocks_mm_device_wired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attendanceLog.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fingerprint_reader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="attendance.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

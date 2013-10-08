@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlarmType_APMBillValidator" xml:space="preserve">
+    <value>自助缴费机纸币识别机警报</value>
+  </data>
+  <data name="AlarmType_APMCardReader" xml:space="preserve">
+    <value>自助缴费机读卡器警报</value>
+  </data>
+  <data name="AlarmType_APMCoinCharger" xml:space="preserve">
+    <value>自助缴费机硬币找零机警报</value>
+  </data>
+  <data name="AlarmType_APMKeyboard" xml:space="preserve">
+    <value>自助缴费机密码键盘警报</value>
+  </data>
+  <data name="AlarmType_APMPrinter" xml:space="preserve">
+    <value>自助缴费机打印机警报</value>
+  </data>
+  <data name="AlarmType_APMSystem" xml:space="preserve">
+    <value>自助缴费机系统警报</value>
+  </data>
+  <data name="AlarmType_CancelCardPayment" xml:space="preserve">
+    <value>取消收费</value>
+  </data>
+  <data name="AlarmType_CarArrive" xml:space="preserve">
+    <value>车辆到达</value>
+  </data>
+  <data name="AlarmType_CarLeave" xml:space="preserve">
+    <value>车辆离开</value>
+  </data>
+  <data name="AlarmType_Closedoor" xml:space="preserve">
+    <value>人工落闸</value>
+  </data>
+  <data name="AlarmType_InvalidCard" xml:space="preserve">
+    <value>无效卡片</value>
+  </data>
+  <data name="AlarmType_ModifyCardPayment" xml:space="preserve">
+    <value>修改收费记录</value>
+  </data>
+  <data name="AlarmType_Opendoor" xml:space="preserve">
+    <value>人工抬闸</value>
+  </data>
+  <data name="AlarmType_OperatorLogIn" xml:space="preserve">
+    <value>操作员登录</value>
+  </data>
+  <data name="AlarmType_PrinterStatus" xml:space="preserve">
+    <value>纸票打印机状态</value>
+  </data>
+  <data name="APMLogType_Alarm" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="APMLogType_Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="APMLogType_Message" xml:space="preserve">
+    <value>消息</value>
+  </data>
+  <data name="APMStatus_BillValidatorFault" xml:space="preserve">
+    <value>纸币识别机故障</value>
+  </data>
+  <data name="APMStatus_CashBoxFull" xml:space="preserve">
+    <value>钱箱已满</value>
+  </data>
+  <data name="APMStatus_CoinChangerFault" xml:space="preserve">
+    <value>硬币找零器故障</value>
+  </data>
+  <data name="APMStatus_CoinShortage" xml:space="preserve">
+    <value>硬币数量不足</value>
+  </data>
+  <data name="APMStatus_LocalDBFault" xml:space="preserve">
+    <value>本地数据库故障</value>
+  </data>
+  <data name="APMStatus_LoginParkingFault" xml:space="preserve">
+    <value>登录停车场服务器失败</value>
+  </data>
+  <data name="APMStatus_MetalKeyboardFault" xml:space="preserve">
+    <value>金属小键盘故障</value>
+  </data>
+  <data name="APMStatus_Normal" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="APMStatus_ParkingConnectedFault" xml:space="preserve">
+    <value>停车场连接故障</value>
+  </data>
+  <data name="APMStatus_PrinterFault" xml:space="preserve">
+    <value>打印机故障</value>
+  </data>
+  <data name="APMStatus_PrinterPaperAbsent" xml:space="preserve">
+    <value>打印机缺纸</value>
+  </data>
+  <data name="APMStatus_ReaderFault" xml:space="preserve">
+    <value>读卡器故障</value>
+  </data>
+  <data name="CardOperationManager_CardDataError" xml:space="preserve">
+    <value>读取到的卡片数据错误！</value>
+  </data>
+  <data name="CardOperationManager_CardIDError" xml:space="preserve">
+    <value>卡片ID号不符！</value>
+  </data>
+  <data name="CardOperationManager_CardInvalid" xml:space="preserve">
+    <value>卡片不是有效卡片！</value>
+  </data>
+  <data name="CardOperationManager_InitKeyFail" xml:space="preserve">
+    <value>初始化卡片密钥失败!</value>
+  </data>
+  <data name="CardOperationManager_NoCard" xml:space="preserve">
+    <value>没有卡片！</value>
+  </data>
+  <data name="CardOperationManager_NoCardData" xml:space="preserve">
+    <value>未能读到卡片数据！</value>
+  </data>
+  <data name="CardOperationManager_NoCurrentCard" xml:space="preserve">
+    <value>读取到的卡片不是当前操作的卡片！</value>
+  </data>
+  <data name="CardStatus_Deleted" xml:space="preserve">
+    <value>已删除</value>
+  </data>
+  <data name="CardStatus_Disabled" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="CardStatus_Enabled" xml:space="preserve">
+    <value>发行</value>
+  </data>
+  <data name="CardStatus_Loss" xml:space="preserve">
+    <value>挂失</value>
+  </data>
+  <data name="CardStatus_Recycled" xml:space="preserve">
+    <value>注销</value>
+  </data>
+  <data name="CardType_DayRentCard" xml:space="preserve">
+    <value>日租卡</value>
+  </data>
+  <data name="CardType_ManagedCard" xml:space="preserve">
+    <value>管理卡</value>
+  </data>
+  <data name="CardType_MonitorCard" xml:space="preserve">
+    <value>总监卡</value>
+  </data>
+  <data name="CardType_MonthRentCard" xml:space="preserve">
+    <value>月租卡</value>
+  </data>
+  <data name="CardType_OperatorCard" xml:space="preserve">
+    <value>操作员卡</value>
+  </data>
+  <data name="CardType_Other" xml:space="preserve">
+    <value>其它卡</value>
+  </data>
+  <data name="CardType_OwnerCard" xml:space="preserve">
+    <value>业主卡</value>
+  </data>
+  <data name="CardType_PrepayCard" xml:space="preserve">
+    <value>储值卡</value>
+  </data>
+  <data name="CardType_ShenZhen" xml:space="preserve">
+    <value>深圳通</value>
+  </data>
+  <data name="CardType_TempCard" xml:space="preserve">
+    <value>临时卡</value>
+  </data>
+  <data name="CardType_TestCard" xml:space="preserve">
+    <value>测试卡</value>
+  </data>
+  <data name="CardType_Ticket" xml:space="preserve">
+    <value>纸票</value>
+  </data>
+  <data name="CardType_UserDefinedCard1" xml:space="preserve">
+    <value>自定义卡片1</value>
+  </data>
+  <data name="CardType_UserDefinedCard2" xml:space="preserve">
+    <value>自定义卡片2</value>
+  </data>
+  <data name="CardType_VipCard" xml:space="preserve">
+    <value>VIP卡</value>
+  </data>
+  <data name="CardType_YangCheng" xml:space="preserve">
+    <value>羊城通</value>
+  </data>
+  <data name="CardType_Zhongshan" xml:space="preserve">
+    <value>中山通卡</value>
+  </data>
+  <data name="CarType_A" xml:space="preserve">
+    <value>A型车</value>
+  </data>
+  <data name="CarType_B" xml:space="preserve">
+    <value>B型车</value>
+  </data>
+  <data name="CarType_C" xml:space="preserve">
+    <value>C型车</value>
+  </data>
+  <data name="CarType_Car" xml:space="preserve">
+    <value>小型车</value>
+  </data>
+  <data name="CarType_D" xml:space="preserve">
+    <value>D型车</value>
+  </data>
+  <data name="CarType_Motor" xml:space="preserve">
+    <value>摩托车</value>
+  </data>
+  <data name="CarType_SuperTruck" xml:space="preserve">
+    <value>超大型车</value>
+  </data>
+  <data name="CarType_Truck" xml:space="preserve">
+    <value>大型车</value>
+  </data>
+  <data name="DefaultWorkstation" xml:space="preserve">
+    <value>管理中心</value>
+  </data>
+  <data name="EnSatus_OffLine" xml:space="preserve">
+    <value>不在线</value>
+  </data>
+  <data name="EnStatus_CardJam" xml:space="preserve">
+    <value>卡纸/塞卡</value>
+  </data>
+  <data name="EnStatus_Error" xml:space="preserve">
+    <value>故障</value>
+  </data>
+  <data name="EnStatus_GateDown" xml:space="preserve">
+    <value>落闸到位</value>
+  </data>
+  <data name="EnStatus_GateUp" xml:space="preserve">
+    <value>抬闸到位</value>
+  </data>
+  <data name="EnStatus_LessCard" xml:space="preserve">
+    <value>卡数量少</value>
+  </data>
+  <data name="EnStatus_NoCard" xml:space="preserve">
+    <value>发卡机缺卡/打印机缺纸</value>
+  </data>
+  <data name="EnStatus_OK" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="EnStatus_StorageAlarm" xml:space="preserve">
+    <value>存储空间达到警界值</value>
+  </data>
+  <data name="EnStatus_StorageFull" xml:space="preserve">
+    <value>存储空间满</value>
+  </data>
+  <data name="EntranceDeviceType_CAN" xml:space="preserve">
+    <value>CAN总线停车场控制板</value>
+  </data>
+  <data name="EntranceDeviceType_NET" xml:space="preserve">
+    <value>网络型停车场控制板</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>小时</value>
+  </data>
+  <data name="InvalidHour" xml:space="preserve">
+    <value>无效的小时数</value>
+  </data>
+  <data name="InvalidMinute" xml:space="preserve">
+    <value>无效的分钟数</value>
+  </data>
+  <data name="InvalidPointCount" xml:space="preserve">
+    <value>小数点位数不能小于0或者大于2</value>
+  </data>
+  <data name="INV_Balance" xml:space="preserve">
+    <value>余额不足</value>
+  </data>
+  <data name="INV_Cancelled" xml:space="preserve">
+    <value>此卡已注销</value>
+  </data>
+  <data name="INV_CarPlateWrong" xml:space="preserve">
+    <value>车牌识别失败</value>
+  </data>
+  <data name="INV_CarPlateWrongWithPaid" xml:space="preserve">
+    <value>已缴费，但车牌不相符</value>
+  </data>
+  <data name="INV_DataError" xml:space="preserve">
+    <value>卡片数据校验错误</value>
+  </data>
+  <data name="INV_DisableNestedPark" xml:space="preserve">
+    <value>不允许进出嵌套车场</value>
+  </data>
+  <data name="INV_ForbidTempCard" xml:space="preserve">
+    <value>停用临时卡</value>
+  </data>
+  <data name="INV_HaveIn" xml:space="preserve">
+    <value>此卡已在场</value>
+  </data>
+  <data name="INV_HolidayDisabled" xml:space="preserve">
+    <value>节假日不允许进出</value>
+  </data>
+  <data name="INV_InsertToRecovery" xml:space="preserve">
+    <value>请插卡回收</value>
+  </data>
+  <data name="INV_Invalid" xml:space="preserve">
+    <value>无效卡片</value>
+  </data>
+  <data name="INV_InvalidImg" xml:space="preserve">
+    <value>图像对比失败</value>
+  </data>
+  <data name="INV_Lock" xml:space="preserve">
+    <value>此卡已锁定</value>
+  </data>
+  <data name="INV_Loss" xml:space="preserve">
+    <value>此卡已挂失</value>
+  </data>
+  <data name="INV_NoAccessRight" xml:space="preserve">
+    <value>权限不足</value>
+  </data>
+  <data name="INV_NoCarType" xml:space="preserve">
+    <value>未找到车型</value>
+  </data>
+  <data name="INV_NotActive" xml:space="preserve">
+    <value>卡片未到生效期</value>
+  </data>
+  <data name="INV_NoTariff" xml:space="preserve">
+    <value>未设置停车费率</value>
+  </data>
+  <data name="INV_OverDate" xml:space="preserve">
+    <value>此卡已过期</value>
+  </data>
+  <data name="INV_OverTime" xml:space="preserve">
+    <value>滞留超时，请重新缴费</value>
+  </data>
+  <data name="INV_ParkFull" xml:space="preserve">
+    <value>车位已满</value>
+  </data>
+  <data name="INV_ParkNumError" xml:space="preserve">
+    <value>车场编号不符</value>
+  </data>
+  <data name="INV_ReadCard" xml:space="preserve">
+    <value>请继续读卡</value>
+  </data>
+  <data name="INV_Recycled" xml:space="preserve">
+    <value>此卡已注销</value>
+  </data>
+  <data name="INV_StillOut" xml:space="preserve">
+    <value>此卡已出场</value>
+  </data>
+  <data name="INV_Type" xml:space="preserve">
+    <value>卡片类型不符</value>
+  </data>
+  <data name="INV_Unknow" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="INV_UnRegister" xml:space="preserve">
+    <value>此卡未登记</value>
+  </data>
+  <data name="INV_VersionError" xml:space="preserve">
+    <value>卡片版本不符</value>
+  </data>
+  <data name="INV_WrongInTime" xml:space="preserve">
+    <value>入场时间晚于出场时间</value>
+  </data>
+  <data name="INV_WrongPaidTime" xml:space="preserve">
+    <value>缴费时间晚于出场时间</value>
+  </data>
+  <data name="IVN_NotPaid" xml:space="preserve">
+    <value>没有缴费</value>
+  </data>
+  <data name="Minute" xml:space="preserve">
+    <value>分钟</value>
+  </data>
+  <data name="ParkingStatus_AsTempCard" xml:space="preserve">
+    <value>用作临时卡收费</value>
+  </data>
+  <data name="ParkingStatus_Consume" xml:space="preserve">
+    <value>区内消费优惠</value>
+  </data>
+  <data name="ParkingStatus_In" xml:space="preserve">
+    <value>已入场</value>
+  </data>
+  <data name="ParkingStatus_IndoorIn" xml:space="preserve">
+    <value>已入内车场</value>
+  </data>
+  <data name="ParkingStatus_NestedParkMarked" xml:space="preserve">
+    <value>标记为室内停车</value>
+  </data>
+  <data name="ParkingStatus_Out" xml:space="preserve">
+    <value>已出场</value>
+  </data>
+  <data name="ParkingStatus_PaidBill" xml:space="preserve">
+    <value>已交费</value>
+  </data>
+  <data name="ParkingStatus_RepeatIn" xml:space="preserve">
+    <value>重复入场</value>
+  </data>
+  <data name="ParkingStatus_RepeatOut" xml:space="preserve">
+    <value>重复出场</value>
+  </data>
+  <data name="ParkWorkmode_Offline" xml:space="preserve">
+    <value>脱机模式</value>
+  </data>
+  <data name="ParkWorkmode_Online" xml:space="preserve">
+    <value>在线模式</value>
+  </data>
+  <data name="PaymentMode_Cash" xml:space="preserve">
+    <value>现金</value>
+  </data>
+  <data name="PaymentMode_Pos" xml:space="preserve">
+    <value>POS收费</value>
+  </data>
+  <data name="PaymentMode_Prepay" xml:space="preserve">
+    <value>储值卡扣款</value>
+  </data>
+  <data name="PaymentMode_YangChengTong" xml:space="preserve">
+    <value>城市通</value>
+  </data>
+  <data name="PaymentMode_ZhongShanTong" xml:space="preserve">
+    <value>中山通</value>
+  </data>
+  <data name="Permission_AddCard" xml:space="preserve">
+    <value>批量发卡</value>
+  </data>
+  <data name="Permission_AddManageCard" xml:space="preserve">
+    <value>发管理卡</value>
+  </data>
+  <data name="Permission_AlarmReport" xml:space="preserve">
+    <value>报警信息报表</value>
+  </data>
+  <data name="Permission_BulkChangeCards" xml:space="preserve">
+    <value>批量修改卡片</value>
+  </data>
+  <data name="Permission_CardChargeReport" xml:space="preserve">
+    <value>卡片充值报表</value>
+  </data>
+  <data name="Permission_CardDataConvert" xml:space="preserve">
+    <value>数据转换</value>
+  </data>
+  <data name="Permission_CardDeferReport" xml:space="preserve">
+    <value>卡片延期报表</value>
+  </data>
+  <data name="Permission_CardDeferStatistic" xml:space="preserve">
+    <value>月租卡收费统计</value>
+  </data>
+  <data name="Permission_CardDeleteReport" xml:space="preserve">
+    <value>卡片删除报表</value>
+  </data>
+  <data name="Permission_CardDisableEnableReport" xml:space="preserve">
+    <value>卡片禁用启用报表</value>
+  </data>
+  <data name="Permission_CardEventReport" xml:space="preserve">
+    <value>车辆进出报表</value>
+  </data>
+  <data name="Permission_CardIDConvert" xml:space="preserve">
+    <value>卡号转换</value>
+  </data>
+  <data name="Permission_CardInParkReport" xml:space="preserve">
+    <value>在场卡片查询</value>
+  </data>
+  <data name="Permission_CardLossRestoreReport" xml:space="preserve">
+    <value>卡片挂失恢复报表</value>
+  </data>
+  <data name="Permission_CardPaying" xml:space="preserve">
+    <value>卡片收费管理</value>
+  </data>
+  <data name="Permission_CardPayingReport" xml:space="preserve">
+    <value>停车收费明细报表</value>
+  </data>
+  <data name="Permission_CardPayingStatistic" xml:space="preserve">
+    <value>停车收费统计</value>
+  </data>
+  <data name="Permission_CardRecycleReport" xml:space="preserve">
+    <value>卡片回收报表</value>
+  </data>
+  <data name="Permission_CardReleaseReport" xml:space="preserve">
+    <value>卡片发行报表</value>
+  </data>
+  <data name="Permission_CarFlowStatistics" xml:space="preserve">
+    <value>车流量统计报表</value>
+  </data>
+  <data name="Permission_Catalog_Card" xml:space="preserve">
+    <value>卡片管理权限</value>
+  </data>
+  <data name="Permission_Catalog_Data" xml:space="preserve">
+    <value>系统数据权限</value>
+  </data>
+  <data name="Permission_Catalog_Hardware" xml:space="preserve">
+    <value>停车场硬件权限</value>
+  </data>
+  <data name="Permission_Catalog_Report" xml:space="preserve">
+    <value>报表权限</value>
+  </data>
+  <data name="Permission_ChangeCardKey" xml:space="preserve">
+    <value>修改卡片密钥</value>
+  </data>
+  <data name="Permission_ChargeCard" xml:space="preserve">
+    <value>卡片充值</value>
+  </data>
+  <data name="Permission_CloseDoor" xml:space="preserve">
+    <value>落闸</value>
+  </data>
+  <data name="Permission_DeferCard" xml:space="preserve">
+    <value>卡片延期</value>
+  </data>
+  <data name="Permission_DisableCard" xml:space="preserve">
+    <value>禁用卡片</value>
+  </data>
+  <data name="Permission_DownloadAllCards" xml:space="preserve">
+    <value>卡片全部下发</value>
+  </data>
+  <data name="Permission_EditAPM" xml:space="preserve">
+    <value>编辑自助缴费机信息</value>
+  </data>
+  <data name="Permission_EditCard" xml:space="preserve">
+    <value>编辑卡片</value>
+  </data>
+  <data name="Permission_EditDivision" xml:space="preserve">
+    <value>编辑停车区域信息</value>
+  </data>
+  <data name="Permission_EditEntrance" xml:space="preserve">
+    <value>编辑控制器信息</value>
+  </data>
+  <data name="Permission_EditOperator" xml:space="preserve">
+    <value>编辑操作员信息</value>
+  </data>
+  <data name="Permission_EditPark" xml:space="preserve">
+    <value>编辑停车场信息</value>
+  </data>
+  <data name="Permission_EditRole" xml:space="preserve">
+    <value>编辑角色信息</value>
+  </data>
+  <data name="Permission_EditSysSetting" xml:space="preserve">
+    <value>编辑系统设置</value>
+  </data>
+  <data name="Permission_EditVideo" xml:space="preserve">
+    <value>编辑摄像机信息</value>
+  </data>
+  <data name="Permission_EditWorkstation" xml:space="preserve">
+    <value>编辑工作站信息</value>
+  </data>
+  <data name="Permission_EnableCard" xml:space="preserve">
+    <value>启用卡片</value>
+  </data>
+  <data name="Permission_ExportCardPayment" xml:space="preserve">
+    <value>导出停车收费报表</value>
+  </data>
+  <data name="Permission_ExportCards" xml:space="preserve">
+    <value>导出卡片</value>
+  </data>
+  <data name="Permission_ExportMonthCardPaymentReport" xml:space="preserve">
+    <value>导出卡片收费报表</value>
+  </data>
+  <data name="Permission_LostCard" xml:space="preserve">
+    <value>卡片挂失</value>
+  </data>
+  <data name="Permission_ModifyCardPaymentRecord" xml:space="preserve">
+    <value>修改卡片收费记录</value>
+  </data>
+  <data name="Permission_OpenDoor" xml:space="preserve">
+    <value>抬闸</value>
+  </data>
+  <data name="Permission_OperatorSettle" xml:space="preserve">
+    <value>操作员结算</value>
+  </data>
+  <data name="Permission_OperatorShiftStatistics" xml:space="preserve">
+    <value>操作员交接班报表</value>
+  </data>
+  <data name="Permission_OtherOperatorSettle" xml:space="preserve">
+    <value>对其它操作员结算</value>
+  </data>
+  <data name="Permission_PayOperationLogReport" xml:space="preserve">
+    <value>自助缴费机日志查询</value>
+  </data>
+  <data name="Permission_PrintCardPayment" xml:space="preserve">
+    <value>打印停车收费报表</value>
+  </data>
+  <data name="Permission_PrintMonthCardPaymentReport" xml:space="preserve">
+    <value>打印卡片收费报表</value>
+  </data>
+  <data name="Permission_PrintOperatorSettleLog" xml:space="preserve">
+    <value>打印操作员结算单</value>
+  </data>
+  <data name="Permission_ReadAPM" xml:space="preserve">
+    <value>读取自助缴费机信息</value>
+  </data>
+  <data name="Permission_ReadCard" xml:space="preserve">
+    <value>查看卡片</value>
+  </data>
+  <data name="Permission_ReadOperator" xml:space="preserve">
+    <value>查看操作员信息</value>
+  </data>
+  <data name="Permission_ReadRole" xml:space="preserve">
+    <value>查看角色信息</value>
+  </data>
+  <data name="Permission_ReadSysSetting" xml:space="preserve">
+    <value>查看系统设置</value>
+  </data>
+  <data name="Permission_ReadWorkstation" xml:space="preserve">
+    <value>查看工作站信息</value>
+  </data>
+  <data name="Permission_RealEvent" xml:space="preserve">
+    <value>查看实时事件</value>
+  </data>
+  <data name="Permission_RecycleCard" xml:space="preserve">
+    <value>回收卡片</value>
+  </data>
+  <data name="Permission_ReleaseCard" xml:space="preserve">
+    <value>卡片发行</value>
+  </data>
+  <data name="Permission_RemoteReadCard" xml:space="preserve">
+    <value>远程读卡</value>
+  </data>
+  <data name="Permission_ResetDevice" xml:space="preserve">
+    <value>控制器复位</value>
+  </data>
+  <data name="Permission_RestoreCard" xml:space="preserve">
+    <value>卡片恢复</value>
+  </data>
+  <data name="Permission_SyncDataToStandby" xml:space="preserve">
+    <value>同步数据到备用数据库</value>
+  </data>
+  <data name="Permission_SystemIDSetting" xml:space="preserve">
+    <value>当前工作站设置</value>
+  </data>
+  <data name="Permission_TempCardSetting" xml:space="preserve">
+    <value>设置临时卡数量</value>
+  </data>
+  <data name="Permission_VideoMonitor" xml:space="preserve">
+    <value>实时视频</value>
+  </data>
+  <data name="Permission_YangChenTongLogReport" xml:space="preserve">
+    <value>羊城通扣费记录查询</value>
+  </data>
+  <data name="Permission_ZSTSeting" xml:space="preserve">
+    <value>中山通设置</value>
+  </data>
+  <data name="PrinterStatus_COMPortNotOpen" xml:space="preserve">
+    <value>打印机串口未打开</value>
+  </data>
+  <data name="PrinterStatus_OffLine" xml:space="preserve">
+    <value>打印机断开</value>
+  </data>
+  <data name="PrinterStatus_Ok" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="PrinterStatus_PaperAbsent" xml:space="preserve">
+    <value>打印机缺纸</value>
+  </data>
+  <data name="PrinterStatus_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Report_Balance" xml:space="preserve">
+    <value>余额</value>
+  </data>
+  <data name="Report_CarArrived" xml:space="preserve">
+    <value>车辆到达</value>
+  </data>
+  <data name="Report_CardButton" xml:space="preserve">
+    <value>按下取卡按钮</value>
+  </data>
+  <data name="Report_CardCapture" xml:space="preserve">
+    <value>收卡一张</value>
+  </data>
+  <data name="Report_CardRead" xml:space="preserve">
+    <value>读卡事件 卡号</value>
+  </data>
+  <data name="Report_CarLeave" xml:space="preserve">
+    <value>车辆离开</value>
+  </data>
+  <data name="Report_CarPlate" xml:space="preserve">
+    <value>车牌号</value>
+  </data>
+  <data name="Report_CommandEcho" xml:space="preserve">
+    <value>刷卡抬闸成功</value>
+  </data>
+  <data name="Report_DeviceReset" xml:space="preserve">
+    <value>复位</value>
+  </data>
+  <data name="Report_Enter" xml:space="preserve">
+    <value>入场</value>
+  </data>
+  <data name="Report_EnterRequest" xml:space="preserve">
+    <value>请求入场</value>
+  </data>
+  <data name="Report_Exit" xml:space="preserve">
+    <value>出场</value>
+  </data>
+  <data name="Report_ExitRequest" xml:space="preserve">
+    <value>请求出场</value>
+  </data>
+  <data name="Report_LastCarPlate" xml:space="preserve">
+    <value>入场车牌号</value>
+  </data>
+  <data name="Report_OfflineCardPermitted" xml:space="preserve">
+    <value>脱机卡片有效</value>
+  </data>
+  <data name="Report_OfflineCardWait" xml:space="preserve">
+    <value>脱机卡片等待</value>
+  </data>
+  <data name="Report_ParkVacant" xml:space="preserve">
+    <value>剩余车位数</value>
+  </data>
+  <data name="ResultCode_CannotConnectServer" xml:space="preserve">
+    <value>连接数据库失败</value>
+  </data>
+  <data name="ResultCode_Fail" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="ResultCode_NoRecord" xml:space="preserve">
+    <value>没有找到记录</value>
+  </data>
+  <data name="ResultCode_SaveDataError" xml:space="preserve">
+    <value>数据写入数据库时失败</value>
+  </data>
+  <data name="ResultCode_Successfull" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="TariffType_Holiday" xml:space="preserve">
+    <value>节假日收费</value>
+  </data>
+  <data name="TariffType_HolidayAndInnerRoom" xml:space="preserve">
+    <value>节假日室内收费</value>
+  </data>
+  <data name="TariffType_InnerRoom" xml:space="preserve">
+    <value>室内收费</value>
+  </data>
+  <data name="TariffType_Normal" xml:space="preserve">
+    <value>普通收费</value>
+  </data>
+  <data name="Tariff_Dixiakongjian" xml:space="preserve">
+    <value>时段限额收费</value>
+  </data>
+  <data name="Tariff_Guanzhou" xml:space="preserve">
+    <value>日夜差异收费</value>
+  </data>
+  <data name="Tariff_Limitation" xml:space="preserve">
+    <value>限额收费</value>
+  </data>
+  <data name="Tariff_MidLight" xml:space="preserve">
+    <value>过零点收费</value>
+  </data>
+  <data name="Tariff_PerDay" xml:space="preserve">
+    <value>按天收费</value>
+  </data>
+  <data name="Tariff_PerTime" xml:space="preserve">
+    <value>按次收费</value>
+  </data>
+  <data name="Tariff_Turning" xml:space="preserve">
+    <value>过点收费</value>
+  </data>
+</root>
