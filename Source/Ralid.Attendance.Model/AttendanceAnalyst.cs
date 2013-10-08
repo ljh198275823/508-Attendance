@@ -20,8 +20,8 @@ namespace Ralid.Attendance.Model
             List<ShiftTimezone> timezones = new List<ShiftTimezone>();
             foreach (ShiftArrange item in sas)
             {
-                ShiftTimezone st = CreateShiftTimezone(staff, item);
-                if (st != null) timezones.Add(st);
+                List<ShiftTimezone> items = CreateShiftTimezone(staff, item);
+                if (items != null && items.Count > 0) timezones.AddRange(items);
             }
             return timezones;
         }
@@ -136,33 +136,37 @@ namespace Ralid.Attendance.Model
             if (items.Count > 0) timezones.AddRange(items);
         }
 
-        private static ShiftTimezone CreateShiftTimezone(Staff staff, ShiftArrange item)
+        private List<ShiftTimezone> CreateShiftTimezone(Staff staff, ShiftArrange item)
         {
-            if (item.Shift != null)
+            List<ShiftTimezone> items = new List<ShiftTimezone>();
+            if (item.Shift != null && item.Shift .Items !=null && item.Shift .Items .Count >0)
             {
-                ShiftTimezone st = new ShiftTimezone();
-                st.StaffID = staff.ID;
-                st.ShiftDate = item.ShiftDate;
-                st.ShiftID = item.ShiftID;
-                st.ShiftName = item.Shift.Name;
-                MyTime mt = item.Shift.StartTime;
-                if (mt != null) st.StartTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
-                st.LogWhenArrive = true;
-                st.BeforeStartTime = item.Shift.BeforeStartTime;
-                mt = item.Shift.EndTime;
-                if (mt != null)
+                foreach (ShiftItem si in item.Shift.Items)
                 {
-                    st.EndTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
-                    if (item.Shift.NextDay) st.EndTime = st.EndTime.AddDays(1);
+                    ShiftTimezone st = new ShiftTimezone();
+                    st.StaffID = staff.ID;
+                    st.ShiftDate = item.ShiftDate;
+                    st.ShiftID = item.ShiftID;
+                    st.ShiftName = item.Shift.Name;
+                    MyTime mt = si.StartTime;
+                    if (mt != null) st.StartTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
+                    st.LogWhenArrive = true;
+                    st.BeforeStartTime = si.BeforeStartTime;
+                    mt = si.EndTime;
+                    if (mt != null)
+                    {
+                        st.EndTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
+                        if (si.NextDay) st.EndTime = st.EndTime.AddDays(1);
+                    }
+                    st.LogWhenLeave = true;
+                    st.AfterEndTime = si.AfterEndTime;
+                    st.EnableLate = true;
+                    st.EnableLeaveEarly = true;
+                    st.EnableAbsent = true;
+                    items.Add(st);
                 }
-                st.LogWhenLeave = true;
-                st.AfterEndTime = item.Shift.AfterEndTime;
-                st.EnableLate = true;
-                st.EnableLeaveEarly = true;
-                st.EnableAbsent = true;
-                return st;
             }
-            return null;
+            return items;
         }
 
         private ShiftTimezone CreateShiftTimezone(DateTime shiftDate, TASheet sheet)

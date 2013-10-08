@@ -70,6 +70,7 @@
     <Compile Include="SearchCondition\TASheetSearchCondition.cs" />
     <Compile Include="ShiftArrange.cs" />
     <Compile Include="ShiftArrangeID.cs" />
+    <Compile Include="ShiftItem.cs" />
     <Compile Include="ShiftTemplate.cs" />
     <Compile Include="ShiftTimezone.cs" />
     <Compile Include="AttendanceResult.cs" />

@@ -61,22 +61,26 @@
       <Column Name="OptionDescr" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAShifts" Member="Ralid.Attendance.Model.Shift">
+  <Table Name="dbo.TAShift" Member="Ralid.Attendance.Model.Shift">
     <Type Name="Ralid.Attendance.Model.Shift">
       <Column Name="ShiftID" Member="ID"  DbType="nvarchar(4) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ShiftName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="ShortName" Member="ShortName"  DbType="nvarchar(50)" UpdateCheck="Never"/>
+      <Association Name="FK_Shift_Item" Member="Items"  ThisKey="ID" OtherKey="ShiftID"/>
+    </Type>
+  </Table>
+  <Table Name="dbo.TAShiftItem" Member="Ralid.Attendance.Model.ShiftItem">
+    <Type Name="Ralid.Attendance.Model.ShiftItem">
+      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ShiftID" Member="ShiftID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
-      <Column Name="AllowLate" Member="AllowLate"  DbType="int not null" UpdateCheck="Never"/>
-      <Column Name="BeforeStartTime" Member="BeforeStartTime"  DbType="int not null" UpdateCheck="Never"/>
-      <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
       <Column Name="NextDay" Member="NextDay"  DbType="bit not null" UpdateCheck="Never"/>
-      <Column Name="AllowEarly" Member="AllowEarly"  DbType="int not null" UpdateCheck="Never"/>
-      <Column Name="AfterEndTime" Member="AfterEndTime"  DbType="int not null" UpdateCheck="Never"/>
-      <Column Name="ShiftDuration" Member="ShiftDuration"  DbType="int not null" UpdateCheck="Never"/>
-      <Column Name="AllowOT" Member="AllowOT"  DbType="bit not null" UpdateCheck="Never"/>
-      <Column Name="MinOTTime" Member="MinOTTime"  DbType="int not null" UpdateCheck="Never"/>
-      <Column Name="MaxOTTime" Member="MaxOTTime"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
+      <Column Name="AllowLateTime" Member="AllowLateTime"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
+      <Column Name="AllowLeaveEarlyTime" Member="AllowLeaveEarlyTime"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
+      <Column Name="BeforeStartTime" Member="BeforeStartTime"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
+      <Column Name="AfterEndTime" Member="AfterEndTime"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
+      <Column Name="Duration" Member="Duration"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.View_TAShiftArrange" Member="Ralid.Attendance.Model.ShiftArrange">

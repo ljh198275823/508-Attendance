@@ -46,6 +46,7 @@ namespace Ralid.Attendance.BLL
             if (!string.IsNullOrEmpty(shiftID))
             {
                 info.ID = shiftID;
+                if (info.Items != null && info.Items.Count > 0) info.Items.ForEach(item => item.ShiftID = shiftID);
                 return ProviderFactory.Create<IShiftProvider>(_RepoUri).Insert(info);
             }
             else
@@ -59,6 +60,7 @@ namespace Ralid.Attendance.BLL
             Shift original = ProviderFactory.Create<IShiftProvider>(_RepoUri).GetByID(info.ID).QueryObject;
             if (original != null)
             {
+                if (info.Items != null && info.Items.Count > 0) info.Items.ForEach(item => item.ShiftID = info.ID);
                 return ProviderFactory.Create<IShiftProvider>(_RepoUri).Update(info, original);
             }
             else

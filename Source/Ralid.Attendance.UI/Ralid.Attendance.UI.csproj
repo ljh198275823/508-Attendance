@@ -197,6 +197,12 @@
     <Compile Include="FrmOperators.designer.cs">
       <DependentUpon>FrmOperators.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmShiftItemDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftItemDetail.Designer.cs">
+      <DependentUpon>FrmShiftItemDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmShiftTemplateApply.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -469,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOperators.zh-Hant.resx">
       <DependentUpon>FrmOperators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftItemDetail.resx">
+      <DependentUpon>FrmShiftItemDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShiftTemplateApply.resx">
       <DependentUpon>FrmShiftTemplateApply.cs</DependentUpon>

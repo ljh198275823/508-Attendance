@@ -40,11 +40,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShortName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBeforeStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAfterEndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -137,11 +132,6 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
             this.colShortName,
-            this.colStartTime,
-            this.colEndTime,
-            this.colBeforeStartTime,
-            this.colAfterEndTime,
-            this.colShiftTime,
             this.colMemo});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 50);
@@ -165,40 +155,6 @@
             this.colShortName.HeaderText = "简称";
             this.colShortName.Name = "colShortName";
             this.colShortName.ReadOnly = true;
-            // 
-            // colStartTime
-            // 
-            this.colStartTime.HeaderText = "上班时间";
-            this.colStartTime.Name = "colStartTime";
-            this.colStartTime.ReadOnly = true;
-            this.colStartTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colStartTime.Width = 120;
-            // 
-            // colEndTime
-            // 
-            this.colEndTime.HeaderText = "下班时间";
-            this.colEndTime.Name = "colEndTime";
-            this.colEndTime.ReadOnly = true;
-            this.colEndTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colEndTime.Width = 120;
-            // 
-            // colBeforeStartTime
-            // 
-            this.colBeforeStartTime.HeaderText = "提前刷卡";
-            this.colBeforeStartTime.Name = "colBeforeStartTime";
-            this.colBeforeStartTime.ReadOnly = true;
-            // 
-            // colAfterEndTime
-            // 
-            this.colAfterEndTime.HeaderText = "延后刷卡";
-            this.colAfterEndTime.Name = "colAfterEndTime";
-            this.colAfterEndTime.ReadOnly = true;
-            // 
-            // colShiftTime
-            // 
-            this.colShiftTime.HeaderText = "出勤计时(分)";
-            this.colShiftTime.Name = "colShiftTime";
-            this.colShiftTime.ReadOnly = true;
             // 
             // colMemo
             // 
@@ -241,11 +197,6 @@
         private System.Windows.Forms.ToolStripMenuItem btn_Add;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShortName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStartTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEndTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBeforeStartTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAfterEndTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
 
     }

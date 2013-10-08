@@ -46,11 +46,6 @@ namespace Ralid.Attendance.UI
             row.Tag = shift;
             row.Cells["colName"].Value = shift.Name;
             row.Cells["colShortName"].Value = shift.ShortName;
-            row.Cells["colStartTime"].Value = shift.StartTime.ToString();
-            row.Cells["colEndTime"].Value = shift.NextDay ? "第二天 " + shift.EndTime.ToString() : shift.EndTime.ToString();
-            row.Cells["colBeforeStartTime"].Value = shift.BeforeStartTime;
-            row.Cells["colAfterEndTime"].Value = shift.AfterEndTime;
-            row.Cells["colShiftTime"].Value = shift.ShiftDuration;
             row.Cells["colMemo"].Value = string.Empty;
         }
 

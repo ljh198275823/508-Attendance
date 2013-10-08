@@ -53,7 +53,7 @@ namespace Ralid.Attendance.Model
         /// <summary>
         /// 获取或设置允许的最大提前刷卡分钟数，即上班前提前多少分钟打卡则记为已上班
         /// </summary>
-        public int BeforeStartTime { get; set; }
+        public decimal  BeforeStartTime { get; set; }
         /// <summary>
         /// 获取或设置结束时间
         /// </summary>
@@ -61,7 +61,7 @@ namespace Ralid.Attendance.Model
         /// <summary>
         /// 获取或设置时间段的计时时长
         /// </summary>
-        public int ShiftTime { get; set; }
+        public decimal  ShiftTime { get; set; }
         /// <summary>
         /// 获取或设置离开时是否需要打卡
         /// </summary>
@@ -69,7 +69,7 @@ namespace Ralid.Attendance.Model
         /// <summary>
         /// 获取或设置最大的延长刷卡分钟，即下班时间过了多少分钟后打卡仍算正常下班
         /// </summary>
-        public int AfterEndTime { get; set; }
+        public decimal  AfterEndTime { get; set; }
         /// <summary>
         /// 获取或设置是否计算迟到
         /// </summary>
@@ -100,7 +100,7 @@ namespace Ralid.Attendance.Model
         {
             get
             {
-                return StartTime.AddMinutes(-BeforeStartTime);
+                return StartTime.AddMinutes(-(double)BeforeStartTime);
             }
         }
         /// <summary>
@@ -110,7 +110,7 @@ namespace Ralid.Attendance.Model
         {
             get
             {
-                return EndTime.AddMinutes(AfterEndTime);
+                return EndTime.AddMinutes((double)AfterEndTime);
             }
         }
         #endregion
