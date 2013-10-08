@@ -65,7 +65,7 @@
     <Compile Include="IDAL\IReaderProvider.cs" />
     <Compile Include="IDAL\IRoleProvider.cs" />
     <Compile Include="IDAL\IShiftArrangeProvider.cs" />
-    <Compile Include="IDAL\IShiftArrangeTemplateProvider.cs" />
+    <Compile Include="IDAL\IShiftTemplateProvider.cs" />
     <Compile Include="IDAL\IShiftProvider.cs" />
     <Compile Include="IDAL\IAttendanceResultProvider.cs" />
     <Compile Include="IDAL\IStaffDepartmentPairProvider.cs" />
@@ -90,7 +90,7 @@
     <Compile Include="LinqDataProvider\ResultCodeResolver.cs" />
     <Compile Include="LinqDataProvider\RoleProvider.cs" />
     <Compile Include="LinqDataProvider\ShiftArrangeProvider.cs" />
-    <Compile Include="LinqDataProvider\ShiftArrangeTemplateProvider.cs" />
+    <Compile Include="LinqDataProvider\ShiftTemplateProvider.cs" />
     <Compile Include="LinqDataProvider\ShiftProvider.cs" />
     <Compile Include="LinqDataProvider\AttendanceResultProvider.cs" />
     <Compile Include="LinqDataProvider\StaffDepartmentPairProvider.cs" />

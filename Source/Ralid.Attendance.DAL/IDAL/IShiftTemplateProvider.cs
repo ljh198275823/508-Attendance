@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ralid.Attendance.DAL.IDAL
 {
-    public interface IShiftArrangeTemplateProvider : IProvider<Ralid.Attendance.Model.ShiftArrangeTemplate, int>
+    public interface IShiftTemplateProvider : IProvider<Ralid.Attendance.Model.ShiftTemplate, int>
     {
     }
 }

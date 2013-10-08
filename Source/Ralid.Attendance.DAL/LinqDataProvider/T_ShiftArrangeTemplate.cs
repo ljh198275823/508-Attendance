@@ -11,7 +11,7 @@ namespace Ralid.Attendance.DAL.LinqDataProvider
     internal class T_ShiftArrangeTemplate
     {
         #region 静态方法
-        public static T_ShiftArrangeTemplate Create(ShiftArrangeTemplate item)
+        public static T_ShiftArrangeTemplate Create(ShiftTemplate item)
         {
             T_ShiftArrangeTemplate tst = new T_ShiftArrangeTemplate();
             tst.ID = item.ID;
@@ -40,9 +40,9 @@ namespace Ralid.Attendance.DAL.LinqDataProvider
             return tst;
         }
 
-        public static ShiftArrangeTemplate Create(T_ShiftArrangeTemplate item)
+        public static ShiftTemplate Create(T_ShiftArrangeTemplate item)
         {
-            ShiftArrangeTemplate st = new ShiftArrangeTemplate();
+            ShiftTemplate st = new ShiftTemplate();
             st.ID = item.ID;
             st.Name = item.Name;
             st.Options = item.Options;

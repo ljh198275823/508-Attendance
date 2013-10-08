@@ -24,7 +24,7 @@ namespace Ralid.Attendance.UI
         /// <summary>
         /// 获取或设置排班模板
         /// </summary>
-        public ShiftArrangeTemplate Template { get; set; }
+        public ShiftTemplate Template { get; set; }
         #endregion
 
         #region 事件处理程序
@@ -50,7 +50,7 @@ namespace Ralid.Attendance.UI
             frm.ForSelect = true;
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                ShiftArrangeTemplate template = frm.SelectedItem as ShiftArrangeTemplate;
+                ShiftTemplate template = frm.SelectedItem as ShiftTemplate;
                 txtShiftTemplate.Text = template.Name;
                 txtShiftTemplate.Tag = template;
             }
@@ -76,7 +76,7 @@ namespace Ralid.Attendance.UI
             FrmProcessing frm = new FrmProcessing();
             DatetimeRange dr = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
             List<Staff> staffs = this.departmentTreeview1.SelectedStaff;
-            ShiftArrangeTemplate template = txtShiftTemplate.Tag as ShiftArrangeTemplate;
+            ShiftTemplate template = txtShiftTemplate.Tag as ShiftTemplate;
             Action action = delegate()
             {
                 decimal count = 0;

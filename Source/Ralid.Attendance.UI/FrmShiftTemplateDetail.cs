@@ -55,7 +55,7 @@ namespace Ralid.Attendance.UI
 
         protected override void ItemShowing()
         {
-            ShiftArrangeTemplate item = UpdatingItem as ShiftArrangeTemplate;
+            ShiftTemplate item = UpdatingItem as ShiftTemplate;
             if (item == null) return;
             txtName.Text = item.Name;
             chkHolidayShifted.Checked = (item.Options & TemplateOptions.HolidayShifted) == TemplateOptions.HolidayShifted;
@@ -71,6 +71,9 @@ namespace Ralid.Attendance.UI
                     (this.Controls["txtShifts" + i.ToString()] as TextBox).Text = GetShiftString(it.Shifts);
                     (this.Controls["txtShifts" + i.ToString()] as TextBox).Tag = it.Shifts;
                     (this.Controls["txtDuration" + i.ToString()] as NumericUpDown).Value = it.Duration;
+                    Control panel = this.Controls["panel" + i.ToString()];
+                    (panel.Controls["rdDay" + i.ToString()] as RadioButton).Checked = it.DurationUnit == 0;
+                    (panel.Controls["rdTime" + i.ToString()] as RadioButton).Checked = it.DurationUnit == 1;
                     (this.Controls["txtRest" + i.ToString()] as NumericUpDown).Value = it.RestDays;
                 }
             }
@@ -79,10 +82,10 @@ namespace Ralid.Attendance.UI
 
         protected override object GetItemFromInput()
         {
-            ShiftArrangeTemplate item = UpdatingItem as ShiftArrangeTemplate;
+            ShiftTemplate item = UpdatingItem as ShiftTemplate;
             if (item == null)
             {
-                item = new ShiftArrangeTemplate();
+                item = new ShiftTemplate();
             }
             item.Name = txtName.Text;
             item.Options = TemplateOptions.None;
@@ -97,6 +100,8 @@ namespace Ralid.Attendance.UI
                     TemplateItem it = new TemplateItem();
                     it.Shifts = (this.Controls["txtShifts" + i.ToString()] as TextBox).Tag as List<Shift>;
                     it.Duration = (int)(this.Controls["txtDuration" + i.ToString()] as NumericUpDown).Value;
+                    Control panel = this.Controls["panel" + i.ToString()];
+                    it.DurationUnit = (panel.Controls["rdTime" + i.ToString()] as RadioButton).Checked ? 1 : 0;
                     it.RestDays = (int)(this.Controls["txtRest" + i.ToString()] as NumericUpDown).Value;
                     item.Items.Add(it);
                 }
@@ -107,12 +112,12 @@ namespace Ralid.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            return (new ShiftArrangeTemplateBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as ShiftArrangeTemplate);
+            return (new ShiftTemplateBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as ShiftTemplate);
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            return (new ShiftArrangeTemplateBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as ShiftArrangeTemplate);
+            return (new ShiftTemplateBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as ShiftTemplate);
         }
         #endregion
 

@@ -34,7 +34,7 @@ namespace Ralid.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            List<ShiftArrangeTemplate> items = (new ShiftArrangeTemplateBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<ShiftTemplate> items = (new ShiftTemplateBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
             return (from item in items
                     orderby item.ID ascending
                     select (object)item).ToList();
@@ -42,7 +42,7 @@ namespace Ralid.Attendance.UI
 
         protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)
         {
-            ShiftArrangeTemplate st = item as ShiftArrangeTemplate;
+            ShiftTemplate st = item as ShiftTemplate;
             row.Tag = st;
             row.Cells["colName"].Value = st.Name;
             row.Cells["colMemo"].Value = st.Memo;
@@ -50,7 +50,7 @@ namespace Ralid.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new ShiftArrangeTemplateBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as ShiftArrangeTemplate);
+            CommandResult ret = (new ShiftTemplateBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as ShiftTemplate);
             if (ret.Result != ResultCode.Successful) MessageBox.Show(ret.Message);
             return ret.Result == ResultCode.Successful;
         }

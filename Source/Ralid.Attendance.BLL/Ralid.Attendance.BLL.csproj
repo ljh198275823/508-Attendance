@@ -63,7 +63,7 @@
     <Compile Include="ParameterBLL.cs" />
     <Compile Include="ReaderBLL.cs" />
     <Compile Include="ShiftArrangeBLL.cs" />
-    <Compile Include="ShiftArrangeTemplateBLL.cs" />
+    <Compile Include="ShiftTemplateBLL.cs" />
     <Compile Include="AttendanceResultBLL.cs" />
     <Compile Include="SystemOptionsBLL.cs" />
     <Compile Include="DatabaseUpgrader.cs" />

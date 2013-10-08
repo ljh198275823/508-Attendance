@@ -38,7 +38,7 @@
             this.GridView = new System.Windows.Forms.DataGridView();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReadDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReaderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReaderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIsManual = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menu = new System.Windows.Forms.MenuStrip();
@@ -124,7 +124,7 @@
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colStaff,
             this.colReadDateTime,
-            this.colReaderID,
+            this.colReaderName,
             this.colIsManual,
             this.colMemo});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -132,7 +132,7 @@
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
-            this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridView.Size = new System.Drawing.Size(556, 276);
             this.GridView.TabIndex = 61;
             // 
@@ -149,11 +149,11 @@
             this.colReadDateTime.ReadOnly = true;
             this.colReadDateTime.Width = 130;
             // 
-            // colReaderID
+            // colReaderName
             // 
-            this.colReaderID.HeaderText = "考勤点";
-            this.colReaderID.Name = "colReaderID";
-            this.colReaderID.ReadOnly = true;
+            this.colReaderName.HeaderText = "考勤点";
+            this.colReaderName.Name = "colReaderName";
+            this.colReaderName.ReadOnly = true;
             // 
             // colIsManual
             // 
@@ -267,11 +267,11 @@
         private System.Windows.Forms.ToolStripTextBox txtKeyword;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Splitter splitter1;
+        private UCDateTimeInterval ucDateTimeInterval1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReadDateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colReaderID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReaderName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colIsManual;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
-        private UCDateTimeInterval ucDateTimeInterval1;
     }
 }

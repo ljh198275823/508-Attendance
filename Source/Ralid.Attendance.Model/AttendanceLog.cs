@@ -32,6 +32,10 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public string ReaderID { get; set; }
         /// <summary>
+        /// 获取或设置考勤点名称
+        /// </summary>
+        public string ReaderName { get; set; }
+        /// <summary>
         /// 获取或设置记录是否是人工签卡
         /// </summary>
         public bool IsManual { get; set; }

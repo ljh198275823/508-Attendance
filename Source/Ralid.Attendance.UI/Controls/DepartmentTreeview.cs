@@ -220,7 +220,11 @@ namespace Ralid.Attendance.UI
             {
                 _Depts = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
             }
-            if (LoadUser) _Users = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (LoadUser)
+            {
+                _Users = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+                _Users = (from staff in _Users orderby staff.Name ascending select staff).ToList();
+            }
 
             this.Nodes.Clear();
             this.ImageList = images;

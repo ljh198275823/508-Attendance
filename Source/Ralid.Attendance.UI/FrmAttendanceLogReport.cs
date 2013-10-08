@@ -70,7 +70,7 @@ namespace Ralid.Attendance.UI
             row.Tag = record;
             row.Cells["colStaff"].Value = record.StaffName;
             row.Cells["colReadDateTime"].Value = record.ReadDateTime.ToString("yyyy-MM-dd HH:mm:ss");
-            row.Cells["colReaderID"].Value = record.ReaderID;
+            row.Cells["colReaderName"].Value = record.ReaderName;
             row.Cells["colIsManual"].Value = record.IsManual;
             row.Cells["colMemo"].Value = record.Memo;
             row.DefaultCellStyle.ForeColor = !record.IsManual ? Color.Black : Color.Red;

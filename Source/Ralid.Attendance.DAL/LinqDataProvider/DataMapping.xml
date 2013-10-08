@@ -3,7 +3,7 @@
   <Table Name="dbo.Reader" Member="Ralid.Attendance.Model.Reader">
     <Type Name="Ralid.Attendance.Model.Reader">
       <Column Name="ReaderID" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="ReaderName" Member="Name"  DbType="nvarchar(50) not null" />
+      <Column Name="ReaderName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAReaderList" Member="Ralid.Attendance.Model.AttendanceReader">
@@ -14,69 +14,69 @@
   <Table Name="dbo.TADepartment" Member="Ralid.Attendance.Model.Department">
     <Type Name="Ralid.Attendance.Model.Department">
       <Column Name="DepartmentID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="DepartmentName" Member="Name"  DbType="nvarchar(50) not null" />
-      <Column Name="PreDeptID" Member="ParentID"  DbType="nvarchar(50) not null" />
-      <Column Name="Descr" Member="Memo"  DbType="nvarchar(200)" />
-      <Column Name="TopDeptID" Member="TopDeptID"  DbType="nvarchar(50) not null" />
-      <Column Name="DeptLevel" Member="DeptLevel"  DbType="int not null" />
-      <Column Name="IsBottom" Member="IsBottom"  DbType="bit null" />
+      <Column Name="DepartmentName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="PreDeptID" Member="ParentID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Descr" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
+      <Column Name="TopDeptID" Member="TopDeptID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="DeptLevel" Member="DeptLevel"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="IsBottom" Member="IsBottom"  DbType="bit null" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.Department" Member="Ralid.Attendance.Model.ACSDepartment">
     <Type Name="Ralid.Attendance.Model.ACSDepartment">
       <Column Name="DepartmentID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="DepartmentName" Member="Name"  DbType="nvarchar(50) not null" />
+      <Column Name="DepartmentName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.View_TAStaff" Member="Ralid.Attendance.Model.Staff">
     <Type Name="Ralid.Attendance.Model.Staff">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" />
-      <Column Name="ACSDepartmentID" Member="ACSDepartmentID"  DbType="nvarchar(50) not null" />
-      <Column Name="DepartmentID" Member="DepartmentID"  DbType="nvarchar(50)" />
-      <Column Name="UserPosition" Member="UserPosition"  DbType="nvarchar(50)" />
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(50)" />
+      <Column Name="ACSDepartmentID" Member="ACSDepartmentID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="DepartmentID" Member="DepartmentID"  DbType="nvarchar(50)" UpdateCheck="Never"/>
+      <Column Name="UserPosition" Member="UserPosition"  DbType="nvarchar(50)" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(50)" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAShiftArrangeTemplate" Member="Ralid.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
     <Type Name="Ralid.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
-      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" />
-      <Column Name="Options" Member="Options"  DbType="tinyint not null" />
-      <Column Name="Value" Member="Value"  DbType="nvarchar(4000)" />
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" />
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Options" Member="Options"  DbType="tinyint not null" UpdateCheck="Never"/>
+      <Column Name="Value" Member="Value"  DbType="nvarchar(4000)" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAUserDept" Member="Ralid.Attendance.DAL.LinqDataProvider.T_StaffDepartmentPair">
     <Type Name="Ralid.Attendance.DAL.LinqDataProvider.T_StaffDepartmentPair">
       <Column Name="UserID" Member="StaffID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="DepartmentID" Member="DepartmentID"  DbType="nvarchar(50) not null"/>
+      <Column Name="DepartmentID" Member="DepartmentID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAOptions" Member="Ralid.Attendance.Model.Sysparameter">
     <Type Name="Ralid.Attendance.Model.Sysparameter">
       <Column Name="OptionName" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="OptionValue" Member="Value"  DbType="nvarchar(50) NOT NULL"/>
-      <Column Name="DefaultValue" Member="DefaultValue"  DbType="nvarchar(50) NOT NULL"/>
-      <Column Name="OptionDescr" Member="Memo"  DbType="nvarchar(200)"/>
+      <Column Name="OptionValue" Member="Value"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
+      <Column Name="DefaultValue" Member="DefaultValue"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
+      <Column Name="OptionDescr" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAShifts" Member="Ralid.Attendance.Model.Shift">
     <Type Name="Ralid.Attendance.Model.Shift">
       <Column Name="ShiftID" Member="ID"  DbType="nvarchar(4) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="ShiftName" Member="Name"  DbType="nvarchar(50) not null" />
-      <Column Name="ShortName" Member="ShortName"  DbType="nvarchar(50)" />
-      <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(6) not null" />
-      <Column Name="AllowLate" Member="AllowLate"  DbType="int not null" />
-      <Column Name="BeforeStartTime" Member="BeforeStartTime"  DbType="int not null" />
-      <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(6) not null" />
-      <Column Name="NextDay" Member="NextDay"  DbType="bit not null" />
-      <Column Name="AllowEarly" Member="AllowEarly"  DbType="int not null" />
-      <Column Name="AfterEndTime" Member="AfterEndTime"  DbType="int not null" />
-      <Column Name="ShiftDuration" Member="ShiftDuration"  DbType="int not null" />
-      <Column Name="AllowOT" Member="AllowOT"  DbType="bit not null" />
-      <Column Name="MinOTTime" Member="MinOTTime"  DbType="int not null" />
-      <Column Name="MaxOTTime" Member="MaxOTTime"  DbType="int not null" />
+      <Column Name="ShiftName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="ShortName" Member="ShortName"  DbType="nvarchar(50)" UpdateCheck="Never"/>
+      <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
+      <Column Name="AllowLate" Member="AllowLate"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="BeforeStartTime" Member="BeforeStartTime"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
+      <Column Name="NextDay" Member="NextDay"  DbType="bit not null" UpdateCheck="Never"/>
+      <Column Name="AllowEarly" Member="AllowEarly"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="AfterEndTime" Member="AfterEndTime"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="ShiftDuration" Member="ShiftDuration"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="AllowOT" Member="AllowOT"  DbType="bit not null" UpdateCheck="Never"/>
+      <Column Name="MinOTTime" Member="MinOTTime"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="MaxOTTime" Member="MaxOTTime"  DbType="int not null" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.View_TAShiftArrange" Member="Ralid.Attendance.Model.ShiftArrange">
@@ -96,127 +96,128 @@
   <Table Name="dbo.TAHoliday" Member="Ralid.Attendance.Model.Holiday">
     <Type Name="Ralid.Attendance.Model.Holiday">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
-      <Column Name="StartDate" Member="StartDate"  DbType="datetime NOT NULL"/>
-      <Column Name="EndDate" Member="EndDate"  DbType="datetime NOT NULL"/>
-      <Column Name="WeekendToWorkDay1" Member="WeekendToWorkDay1" DbType="datetime"/>
-      <Column Name="WeekendToWorkDay2" Member="WeekendToWorkDay2" DbType="datetime"/>
-      <Column Name="WeekendToWorkDay3" Member="WeekendToWorkDay3" DbType="datetime"/>
-      <Column Name="WeekendToWorkDay4" Member="WeekendToWorkDay4" DbType="datetime"/>
-      <Column Name="WeekendToWorkDay5" Member="WeekendToWorkDay5" DbType="datetime"/>
-      <Column Name="WeekendToWorkDay6" Member="WeekendToWorkDay6" DbType="datetime"/>
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)"/>
+      <Column Name="StartDate" Member="StartDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
+      <Column Name="EndDate" Member="EndDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
+      <Column Name="WeekendToWorkDay1" Member="WeekendToWorkDay1" DbType="datetime" UpdateCheck="Never"/>
+      <Column Name="WeekendToWorkDay2" Member="WeekendToWorkDay2" DbType="datetime" UpdateCheck="Never"/>
+      <Column Name="WeekendToWorkDay3" Member="WeekendToWorkDay3" DbType="datetime" UpdateCheck="Never"/>
+      <Column Name="WeekendToWorkDay4" Member="WeekendToWorkDay4" DbType="datetime" UpdateCheck="Never"/>
+      <Column Name="WeekendToWorkDay5" Member="WeekendToWorkDay5" DbType="datetime" UpdateCheck="Never"/>
+      <Column Name="WeekendToWorkDay6" Member="WeekendToWorkDay6" DbType="datetime" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAVacationType" Member="Ralid.Attendance.Model.VacationType">
     <Type Name="Ralid.Attendance.Model.VacationType">
       <Column Name="ID" Member="ID"  DbType="nvarchar(50)" IsPrimaryKey="true"/>
-      <Column Name="Name" Member="Name"  DbType="nvarchar(50) NOT NULL"/> 
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/> 
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TASheet" Member="Ralid.Attendance.Model.TASheet">
     <Type Name="Ralid.Attendance.Model.TASheet">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
-      <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null"/>
-      <Column Name="SheetType" Member="SheetType"  DbType="nvarchar(50) not null"/>
-      <Column Name="CreateDate" Member="CreateDate"  DbType="datetime NOT NULL"/>
-      <Column Name="StaffID" Member="StaffID"  DbType="int not NULL"/>
-      <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) not null"/>
-      <Column Name="Department" Member="Department"  DbType="nvarchar(50)"/>
-      <Column Name="StartDate" Member="StartDate"  DbType="datetime NOT NULL"/>
-      <Column Name="EndDate" Member="EndDate"  DbType="datetime not NULL"/>
-      <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(50) NOT NULL"/>
-      <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(50) not NULL"/>
-      <Column Name="Duration" Member="Duration"  DbType="int not NULL"/>
-      <Column Name="Category" Member="CategoryID"  DbType="nvarchar(50) not NULL"/>
-      <Column Name="Header" Member="Header"  DbType="nvarchar(50)"/>
-      <Column Name="Manager" Member="Manager"  DbType="nvarchar(50)"/>
-      <Column Name="HR" Member="HR"  DbType="nvarchar(50)"/>
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)"/>
+      <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null" UpdateCheck="Never"/>
+      <Column Name="SheetType" Member="SheetType"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="CreateDate" Member="CreateDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
+      <Column Name="StaffID" Member="StaffID"  DbType="int not NULL" UpdateCheck="Never"/>
+      <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Department" Member="Department"  DbType="nvarchar(50)" UpdateCheck="Never"/>
+      <Column Name="StartDate" Member="StartDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
+      <Column Name="EndDate" Member="EndDate"  DbType="datetime not NULL" UpdateCheck="Never"/>
+      <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
+      <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
+      <Column Name="Duration" Member="Duration"  DbType="int not NULL" UpdateCheck="Never"/>
+      <Column Name="Category" Member="CategoryID"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
+      <Column Name="Header" Member="Header"  DbType="nvarchar(50)" UpdateCheck="Never"/>
+      <Column Name="Manager" Member="Manager"  DbType="nvarchar(50)" UpdateCheck="Never"/>
+      <Column Name="HR" Member="HR"  DbType="nvarchar(50)" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAOTType" Member="Ralid.Attendance.Model.OTType">
     <Type Name="Ralid.Attendance.Model.OTType">
       <Column Name="ID" Member="ID"  DbType="nvarchar(50) not null" IsPrimaryKey="true"/>
-      <Column Name="Name" Member="Name"  DbType="nvarchar(50) NOT NULL"/>
-      <Column Name="Multiple" Member="Multiple" DbType="decimal(10,2) not null"/>
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
+      <Column Name="Multiple" Member="Multiple" DbType="decimal(10,2) not null" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TATripType" Member="Ralid.Attendance.Model.TripType">
     <Type Name="Ralid.Attendance.Model.TripType">
       <Column Name="ID" Member="ID"  DbType="nvarchar(50) not null" IsPrimaryKey="true"/>
-      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not NULL"/>
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.View_TAAttendanceLog" Member="Ralid.Attendance.Model.AttendanceLog">
     <Type Name="Ralid.Attendance.Model.AttendanceLog">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
-      <Column Name="StaffID" Member="StaffID"  DbType="int not null"/>
-      <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL"/>
-      <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null"/>
-      <Column Name="ReaderID" Member="ReaderID"  DbType="nvarchar(20) NOT NULL"/>
-      <Column Name="IsManual" Member="IsManual"  DbType="bit NOT NULL"/>
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL"/>
+      <Column Name="StaffID" Member="StaffID"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
+      <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null" UpdateCheck="Never"/>
+      <Column Name="ReaderID" Member="ReaderID"  DbType="nvarchar(20) NOT NULL" UpdateCheck="Never"/>
+      <Column Name="ReaderName" Member="ReaderName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
+      <Column Name="IsManual" Member="IsManual"  DbType="bit NOT NULL" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAManualLog" Member="Ralid.Attendance.DAL.LinqDataProvider.T_TAManualLog">
   <Type Name="Ralid.Attendance.DAL.LinqDataProvider.T_TAManualLog">
     <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
-    <Column Name="StaffID" Member="StaffID"  DbType="int not null"/>
-    <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL"/>
-    <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null"/>
-    <Column Name="ReaderID" Member="ReaderID"  DbType="nvarchar(20) NOT NULL"/>
-    <Column Name="IsManual" Member="IsManual"  DbType="bit NOT NULL"/>
-    <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL"/>
+    <Column Name="StaffID" Member="StaffID"  DbType="int not null" UpdateCheck="Never"/>
+    <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
+    <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null" UpdateCheck="Never"/>
+    <Column Name="ReaderID" Member="ReaderID"  DbType="nvarchar(20) NOT NULL" UpdateCheck="Never"/>
+    <Column Name="IsManual" Member="IsManual"  DbType="bit NOT NULL" UpdateCheck="Never"/>
+    <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
   </Type>
 </Table>
   <Table Name="dbo.TAAttendanceResult" Member="Ralid.Attendance.Model.AttendanceResult">
     <Type Name="Ralid.Attendance.Model.AttendanceResult">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
-      <Column Name="StaffID" Member="StaffID"  DbType="int NOT NULL"/>
-      <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) not null" />
-      <Column Name="ShiftDate" Member="ShiftDate"  DbType="datetime not null"/>
-      <Column Name="ShiftID" Member="ShiftID"  DbType="varchar(50)"/>
-      <Column Name="ShiftName" Member="ShiftName"  DbType="varchar(50)"/>
-      <Column Name="SheetType" Member="SheetType"  DbType="varchar(50)"/>
-      <Column Name="Category" Member="Category"  DbType="varchar(50)"/>
-      <Column Name="StartTime" Member="StartTime"  DbType="datetime" />
-      <Column Name="EndTime" Member="EndTime"  DbType="datetime"/>
-      <Column Name="OnDutyTime" Member="OnDutyTime"  DbType="datetime" />
-      <Column Name="OffDutyTime" Member="OffDutyTime"  DbType="datetime"/>
-      <Column Name="ShiftTime" Member="ShiftTime"  DbType="decimal(10,4) not null" />
-      <Column Name="Present" Member="Present"  DbType="decimal(10,4) not null" />
-      <Column Name="Absent" Member="Absent"  DbType="decimal(10,4) not null" />
-      <Column Name="BeLate" Member="Belate"  DbType="decimal(10,4) not null" />
-      <Column Name="LeaveEarly" Member="LeaveEarly"  DbType="decimal(10,4) not null" />
-      <Column Name="OTTime" Member="OTTime"  DbType="decimal(10,4) not null" />
-      <Column Name="Result" Member="Result"  DbType="tinyint not null" />
-      <Column Name="Modified" Member="Modified"  DbType="bit not null" />
-      <Column Name="Modifier" Member="Modifier"  DbType="varchar(20) null" />
-      <Column Name="ModifiedTime" Member="ModifiedTime"  DbType="datetime null"/>
-      <Column Name="Approval" Member="Approval"  DbType="nvarchar(50) null" />
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) not null" />
+      <Column Name="StaffID" Member="StaffID"  DbType="int NOT NULL" UpdateCheck="Never"/>
+      <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
+      <Column Name="ShiftDate" Member="ShiftDate"  DbType="datetime not null" UpdateCheck="Never"/>
+      <Column Name="ShiftID" Member="ShiftID"  DbType="varchar(50)" UpdateCheck="Never"/>
+      <Column Name="ShiftName" Member="ShiftName"  DbType="varchar(50)" UpdateCheck="Never"/>
+      <Column Name="SheetType" Member="SheetType"  DbType="varchar(50)" UpdateCheck="Never"/>
+      <Column Name="Category" Member="Category"  DbType="varchar(50)" UpdateCheck="Never"/>
+      <Column Name="StartTime" Member="StartTime"  DbType="datetime"  UpdateCheck="Never"/>
+      <Column Name="EndTime" Member="EndTime"  DbType="datetime" UpdateCheck="Never"/>
+      <Column Name="OnDutyTime" Member="OnDutyTime"  DbType="datetime"  UpdateCheck="Never"/>
+      <Column Name="OffDutyTime" Member="OffDutyTime"  DbType="datetime" UpdateCheck="Never"/>
+      <Column Name="ShiftTime" Member="ShiftTime"  DbType="decimal(10,4) not null"  UpdateCheck="Never"/>
+      <Column Name="Present" Member="Present"  DbType="decimal(10,4) not null"  UpdateCheck="Never"/>
+      <Column Name="Absent" Member="Absent"  DbType="decimal(10,4) not null"  UpdateCheck="Never"/>
+      <Column Name="BeLate" Member="Belate"  DbType="decimal(10,4) not null"  UpdateCheck="Never"/>
+      <Column Name="LeaveEarly" Member="LeaveEarly"  DbType="decimal(10,4) not null"  UpdateCheck="Never"/>
+      <Column Name="OTTime" Member="OTTime"  DbType="decimal(10,4) not null"  UpdateCheck="Never"/>
+      <Column Name="Result" Member="Result"  DbType="tinyint not null"  UpdateCheck="Never"/>
+      <Column Name="Modified" Member="Modified"  DbType="bit not null"  UpdateCheck="Never"/>
+      <Column Name="Modifier" Member="Modifier"  DbType="varchar(20) null"  UpdateCheck="Never"/>
+      <Column Name="ModifiedTime" Member="ModifiedTime"  DbType="datetime null" UpdateCheck="Never"/>
+      <Column Name="Approval" Member="Approval"  DbType="nvarchar(50) null"  UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) not null"  UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAOperator" Member="Ralid.Attendance.Model.Operator">
     <Type Name="Ralid.Attendance.Model.Operator">
       <Column Name="OperatorID" Member="ID" DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="Password" Member="_Password"  DbType="nvarchar(50) NOT NULL" />
-      <Column Name="RealName" Member="Name"  DbType="nvarchar(50) NOT NULL"  />
-      <Column Name="RoleID" Member="RoleID" DbType="nvarchar(50) NOT NULL" />
-      <Column Name="UserID" Member="StaffID"  DbType="Int" />
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL"/>
+      <Column Name="Password" Member="_Password"  DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
+      <Column Name="RealName" Member="Name"  DbType="nvarchar(50) NOT NULL"   UpdateCheck="Never"/>
+      <Column Name="RoleID" Member="RoleID" DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
+      <Column Name="UserID" Member="StaffID"  DbType="Int"  UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TARoles" Member="Ralid.Attendance.Model.Role">
     <Type Name="Ralid.Attendance.Model.Role">
       <Column Name="RoleID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="RoleName" Member="Name"  DbType="nvarchar(50) not null" />
-      <Column Name="RWPermission" Member="RWPermission"  DbType="nvarchar(200)" />
-      <Column Name="RPermission" Member="RPermission"  DbType="nvarchar(200)" />
-      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL"/>
+      <Column Name="RoleName" Member="Name"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
+      <Column Name="RWPermission" Member="RWPermission"  DbType="nvarchar(200)"  UpdateCheck="Never"/>
+      <Column Name="RPermission" Member="RPermission"  DbType="nvarchar(200)"  UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAOperatorDept" Member="Ralid.Attendance.DAL.LinqDataProvider.T_OperatorDept">
@@ -228,7 +229,7 @@
   <Table Name="dbo.TAParameter" Member="Ralid.Attendance.Model.Parameter">
     <Type Name="Ralid.Attendance.Model.Parameter">
       <Column Name="ID" Member="ID"  DbType="nvarchar(200) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="Value" Member="Value"  DbType="nvarchar(4000)" />
+      <Column Name="Value" Member="Value"  DbType="nvarchar(4000)"  UpdateCheck="Never"/>
     </Type>
   </Table>
 </Database>

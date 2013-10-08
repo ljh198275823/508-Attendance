@@ -48,8 +48,8 @@ namespace Ralid.Attendance.UI
 
             dtStart.Value = DateTime.Today.Date;
             dtEnd.Value = DateTime.Today.Date;
-            txtTime1.Value = DateTime.Today.Date.AddHours(9);
-            txtTime2.Value = DateTime.Today.AddHours(18);
+            txtHour1.Value = 9;
+            txtHour2.Value = 18;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -64,31 +64,23 @@ namespace Ralid.Attendance.UI
                     DateTime dt2 = dtEnd.Value;
                     while (dt1 <= dt2)
                     {
-                        if (chkTime1.Checked)
+                        for (int i = 1; i <= 6; i++)
                         {
-                            AttendanceLog record = new AttendanceLog()
+                            if ((this.Controls["chkTime" + i.ToString()] as CheckBox).Checked)
                             {
-                                StaffID = staff.ID,
-                                StaffName = staff.Name,
-                                ReaderID = string.Empty,
-                                ReadDateTime = dt1.AddHours(txtTime1.Value.Hour).AddMinutes(txtTime1.Value.Minute).AddSeconds(txtTime1.Value.Second),
-                                IsManual = true,
-                                Memo = txtMemo.Text
-                            };
-                            bll.Add(record);
-                        }
-                        if (chkTime2.Checked)
-                        {
-                            AttendanceLog record = new AttendanceLog()
-                            {
-                                StaffID = staff.ID,
-                                StaffName = staff.Name,
-                                ReaderID = string.Empty,
-                                ReadDateTime = dt1.AddHours(txtTime2.Value.Hour).AddMinutes(txtTime2.Value.Minute).AddSeconds(txtTime2.Value.Second),
-                                IsManual = true,
-                                Memo = txtMemo.Text
-                            };
-                            bll.Add(record);
+                                int hour = (int)((this.Controls["txtHour" + i.ToString()] as NumericUpDown).Value);
+                                int minute=(int)((this.Controls["txtMinute" +i.ToString ()] as NumericUpDown ).Value);
+                                AttendanceLog record = new AttendanceLog()
+                                {
+                                    StaffID = staff.ID,
+                                    StaffName = staff.Name,
+                                    ReaderID = string.Empty,
+                                    ReadDateTime = dt1.AddHours(hour).AddMinutes(minute),
+                                    IsManual = true,
+                                    Memo = txtMemo.Text
+                                };
+                                bll.Add(record);
+                            }
                         }
                         dt1 = dt1.AddDays(1);
                     }

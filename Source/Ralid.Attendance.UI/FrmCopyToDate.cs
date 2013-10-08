@@ -40,7 +40,7 @@ namespace Ralid.Attendance.UI
             DateTime dt = dtBegin.Value;
             while (dt <= dtEnd.Value)
             {
-                if (HolidaySetting.Current != null && HolidaySetting.Current.IsHoliday(dt) && chkNoShiftOnHoliday.Checked) //节假日不排班
+                if (HolidaySetting.Current != null && HolidaySetting.Current.IsHoliday(dt) && chkHolidayShifted.Checked) //节假日不排班
                 {
                     continue;
                 }
@@ -51,7 +51,7 @@ namespace Ralid.Attendance.UI
                     (dt.DayOfWeek == DayOfWeek.Friday && chkFriday.Checked) ||
                     (dt.DayOfWeek == DayOfWeek.Saturday && chkSaturday.Checked) ||
                     (dt.DayOfWeek == DayOfWeek.Sunday && chkSunday.Checked) ||
-                    ((dt.DayOfWeek == DayOfWeek.Saturday || dt.DayOfWeek == DayOfWeek.Sunday) && chkWeekendToWorkdayNeedShift.Checked && !HolidaySetting.Current.IsWeekend(dt)) //
+                    ((dt.DayOfWeek == DayOfWeek.Saturday || dt.DayOfWeek == DayOfWeek.Sunday) && chkWeekendToWorkdayShifted.Checked && !HolidaySetting.Current.IsWeekend(dt)) //
                     )
                 {
                     if (SourceShifts != null && SourceShifts.Count > 0)

@@ -6,10 +6,10 @@ using Ralid.Attendance .Model ;
 
 namespace Ralid.Attendance.Model
 {
-    public class ShiftArrangeTemplate
+    public class ShiftTemplate
     {
         #region 构造函数
-        public ShiftArrangeTemplate()
+        public ShiftTemplate()
         {
         }
         #endregion
@@ -57,12 +57,14 @@ namespace Ralid.Attendance.Model
                                 (this.Options & TemplateOptions.HolidayShifted) == 0) //节假日不排班
                             {
                                 dt = dt.AddDays(1);
+                                if (item.DurationUnit == 0) duration++; //按天为单位，即使不排班也要减少次数
                             }
                             else if (HolidaySetting.Current != null &&
                                 HolidaySetting.Current.IsWeekend(dt) &&
                                 (this.Options & TemplateOptions.WeekendShifted) == 0)//周末不排班
                             {
                                 dt = dt.AddDays(1);
+                                if (item.DurationUnit == 0) duration++; //按天为单位，即使不排班也要减少次数
                             }
                             else
                             {
@@ -110,9 +112,14 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public List<Shift> Shifts { get; set; }
         /// <summary>
-        /// 获取或设置班次持续的次数
+        /// 获取或设置班次持续的数量
         /// </summary>
         public int Duration { get; set; }
+        /// <summary>
+        /// 获取或设置班次持续的数量的单位，0表示按天，1表示按次 
+        /// 这两者的区别是按天为不管某天排不排班，都会在应用模板时减少一次,按次则只有排了班的那天才减少数量一次
+        /// </summary>
+        public int DurationUnit { get; set; }
         /// <summary>
         /// 获取或设置班次过后休息的天数
         /// </summary>

@@ -215,11 +215,11 @@ end
 go
 EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[View_TAAttendanceLog]
 AS
-SELECT DISTINCT a.LogID AS ID, b.UserID AS StaffID, a.UserName AS StaffName, a.ReadDateTime, a.ReaderID, ''False'' AS IsManual, NULL AS Memo
+SELECT DISTINCT a.LogID AS ID, b.UserID AS StaffID, a.UserName AS StaffName, a.ReadDateTime, a.ReaderID, a.ReaderName, ''False'' AS IsManual, NULL AS Memo
 FROM         dbo.FullLog AS a INNER JOIN
                       dbo.Card AS b ON a.CardID = b.CardID
 UNION
-SELECT     ID, StaffID, StaffName, ReadDateTime, ReaderID, IsManual, Memo
+SELECT     ID, StaffID, StaffName, ReadDateTime, ReaderID, NULL AS Expr1, IsManual, Memo
 FROM         dbo.TAManualLog
 ' 
 GO
@@ -271,6 +271,23 @@ CREATE TABLE [dbo].[TAShiftArrangeTemplate](
 	[Value] [nvarchar](4000) NULL,
     [Memo] [nvarchar](200) null,
  CONSTRAINT [PK_ShiftArrangeTemplate] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+go
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TAParameter]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[TAParameter](
+	[ID] [nvarchar](200) NOT NULL,
+	[Value] [nvarchar](4000) NULL,
+ CONSTRAINT [PK_TAParameter] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
 )WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]

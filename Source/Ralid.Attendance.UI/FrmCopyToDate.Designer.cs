@@ -35,10 +35,10 @@
             this.dtSource = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkWeekendToWorkdayNeedShift = new System.Windows.Forms.CheckBox();
+            this.chkWeekendToWorkdayShifted = new System.Windows.Forms.CheckBox();
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
             this.dtBegin = new System.Windows.Forms.DateTimePicker();
-            this.chkNoShiftOnHoliday = new System.Windows.Forms.CheckBox();
+            this.chkHolidayShifted = new System.Windows.Forms.CheckBox();
             this.chkSunday = new System.Windows.Forms.CheckBox();
             this.chkSaturday = new System.Windows.Forms.CheckBox();
             this.chkFriday = new System.Windows.Forms.CheckBox();
@@ -104,10 +104,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.chkWeekendToWorkdayNeedShift);
+            this.groupBox2.Controls.Add(this.chkWeekendToWorkdayShifted);
             this.groupBox2.Controls.Add(this.dtEnd);
             this.groupBox2.Controls.Add(this.dtBegin);
-            this.groupBox2.Controls.Add(this.chkNoShiftOnHoliday);
+            this.groupBox2.Controls.Add(this.chkHolidayShifted);
             this.groupBox2.Controls.Add(this.chkSunday);
             this.groupBox2.Controls.Add(this.chkSaturday);
             this.groupBox2.Controls.Add(this.chkFriday);
@@ -124,17 +124,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "复制到";
             // 
-            // chkWeekendToWorkdayNeedShift
+            // chkWeekendToWorkdayShifted
             // 
-            this.chkWeekendToWorkdayNeedShift.AutoSize = true;
-            this.chkWeekendToWorkdayNeedShift.Checked = true;
-            this.chkWeekendToWorkdayNeedShift.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkWeekendToWorkdayNeedShift.Location = new System.Drawing.Point(144, 89);
-            this.chkWeekendToWorkdayNeedShift.Name = "chkWeekendToWorkdayNeedShift";
-            this.chkWeekendToWorkdayNeedShift.Size = new System.Drawing.Size(240, 16);
-            this.chkWeekendToWorkdayNeedShift.TabIndex = 12;
-            this.chkWeekendToWorkdayNeedShift.Text = "周六日为节假日调整为工作日的也要排班";
-            this.chkWeekendToWorkdayNeedShift.UseVisualStyleBackColor = true;
+            this.chkWeekendToWorkdayShifted.AutoSize = true;
+            this.chkWeekendToWorkdayShifted.Checked = true;
+            this.chkWeekendToWorkdayShifted.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkWeekendToWorkdayShifted.Location = new System.Drawing.Point(104, 89);
+            this.chkWeekendToWorkdayShifted.Name = "chkWeekendToWorkdayShifted";
+            this.chkWeekendToWorkdayShifted.Size = new System.Drawing.Size(120, 16);
+            this.chkWeekendToWorkdayShifted.TabIndex = 12;
+            this.chkWeekendToWorkdayShifted.Text = "周末调整为工作日";
+            this.chkWeekendToWorkdayShifted.UseVisualStyleBackColor = true;
             // 
             // dtEnd
             // 
@@ -150,17 +150,15 @@
             this.dtBegin.Size = new System.Drawing.Size(112, 21);
             this.dtBegin.TabIndex = 10;
             // 
-            // chkNoShiftOnHoliday
+            // chkHolidayShifted
             // 
-            this.chkNoShiftOnHoliday.AutoSize = true;
-            this.chkNoShiftOnHoliday.Checked = true;
-            this.chkNoShiftOnHoliday.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkNoShiftOnHoliday.Location = new System.Drawing.Point(30, 89);
-            this.chkNoShiftOnHoliday.Name = "chkNoShiftOnHoliday";
-            this.chkNoShiftOnHoliday.Size = new System.Drawing.Size(96, 16);
-            this.chkNoShiftOnHoliday.TabIndex = 9;
-            this.chkNoShiftOnHoliday.Text = "节假日不排班";
-            this.chkNoShiftOnHoliday.UseVisualStyleBackColor = true;
+            this.chkHolidayShifted.AutoSize = true;
+            this.chkHolidayShifted.Location = new System.Drawing.Point(30, 89);
+            this.chkHolidayShifted.Name = "chkHolidayShifted";
+            this.chkHolidayShifted.Size = new System.Drawing.Size(60, 16);
+            this.chkHolidayShifted.TabIndex = 9;
+            this.chkHolidayShifted.Text = "节假日";
+            this.chkHolidayShifted.UseVisualStyleBackColor = true;
             // 
             // chkSunday
             // 
@@ -325,13 +323,13 @@
         private System.Windows.Forms.CheckBox chkTuesday;
         private System.Windows.Forms.CheckBox chkWednesday;
         private System.Windows.Forms.CheckBox chkMonday;
-        private System.Windows.Forms.CheckBox chkNoShiftOnHoliday;
+        private System.Windows.Forms.CheckBox chkHolidayShifted;
         private System.Windows.Forms.DateTimePicker dtSource;
         private System.Windows.Forms.DateTimePicker dtEnd;
         private System.Windows.Forms.DateTimePicker dtBegin;
         protected System.Windows.Forms.Button btnClose;
         protected System.Windows.Forms.Button btnOk;
         private GeneralLibrary.WinformControl.DBCTextBox txtSourceShifts;
-        private System.Windows.Forms.CheckBox chkWeekendToWorkdayNeedShift;
+        private System.Windows.Forms.CheckBox chkWeekendToWorkdayShifted;
     }
 }
