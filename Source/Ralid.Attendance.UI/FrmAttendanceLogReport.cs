@@ -28,6 +28,7 @@ namespace Ralid.Attendance.UI
             this.ucDateTimeInterval1.SelectThisMonth();
 
             this.departmentTreeview1.LoadUser = true;
+            this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             this.departmentTreeview1.Init();
         }
@@ -59,7 +60,7 @@ namespace Ralid.Attendance.UI
                 List<AttendanceLog> arranges = (new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
                 return (from item in arranges
                         orderby item.StaffName ascending, item.ReadDateTime ascending
-                        select (object)item).ToList();
+                        select (object)item).Distinct().ToList();
             }
             return null;
         }
@@ -71,7 +72,7 @@ namespace Ralid.Attendance.UI
             row.Cells["colStaff"].Value = record.StaffName;
             row.Cells["colReadDateTime"].Value = record.ReadDateTime.ToString("yyyy-MM-dd HH:mm:ss");
             row.Cells["colReaderName"].Value = record.ReaderName;
-            row.Cells["colIsManual"].Value = record.IsManual;
+            row.Cells["colIsManual"].Value = record.IsManual ? "补签" : string.Empty;
             row.Cells["colMemo"].Value = record.Memo;
             row.DefaultCellStyle.ForeColor = !record.IsManual ? Color.Black : Color.Red;
         }

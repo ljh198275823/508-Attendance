@@ -87,8 +87,7 @@ namespace Ralid.Attendance.UI
             }
 
             TreeNode parent = new TreeNode();
-            if (users == null || users.Count == 0) parent.Text = string.Format("[{0}] {1}", dept.ID, dept.Name);
-            else parent.Text = string.Format("[{0}] {1} ({2}人)", dept.ID, dept.Name, users.Count);
+            parent.Text = string.Format("[{0}] {1}", dept.ID, dept.Name);
             parent.Tag = dept;
 
             List<Department> children = _Depts.Where(item => item.ParentID == dept.ID).ToList();
@@ -111,15 +110,24 @@ namespace Ralid.Attendance.UI
             }
             if (LoadUser)
             {
+                int userCount = 0;
                 foreach (Staff user in users)
                 {
-                    TreeNode unode = new TreeNode(user.Name);
-                    unode.Tag = user;
-                    unode.ImageIndex = 1;
-                    unode.SelectedImageIndex = 1;
-                    parent.Nodes.Add(unode);
-                    _AllUserNodes.Add(unode);
+                    if (user.Resigned && !ShowResigedStaff)
+                    {
+                    }
+                    else
+                    {
+                        TreeNode unode = new TreeNode(user.Name);
+                        unode.Tag = user;
+                        unode.ImageIndex = 1;
+                        unode.SelectedImageIndex = 1;
+                        parent.Nodes.Add(unode);
+                        _AllUserNodes.Add(unode);
+                        userCount++;
+                    }
                 }
+                parent.Text = string.Format("[{0}] {1} ({2}人)", dept.ID, dept.Name, userCount);
             }
             return parent;
         }
@@ -130,6 +138,10 @@ namespace Ralid.Attendance.UI
         /// 获取或设置是否加载用户信息，此属性需要要初始化前指定，或者指定后需再调用一次Init
         /// </summary>
         public bool LoadUser { get; set; }
+        /// <summary>
+        /// 获取或设置是否显示离职人员
+        /// </summary>
+        public bool ShowResigedStaff { get; set; }
         /// <summary>
         /// 获取或设置是否只显示当前操作的部门信息，否表示全部显示,此属性需要要初始化前指定，或者指定后需再调用一次Init
         /// </summary>

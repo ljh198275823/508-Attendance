@@ -36,11 +36,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ucDateTimeInterval1 = new Ralid.Attendance.UI.UCDateTimeInterval();
             this.GridView = new System.Windows.Forms.DataGridView();
-            this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReadDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReaderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIsManual = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +43,11 @@
             this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReadDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReaderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIsManual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plnLeft.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -73,6 +73,7 @@
             this.departmentTreeview1.Location = new System.Drawing.Point(0, 88);
             this.departmentTreeview1.Name = "departmentTreeview1";
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
+            this.departmentTreeview1.ShowResigedStaff = false;
             this.departmentTreeview1.Size = new System.Drawing.Size(324, 233);
             this.departmentTreeview1.TabIndex = 3;
             // 
@@ -136,39 +137,6 @@
             this.GridView.Size = new System.Drawing.Size(556, 276);
             this.GridView.TabIndex = 61;
             // 
-            // colStaff
-            // 
-            this.colStaff.HeaderText = "人员";
-            this.colStaff.Name = "colStaff";
-            this.colStaff.ReadOnly = true;
-            // 
-            // colReadDateTime
-            // 
-            this.colReadDateTime.HeaderText = "考勤时间";
-            this.colReadDateTime.Name = "colReadDateTime";
-            this.colReadDateTime.ReadOnly = true;
-            this.colReadDateTime.Width = 130;
-            // 
-            // colReaderName
-            // 
-            this.colReaderName.HeaderText = "考勤点";
-            this.colReaderName.Name = "colReaderName";
-            this.colReaderName.ReadOnly = true;
-            // 
-            // colIsManual
-            // 
-            this.colIsManual.HeaderText = "补签";
-            this.colIsManual.Name = "colIsManual";
-            this.colIsManual.ReadOnly = true;
-            this.colIsManual.Width = 40;
-            // 
-            // colMemo
-            // 
-            this.colMemo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMemo.HeaderText = "备注";
-            this.colMemo.Name = "colMemo";
-            this.colMemo.ReadOnly = true;
-            // 
             // menu
             // 
             this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -226,6 +194,41 @@
             this.splitter1.TabIndex = 59;
             this.splitter1.TabStop = false;
             // 
+            // colStaff
+            // 
+            this.colStaff.HeaderText = "人员";
+            this.colStaff.Name = "colStaff";
+            this.colStaff.ReadOnly = true;
+            // 
+            // colReadDateTime
+            // 
+            this.colReadDateTime.HeaderText = "考勤时间";
+            this.colReadDateTime.Name = "colReadDateTime";
+            this.colReadDateTime.ReadOnly = true;
+            this.colReadDateTime.Width = 130;
+            // 
+            // colReaderName
+            // 
+            this.colReaderName.HeaderText = "考勤点";
+            this.colReaderName.Name = "colReaderName";
+            this.colReaderName.ReadOnly = true;
+            this.colReaderName.Width = 150;
+            // 
+            // colIsManual
+            // 
+            this.colIsManual.HeaderText = "其它";
+            this.colIsManual.Name = "colIsManual";
+            this.colIsManual.ReadOnly = true;
+            this.colIsManual.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colIsManual.Width = 80;
+            // 
+            // colMemo
+            // 
+            this.colMemo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMemo.HeaderText = "备注";
+            this.colMemo.Name = "colMemo";
+            this.colMemo.ReadOnly = true;
+            // 
             // FrmAttendanceLogReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -271,7 +274,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReadDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReaderName;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colIsManual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIsManual;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
     }
 }

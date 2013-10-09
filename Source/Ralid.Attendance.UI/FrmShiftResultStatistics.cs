@@ -28,6 +28,7 @@ namespace Ralid.Attendance.UI
             this.ucDateTimeInterval1.SelectThisMonth();
 
             this.departmentTreeview1.LoadUser = true;
+            this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             this.departmentTreeview1.Init();
         }

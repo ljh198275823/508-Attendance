@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using Ralid.Attendance.Model;
 using Ralid.Attendance.Model.Result;
@@ -212,21 +213,28 @@ namespace Ralid.Attendance.UI
 
         private void mnu_Clear_Click(object sender, EventArgs e)
         {
+            List<ShiftArrange> sas = new List<ShiftArrange>();
             foreach (DataGridViewCell cell in GridView.SelectedCells)
             {
                 if (cell.Tag is List<Shift>) //人员排班的单元格
                 {
                     DateTime dt = Convert.ToDateTime(GridView.Columns[cell.ColumnIndex].Tag);
                     Staff staff = GridView.Rows[cell.RowIndex].Tag as Staff;
-                    ShiftArrangeBLL bll = new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString);
-                    CommandResult ret = bll.ClearShiftArrange(staff.ID, dt);
-                    if (ret.Result == ResultCode.Successful)
+                    List<Shift> shifts = cell.Tag as List<Shift>;
+                    foreach (Shift shift in shifts)
                     {
-                        cell.Tag = null;
-                        cell.Value = GetShiftString(null);
+                        ShiftArrange sa = new ShiftArrange();
+                        sa.StaffID = staff.ID;
+                        sa.ShiftDate = dt;
+                        sa.ShiftID = shift.ID;
+                        sa.Shift = shift;
+                        sas.Add(sa);
                     }
                 }
             }
+            ShiftArrangeBLL bll = new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString);
+            CommandResult ret = bll.Delete(sas);
+            btnFresh_Click(btnFresh, EventArgs.Empty);
         }
         #endregion
 

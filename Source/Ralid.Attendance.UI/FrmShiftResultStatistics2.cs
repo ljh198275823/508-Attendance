@@ -98,6 +98,7 @@ namespace Ralid.Attendance.UI
             this.ucDateTimeInterval1.SelectThisMonth();
 
             this.departmentTreeview1.LoadUser = true;
+            this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             this.departmentTreeview1.Init();
 
@@ -117,10 +118,13 @@ namespace Ralid.Attendance.UI
                 List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
                 foreach (Staff user in users)
                 {
-                    int row = GridView.Rows.Add();
                     List<AttendanceResult> items = arranges.Where(item => item.StaffID == user.ID).ToList();
-                    ShowUserStaffAttendanceResultsOnRow(user, items, GridView.Rows[row]);
-                    arranges.RemoveAll(item => item.StaffID == user.ID);
+                    if (items != null && items.Count > 0)
+                    {
+                        int row = GridView.Rows.Add();
+                        ShowUserStaffAttendanceResultsOnRow(user, items, GridView.Rows[row]);
+                        arranges.RemoveAll(item => item.StaffID == user.ID);
+                    }
                 }
             }
             this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);

@@ -40,6 +40,7 @@ namespace Ralid.Attendance.UI
                         dataGridView1.Rows[row].Cells["colID1"].Value = item.ID;
                         dataGridView1.Rows[row].Cells["colName1"].Value = item.Name;
                         dataGridView1.Rows[row].Cells["colUserPosition1"].Value = item.UserPosition;
+                        dataGridView1.Rows[row].Cells["colResigned1"].Value = item.Resigned ? "离职" : "在职";
                         dataGridView1.Rows[row].Cells["colMemo1"].Value = item.Memo;
                     }
                 }
@@ -62,15 +63,22 @@ namespace Ralid.Attendance.UI
             foreach (Staff item in staff)
             {
                 int row = GridView.Rows.Add();
-                GridView.Rows[row].Tag = item;
-                GridView.Rows[row].Cells["colID"].Value = item.ID;
-                GridView.Rows[row].Cells["colName"].Value = item.Name;
-                GridView.Rows[row].Cells["colUserPosition"].Value = item.UserPosition;
-                GridView.Rows[row].Cells["colMemo"].Value = item.Memo;
+                ShowStaffOnGridViewRow(GridView.Rows[row], item);
             }
             this.toolStripStatusLabel1.Text = string.Format("{1}   总共 {0} 项", GridView.Rows.Count, dept.Name);
             contextMenuStrip2.Items["mnu_Add"].Text = "添加到 " + dept.Name;
             contextMenuStrip2.Items["mnu_Add"].Visible = true;
+        }
+
+        private void ShowStaffOnGridViewRow(DataGridViewRow row, Staff item)
+        {
+            row.Tag = item;
+            row.Cells["colID"].Value = item.ID;
+            row.Cells["colName"].Value = item.Name;
+            row.Cells["colUserPosition"].Value = item.UserPosition;
+            row.Cells["colResigned"].Value = item.Resigned ? "离职" : "在职";
+            row.Cells["colMemo"].Value = item.Memo;
+            row.DefaultCellStyle.ForeColor = item.Resigned ? Color.Red : Color.Black;
         }
 
         private List<Staff> GetSelectedStaff(DataGridView grid)
@@ -87,7 +95,7 @@ namespace Ralid.Attendance.UI
         #region 事件处理程序
         private void FrmStaff_Load(object sender, EventArgs e)
         {
-            GridView.ContextMenuStrip = SystemOptions.Current.UsingACSDept ? null : contextMenuStrip1; //右键菜单
+            mnu_Remove.Visible = !SystemOptions.Current.UsingACSDept;
             panel3.Visible = SystemOptions.Current.UsingACSDept ? false : true; //未归组人员容器
             departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             departmentTreeview1.Init();
@@ -95,6 +103,8 @@ namespace Ralid.Attendance.UI
             FreshUnGroupedStaff();
 
             mnu_Add.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
+            mnu_Resign.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
+            mnu_CancelResign.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
             mnu_Remove.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
         }
 
@@ -205,6 +215,46 @@ namespace Ralid.Attendance.UI
                                 row.Selected = false;
                             }
                             grid.Rows[e.RowIndex].Selected = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void mnu_Resign_Click(object sender, EventArgs e)
+        {
+            if (GridView.SelectedRows != null && GridView.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in GridView.SelectedRows)
+                {
+                    Staff staff = row.Tag as Staff;
+                    if (!staff.Resigned)
+                    {
+                        staff.Resigned = true;
+                        CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).Update(staff);
+                        if (ret.Result == ResultCode.Successful)
+                        {
+                            ShowStaffOnGridViewRow(row, staff);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void mnu_CancelResign_Click(object sender, EventArgs e)
+        {
+            if (GridView.SelectedRows != null && GridView.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in GridView.SelectedRows)
+                {
+                    Staff staff = row.Tag as Staff;
+                    if (staff.Resigned)
+                    {
+                        staff.Resigned = false;
+                        CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).Update(staff);
+                        if (ret.Result == ResultCode.Successful)
+                        {
+                            ShowStaffOnGridViewRow(row, staff);
                         }
                     }
                 }

@@ -100,6 +100,21 @@ namespace Ralid.Attendance.BLL
             return ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri).Delete(info);
         }
 
+        public CommandResult Delete(List<ShiftArrange> items)
+        {
+            IShiftArrangeProvider provider = ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri);
+            IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);
+            if (items != null && items.Count > 0)
+            {
+                foreach (ShiftArrange item in items)
+                {
+                    provider.Delete(item, unitWork);
+                }
+                return unitWork.Commit();
+            }
+            return new CommandResult(ResultCode.NoRecord, "没有记录");
+        }
+
         public CommandResult ClearShiftArrange(int userID, DateTime dt)
         {
             IShiftArrangeProvider provider = ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri);

@@ -34,6 +34,7 @@
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" />
       <Column Name="ACSDepartmentID" Member="ACSDepartmentID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="DepartmentID" Member="DepartmentID"  DbType="nvarchar(50)" UpdateCheck="Never"/>
+      <Column Name="Resigned" Member="Resigned" DbType="bit not null" UpdateCheck="Never"/>
       <Column Name="UserPosition" Member="UserPosition"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(50)" UpdateCheck="Never"/>
     </Type>
@@ -51,6 +52,11 @@
     <Type Name="Ralid.Attendance.DAL.LinqDataProvider.T_StaffDepartmentPair">
       <Column Name="UserID" Member="StaffID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
       <Column Name="DepartmentID" Member="DepartmentID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+    </Type>
+  </Table>
+  <Table Name="dbo.TAResignStaff" Member="Ralid.Attendance.DAL.LinqDataProvider.T_ResignStaff">
+    <Type Name="Ralid.Attendance.DAL.LinqDataProvider.T_ResignStaff">
+      <Column Name="StaffID" Member="StaffID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
     </Type>
   </Table>
   <Table Name="dbo.TAOptions" Member="Ralid.Attendance.Model.Sysparameter">
@@ -156,7 +162,7 @@
   </Table>
   <Table Name="dbo.View_TAAttendanceLog" Member="Ralid.Attendance.Model.AttendanceLog">
     <Type Name="Ralid.Attendance.Model.AttendanceLog">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ID" Member="ID"  DbType="bigint NOT NULL" IsPrimaryKey="true"/>
       <Column Name="StaffID" Member="StaffID"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
       <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null" UpdateCheck="Never"/>

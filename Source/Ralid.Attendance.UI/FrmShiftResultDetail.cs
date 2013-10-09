@@ -45,6 +45,7 @@ namespace Ralid.Attendance.UI
 
             this.departmentTreeview1.LoadUser = true;
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
+            this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.Init();
         }
 

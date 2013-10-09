@@ -97,6 +97,7 @@
     <Compile Include="LinqDataProvider\SysparameterProvider.cs" />
     <Compile Include="LinqDataProvider\TripTypeProvider.cs" />
     <Compile Include="LinqDataProvider\T_OperatorDept.cs" />
+    <Compile Include="LinqDataProvider\T_ResignStaff.cs" />
     <Compile Include="LinqDataProvider\T_ShiftArrange.cs" />
     <Compile Include="LinqDataProvider\T_ShiftArrangeTemplate.cs" />
     <Compile Include="LinqDataProvider\T_StaffDepartmentPair.cs" />

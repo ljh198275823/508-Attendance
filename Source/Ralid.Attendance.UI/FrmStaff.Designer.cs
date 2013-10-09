@@ -31,17 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.plnLeft = new System.Windows.Forms.Panel();
-            this.departmentTreeview1 = new Ralid.Attendance.UI.DepartmentTreeview(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_Remove = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUserPosition1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMemo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -49,12 +44,21 @@
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.GridView = new System.Windows.Forms.DataGridView();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mnu_Resign = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_CancelResign = new System.Windows.Forms.ToolStripMenuItem();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUserPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colResigned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.colID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUserPosition1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colResigned1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMemo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentTreeview1 = new Ralid.Attendance.UI.DepartmentTreeview(this.components);
             this.plnLeft.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -86,17 +90,6 @@
             this.plnLeft.Size = new System.Drawing.Size(324, 400);
             this.plnLeft.TabIndex = 4;
             // 
-            // departmentTreeview1
-            // 
-            this.departmentTreeview1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.departmentTreeview1.LoadUser = false;
-            this.departmentTreeview1.Location = new System.Drawing.Point(0, 34);
-            this.departmentTreeview1.Name = "departmentTreeview1";
-            this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
-            this.departmentTreeview1.Size = new System.Drawing.Size(324, 366);
-            this.departmentTreeview1.TabIndex = 3;
-            this.departmentTreeview1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.departmentTreeview1_NodeMouseClick);
-            // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -109,9 +102,11 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnu_Remove});
+            this.mnu_Remove,
+            this.mnu_Resign,
+            this.mnu_CancelResign});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 92);
             // 
             // mnu_Remove
             // 
@@ -153,6 +148,7 @@
             this.colID1,
             this.colName1,
             this.colUserPosition1,
+            this.colResigned1,
             this.colMemo1});
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -164,35 +160,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(584, 121);
             this.dataGridView1.TabIndex = 32;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridView_CellMouseDown);
-            // 
-            // colID1
-            // 
-            this.colID1.HeaderText = "编号";
-            this.colID1.Name = "colID1";
-            this.colID1.ReadOnly = true;
-            // 
-            // colName1
-            // 
-            this.colName1.HeaderText = "姓名";
-            this.colName1.MinimumWidth = 100;
-            this.colName1.Name = "colName1";
-            this.colName1.ReadOnly = true;
-            this.colName1.Width = 150;
-            // 
-            // colUserPosition1
-            // 
-            this.colUserPosition1.HeaderText = "职位";
-            this.colUserPosition1.MinimumWidth = 100;
-            this.colUserPosition1.Name = "colUserPosition1";
-            this.colUserPosition1.ReadOnly = true;
-            // 
-            // colMemo1
-            // 
-            this.colMemo1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMemo1.HeaderText = "备注";
-            this.colMemo1.Name = "colMemo1";
-            this.colMemo1.ReadOnly = true;
-            this.colMemo1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // contextMenuStrip2
             // 
@@ -256,7 +223,9 @@
             this.colID,
             this.colName,
             this.colUserPosition,
+            this.colResigned,
             this.colMemo});
+            this.GridView.ContextMenuStrip = this.contextMenuStrip1;
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(0, 0);
             this.GridView.Name = "GridView";
@@ -266,6 +235,38 @@
             this.GridView.Size = new System.Drawing.Size(596, 181);
             this.GridView.TabIndex = 27;
             this.GridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridView_CellMouseDown);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 181);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(596, 22);
+            this.statusStrip1.TabIndex = 25;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(581, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Text = "总共 0 项";
+            // 
+            // mnu_Resign
+            // 
+            this.mnu_Resign.Name = "mnu_Resign";
+            this.mnu_Resign.Size = new System.Drawing.Size(160, 22);
+            this.mnu_Resign.Text = "离职";
+            this.mnu_Resign.Click += new System.EventHandler(this.mnu_Resign_Click);
+            // 
+            // mnu_CancelResign
+            // 
+            this.mnu_CancelResign.Name = "mnu_CancelResign";
+            this.mnu_CancelResign.Size = new System.Drawing.Size(160, 22);
+            this.mnu_CancelResign.Text = "取消离职";
+            this.mnu_CancelResign.Click += new System.EventHandler(this.mnu_CancelResign_Click);
             // 
             // colID
             // 
@@ -288,6 +289,12 @@
             this.colUserPosition.Name = "colUserPosition";
             this.colUserPosition.ReadOnly = true;
             // 
+            // colResigned
+            // 
+            this.colResigned.HeaderText = "状态";
+            this.colResigned.Name = "colResigned";
+            this.colResigned.ReadOnly = true;
+            // 
             // colMemo
             // 
             this.colMemo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -296,23 +303,51 @@
             this.colMemo.ReadOnly = true;
             this.colMemo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // statusStrip1
+            // colID1
             // 
-            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 181);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(596, 22);
-            this.statusStrip1.TabIndex = 25;
-            this.statusStrip1.Text = "statusStrip1";
+            this.colID1.HeaderText = "编号";
+            this.colID1.Name = "colID1";
+            this.colID1.ReadOnly = true;
             // 
-            // toolStripStatusLabel1
+            // colName1
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(581, 17);
-            this.toolStripStatusLabel1.Spring = true;
-            this.toolStripStatusLabel1.Text = "总共 0 项";
+            this.colName1.HeaderText = "姓名";
+            this.colName1.MinimumWidth = 100;
+            this.colName1.Name = "colName1";
+            this.colName1.ReadOnly = true;
+            this.colName1.Width = 150;
+            // 
+            // colUserPosition1
+            // 
+            this.colUserPosition1.HeaderText = "职位";
+            this.colUserPosition1.MinimumWidth = 100;
+            this.colUserPosition1.Name = "colUserPosition1";
+            this.colUserPosition1.ReadOnly = true;
+            // 
+            // colResigned1
+            // 
+            this.colResigned1.HeaderText = "状态";
+            this.colResigned1.Name = "colResigned1";
+            this.colResigned1.ReadOnly = true;
+            // 
+            // colMemo1
+            // 
+            this.colMemo1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMemo1.HeaderText = "备注";
+            this.colMemo1.Name = "colMemo1";
+            this.colMemo1.ReadOnly = true;
+            this.colMemo1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // departmentTreeview1
+            // 
+            this.departmentTreeview1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.departmentTreeview1.LoadUser = false;
+            this.departmentTreeview1.Location = new System.Drawing.Point(0, 34);
+            this.departmentTreeview1.Name = "departmentTreeview1";
+            this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
+            this.departmentTreeview1.Size = new System.Drawing.Size(324, 366);
+            this.departmentTreeview1.TabIndex = 3;
+            this.departmentTreeview1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.departmentTreeview1_NodeMouseClick);
             // 
             // FrmStaff
             // 
@@ -359,18 +394,22 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem mnu_Add;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUserPosition1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMemo1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView GridView;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Resign;
+        private System.Windows.Forms.ToolStripMenuItem mnu_CancelResign;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUserPosition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colResigned;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUserPosition1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colResigned1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMemo1;
     }
 }

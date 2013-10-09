@@ -51,21 +51,38 @@ namespace Ralid.Attendance.DAL.LinqDataProvider
 
         protected override void UpdatingItem(Staff newVal, Staff original, AttendanceDataContext attendance)
         {
-            T_StaffDepartmentPair pair = attendance.GetTable<T_StaffDepartmentPair>().SingleOrDefault(item => item.StaffID == newVal.ID);
-            if (string.IsNullOrEmpty(newVal.DepartmentID)) //如果当前人员部门为空，则删除
+            if (newVal.DepartmentID != original.DepartmentID)
             {
-                if (pair != null) attendance.GetTable<T_StaffDepartmentPair>().DeleteOnSubmit(pair);
-            }
-            else
-            {
-                if (pair == null)
+                T_StaffDepartmentPair pair = attendance.GetTable<T_StaffDepartmentPair>().SingleOrDefault(item => item.StaffID == newVal.ID);
+                if (string.IsNullOrEmpty(newVal.DepartmentID)) //如果当前人员部门为空，则删除
                 {
-                    pair = new T_StaffDepartmentPair() { StaffID = newVal.ID, DepartmentID = newVal.DepartmentID };
-                    attendance.GetTable<T_StaffDepartmentPair>().InsertOnSubmit(pair);
+                    if (pair != null) attendance.GetTable<T_StaffDepartmentPair>().DeleteOnSubmit(pair);
                 }
                 else
                 {
-                    pair.DepartmentID = newVal.DepartmentID;
+                    if (pair == null)
+                    {
+                        pair = new T_StaffDepartmentPair() { StaffID = newVal.ID, DepartmentID = newVal.DepartmentID };
+                        attendance.GetTable<T_StaffDepartmentPair>().InsertOnSubmit(pair);
+                    }
+                    else
+                    {
+                        pair.DepartmentID = newVal.DepartmentID;
+                    }
+                }
+            }
+            if (newVal.Resigned != original.Resigned)
+            {
+                if (newVal.Resigned)
+                {
+                    T_ResignStaff rs = new T_ResignStaff() { StaffID = newVal.ID };
+                    attendance.GetTable<T_ResignStaff>().InsertOnSubmit(rs);
+                }
+                else
+                {
+                    T_ResignStaff rs = new T_ResignStaff() { StaffID = newVal.ID };
+                    attendance.GetTable<T_ResignStaff>().Attach(rs);
+                    attendance.GetTable<T_ResignStaff>().DeleteOnSubmit(rs);
                 }
             }
         }

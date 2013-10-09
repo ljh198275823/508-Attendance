@@ -13,7 +13,7 @@ namespace Ralid.Attendance.Model
         }
         #endregion
 
-        #region
+        #region 公共属性
         /// <summary>
         /// 获取或设置ID
         /// </summary>
@@ -30,6 +30,10 @@ namespace Ralid.Attendance.Model
         /// 获取或设置人员在考勤系统中的部门ID
         /// </summary>
         public string DepartmentID { get; set; }
+        /// <summary>
+        /// 获取或设置员工是否已经离职
+        /// </summary>
+        public bool Resigned { get; set; }
         /// <summary>
         /// 获取或设置人员职位
         /// </summary>
