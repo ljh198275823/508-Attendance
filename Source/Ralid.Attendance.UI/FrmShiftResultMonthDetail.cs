@@ -13,9 +13,9 @@ using Ralid.Attendance.BLL;
 
 namespace Ralid.Attendance.UI
 {
-    public partial class FrmShiftResultStatistics2 : Form
+    public partial class FrmShiftResultMonthDetail : Form
     {
-        public FrmShiftResultStatistics2()
+        public FrmShiftResultMonthDetail()
         {
             InitializeComponent();
         }
@@ -72,7 +72,7 @@ namespace Ralid.Attendance.UI
                 List<AttendanceResult> shifts = arranges.Where(item => item.ShiftDate == dt).ToList();
                 row.Cells[col.Index].Value = GetShiftString(shifts);
                 row.Cells[col.Index].Tag = shifts;
-                row.Cells[col.Index].Style.ForeColor = shifts.Exists(it => it.Result != AttendanceResultCode.OK) ? Color.Red : Color.Black;
+                row.Cells[col.Index].Style.ForeColor = shifts.Exists(it => it.Result != AttendanceResultCode.OK) ? Color.Red : Color.Blue;
             }
         }
 

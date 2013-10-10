@@ -22,6 +22,10 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public int ID { get; set; }
         /// <summary>
+        /// 考勤结果的ID
+        /// </summary>
+        public Guid ResultID { get; set; }
+        /// <summary>
         /// 获取或设置缺勤类别
         /// </summary>
         public string Category { get; set; }
@@ -29,10 +33,6 @@ namespace Ralid.Attendance.Model
         /// 获取或设置缺勤时间
         /// </summary>
         public decimal Duration { get; set; }
-        /// <summary>
-        /// 获取或设置缺勤时间的单位
-        /// </summary>
-        public string DurationUnit { get; set; }
         #endregion
     }
 }

@@ -51,6 +51,7 @@ namespace Ralid.Attendance.BLL
             {
                 foreach (AttendanceResult item in arranges)
                 {
+                    if (item.AbsentItems != null && item.AbsentItems.Count > 0) item.AbsentItems.ForEach(it => it.ResultID = item.ID);
                     provider.Insert(item, unitWork);
                 }
             }

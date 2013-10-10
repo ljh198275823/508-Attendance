@@ -20,15 +20,25 @@ namespace Ralid.Attendance.UI
             InitializeComponent();
         }
 
+        #region 私有变量
+        private List<DataGridViewColumn> _OTCols = new List<DataGridViewColumn>();
+        private List<DataGridViewColumn> _VacationCols = new List<DataGridViewColumn>();
+        private List<DataGridViewColumn> _TripCols = new List<DataGridViewColumn>();
+        #endregion
+
         #region 私有方法
         private void InitGridViewColumns()
         {
+            _OTCols.Clear();
+            _TripCols.Clear();
+            _VacationCols.Clear();
             List<OTType> ots = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
             if (ots != null && ots.Count > 0)
             {
                 foreach (OTType ot in ots)
                 {
-                    AddAColumn(ot.Name);
+                    DataGridViewColumn col = AddAColumn(ot.ID, ot.Name, "O");
+                    _OTCols.Add(col);
                 }
             }
             List<VacationType> vts = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
@@ -36,30 +46,33 @@ namespace Ralid.Attendance.UI
             {
                 foreach (VacationType vt in vts)
                 {
-                    AddAColumn(vt.Name);
+                    DataGridViewColumn col = AddAColumn(vt.ID, vt.Name, "V");
+                    _VacationCols.Add(col);
                 }
             }
             List<TripType> tts = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
             if (tts != null && tts.Count > 0)
             {
-                foreach (TripType vt in tts)
+                foreach (TripType tt in tts)
                 {
-                    AddAColumn(vt.Name);
+                    DataGridViewColumn col = AddAColumn(tt.ID, tt.Name, "T");
+                    _TripCols.Add(col);
                 }
             }
         }
 
-        private void AddAColumn(string name)
+        private DataGridViewColumn AddAColumn(string id, string name, string type)
         {
             DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
-            col.Tag = name;
-            col.Name = name;
-            col.Width = 80;
+            col.Name = string.Format("col{0}_{1}", id, type);
+            col.Tag = id;
+            col.MinimumWidth = 60;
             col.ReadOnly = true;
             col.SortMode = DataGridViewColumnSortMode.NotSortable;
-            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
+            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             col.HeaderText = name;
             GridView.Columns.Add(col);
+            return col;
         }
         #endregion
 
@@ -114,6 +127,35 @@ namespace Ralid.Attendance.UI
             int leaveEarlyCount = group.Count(sar => sar.Result == AttendanceResultCode.LeaveEarly || sar.Result == AttendanceResultCode.LateEarly);
             row.Cells["colBelateCount"].Value = lateCount > 0 ? lateCount.ToString() : string.Empty;
             row.Cells["colLeaveEarlyCount"].Value = leaveEarlyCount > 0 ? leaveEarlyCount.ToString() : string.Empty;
+
+            foreach (DataGridViewColumn col in _OTCols)
+            {
+                decimal sum = group.Where(sar => sar.Category == col.Name).Sum(sar => sar.Present); //加班
+                row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
+            }
+            foreach (DataGridViewColumn col in _VacationCols)
+            {
+                decimal sum = SumOfAbsent(group, col.Tag.ToString());
+                row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
+            }
+            foreach (DataGridViewColumn col in _TripCols)
+            {
+                decimal sum = SumOfAbsent(group, col.Tag.ToString());
+                row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
+            }
+        }
+
+        private decimal SumOfAbsent(IGrouping<int, AttendanceResult> group, string id)
+        {
+            List<AbsentItem> items = new List<AbsentItem>();
+            foreach (AttendanceResult sar in group)
+            {
+                if (sar.AbsentItems != null && sar.AbsentItems.Count > 0)
+                {
+                    items.AddRange(sar.AbsentItems.Where(it => it.Category == id));
+                }
+            }
+            return items.Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Duration, true).Value);
         }
 
         protected override bool DeletingItem(object item)

@@ -293,11 +293,11 @@
     <Compile Include="FrmShiftResultDetail.Designer.cs">
       <DependentUpon>FrmShiftResultDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmShiftResultStatistics2.cs">
+    <Compile Include="FrmShiftResultMonthDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmShiftResultStatistics2.Designer.cs">
-      <DependentUpon>FrmShiftResultStatistics2.cs</DependentUpon>
+    <Compile Include="FrmShiftResultMonthDetail.Designer.cs">
+      <DependentUpon>FrmShiftResultMonthDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShiftResultStatistics.cs">
       <SubType>Form</SubType>
@@ -536,8 +536,8 @@
     <EmbeddedResource Include="FrmShiftMaster.resx">
       <DependentUpon>FrmShiftMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmShiftResultStatistics2.resx">
-      <DependentUpon>FrmShiftResultStatistics2.cs</DependentUpon>
+    <EmbeddedResource Include="FrmShiftResultMonthDetail.resx">
+      <DependentUpon>FrmShiftResultMonthDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShiftResultDetail.resx">
       <DependentUpon>FrmShiftResultDetail.cs</DependentUpon>

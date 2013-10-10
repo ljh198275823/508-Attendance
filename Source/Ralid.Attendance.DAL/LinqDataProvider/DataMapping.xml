@@ -185,7 +185,7 @@
 </Table>
   <Table Name="dbo.TAAttendanceResult" Member="Ralid.Attendance.Model.AttendanceResult">
     <Type Name="Ralid.Attendance.Model.AttendanceResult">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="StaffID" Member="StaffID"  DbType="int NOT NULL" UpdateCheck="Never"/>
       <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
       <Column Name="ShiftDate" Member="ShiftDate"  DbType="datetime not null" UpdateCheck="Never"/>
@@ -209,6 +209,15 @@
       <Column Name="ModifiedTime" Member="ModifiedTime"  DbType="datetime null" UpdateCheck="Never"/>
       <Column Name="Approval" Member="Approval"  DbType="nvarchar(50) null"  UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) not null"  UpdateCheck="Never"/>
+      <Association Name="FK_Absent_Item" Member="AbsentItems"  ThisKey="ID" OtherKey="ResultID"/>
+    </Type>
+  </Table>
+  <Table Name="dbo.TAAbsentItem" Member="Ralid.Attendance.Model.AbsentItem">
+    <Type Name="Ralid.Attendance.Model.AbsentItem">
+      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ResultID" Member="ResultID"  DbType="uniqueidentifier NOT NULL" UpdateCheck="Never"/>
+      <Column Name="Category" Member="Category"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
+      <Column Name="Duration" Member="Duration"  DbType="decimal(10,2) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAOperator" Member="Ralid.Attendance.Model.Operator">

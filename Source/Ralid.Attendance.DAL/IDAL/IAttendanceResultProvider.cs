@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ralid.Attendance.DAL.IDAL
 {
-    public interface IAttendanceResultProvider : IProvider<Ralid.Attendance.Model.AttendanceResult, int>
+    public interface IAttendanceResultProvider : IProvider<Ralid.Attendance.Model.AttendanceResult, Guid>
     {
     }
 }

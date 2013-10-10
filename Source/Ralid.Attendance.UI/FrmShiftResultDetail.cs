@@ -34,6 +34,23 @@ namespace Ralid.Attendance.UI
             }
             return ret;
         }
+
+
+        private string AbsentItemsDescr(AttendanceResult sar)
+        {
+            if (sar.AbsentItems != null && sar.AbsentItems.Count > 0)
+            {
+                string temp = string.Empty;
+                for (int i = 0; i < sar.AbsentItems.Count; i++)
+                {
+                    if (i > 0) temp += ",";
+                    AttendanceDuration dur = AttendanceRules.Current.GetDuarationFrom(sar.AbsentItems[i].Duration, true);
+                    temp += string.Format("{0} {1} {2}", sar.AbsentItems[i].Category, dur.Value, dur.Unit);
+                }
+                return temp;
+            }
+            return null;
+        }
         #endregion
 
         #region 重写基类方法
@@ -80,12 +97,15 @@ namespace Ralid.Attendance.UI
             row.Cells["colShiftDate"].Value = sar.ShiftDate.ToString("yyyy-MM-dd");
             row.Cells["colShiftOnDuty"].Value = sar.StartTime.ToString("HH:mm:ss");
             row.Cells["colShiftOffDuty"].Value = sar.EndTime.ToString("HH:mm:ss");
-            row.Cells["colOnduty"].Value = sar.OnDutyTime == null ? "--" : sar.OnDutyTime.Value.ToString("HH:mm:ss");
-            row.Cells["colOffDuty"].Value = sar.OffDutyTime == null ? "--" : sar.OffDutyTime.Value.ToString("HH:mm:ss");
+            row.Cells["colOnduty"].Value = sar.OnDutyTime == null ? string.Empty : sar.OnDutyTime.Value.ToString("HH:mm:ss");
+            row.Cells["colOnduty"].Style.ForeColor = (sar.Result == AttendanceResultCode.Late || sar.Result == AttendanceResultCode.LateEarly) ? Color.Red : Color.Black;
+            row.Cells["colOffDuty"].Value = sar.OffDutyTime == null ? string.Empty : sar.OffDutyTime.Value.ToString("HH:mm:ss");
+            row.Cells["colOffDuty"].Style.ForeColor = (sar.Result == AttendanceResultCode.LeaveEarly || sar.Result == AttendanceResultCode.LateEarly) ? Color.Red : Color.Black;
             row.Cells["colShiftTime"].Value = AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value;
             row.Cells["colPresent"].Value = AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value;
             row.Cells["colResult"].Value = sar.ResultDescr;
-            row.Cells["colMemo"].Value = sar.Memo;
+            row.Cells["colResult"].Style.ForeColor = sar.Result == AttendanceResultCode.OK ? Color.Blue : Color.Red;
+            row.Cells["colMemo"].Value = AbsentItemsDescr(sar);
         }
 
         protected override bool DeletingItem(object item)

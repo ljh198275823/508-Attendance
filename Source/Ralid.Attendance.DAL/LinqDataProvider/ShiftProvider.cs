@@ -61,6 +61,20 @@ namespace Ralid.Attendance.DAL.LinqDataProvider
                 }
             }
         }
+
+        protected override void DeletingItem(Shift info, AttendanceDataContext attendance)
+        {
+            attendance.GetTable<Shift>().Attach(info);
+            attendance.GetTable<Shift>().DeleteOnSubmit(info);
+            if (info.Items != null && info.Items.Count > 0)
+            {
+                foreach (ShiftItem si in info.Items)
+                {
+                    attendance.GetTable<ShiftItem>().Attach(si);
+                    attendance.GetTable<ShiftItem>().DeleteOnSubmit(si);
+                }
+            }
+        }
         #endregion
     }
 }

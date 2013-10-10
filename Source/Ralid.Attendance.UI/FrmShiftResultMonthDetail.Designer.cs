@@ -1,6 +1,6 @@
 ﻿namespace Ralid.Attendance.UI
 {
-    partial class FrmShiftResultStatistics2
+    partial class FrmShiftResultMonthDetail
     {
         /// <summary>
         /// Required designer variable.

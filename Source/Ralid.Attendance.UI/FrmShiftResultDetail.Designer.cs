@@ -304,7 +304,7 @@
             // 
             // colResult
             // 
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.colResult.DefaultCellStyle = dataGridViewCellStyle1;
             this.colResult.HeaderText = "考勤结果";
             this.colResult.Name = "colResult";

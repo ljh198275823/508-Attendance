@@ -254,7 +254,7 @@ namespace Ralid.Attendance.UI
 
         private void mnu_ShiftResultStatistics2_Click(object sender, EventArgs e)
         {
-            ShowSingleForm(typeof(FrmShiftResultStatistics2));
+            ShowSingleForm(typeof(FrmShiftResultMonthDetail));
         }
 
         private void mnu_Logout_Click(object sender, EventArgs e)

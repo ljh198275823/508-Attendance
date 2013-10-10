@@ -20,7 +20,7 @@ namespace Ralid.Attendance.Model
         /// <summary>
         /// 获取或设置ID
         /// </summary>
-        public int ID { get; set; }
+        public Guid  ID { get; set; }
         /// <summary>
         /// 获取或设置人员ID
         /// </summary>
@@ -48,11 +48,11 @@ namespace Ralid.Attendance.Model
         /// <summary>
         /// 获取或设置班次时段的上班时间
         /// </summary>
-        public DateTime ShiftStartTime { get; set; }
+        public DateTime StartTime { get; set; }
         /// <summary>
         /// 获取或设置班次时段的下班时间
         /// </summary>
-        public DateTime ShiftEndTime { get; set; }
+        public DateTime EndTime { get; set; }
         /// <summary>
         /// 获取或设置天文班次时段的上班时间
         /// </summary>
@@ -60,11 +60,11 @@ namespace Ralid.Attendance.Model
         /// <summary>
         /// 获取或设置需要签到的时间
         /// </summary>
-        public DateTime StartTime { get; set; }
+        public DateTime NewStartTime { get; set; }
         /// <summary>
         /// 获取或设置需要签退的时间
         /// </summary>
-        public DateTime EndTime { get; set; }
+        public DateTime NewEndTime { get; set; }
         /// <summary>
         /// 获取或设置最早的上班打卡有效时间
         /// </summary>
@@ -173,66 +173,31 @@ namespace Ralid.Attendance.Model
                 return AttendanceResultDescription.GetDescription(Result);
             }
         }
-
-        public string AbsentItemsDescr
-        {
-            get
-            {
-                if (this.AbsentItems != null && this.AbsentItems.Count > 0)
-                {
-                    string temp = string.Empty;
-                    for (int i = 0; i < this.AbsentItems.Count; i++)
-                    {
-                        if (i > 0) temp += ",";
-                        temp += string.Format("{0} {1} {2}", AbsentItems[i].Category, AbsentItems[i].Duration, AbsentItems[i].DurationUnit);
-                    }
-                    return temp;
-                }
-                return null;
-            }
-        }
         #endregion
 
-        #region 公共方法
-        public AttendanceResult Clone()
-        {
-            return this.MemberwiseClone() as AttendanceResult;
-        }
-
-        public void CreateResult()
-        {
-            if (this.ShiftID != null) //固定班次结果的计算
-            {
-                if (this.LogWhenArrive && this.OnDutyTime == null) this.Present = 0;
-                if (this.LogWhenLeave && this.OffDutyTime == null) this.Present = 0;
-                if (this.LogWhenArrive && this.EnableLate) CalLate(); ////计算迟到时间
-                if (this.LogWhenLeave && this.EnableLeaveEarly) CalLeaveEarly(); //计算早退时间
-                CalResult();
-            }
-            else //加班结果的计算
-            {
-            }
-        }
-
+        #region 私有方法
         private void CalLate()
         {
-            if (this.OnDutyTime != null && this.StartTime != null && this.OnDutyTime.Value > this.StartTime)
+            if (this.OnDutyTime != null && this.NewStartTime != null && this.OnDutyTime.Value > this.NewStartTime)
             {
-                TimeSpan ts = new TimeSpan(this.OnDutyTime.Value.Ticks - this.StartTime.Ticks);
+                TimeSpan ts = new TimeSpan(this.OnDutyTime.Value.Ticks - this.NewStartTime.Ticks);
                 int min = (int)Math.Floor(ts.TotalMinutes);
                 this.Belate = min > this.AllowLateTime ? min : 0; //大于允许迟到时间才算迟到
                 if (this.Belate > 0 && AttendanceRules.Current != null)
                 {
                     if (AttendanceRules.Current.MinLate != null && AttendanceRules.Current.MinLateAsAbsentMinute > 0 && AttendanceRules.Current.MinLate >= this.Belate)
                     {
-                        AbsentItem ai = new AbsentItem()
+                        if (Present > 0)
                         {
-                            Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.Late),
-                            Duration = Present > AttendanceRules.Current.MinLateAsAbsentMinute ? AttendanceRules.Current.MinLateAsAbsentMinute : Present,
-                        };
-                        this.AbsentItems.Add(ai);
-                        Present -= AttendanceRules.Current.MinLateAsAbsentMinute;
-                        if (Present < 0) Present = 0;
+                            AbsentItem ai = new AbsentItem()
+                            {
+                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.Late),
+                                Duration = Present > AttendanceRules.Current.MinLateAsAbsentMinute ? AttendanceRules.Current.MinLateAsAbsentMinute : Present,
+                            };
+                            this.AbsentItems.Add(ai);
+                            Present -= AttendanceRules.Current.MinLateAsAbsentMinute;
+                            if (Present < 0) Present = 0;
+                        }
                     }
                     if (AttendanceRules.Current.LateAsAbsent != null && this.Belate > AttendanceRules.Current.LateAsAbsent)
                     {
@@ -253,23 +218,26 @@ namespace Ralid.Attendance.Model
 
         private void CalLeaveEarly()
         {
-            if (this.OffDutyTime != null && this.EndTime != null && this.OffDutyTime.Value < this.EndTime)
+            if (this.OffDutyTime != null && this.NewEndTime != null && this.OffDutyTime.Value < this.NewEndTime)
             {
-                TimeSpan ts = new TimeSpan(this.EndTime.Ticks - this.OffDutyTime.Value.Ticks);
+                TimeSpan ts = new TimeSpan(this.NewEndTime.Ticks - this.OffDutyTime.Value.Ticks);
                 int min = (int)Math.Floor(ts.TotalMinutes);
                 this.LeaveEarly = min > this.AllowLeaveEarlyTime ? min : 0; //大于允许早退时间才算早退
                 if (this.LeaveEarly > 0 && AttendanceRules.Current != null)
                 {
                     if (AttendanceRules.Current.MinLeaveEarly != null && AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute > 0 && AttendanceRules.Current.MinLeaveEarly >= this.LeaveEarly)
                     {
-                        AbsentItem ai = new AbsentItem()
+                        if (Present > 0)
                         {
-                            Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.LeaveEarly),
-                            Duration = Present > AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute ? AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute : Present,
-                        };
-                        this.AbsentItems.Add(ai);
-                        Present -= AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute;
-                        if (Present < 0) Present = 0;
+                            AbsentItem ai = new AbsentItem()
+                            {
+                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.LeaveEarly),
+                                Duration = Present > AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute ? AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute : Present,
+                            };
+                            this.AbsentItems.Add(ai);
+                            Present -= AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute;
+                            if (Present < 0) Present = 0;
+                        }
                     }
                     if (AttendanceRules.Current.LeaveEarlyAsAbsent != null && this.LeaveEarly > AttendanceRules.Current.LeaveEarlyAsAbsent)
                     {
@@ -309,6 +277,38 @@ namespace Ralid.Attendance.Model
             else
             {
                 Result = AttendanceResultCode.OK;
+            }
+        }
+        #endregion
+
+        #region 公共方法
+        public AttendanceResult Clone()
+        {
+            return this.MemberwiseClone() as AttendanceResult;
+        }
+
+        public void CreateResult()
+        {
+            if (this.ShiftID != null) //固定班次结果的计算
+            {
+                if (this.LogWhenArrive && this.OnDutyTime == null) this.Present = 0;
+                if (this.LogWhenLeave && this.OffDutyTime == null) this.Present = 0;
+                if (this.LogWhenArrive && this.EnableLate) CalLate(); ////计算迟到时间
+                if (this.LogWhenLeave && this.EnableLeaveEarly) CalLeaveEarly(); //计算早退时间
+                CalResult();
+            }
+            else //加班结果的计算
+            {
+                DateTime? dt1 = LogWhenArrive ? this.OnDutyTime : this.NewStartTime;
+                DateTime? dt2 = LogWhenLeave ? this.OffDutyTime : this.NewEndTime;
+                if (dt1.Value != null && dt2.Value != null)
+                {
+                    this.Present = (new DatetimeRange(dt1.Value, dt2.Value)).TotalMinutes;
+                }
+                else
+                {
+                    this.Present = 0;
+                }
             }
         }
         #endregion

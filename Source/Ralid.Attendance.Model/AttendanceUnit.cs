@@ -31,7 +31,7 @@ namespace Ralid.Attendance.Model
             switch (unit)
             {
                 case AttendanceUnit.Hour:
-                    return "时";
+                    return "小时";
                 case AttendanceUnit.Minute:
                     return "分";
                 case AttendanceUnit.WorkDay:

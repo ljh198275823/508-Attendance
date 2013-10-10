@@ -165,7 +165,7 @@ namespace Ralid.Attendance.Model
             {
                 decimal value = temp / this.MinAttendanceTime;
                 int count = (int)Math.Floor(value);
-                if (value > count * MinAttendanceTime && isCeiling)
+                if (value > count && isCeiling)
                 {
                     count++;
                 }

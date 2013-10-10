@@ -52,7 +52,7 @@ namespace Ralid.Attendance.Model
             List<AttendanceResult> items = new List<AttendanceResult>();
             if (!range.Contain(sheet.StartDate) && !range.Contain(sheet.EndDate)) return;
             DateTime dt = sheet.StartDate;
-            while (range.Contain(dt))
+            while (dt<=sheet.EndDate && range.Contain(dt))
             {
                 DateTime dt1 = dt.AddHours(sheet.StartTime.Hour).AddMinutes(sheet.StartTime.Minute).AddSeconds(sheet.StartTime.Second);
                 DateTime dt2 = dt.AddHours(sheet.EndTime.Hour).AddMinutes(sheet.EndTime.Minute).AddSeconds(sheet.EndTime.Second);
@@ -62,7 +62,7 @@ namespace Ralid.Attendance.Model
                 {
                     foreach (AttendanceResult item in sts)
                     {
-                        DatetimeRange drItem = new DatetimeRange(item.StartTime, item.EndTime);
+                        DatetimeRange drItem = new DatetimeRange(item.NewStartTime, item.NewEndTime);
                         if (dr.Contain(drItem))
                         {
                             if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
@@ -85,6 +85,8 @@ namespace Ralid.Attendance.Model
                             {
                                 item.Present -= dr.TotalMinutes;
                             }
+                            if (drItem.Begin == dr.Begin) item.NewStartTime = dr.End;
+                            if (drItem.End == dr.End) item.NewEndTime = dr.Begin;
                             AbsentItem ai = new AbsentItem()
                             {
                                 Category = sheet.CategoryID,
@@ -99,7 +101,7 @@ namespace Ralid.Attendance.Model
                             {
                                 item.Present -= drTemp.TotalMinutes;
                             }
-                            item.EndTime = dr.Begin;
+                            item.NewEndTime = dr.Begin;
                             AbsentItem ai = new AbsentItem()
                             {
                                 Category = sheet.CategoryID,
@@ -114,7 +116,7 @@ namespace Ralid.Attendance.Model
                             {
                                 item.Present -= drTemp.TotalMinutes;
                             }
-                            item.StartTime = dr.End;
+                            item.NewStartTime = dr.End;
                             AbsentItem ai = new AbsentItem()
                             {
                                 Category = sheet.CategoryID,
@@ -134,7 +136,7 @@ namespace Ralid.Attendance.Model
             List<AttendanceResult> items = new List<AttendanceResult>();
             if (!range.Contain(sheet.StartDate) && !range.Contain(sheet.EndDate)) return;
             DateTime dt = sheet.StartDate;
-            while (range.Contain(dt))
+            while (dt <= sheet.EndDate && range.Contain(dt))
             {
                 AttendanceResult st = CreateAttendanceResult(staff, dt, sheet);
                 DateTime dt1 = dt.AddHours(sheet.StartTime.Hour).AddMinutes(sheet.StartTime.Minute).AddSeconds(sheet.StartTime.Second);
@@ -145,22 +147,22 @@ namespace Ralid.Attendance.Model
                 {
                     foreach (AttendanceResult item in sts)
                     {
-                        DatetimeRange drItem = new DatetimeRange(item.StartTime, item.EndTime);
+                        DatetimeRange drItem = new DatetimeRange(item.NewStartTime, item.NewEndTime);
                         if (!drItem.Contain(dr)) //检查是否有全部重合的情况，如果与上班时间全部重合，则加班无效。
                         {
                             if (drItem.Contain(dr.Begin)) //如果加班的开始时间与普通上班时间有重叠，加班时间要截取掉重合部分，并且普通上班下班不用再打卡。
                             {
                                 item.LogWhenLeave = false;
-                                st.StartTime = drItem.End;
-                                st.ShiftTime = (new DatetimeRange(st.StartTime, st.EndTime)).TotalMinutes;
-                                st.Present = (new DatetimeRange(st.StartTime, st.EndTime)).TotalMinutes;
+                                st.NewStartTime = drItem.End;
+                                st.ShiftTime = (new DatetimeRange(st.NewStartTime, st.NewEndTime)).TotalMinutes;
+                                st.Present = (new DatetimeRange(st.NewStartTime, st.NewEndTime)).TotalMinutes;
                                 st.LogWhenArrive = false;
                             }
                             if (drItem.Contain(dr.End))
                             {
-                                st.EndTime = drItem.Begin;
-                                st.ShiftTime = (new DatetimeRange(st.StartTime, st.EndTime)).TotalMinutes;
-                                st.Present = (new DatetimeRange(st.StartTime, st.EndTime)).TotalMinutes;
+                                st.NewEndTime = drItem.Begin;
+                                st.ShiftTime = (new DatetimeRange(st.NewStartTime, st.NewEndTime)).TotalMinutes;
+                                st.Present = (new DatetimeRange(st.NewStartTime, st.NewEndTime)).TotalMinutes;
                                 st.LogWhenLeave = false;
                                 item.LogWhenArrive = false;
                             }
@@ -185,22 +187,23 @@ namespace Ralid.Attendance.Model
                 foreach (ShiftItem si in item.Shift.Items)
                 {
                     AttendanceResult st = new AttendanceResult();
+                    st.ID = Guid.NewGuid();
                     st.StaffID = staff.ID;
                     st.StaffName = staff.Name;
                     st.ShiftDate = item.ShiftDate;
                     st.ShiftID = item.ShiftID;
                     st.ShiftName = item.Shift.Name;
                     MyTime mt = si.StartTime;
-                    st.ShiftStartTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
-                    st.StartTime = st.ShiftStartTime;
+                    st.StartTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
+                    st.NewStartTime = st.StartTime;
                     mt = si.EndTime;
-                    st.ShiftEndTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
-                    if (si.NextDay) st.ShiftEndTime = st.ShiftEndTime.AddDays(1);
-                    st.EndTime = st.ShiftEndTime;
+                    st.EndTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
+                    if (si.NextDay) st.EndTime = st.EndTime.AddDays(1);
+                    st.NewEndTime = st.EndTime;
                     st.ShiftTime = si.Duration; //设置班次时段的上班时间
                     st.Present = si.Duration;
-                    st.EarlyestTime = st.StartTime.AddMinutes((int)-si.BeforeStartTime);
-                    st.LatestTime = st.EndTime.AddMinutes((int)si.AfterEndTime);
+                    st.EarlyestTime = st.NewStartTime.AddMinutes((int)-si.BeforeStartTime);
+                    st.LatestTime = st.NewEndTime.AddMinutes((int)si.AfterEndTime);
                     st.AllowLateTime = si.AllowLateTime;
                     st.AllowLeaveEarlyTime = si.AllowLeaveEarlyTime;
                     st.AbsentItems = new List<AbsentItem>();
@@ -222,23 +225,24 @@ namespace Ralid.Attendance.Model
             DateTime dt2 = shiftDate.AddHours(sheet.EndTime.Hour).AddMinutes(sheet.EndTime.Minute).AddSeconds(sheet.EndTime.Second);
             if (dt1 > dt2) dt2 = dt2.AddDays(1); //跨天
             AttendanceResult st = new AttendanceResult();
+            st.ID = Guid.NewGuid();
             st.StaffID = staff.ID;
             st.StaffName = staff.Name;
             st.ShiftDate = shiftDate;
             st.Category = sheet.CategoryID;
-            st.ShiftStartTime = dt1;
             st.StartTime = dt1;
-            st.ShiftEndTime = dt2;
+            st.NewStartTime = dt1;
             st.EndTime = dt2;
+            st.NewEndTime = dt2;
             if (AttendanceRules.Current != null)
             {
-                st.EarlyestTime = st.StartTime.AddMinutes(-(int)AttendanceRules.Current.BeforeOTStartTime);
-                st.LatestTime = st.EndTime.AddMinutes((int)AttendanceRules.Current.AfterOTEndTime);
+                st.EarlyestTime = st.NewStartTime.AddMinutes(-(int)AttendanceRules.Current.BeforeOTStartTime);
+                st.LatestTime = st.NewEndTime.AddMinutes((int)AttendanceRules.Current.AfterOTEndTime);
             }
             else
             {
-                st.EarlyestTime = st.StartTime.AddMinutes(-30);
-                st.LatestTime = st.EndTime.AddMinutes(30);
+                st.EarlyestTime = st.NewStartTime.AddMinutes(-30);
+                st.LatestTime = st.NewEndTime.AddMinutes(30);
             }
             st.ShiftTime = sheet.Duration;
             st.Present = sheet.Duration;
@@ -267,11 +271,11 @@ namespace Ralid.Attendance.Model
                     if (i > 0)
                     {
                         AttendanceResult stPre = timezones[i - 1];
-                        if (stPre.EndTime >= dt1) dt1 = stPre.EndTime.AddMilliseconds(1);
+                        if (stPre.NewEndTime >= dt1) dt1 = stPre.NewEndTime.AddMilliseconds(1);
                         if (stPre.OffDutyTime != null && stPre.OffDutyTime.Value >= dt1) dt1 = stPre.OffDutyTime.Value.AddMilliseconds(1);
                     }
                     record = (from it in ars
-                              where it.ReadDateTime >= dt1 && it.ReadDateTime < item.EndTime
+                              where it.ReadDateTime >= dt1 && it.ReadDateTime < item.NewEndTime
                               orderby it.ReadDateTime ascending
                               select it).FirstOrDefault();
                     if (record != null)
@@ -304,9 +308,9 @@ namespace Ralid.Attendance.Model
                     if (i < timezones.Count - 1)
                     {
                         AttendanceResult stNext = timezones[i + 1];
-                        if (dt2 >= stNext.StartTime) dt2 = stNext.StartTime.AddMilliseconds(-1);
+                        if (dt2 >= stNext.NewStartTime) dt2 = stNext.NewStartTime.AddMilliseconds(-1);
                         List<AttendanceLog> items = (from it in ars
-                                                     where it.ReadDateTime >= item.EndTime && it.ReadDateTime <= dt2
+                                                     where it.ReadDateTime >= item.NewEndTime && it.ReadDateTime <= dt2
                                                      orderby it.ReadDateTime descending
                                                      select it).ToList();
                         if (items.Count == 1) item.OffDutyTime = items[0].ReadDateTime;
@@ -326,7 +330,7 @@ namespace Ralid.Attendance.Model
                     if (item.OffDutyTime == null)
                     {
                         record = (from it in ars
-                                  where it.ReadDateTime > item.StartTime && it.ReadDateTime <= dt2
+                                  where it.ReadDateTime > item.NewStartTime && it.ReadDateTime <= dt2
                                   orderby it.ReadDateTime descending
                                   select it).FirstOrDefault();
                         if (record != null)
@@ -359,7 +363,7 @@ namespace Ralid.Attendance.Model
             //为那些所有需要记录上下班时间的时间段附加签到和签退
             List<AttendanceResult> items = (from item in results
                                             where item.LogWhenArrive || item.LogWhenLeave
-                                            orderby item.StartTime ascending
+                                            orderby item.NewStartTime ascending
                                             select item).ToList();
             //对每个时间段附加上实际的打卡时间
             AttachAttendanceReocrds(results, ars);
