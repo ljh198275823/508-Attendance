@@ -17,10 +17,39 @@ namespace Ralid.Attendance.Model
         #region 构造函数
         public AttendanceRules()
         {
+            ShiftTimeIncludeLateOrLeaveEarly = true;
+            ShiftTimeIncludeWaiChu = true;
+            MinShiftMinute = 30;
+            MinOTMinute = 30;
+            BeforeOTStartTime = 120;
+            AfterOTEndTime = 120;
+            MinutesOfWorkDay = 480;
+
+            MinShiftTime = 0.1m;
+            MinVacationTime = 0.1m;
+            MinOTTime = 0.1m;
+            MinWaichuTime = 0.1m;
+            MinLateLeaveEarlyTime = 0.1m;
         }
         #endregion
 
         #region 公共属性
+        /// <summary>
+        /// 获取或设置迟到时间位于某个时间内
+        /// </summary>
+        public int? MinLate { get; set; }
+        /// <summary>
+        /// 获取或设置迟到时间位于某个时间内计多少缺勤
+        /// </summary>
+        public int MinLateAsAbsentMinute { get; set; }
+        /// <summary>
+        /// 获取或设置早退时间位于某个时间内
+        /// </summary>
+        public int? MinLeaveEarly { get; set; }
+        /// <summary>
+        /// 获取或设置早退时间位于某个时间内计多少缺勤
+        /// </summary>
+        public int MinLeaveEarlyAsAbsentMinute { get; set; }
         /// <summary>
         /// 获取或设置迟到多少分钟后计为缺勤
         /// </summary>
@@ -38,25 +67,21 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public bool ShiftTimeIncludeWaiChu { get; set; }
         /// <summary>
-        /// 获取或设置出差是否同时计为出勤
+        /// 获取或设置最小的上班时间
         /// </summary>
-        public bool ShiftTimeIncludeChuChai { get; set; }
-        /// <summary>
-        /// 获取或设置上班期间外出或请假离开时是否需要打卡
-        /// </summary>
-        public bool LogWhenLeave { get; set; }
-        /// <summary>
-        /// 获取或设置上班期间外出或请假回来后是否需要打卡
-        /// </summary>
-        public bool LogWhenArrive { get; set; }
-        /// <summary>
-        /// 获取或设置上班期间外出或请假未按时离开或归来的应计迟到早退
-        /// </summary>
-        public bool ForLateAndLeaveEarly { get; set; }
+        public int MinShiftMinute { get; set; }
         /// <summary>
         /// 获取或设置最小的加班分钟数
         /// </summary>
         public int MinOTMinute { get; set; }
+        /// <summary>
+        /// 获取或设置加班允许提前多少分钟打卡
+        /// </summary>
+        public int BeforeOTStartTime { get; set; }
+        /// <summary>
+        /// 获取或设置加班允许延后多少分钟打卡
+        /// </summary>
+        public int AfterOTEndTime { get; set; }
         /// <summary>
         /// 获取或设置一个工作日的分钟数
         /// </summary>

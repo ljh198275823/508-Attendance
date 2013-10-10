@@ -43,8 +43,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_CopyToOtherDate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_CopyToOtherStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_Clear = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_ApplyTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Clear = new System.Windows.Forms.ToolStripMenuItem();
             this.plnLeft.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -71,6 +71,7 @@
             this.departmentTreeview1.Location = new System.Drawing.Point(0, 86);
             this.departmentTreeview1.Name = "departmentTreeview1";
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
+            this.departmentTreeview1.ShowResigedStaff = false;
             this.departmentTreeview1.Size = new System.Drawing.Size(324, 249);
             this.departmentTreeview1.TabIndex = 3;
             // 
@@ -181,6 +182,7 @@
             this.mnu_CopyToOtherDate.Name = "mnu_CopyToOtherDate";
             this.mnu_CopyToOtherDate.Size = new System.Drawing.Size(169, 22);
             this.mnu_CopyToOtherDate.Text = "复制到其它日期...";
+            this.mnu_CopyToOtherDate.Visible = false;
             this.mnu_CopyToOtherDate.Click += new System.EventHandler(this.mnu_CopyToOtherDate_Click);
             // 
             // mnu_CopyToOtherStaff
@@ -190,19 +192,19 @@
             this.mnu_CopyToOtherStaff.Text = "复制到其它人员...";
             this.mnu_CopyToOtherStaff.Click += new System.EventHandler(this.mnu_CopyToOtherStaff_Click);
             // 
-            // mnu_Clear
-            // 
-            this.mnu_Clear.Name = "mnu_Clear";
-            this.mnu_Clear.Size = new System.Drawing.Size(169, 22);
-            this.mnu_Clear.Text = "清除";
-            this.mnu_Clear.Click += new System.EventHandler(this.mnu_Clear_Click);
-            // 
             // mnu_ApplyTemplate
             // 
             this.mnu_ApplyTemplate.Name = "mnu_ApplyTemplate";
             this.mnu_ApplyTemplate.Size = new System.Drawing.Size(169, 22);
             this.mnu_ApplyTemplate.Text = "应用排班模板";
             this.mnu_ApplyTemplate.Click += new System.EventHandler(this.mnu_ApplyTemplate_Click);
+            // 
+            // mnu_Clear
+            // 
+            this.mnu_Clear.Name = "mnu_Clear";
+            this.mnu_Clear.Size = new System.Drawing.Size(169, 22);
+            this.mnu_Clear.Text = "清除";
+            this.mnu_Clear.Click += new System.EventHandler(this.mnu_Clear_Click);
             // 
             // FrmShiftArrange
             // 

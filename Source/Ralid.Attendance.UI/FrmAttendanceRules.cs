@@ -21,14 +21,29 @@ namespace Ralid.Attendance.UI
 
         private void ShowItem(AttendanceRules item)
         {
+            chkMinLate.Checked = item.MinLate != null;
+            if (item.MinLate != null)
+            {
+                txtMinLate.IntergerValue = item.MinLate.Value;
+                txtMinLateAsAbsentMinute.IntergerValue = item.MinLateAsAbsentMinute;
+            }
+            chkMinLeaveEarly.Checked = item.MinLeaveEarly != null;
+            if (item.MinLeaveEarly != null)
+            {
+                txtMinLeaveEarly.IntergerValue = item.MinLeaveEarly.Value;
+                txtMinLeaveEarlyAsAbsentMinute.IntergerValue = item.MinLeaveEarlyAsAbsentMinute;
+            }
             chkLateAsAbsent.Checked = item.LateAsAbsent != null;
             if (item.LateAsAbsent != null) txtLateAsAbsent.IntergerValue = item.LateAsAbsent.Value;
             chkLeaveEarlyAsAbsent.Checked = item.LeaveEarlyAsAbsent != null;
             if (item.LeaveEarlyAsAbsent != null) txtLeaveEarlyAsAbsent.IntergerValue = item.LeaveEarlyAsAbsent.Value;
-            chkShiftTimeContainWaiChu.Checked = item.ShiftTimeIncludeWaiChu;
-            chkShiftTimeContainChuChai.Checked = item.ShiftTimeIncludeChuChai;
+            chkShiftTimeIncludeLateOrLeaveEarly.Checked = item.ShiftTimeIncludeLateOrLeaveEarly;
+            chkShiftTimeIncludeWaiChu.Checked = item.ShiftTimeIncludeWaiChu;
             txtMinOTMinute.IntergerValue = item.MinOTMinute;
-            txtMinutesOfWorkDay.IntergerValue = item.MinutesOfWorkDay;
+            txtMinShiftMinute.IntergerValue = item.MinShiftMinute;
+            txtOTBeforeStartTime.Value = item.BeforeOTStartTime;
+            txtOTAfterEndTime.Value = item.AfterOTEndTime;
+            txtMinutesOfWorkDay.Value = item.MinutesOfWorkDay;
 
             comShiftUnit.SelectedUnit = item.ShiftUnit;
             txtMinShiftTime.DecimalValue = item.MinShiftTime;
@@ -38,8 +53,6 @@ namespace Ralid.Attendance.UI
             txtMinOTTime.DecimalValue = item.MinOTTime;
             comWaichuUnit.SelectedUnit = item.WaichuUnit;
             txtMinWaichuTime.DecimalValue = item.MinWaichuTime;
-            comChuchaiUnit.SelectedUnit = item.ChuchaiUnit;
-            txtMinChuChaiTime.DecimalValue = item.MinChuChaiTime;
             comLateLeaveEarlyUnit.SelectedUnit = item.LateLeaveEarlyUnit;
             txtMinLateLeaveEarlyTime.DecimalValue = item.MinLateLeaveEarlyTime;
         }
@@ -47,12 +60,26 @@ namespace Ralid.Attendance.UI
         private AttendanceRules GetFromInput()
         {
             AttendanceRules item = new AttendanceRules();
+            if (chkMinLate.Checked)
+            {
+                item.MinLate =txtMinLate.IntergerValue;
+                item.MinLateAsAbsentMinute = txtMinLateAsAbsentMinute.IntergerValue;
+
+            }
+            if (chkMinLeaveEarly.Checked)
+            {
+                item.MinLeaveEarly = txtMinLeaveEarly.IntergerValue;
+                item.MinLeaveEarlyAsAbsentMinute = txtMinLeaveEarlyAsAbsentMinute.IntergerValue;
+            }
             if (chkLateAsAbsent.Checked) item.LateAsAbsent = txtLateAsAbsent.IntergerValue;
             if (chkLeaveEarlyAsAbsent.Checked) item.LeaveEarlyAsAbsent = txtLeaveEarlyAsAbsent.IntergerValue;
-            item.ShiftTimeIncludeWaiChu = chkShiftTimeContainWaiChu.Checked;
-            item.ShiftTimeIncludeChuChai = chkShiftTimeContainChuChai.Checked;
+            item.ShiftTimeIncludeLateOrLeaveEarly = chkShiftTimeIncludeLateOrLeaveEarly.Checked;
+            item.ShiftTimeIncludeWaiChu = chkShiftTimeIncludeWaiChu.Checked;
+            item.MinShiftMinute = txtMinShiftMinute.IntergerValue;
             item.MinOTMinute = txtMinOTMinute.IntergerValue;
-            item.MinutesOfWorkDay = txtMinutesOfWorkDay.IntergerValue;
+            item.BeforeOTStartTime =(int) txtOTBeforeStartTime.Value;
+            item.AfterOTEndTime = (int)txtOTAfterEndTime.Value;
+            item.MinutesOfWorkDay = (int)txtMinutesOfWorkDay.Value;
 
             item.ShiftUnit = comShiftUnit.SelectedUnit;
             item.MinShiftTime = txtMinShiftTime.DecimalValue;
@@ -62,8 +89,6 @@ namespace Ralid.Attendance.UI
             item.MinOTTime = txtMinOTTime.DecimalValue;
             item.WaichuUnit = comWaichuUnit.SelectedUnit;
             item.MinWaichuTime = txtMinWaichuTime.DecimalValue;
-            item.ChuchaiUnit = comChuchaiUnit.SelectedUnit;
-            item.MinChuChaiTime = txtMinChuChaiTime.DecimalValue;
             item.LateLeaveEarlyUnit = comLateLeaveEarlyUnit.SelectedUnit;
             item.MinLateLeaveEarlyTime = txtMinLateLeaveEarlyTime.DecimalValue;
             return item;
@@ -74,7 +99,6 @@ namespace Ralid.Attendance.UI
             comShiftUnit.Init();
             comOTUnit.Init();
             comWaichuUnit.Init();
-            comChuchaiUnit.Init();
             comVacationUnit.Init();
             comLateLeaveEarlyUnit.Init();
             ShowItem(AttendanceRules.Current);
