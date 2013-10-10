@@ -67,7 +67,7 @@ namespace Ralid.Attendance.Model
                         {
                             if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
                             {
-                                item.ShiftTime = 0;
+                                item.Present = 0;
                             }
                             item.Category = sheet.CategoryID;
                             item.LogWhenArrive = false;
@@ -83,7 +83,7 @@ namespace Ralid.Attendance.Model
                         {
                             if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
                             {
-                                item.ShiftTime -= dr.TotalMinutes;
+                                item.Present -= dr.TotalMinutes;
                             }
                             AbsentItem ai = new AbsentItem()
                             {
@@ -97,7 +97,7 @@ namespace Ralid.Attendance.Model
                             DatetimeRange drTemp = new DatetimeRange(dr.Begin, drItem.End);
                             if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
                             {
-                                item.ShiftTime -= drTemp.TotalMinutes;
+                                item.Present -= drTemp.TotalMinutes;
                             }
                             item.EndTime = dr.Begin;
                             AbsentItem ai = new AbsentItem()
@@ -112,7 +112,7 @@ namespace Ralid.Attendance.Model
                             DatetimeRange drTemp = new DatetimeRange(drItem.Begin, dr.End);
                             if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
                             {
-                                item.ShiftTime -= drTemp.TotalMinutes;
+                                item.Present -= drTemp.TotalMinutes;
                             }
                             item.StartTime = dr.End;
                             AbsentItem ai = new AbsentItem()
@@ -152,11 +152,15 @@ namespace Ralid.Attendance.Model
                             {
                                 item.LogWhenLeave = false;
                                 st.StartTime = drItem.End;
+                                st.ShiftTime = (new DatetimeRange(st.StartTime, st.EndTime)).TotalMinutes;
+                                st.Present = (new DatetimeRange(st.StartTime, st.EndTime)).TotalMinutes;
                                 st.LogWhenArrive = false;
                             }
                             if (drItem.Contain(dr.End))
                             {
                                 st.EndTime = drItem.Begin;
+                                st.ShiftTime = (new DatetimeRange(st.StartTime, st.EndTime)).TotalMinutes;
+                                st.Present = (new DatetimeRange(st.StartTime, st.EndTime)).TotalMinutes;
                                 st.LogWhenLeave = false;
                                 item.LogWhenArrive = false;
                             }
@@ -194,6 +198,7 @@ namespace Ralid.Attendance.Model
                     if (si.NextDay) st.ShiftEndTime = st.ShiftEndTime.AddDays(1);
                     st.EndTime = st.ShiftEndTime;
                     st.ShiftTime = si.Duration; //设置班次时段的上班时间
+                    st.Present = si.Duration;
                     st.EarlyestTime = st.StartTime.AddMinutes((int)-si.BeforeStartTime);
                     st.LatestTime = st.EndTime.AddMinutes((int)si.AfterEndTime);
                     st.AllowLateTime = si.AllowLateTime;
@@ -235,6 +240,7 @@ namespace Ralid.Attendance.Model
                 st.LatestTime = st.EndTime.AddMinutes(30);
             }
             st.ShiftTime = sheet.Duration;
+            st.Present = sheet.Duration;
 
             st.LogWhenArrive = true;
             st.LogWhenLeave = true;
@@ -330,69 +336,6 @@ namespace Ralid.Attendance.Model
                 }
             }
         }
-
-        private List<AttendanceResult> Analyst(Staff staff, List<AttendanceResult> timezones)
-        {
-            List<AttendanceResult> results = new List<AttendanceResult>();
-            if (timezones != null && timezones.Count > 0)
-            {
-                foreach (AttendanceResult item in timezones)
-                {
-                    AttendanceResult ret = CreateResult(staff, item);
-                    results.Add(ret);
-                }
-            }
-            return results;
-        }
-
-        private AttendanceResult CreateResult(Staff staff, AttendanceResult timezone)
-        {
-            AttendanceResult ret = new AttendanceResult();
-            ret.StaffID = staff.ID;
-            ret.StaffName = staff.Name;
-            ret.ShiftDate = timezone.ShiftDate;
-            ret.ShiftID = timezone.ShiftID;
-            ret.ShiftName = timezone.ShiftName;
-            ret.StartTime = timezone.StartTime;
-            ret.EndTime = timezone.EndTime;
-            ret.OnDutyTime = timezone.OnDutyTime;
-            ret.OffDutyTime = timezone.OffDutyTime;
-            ret.ShiftTime = timezone.ShiftTime;
-            ret.Present = timezone.ShiftTime;  //计算实际出勤时间之前 出勤时间等于应出勤时间
-
-            if (ret.OnDutyTime != null && ret.OffDutyTime != null) //计算上班时间
-            {
-                TimeSpan ts = new TimeSpan(ret.OffDutyTime.Value.Ticks - ret.OnDutyTime.Value.Ticks);
-                ret.ShiftTime = (int)Math.Floor(ts.TotalMinutes);
-            }
-            if (timezone.LogWhenArrive && timezone.EnableLate)  ////计算迟到时间
-            {
-                if (ret.OnDutyTime != null && ret.StartTime != null && ret.OnDutyTime.Value > ret.StartTime)
-                {
-                    TimeSpan ts = new TimeSpan(ret.OnDutyTime.Value.Ticks - ret.StartTime.Ticks);
-                    int min = (int)Math.Floor(ts.TotalMinutes);
-                    //ret.Belate = min > timezone.AllowLate ? min : 0; //大于允许迟到时间才算迟到
-                }
-            }
-            if (timezone.LogWhenLeave && timezone.EnableLeaveEarly) //计算早退时间
-            {
-                if (ret.OffDutyTime != null && ret.EndTime != null && ret.OffDutyTime.Value < ret.EndTime)
-                {
-                    TimeSpan ts = new TimeSpan(ret.EndTime.Ticks - ret.OffDutyTime.Value.Ticks);
-                    int min = (int)Math.Floor(ts.TotalMinutes);
-                    //ret.LeaveEarly = min > timezone.AllowEarly ? min : 0; //大于允许早退时间才算早退
-                }
-            }
-            if (timezone.LogWhenArrive && timezone.OnDutyTime == null)
-            {
-                ret.Present = 0;
-            }
-            if (timezone.LogWhenLeave && timezone.OffDutyTime == null)
-            {
-                ret.Present = 0;
-            }
-            return ret;
-        }
         #endregion
 
         #region 公共方法
@@ -407,19 +350,19 @@ namespace Ralid.Attendance.Model
         public List<AttendanceResult> Analist(Staff staff, List<ShiftArrange> sas, List<AttendanceLog> ars, List<TASheet> sheets, DatetimeRange range)
         {
             //根据排班记录，加班单，请假外出单等生成整个时期的要标记的时间段
-            List<AttendanceResult> timezones = CreateTimezones(staff, sas);
+            List<AttendanceResult> results = CreateTimezones(staff, sas);
 
             //与加班单和请假外出单等合并,得出最后每个上下班时间的准确日期
-            AddTASheetsToTimezones(staff, timezones, sheets, range);
+            AddTASheetsToTimezones(staff, results, sheets, range);
             //为那些所有需要记录上下班时间的时间段附加签到和签退
-            List<AttendanceResult> items = (from item in timezones
+            List<AttendanceResult> items = (from item in results
                                             where item.LogWhenArrive || item.LogWhenLeave
                                             orderby item.StartTime ascending
                                             select item).ToList();
             //对每个时间段附加上实际的打卡时间
-            AttachAttendanceReocrds(timezones, ars);
+            AttachAttendanceReocrds(results, ars);
             ////对最终需要上班的时间段和实际的刷卡记录进行分析，得出每个时间段的考勤结果
-            List<AttendanceResult> results = Analyst(staff, timezones);
+            results.ForEach(item => item.CreateResult());
             return results;
         }
         #endregion

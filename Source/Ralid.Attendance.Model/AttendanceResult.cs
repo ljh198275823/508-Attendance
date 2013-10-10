@@ -173,6 +173,24 @@ namespace Ralid.Attendance.Model
                 return AttendanceResultDescription.GetDescription(Result);
             }
         }
+
+        public string AbsentItemsDescr
+        {
+            get
+            {
+                if (this.AbsentItems != null && this.AbsentItems.Count > 0)
+                {
+                    string temp = string.Empty;
+                    for (int i = 0; i < this.AbsentItems.Count; i++)
+                    {
+                        if (i > 0) temp += ",";
+                        temp += string.Format("{0} {1} {2}", AbsentItems[i].Category, AbsentItems[i].Duration, AbsentItems[i].DurationUnit);
+                    }
+                    return temp;
+                }
+                return null;
+            }
+        }
         #endregion
 
         #region 公共方法
@@ -180,33 +198,36 @@ namespace Ralid.Attendance.Model
         {
             return this.MemberwiseClone() as AttendanceResult;
         }
-        #endregion
-    }
 
-    /// <summary>
-    /// 表示缺勤项
-    /// </summary>
-    public class AbsentItem
-    {
-        #region 构造函数
-        public AbsentItem()
+        public void CreateResult()
         {
+            if (this.LogWhenArrive && this.EnableLate)  ////计算迟到时间
+            {
+                if (this.OnDutyTime != null && this.StartTime != null && this.OnDutyTime.Value > this.StartTime)
+                {
+                    TimeSpan ts = new TimeSpan(this.OnDutyTime.Value.Ticks - this.StartTime.Ticks);
+                    int min = (int)Math.Floor(ts.TotalMinutes);
+                    //this.Belate = min > this.AllowLate ? min : 0; //大于允许迟到时间才算迟到
+                }
+            }
+            if (this.LogWhenLeave && this.EnableLeaveEarly) //计算早退时间
+            {
+                if (this.OffDutyTime != null && this.EndTime != null && this.OffDutyTime.Value < this.EndTime)
+                {
+                    TimeSpan ts = new TimeSpan(this.EndTime.Ticks - this.OffDutyTime.Value.Ticks);
+                    int min = (int)Math.Floor(ts.TotalMinutes);
+                    //this.LeaveEarly = min > this.AllowEarly ? min : 0; //大于允许早退时间才算早退
+                }
+            }
+            if (this.LogWhenArrive && this.OnDutyTime == null)
+            {
+                this.Present = 0;
+            }
+            if (this.LogWhenLeave && this.OffDutyTime == null)
+            {
+                this.Present = 0;
+            }
         }
-        #endregion
-
-        #region 公共属性
-        /// <summary>
-        /// 获取或设置ID
-        /// </summary>
-        public int ID { get; set; }
-        /// <summary>
-        /// 获取或设置缺勤类别
-        /// </summary>
-        public string Category { get; set; }
-        /// <summary>
-        /// 获取或设置缺勤时间
-        /// </summary>
-        public decimal Duration { get; set; }
         #endregion
     }
 }
