@@ -203,6 +203,7 @@ namespace Ralid.Attendance.Model
                     st.LatestTime = st.EndTime.AddMinutes((int)si.AfterEndTime);
                     st.AllowLateTime = si.AllowLateTime;
                     st.AllowLeaveEarlyTime = si.AllowLeaveEarlyTime;
+                    st.AbsentItems = new List<AbsentItem>();
 
                     st.LogWhenArrive = true;
                     st.LogWhenLeave = true;
@@ -241,6 +242,7 @@ namespace Ralid.Attendance.Model
             }
             st.ShiftTime = sheet.Duration;
             st.Present = sheet.Duration;
+            st.AbsentItems = new List<AbsentItem>();
 
             st.LogWhenArrive = true;
             st.LogWhenLeave = true;

@@ -82,11 +82,9 @@ namespace Ralid.Attendance.UI
             row.Cells["colShiftOffDuty"].Value = sar.EndTime.ToString("HH:mm:ss");
             row.Cells["colOnduty"].Value = sar.OnDutyTime == null ? "--" : sar.OnDutyTime.Value.ToString("HH:mm:ss");
             row.Cells["colOffDuty"].Value = sar.OffDutyTime == null ? "--" : sar.OffDutyTime.Value.ToString("HH:mm:ss");
-            row.Cells["colShiftTime"].Value = sar.ShiftTime;
-            row.Cells["colPresent"].Value = sar.Present;
-            row.Cells["colAbsent"].Value = sar.Absent;
-            row.Cells["colBelate"].Value = sar.Belate;
-            row.Cells["colLeaveEarly"].Value = sar.LeaveEarly;
+            row.Cells["colShiftTime"].Value = AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value;
+            row.Cells["colPresent"].Value = AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value;
+            row.Cells["colResult"].Value = sar.ResultDescr;
             row.Cells["colMemo"].Value = sar.Memo;
         }
 

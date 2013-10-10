@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.重新生成结果ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看所有刷卡记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,9 +56,7 @@
             this.colOffDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShiftTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPresent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBelate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLeaveEarly = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAbsent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -153,6 +149,7 @@
             this.departmentTreeview1.Location = new System.Drawing.Point(0, 86);
             this.departmentTreeview1.Name = "departmentTreeview1";
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
+            this.departmentTreeview1.ShowResigedStaff = false;
             this.departmentTreeview1.Size = new System.Drawing.Size(324, 237);
             this.departmentTreeview1.TabIndex = 3;
             // 
@@ -224,9 +221,7 @@
             this.colOffDuty,
             this.colShiftTime,
             this.colPresent,
-            this.colBelate,
-            this.colLeaveEarly,
-            this.colAbsent,
+            this.colResult,
             this.colMemo});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(330, 45);
@@ -307,35 +302,14 @@
             this.colPresent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colPresent.Width = 60;
             // 
-            // colBelate
+            // colResult
             // 
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            this.colBelate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colBelate.HeaderText = "迟到";
-            this.colBelate.Name = "colBelate";
-            this.colBelate.ReadOnly = true;
-            this.colBelate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colBelate.Width = 60;
-            // 
-            // colLeaveEarly
-            // 
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            this.colLeaveEarly.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colLeaveEarly.HeaderText = "早退";
-            this.colLeaveEarly.Name = "colLeaveEarly";
-            this.colLeaveEarly.ReadOnly = true;
-            this.colLeaveEarly.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colLeaveEarly.Width = 60;
-            // 
-            // colAbsent
-            // 
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            this.colAbsent.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colAbsent.HeaderText = "缺勤";
-            this.colAbsent.Name = "colAbsent";
-            this.colAbsent.ReadOnly = true;
-            this.colAbsent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colAbsent.Width = 60;
+            this.colResult.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colResult.HeaderText = "考勤结果";
+            this.colResult.Name = "colResult";
+            this.colResult.ReadOnly = true;
+            this.colResult.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colMemo
             // 
@@ -401,9 +375,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colOffDuty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShiftTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPresent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBelate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarly;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAbsent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colResult;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
     }
 }

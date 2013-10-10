@@ -37,7 +37,6 @@ namespace Ralid.Attendance.UI
             if (item.LateAsAbsent != null) txtLateAsAbsent.IntergerValue = item.LateAsAbsent.Value;
             chkLeaveEarlyAsAbsent.Checked = item.LeaveEarlyAsAbsent != null;
             if (item.LeaveEarlyAsAbsent != null) txtLeaveEarlyAsAbsent.IntergerValue = item.LeaveEarlyAsAbsent.Value;
-            chkShiftTimeIncludeLateOrLeaveEarly.Checked = item.ShiftTimeIncludeLateOrLeaveEarly;
             chkShiftTimeIncludeWaiChu.Checked = item.ShiftTimeIncludeWaiChu;
             txtMinOTMinute.IntergerValue = item.MinOTMinute;
             txtMinShiftMinute.IntergerValue = item.MinShiftMinute;
@@ -64,7 +63,6 @@ namespace Ralid.Attendance.UI
             }
             if (chkLateAsAbsent.Checked) item.LateAsAbsent = txtLateAsAbsent.IntergerValue;
             if (chkLeaveEarlyAsAbsent.Checked) item.LeaveEarlyAsAbsent = txtLeaveEarlyAsAbsent.IntergerValue;
-            item.ShiftTimeIncludeLateOrLeaveEarly = chkShiftTimeIncludeLateOrLeaveEarly.Checked;
             item.ShiftTimeIncludeWaiChu = chkShiftTimeIncludeWaiChu.Checked;
             item.MinShiftMinute = txtMinShiftMinute.IntergerValue;
             item.MinOTMinute = txtMinOTMinute.IntergerValue;

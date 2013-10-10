@@ -28,7 +28,6 @@ namespace Ralid.Attendance.UI.Controls
             this.Items.Add(AttendanceUnitDescription.GetDescription(AttendanceUnit.Hour));
             this.Items.Add(AttendanceUnitDescription.GetDescription(AttendanceUnit.Minute));
             this.Items.Add(AttendanceUnitDescription.GetDescription(AttendanceUnit.WorkDay));
-            this.Items.Add(AttendanceUnitDescription.GetDescription(AttendanceUnit.Time));
             this.SelectedIndex = 0;
         }
 

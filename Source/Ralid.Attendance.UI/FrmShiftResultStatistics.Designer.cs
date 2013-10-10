@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.查看所有刷卡记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentTreeview1 = new Ralid.Attendance.UI.DepartmentTreeview(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,20 +48,11 @@
             this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAttendanceDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnOk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBelateCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBelate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLeaveEarlyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLeaveEarly = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAbsentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colShiftTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPresent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAbsent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVaction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBusinessTrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBelateCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLeaveEarlyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -81,6 +75,7 @@
             this.departmentTreeview1.Location = new System.Drawing.Point(0, 86);
             this.departmentTreeview1.Name = "departmentTreeview1";
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
+            this.departmentTreeview1.ShowResigedStaff = false;
             this.departmentTreeview1.Size = new System.Drawing.Size(324, 274);
             this.departmentTreeview1.TabIndex = 3;
             // 
@@ -171,20 +166,11 @@
             this.GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colStaff,
-            this.colAttendanceDays,
-            this.colTotal,
-            this.colOK,
-            this.colUnOk,
-            this.colBelateCount,
-            this.colBelate,
-            this.colLeaveEarlyCount,
-            this.colLeaveEarly,
-            this.colAbsentCount,
+            this.colShiftTime,
+            this.colPresent,
             this.colAbsent,
-            this.colShiftHour,
-            this.colOT,
-            this.colVaction,
-            this.colBusinessTrip});
+            this.colBelateCount,
+            this.colLeaveEarlyCount});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(330, 45);
             this.GridView.Name = "GridView";
@@ -230,113 +216,51 @@
             this.colStaff.Name = "colStaff";
             this.colStaff.ReadOnly = true;
             // 
-            // colAttendanceDays
+            // colShiftTime
             // 
-            this.colAttendanceDays.HeaderText = "考勤天数";
-            this.colAttendanceDays.Name = "colAttendanceDays";
-            this.colAttendanceDays.ReadOnly = true;
-            this.colAttendanceDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colAttendanceDays.Width = 80;
+            this.colShiftTime.HeaderText = "应出勤";
+            this.colShiftTime.Name = "colShiftTime";
+            this.colShiftTime.ReadOnly = true;
+            this.colShiftTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colShiftTime.Width = 80;
             // 
-            // colTotal
+            // colPresent
             // 
-            this.colTotal.HeaderText = "班次总数";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colTotal.Width = 80;
+            this.colPresent.HeaderText = "实出勤";
+            this.colPresent.Name = "colPresent";
+            this.colPresent.ReadOnly = true;
+            this.colPresent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colPresent.Width = 80;
             // 
-            // colOK
+            // colAbsent
             // 
-            this.colOK.HeaderText = "正常班次";
-            this.colOK.Name = "colOK";
-            this.colOK.ReadOnly = true;
-            this.colOK.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colOK.Width = 80;
-            // 
-            // colUnOk
-            // 
-            this.colUnOk.HeaderText = "异常班次";
-            this.colUnOk.Name = "colUnOk";
-            this.colUnOk.ReadOnly = true;
-            this.colUnOk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colUnOk.Width = 80;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            this.colAbsent.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colAbsent.HeaderText = "缺勤";
+            this.colAbsent.Name = "colAbsent";
+            this.colAbsent.ReadOnly = true;
+            this.colAbsent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colAbsent.Width = 80;
             // 
             // colBelateCount
             // 
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            this.colBelateCount.DefaultCellStyle = dataGridViewCellStyle2;
             this.colBelateCount.HeaderText = "迟到次数";
             this.colBelateCount.Name = "colBelateCount";
             this.colBelateCount.ReadOnly = true;
             this.colBelateCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colBelateCount.Width = 80;
             // 
-            // colBelate
-            // 
-            this.colBelate.HeaderText = "迟到(时)";
-            this.colBelate.Name = "colBelate";
-            this.colBelate.ReadOnly = true;
-            this.colBelate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colBelate.Width = 80;
-            // 
             // colLeaveEarlyCount
             // 
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            this.colLeaveEarlyCount.DefaultCellStyle = dataGridViewCellStyle3;
             this.colLeaveEarlyCount.HeaderText = "早退次数";
             this.colLeaveEarlyCount.Name = "colLeaveEarlyCount";
             this.colLeaveEarlyCount.ReadOnly = true;
             this.colLeaveEarlyCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colLeaveEarlyCount.Width = 80;
-            // 
-            // colLeaveEarly
-            // 
-            this.colLeaveEarly.HeaderText = "早退(时)";
-            this.colLeaveEarly.Name = "colLeaveEarly";
-            this.colLeaveEarly.ReadOnly = true;
-            this.colLeaveEarly.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colLeaveEarly.Width = 80;
-            // 
-            // colAbsentCount
-            // 
-            this.colAbsentCount.HeaderText = "缺勤次数";
-            this.colAbsentCount.Name = "colAbsentCount";
-            this.colAbsentCount.ReadOnly = true;
-            this.colAbsentCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colAbsentCount.Width = 80;
-            // 
-            // colAbsent
-            // 
-            this.colAbsent.HeaderText = "缺勤(时)";
-            this.colAbsent.Name = "colAbsent";
-            this.colAbsent.ReadOnly = true;
-            this.colAbsent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colAbsent.Width = 80;
-            // 
-            // colShiftHour
-            // 
-            this.colShiftHour.HeaderText = "上班(时)";
-            this.colShiftHour.Name = "colShiftHour";
-            this.colShiftHour.ReadOnly = true;
-            this.colShiftHour.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftHour.Width = 80;
-            // 
-            // colOT
-            // 
-            this.colOT.HeaderText = "加班(时)";
-            this.colOT.Name = "colOT";
-            this.colOT.ReadOnly = true;
-            this.colOT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colOT.Width = 80;
-            // 
-            // colVaction
-            // 
-            this.colVaction.HeaderText = "请假(时)";
-            this.colVaction.Name = "colVaction";
-            this.colVaction.ReadOnly = true;
-            // 
-            // colBusinessTrip
-            // 
-            this.colBusinessTrip.HeaderText = "外出/出差";
-            this.colBusinessTrip.Name = "colBusinessTrip";
-            this.colBusinessTrip.ReadOnly = true;
             // 
             // FrmShiftResultStatistics
             // 
@@ -383,19 +307,10 @@
         private System.Windows.Forms.ToolStripMenuItem btn_Export;
         private System.Windows.Forms.ToolStripMenuItem btn_SelectColumns;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAttendanceDays;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUnOk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBelateCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBelate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarlyCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarly;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAbsentCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPresent;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAbsent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftHour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colVaction;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBusinessTrip;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBelateCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarlyCount;
     }
 }

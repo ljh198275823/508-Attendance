@@ -20,10 +20,52 @@ namespace Ralid.Attendance.UI
             InitializeComponent();
         }
 
+        #region 私有方法
+        private void InitGridViewColumns()
+        {
+            List<OTType> ots = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (ots != null && ots.Count > 0)
+            {
+                foreach (OTType ot in ots)
+                {
+                    AddAColumn(ot.Name);
+                }
+            }
+            List<VacationType> vts = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (vts != null && vts.Count > 0)
+            {
+                foreach (VacationType vt in vts)
+                {
+                    AddAColumn(vt.Name);
+                }
+            }
+            List<TripType> tts = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (tts != null && tts.Count > 0)
+            {
+                foreach (TripType vt in tts)
+                {
+                    AddAColumn(vt.Name);
+                }
+            }
+        }
+
+        private void AddAColumn(string name)
+        {
+            DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
+            col.Tag = name;
+            col.Name = name;
+            col.Width = 80;
+            col.ReadOnly = true;
+            col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
+            col.HeaderText = name;
+            GridView.Columns.Add(col);
+        }
+        #endregion
+
         #region 重写基类方法
         protected override void Init()
         {
-            base.Init();
             this.ucDateTimeInterval1.Init();
             this.ucDateTimeInterval1.SelectThisMonth();
 
@@ -31,6 +73,9 @@ namespace Ralid.Attendance.UI
             this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             this.departmentTreeview1.Init();
+
+            InitGridViewColumns();
+            base.Init();
         }
 
         protected override FrmDetailBase GetDetailForm()
@@ -48,33 +93,27 @@ namespace Ralid.Attendance.UI
                 con.Staff = staff;
                 con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
                 List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
-                return (from item in arranges
-                        orderby item.StaffID ascending, item.ShiftDate ascending
-                        select (object)item).ToList();
+                List<IGrouping<int, AttendanceResult>> groups = arranges.GroupBy(item => item.StaffID).ToList();
+                return (from g in groups
+                        select (object)g).ToList();
             }
             return null;
         }
 
         protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)
         {
-            //StaffAttendanceResult sar = item as StaffAttendanceResult;
-            //row.Tag = sar;
-            //row.Cells["colStaff"].Value = sar.StaffID;// sar.StaffName;
-            //row.Cells["colShift"].Value = sar.Shift == null ? "--" : sar.Shift.Name;
-            //row.Cells["colShiftDate"].Value = sar.ShiftDate.ToString("yyyy-MM-dd");
-            //row.Cells["colShiftOnDuty"].Value = sar.Shift == null ? "--" : sar.Shift.StartTime.ToString();
-            //row.Cells["colShiftOffDuty"].Value = sar.Shift == null ? "--" : sar.Shift.EndTime.ToString();
-            //row.Cells["colOnduty"].Value = sar.OnDutyTime;
-            //row.Cells["colOffDuty"].Value = sar.OffDutyTime;
-            //row.Cells["colShiftHour"].Value = sar.ShiftHour;
-            //row.Cells["colBelate"].Value = sar.BelateTime;
-            //row.Cells["colLeaveEarly"].Value = sar.LeaveEarlyTime;
-            //row.Cells["colOT"].Value = sar.OTTime;
-            //row.Cells["colShiftResult"].Value = sar.ResultDescr;
-            //row.Cells["colIsModified"].Value = sar.Modified;
-            //row.Cells["colModifier"].Value = (sar.Modified != null && sar.Modified.Value) ? sar.Modifier : string.Empty;
-            //row.Cells["colModifyDateTime"].Value = sar.ModifiedTime.ToString("yyyy-MM-dd HH:mm:ss");
-            //row.Cells["colMemo"].Value = sar.Memo;
+            IGrouping<int, AttendanceResult> group = item as IGrouping<int, AttendanceResult>;
+            row.Tag = group;
+            row.Cells["colStaff"].Value = group.First().StaffName;
+            decimal shiftTime = group.Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value);
+            decimal present = group.Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value);
+            row.Cells["colShiftTime"].Value = shiftTime;
+            row.Cells["colPresent"].Value = present;
+            row.Cells["colAbsent"].Value = shiftTime - present > 0 ? (shiftTime - present).ToString() : string.Empty;
+            int lateCount = group.Count(sar => sar.Result == AttendanceResultCode.Late || sar.Result == AttendanceResultCode.LateEarly);
+            int leaveEarlyCount = group.Count(sar => sar.Result == AttendanceResultCode.LeaveEarly || sar.Result == AttendanceResultCode.LateEarly);
+            row.Cells["colBelateCount"].Value = lateCount > 0 ? lateCount.ToString() : string.Empty;
+            row.Cells["colLeaveEarlyCount"].Value = leaveEarlyCount > 0 ? leaveEarlyCount.ToString() : string.Empty;
         }
 
         protected override bool DeletingItem(object item)

@@ -31,10 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab基本 = new System.Windows.Forms.TabPage();
+            this.comAttendanceUnit = new Ralid.Attendance.UI.Controls.AttendanceUnitComboBox(this.components);
+            this.txtMinAttendanceTime = new Ralid.GeneralLibrary.WinformControl.DecimalTextBox(this.components);
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.txtMinutesOfWorkDay = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.chkShiftTimeIncludeLateOrLeaveEarly = new System.Windows.Forms.CheckBox();
             this.label32 = new System.Windows.Forms.Label();
             this.txtOTAfterEndTime = new System.Windows.Forms.NumericUpDown();
             this.label31 = new System.Windows.Forms.Label();
@@ -66,10 +69,6 @@
             this.chkLateAsAbsent = new System.Windows.Forms.CheckBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.txtMinAttendanceTime = new Ralid.GeneralLibrary.WinformControl.DecimalTextBox(this.components);
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.comAttendanceUnit = new Ralid.Attendance.UI.Controls.AttendanceUnitComboBox(this.components);
             this.tabControl1.SuspendLayout();
             this.tab基本.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinutesOfWorkDay)).BeginInit();
@@ -98,7 +97,6 @@
             this.tab基本.Controls.Add(this.txtMinutesOfWorkDay);
             this.tab基本.Controls.Add(this.label5);
             this.tab基本.Controls.Add(this.label6);
-            this.tab基本.Controls.Add(this.chkShiftTimeIncludeLateOrLeaveEarly);
             this.tab基本.Controls.Add(this.label32);
             this.tab基本.Controls.Add(this.txtOTAfterEndTime);
             this.tab基本.Controls.Add(this.label31);
@@ -136,6 +134,52 @@
             this.tab基本.Text = "基本";
             this.tab基本.UseVisualStyleBackColor = true;
             // 
+            // comAttendanceUnit
+            // 
+            this.comAttendanceUnit.FormattingEnabled = true;
+            this.comAttendanceUnit.Location = new System.Drawing.Point(119, 265);
+            this.comAttendanceUnit.Name = "comAttendanceUnit";
+            this.comAttendanceUnit.Size = new System.Drawing.Size(100, 20);
+            this.comAttendanceUnit.TabIndex = 74;
+            // 
+            // txtMinAttendanceTime
+            // 
+            this.txtMinAttendanceTime.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtMinAttendanceTime.Location = new System.Drawing.Point(272, 265);
+            this.txtMinAttendanceTime.MaxValue = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.txtMinAttendanceTime.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtMinAttendanceTime.Name = "txtMinAttendanceTime";
+            this.txtMinAttendanceTime.PointCount = 2;
+            this.txtMinAttendanceTime.Size = new System.Drawing.Size(49, 21);
+            this.txtMinAttendanceTime.TabIndex = 73;
+            this.txtMinAttendanceTime.Text = "0.1";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(225, 269);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 12);
+            this.label15.TabIndex = 72;
+            this.label15.Text = "最小值";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(15, 269);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(101, 12);
+            this.label16.TabIndex = 71;
+            this.label16.Text = "考勤结果时间单位";
+            // 
             // txtMinutesOfWorkDay
             // 
             this.txtMinutesOfWorkDay.Location = new System.Drawing.Point(107, 238);
@@ -171,18 +215,6 @@
             this.label6.Size = new System.Drawing.Size(89, 12);
             this.label6.TabIndex = 67;
             this.label6.Text = "一个工作日等于";
-            // 
-            // chkShiftTimeIncludeLateOrLeaveEarly
-            // 
-            this.chkShiftTimeIncludeLateOrLeaveEarly.AutoSize = true;
-            this.chkShiftTimeIncludeLateOrLeaveEarly.Checked = true;
-            this.chkShiftTimeIncludeLateOrLeaveEarly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShiftTimeIncludeLateOrLeaveEarly.Location = new System.Drawing.Point(13, 116);
-            this.chkShiftTimeIncludeLateOrLeaveEarly.Name = "chkShiftTimeIncludeLateOrLeaveEarly";
-            this.chkShiftTimeIncludeLateOrLeaveEarly.Size = new System.Drawing.Size(180, 16);
-            this.chkShiftTimeIncludeLateOrLeaveEarly.TabIndex = 66;
-            this.chkShiftTimeIncludeLateOrLeaveEarly.Text = "迟到早退时间不计为缺勤时间";
-            this.chkShiftTimeIncludeLateOrLeaveEarly.UseVisualStyleBackColor = true;
             // 
             // label32
             // 
@@ -288,7 +320,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(324, 41);
+            this.label25.Location = new System.Drawing.Point(347, 41);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(29, 12);
             this.label25.TabIndex = 56;
@@ -297,7 +329,7 @@
             // txtMinLeaveEarlyAsAbsentMinute
             // 
             this.txtMinLeaveEarlyAsAbsentMinute.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMinLeaveEarlyAsAbsentMinute.Location = new System.Drawing.Point(265, 37);
+            this.txtMinLeaveEarlyAsAbsentMinute.Location = new System.Drawing.Point(288, 37);
             this.txtMinLeaveEarlyAsAbsentMinute.MaxValue = 10000;
             this.txtMinLeaveEarlyAsAbsentMinute.MinValue = 1;
             this.txtMinLeaveEarlyAsAbsentMinute.Name = "txtMinLeaveEarlyAsAbsentMinute";
@@ -308,7 +340,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(324, 17);
+            this.label26.Location = new System.Drawing.Point(347, 17);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(29, 12);
             this.label26.TabIndex = 54;
@@ -317,7 +349,7 @@
             // txtMinLateAsAbsentMinute
             // 
             this.txtMinLateAsAbsentMinute.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMinLateAsAbsentMinute.Location = new System.Drawing.Point(265, 13);
+            this.txtMinLateAsAbsentMinute.Location = new System.Drawing.Point(288, 13);
             this.txtMinLateAsAbsentMinute.MaxValue = 10000;
             this.txtMinLateAsAbsentMinute.MinValue = 1;
             this.txtMinLateAsAbsentMinute.Name = "txtMinLateAsAbsentMinute";
@@ -328,7 +360,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(170, 41);
+            this.label24.Location = new System.Drawing.Point(193, 41);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(95, 12);
             this.label24.TabIndex = 52;
@@ -337,7 +369,7 @@
             // txtMinLeaveEarly
             // 
             this.txtMinLeaveEarly.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMinLeaveEarly.Location = new System.Drawing.Point(111, 37);
+            this.txtMinLeaveEarly.Location = new System.Drawing.Point(134, 37);
             this.txtMinLeaveEarly.MaxValue = 10000;
             this.txtMinLeaveEarly.MinValue = 1;
             this.txtMinLeaveEarly.Name = "txtMinLeaveEarly";
@@ -350,15 +382,15 @@
             this.chkMinLeaveEarly.AutoSize = true;
             this.chkMinLeaveEarly.Location = new System.Drawing.Point(13, 39);
             this.chkMinLeaveEarly.Name = "chkMinLeaveEarly";
-            this.chkMinLeaveEarly.Size = new System.Drawing.Size(96, 16);
+            this.chkMinLeaveEarly.Size = new System.Drawing.Size(120, 16);
             this.chkMinLeaveEarly.TabIndex = 50;
-            this.chkMinLeaveEarly.Text = "早退时间位于";
+            this.chkMinLeaveEarly.Text = "一次早退时间位于";
             this.chkMinLeaveEarly.UseVisualStyleBackColor = true;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(170, 17);
+            this.label23.Location = new System.Drawing.Point(193, 17);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(95, 12);
             this.label23.TabIndex = 49;
@@ -367,7 +399,7 @@
             // txtMinLate
             // 
             this.txtMinLate.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMinLate.Location = new System.Drawing.Point(111, 13);
+            this.txtMinLate.Location = new System.Drawing.Point(134, 13);
             this.txtMinLate.MaxValue = 10000;
             this.txtMinLate.MinValue = 1;
             this.txtMinLate.Name = "txtMinLate";
@@ -380,9 +412,9 @@
             this.chkMinLate.AutoSize = true;
             this.chkMinLate.Location = new System.Drawing.Point(13, 15);
             this.chkMinLate.Name = "chkMinLate";
-            this.chkMinLate.Size = new System.Drawing.Size(96, 16);
+            this.chkMinLate.Size = new System.Drawing.Size(120, 16);
             this.chkMinLate.TabIndex = 47;
-            this.chkMinLate.Text = "迟到时间位于";
+            this.chkMinLate.Text = "一次迟到时间位于";
             this.chkMinLate.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -419,7 +451,7 @@
             this.chkShiftTimeIncludeWaiChu.AutoSize = true;
             this.chkShiftTimeIncludeWaiChu.Checked = true;
             this.chkShiftTimeIncludeWaiChu.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShiftTimeIncludeWaiChu.Location = new System.Drawing.Point(225, 116);
+            this.chkShiftTimeIncludeWaiChu.Location = new System.Drawing.Point(13, 116);
             this.chkShiftTimeIncludeWaiChu.Name = "chkShiftTimeIncludeWaiChu";
             this.chkShiftTimeIncludeWaiChu.Size = new System.Drawing.Size(150, 16);
             this.chkShiftTimeIncludeWaiChu.TabIndex = 25;
@@ -429,7 +461,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(168, 89);
+            this.label3.Location = new System.Drawing.Point(191, 89);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 12);
             this.label3.TabIndex = 24;
@@ -438,7 +470,7 @@
             // txtLeaveEarlyAsAbsent
             // 
             this.txtLeaveEarlyAsAbsent.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtLeaveEarlyAsAbsent.Location = new System.Drawing.Point(109, 86);
+            this.txtLeaveEarlyAsAbsent.Location = new System.Drawing.Point(132, 86);
             this.txtLeaveEarlyAsAbsent.MaxValue = 10000;
             this.txtLeaveEarlyAsAbsent.MinValue = 1;
             this.txtLeaveEarlyAsAbsent.Name = "txtLeaveEarlyAsAbsent";
@@ -449,7 +481,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(168, 65);
+            this.label2.Location = new System.Drawing.Point(191, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 12);
             this.label2.TabIndex = 22;
@@ -458,7 +490,7 @@
             // txtLateAsAbsent
             // 
             this.txtLateAsAbsent.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtLateAsAbsent.Location = new System.Drawing.Point(109, 62);
+            this.txtLateAsAbsent.Location = new System.Drawing.Point(132, 62);
             this.txtLateAsAbsent.MaxValue = 10000;
             this.txtLateAsAbsent.MinValue = 1;
             this.txtLateAsAbsent.Name = "txtLateAsAbsent";
@@ -471,9 +503,9 @@
             this.chkLeaveEarlyAsAbsent.AutoSize = true;
             this.chkLeaveEarlyAsAbsent.Location = new System.Drawing.Point(13, 88);
             this.chkLeaveEarlyAsAbsent.Name = "chkLeaveEarlyAsAbsent";
-            this.chkLeaveEarlyAsAbsent.Size = new System.Drawing.Size(96, 16);
+            this.chkLeaveEarlyAsAbsent.Size = new System.Drawing.Size(120, 16);
             this.chkLeaveEarlyAsAbsent.TabIndex = 17;
-            this.chkLeaveEarlyAsAbsent.Text = "早退时间大于";
+            this.chkLeaveEarlyAsAbsent.Text = "一次早退时间大于";
             this.chkLeaveEarlyAsAbsent.UseVisualStyleBackColor = true;
             // 
             // chkLateAsAbsent
@@ -481,9 +513,9 @@
             this.chkLateAsAbsent.AutoSize = true;
             this.chkLateAsAbsent.Location = new System.Drawing.Point(13, 64);
             this.chkLateAsAbsent.Name = "chkLateAsAbsent";
-            this.chkLateAsAbsent.Size = new System.Drawing.Size(96, 16);
+            this.chkLateAsAbsent.Size = new System.Drawing.Size(120, 16);
             this.chkLateAsAbsent.TabIndex = 16;
-            this.chkLateAsAbsent.Text = "迟到时间大于";
+            this.chkLateAsAbsent.Text = "一次迟到时间大于";
             this.chkLateAsAbsent.UseVisualStyleBackColor = true;
             // 
             // btnClose
@@ -510,52 +542,6 @@
             this.btnOk.Text = "确定(&O)";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // txtMinAttendanceTime
-            // 
-            this.txtMinAttendanceTime.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMinAttendanceTime.Location = new System.Drawing.Point(272, 265);
-            this.txtMinAttendanceTime.MaxValue = new decimal(new int[] {
-            -1,
-            -1,
-            -1,
-            0});
-            this.txtMinAttendanceTime.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtMinAttendanceTime.Name = "txtMinAttendanceTime";
-            this.txtMinAttendanceTime.PointCount = 2;
-            this.txtMinAttendanceTime.Size = new System.Drawing.Size(49, 21);
-            this.txtMinAttendanceTime.TabIndex = 73;
-            this.txtMinAttendanceTime.Text = "0.1";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(225, 269);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 12);
-            this.label15.TabIndex = 72;
-            this.label15.Text = "最小值";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 269);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 12);
-            this.label16.TabIndex = 71;
-            this.label16.Text = "考勤结果时间单位";
-            // 
-            // comAttendanceUnit
-            // 
-            this.comAttendanceUnit.FormattingEnabled = true;
-            this.comAttendanceUnit.Location = new System.Drawing.Point(119, 265);
-            this.comAttendanceUnit.Name = "comAttendanceUnit";
-            this.comAttendanceUnit.Size = new System.Drawing.Size(100, 20);
-            this.comAttendanceUnit.TabIndex = 74;
             // 
             // FrmAttendanceRules
             // 
@@ -590,7 +576,6 @@
         private System.Windows.Forms.NumericUpDown txtMinutesOfWorkDay;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox chkShiftTimeIncludeLateOrLeaveEarly;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.NumericUpDown txtOTAfterEndTime;
         private System.Windows.Forms.Label label31;

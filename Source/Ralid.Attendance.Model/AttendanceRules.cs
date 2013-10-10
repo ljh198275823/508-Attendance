@@ -17,14 +17,13 @@ namespace Ralid.Attendance.Model
         #region 构造函数
         public AttendanceRules()
         {
-            ShiftTimeIncludeLateOrLeaveEarly = true;
             ShiftTimeIncludeWaiChu = true;
             MinShiftMinute = 30;
             MinOTMinute = 30;
             BeforeOTStartTime = 120;
             AfterOTEndTime = 120;
             MinutesOfWorkDay = 480;
-            MinAttendanceTime = 0.1;
+            MinAttendanceTime = 0.1m;
 
             MinShiftTime = 0.1m;
             MinVacationTime = 0.1m;
@@ -146,6 +145,34 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public decimal MinLateLeaveEarlyTime { get; set; }
         #endregion
+        #endregion
+
+        #region 公共方法
+        public AttendanceDuration GetDuarationFrom(decimal minutes, bool isCeiling)
+        {
+            AttendanceDuration duration = new AttendanceDuration();
+            duration.Unit = AttendanceUnitDescription.GetDescription(this.AttendanceUnit);
+            decimal temp = minutes;
+            if (this.AttendanceUnit == AttendanceUnit.Hour)
+            {
+                temp = temp / 60;
+            }
+            else if (this.AttendanceUnit == AttendanceUnit.WorkDay)
+            {
+                temp = temp / MinutesOfWorkDay;
+            }
+            if (this.MinAttendanceTime > 0)
+            {
+                decimal value = temp / this.MinAttendanceTime;
+                int count = (int)Math.Floor(value);
+                if (value > count * MinAttendanceTime && isCeiling)
+                {
+                    count++;
+                }
+                duration.Value = count * MinAttendanceTime;
+            }
+            return duration;
+        }
         #endregion
     }
 }

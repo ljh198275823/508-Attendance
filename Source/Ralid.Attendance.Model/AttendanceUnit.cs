@@ -22,10 +22,6 @@ namespace Ralid.Attendance.Model
         /// 工作日
         /// </summary>
         WorkDay = 2,
-        /// <summary>
-        /// 次
-        /// </summary>
-        Time = 3
     }
 
     public class AttendanceUnitDescription
@@ -38,8 +34,6 @@ namespace Ralid.Attendance.Model
                     return "时";
                 case AttendanceUnit.Minute:
                     return "分";
-                case AttendanceUnit.Time:
-                    return "次";
                 case AttendanceUnit.WorkDay:
                     return "工作日";
                 default:
