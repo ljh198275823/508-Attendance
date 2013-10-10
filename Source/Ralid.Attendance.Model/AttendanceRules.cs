@@ -24,6 +24,7 @@ namespace Ralid.Attendance.Model
             BeforeOTStartTime = 120;
             AfterOTEndTime = 120;
             MinutesOfWorkDay = 480;
+            MinAttendanceTime = 0.1;
 
             MinShiftTime = 0.1m;
             MinVacationTime = 0.1m;
@@ -87,6 +88,16 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public int MinutesOfWorkDay { get; set; }
         /// <summary>
+        /// 获取或设置考勤结果的时间单位
+        /// </summary>
+        public AttendanceUnit AttendanceUnit { get; set; }
+        /// <summary>
+        /// 获取或设置考勤结果的最小值
+        /// </summary>
+        public decimal MinAttendanceTime { get; set; }
+
+        #region 暂时不用
+        /// <summary>
         /// 获取或设置出勤的时间单位
         /// </summary>
         public AttendanceUnit ShiftUnit { get; set; }
@@ -134,6 +145,7 @@ namespace Ralid.Attendance.Model
         ///  获取或设置迟到早退的最小值
         /// </summary>
         public decimal MinLateLeaveEarlyTime { get; set; }
+        #endregion
         #endregion
     }
 }

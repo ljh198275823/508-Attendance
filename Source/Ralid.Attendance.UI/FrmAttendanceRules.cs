@@ -44,17 +44,8 @@ namespace Ralid.Attendance.UI
             txtOTBeforeStartTime.Value = item.BeforeOTStartTime;
             txtOTAfterEndTime.Value = item.AfterOTEndTime;
             txtMinutesOfWorkDay.Value = item.MinutesOfWorkDay;
-
-            comShiftUnit.SelectedUnit = item.ShiftUnit;
-            txtMinShiftTime.DecimalValue = item.MinShiftTime;
-            comVacationUnit.SelectedUnit = item.VacationUnit;
-            txtMinVacationTime.DecimalValue = item.MinVacationTime;
-            comOTUnit.SelectedUnit = item.OTUnit;
-            txtMinOTTime.DecimalValue = item.MinOTTime;
-            comWaichuUnit.SelectedUnit = item.WaichuUnit;
-            txtMinWaichuTime.DecimalValue = item.MinWaichuTime;
-            comLateLeaveEarlyUnit.SelectedUnit = item.LateLeaveEarlyUnit;
-            txtMinLateLeaveEarlyTime.DecimalValue = item.MinLateLeaveEarlyTime;
+            comAttendanceUnit.SelectedUnit = item.AttendanceUnit;
+            txtMinAttendanceTime.DecimalValue = item.MinAttendanceTime;
         }
 
         private AttendanceRules GetFromInput()
@@ -80,27 +71,14 @@ namespace Ralid.Attendance.UI
             item.BeforeOTStartTime =(int) txtOTBeforeStartTime.Value;
             item.AfterOTEndTime = (int)txtOTAfterEndTime.Value;
             item.MinutesOfWorkDay = (int)txtMinutesOfWorkDay.Value;
-
-            item.ShiftUnit = comShiftUnit.SelectedUnit;
-            item.MinShiftTime = txtMinShiftTime.DecimalValue;
-            item.VacationUnit = comVacationUnit.SelectedUnit;
-            item.MinVacationTime = txtMinVacationTime.DecimalValue;
-            item.OTUnit = comOTUnit.SelectedUnit;
-            item.MinOTTime = txtMinOTTime.DecimalValue;
-            item.WaichuUnit = comWaichuUnit.SelectedUnit;
-            item.MinWaichuTime = txtMinWaichuTime.DecimalValue;
-            item.LateLeaveEarlyUnit = comLateLeaveEarlyUnit.SelectedUnit;
-            item.MinLateLeaveEarlyTime = txtMinLateLeaveEarlyTime.DecimalValue;
+            item.AttendanceUnit = comAttendanceUnit.SelectedUnit;
+            item.MinAttendanceTime = txtMinAttendanceTime.DecimalValue;
             return item;
         }
 
         private void FrmAttendanceRules_Load(object sender, EventArgs e)
         {
-            comShiftUnit.Init();
-            comOTUnit.Init();
-            comWaichuUnit.Init();
-            comVacationUnit.Init();
-            comLateLeaveEarlyUnit.Init();
+            comAttendanceUnit.Init();
             ShowItem(AttendanceRules.Current);
         }
 
