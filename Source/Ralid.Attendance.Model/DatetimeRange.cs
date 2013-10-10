@@ -11,10 +11,6 @@ namespace Ralid.Attendance.Model
     public class DatetimeRange
     {
         #region 构造函数
-        public DatetimeRange()
-        {
-        }
-
         public DatetimeRange(DateTime begin, DateTime end)
         {
             Begin = begin;
@@ -33,6 +29,20 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public DateTime End { get; set; }
 
+        #endregion
+
+        #region 只读属性
+        /// <summary>
+        /// 获取时间范围的结束时间与开始时间之间的总分钟数
+        /// </summary>
+        public int TotalMinutes
+        {
+            get
+            {
+                TimeSpan ts = new TimeSpan(End.Ticks - Begin.Ticks);
+                return (int)Math.Ceiling(ts.TotalMinutes);
+            }
+        }
         #endregion
 
         #region 公共方法

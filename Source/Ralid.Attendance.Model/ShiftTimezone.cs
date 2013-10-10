@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Ralid.Attendance.Model
 {
-    public class ShiftTimezone
+    public class ShiftTimezone1
     {
         #region 构造函数
-        public ShiftTimezone()
+        public ShiftTimezone1()
         {
         }
         #endregion
@@ -116,9 +116,9 @@ namespace Ralid.Attendance.Model
         #endregion
 
         #region 公共方法
-        public ShiftTimezone Clone()
+        public ShiftTimezone1 Clone()
         {
-            return this.MemberwiseClone() as ShiftTimezone;
+            return this.MemberwiseClone() as ShiftTimezone1;
         }
         #endregion
     }

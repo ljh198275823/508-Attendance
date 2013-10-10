@@ -42,21 +42,48 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public string ShiftName { get; set; }
         /// <summary>
-        /// 获取或设置单据类型(用于加班，请假，外出等申请单)
-        /// </summary>
-        public string SheetType { get; set; }
-        /// <summary>
-        /// 获取或设置类别
+        /// 获取或设置加班类别
         /// </summary>
         public string Category { get; set; }
         /// <summary>
-        /// 获取或设置班次上班时间
+        /// 获取或设置班次时段的上班时间
+        /// </summary>
+        public DateTime ShiftStartTime { get; set; }
+        /// <summary>
+        /// 获取或设置班次时段的下班时间
+        /// </summary>
+        public DateTime ShiftEndTime { get; set; }
+        /// <summary>
+        /// 获取或设置天文班次时段的上班时间
+        /// </summary>
+        public decimal ShiftTime { get; set; }
+        /// <summary>
+        /// 获取或设置需要签到的时间
         /// </summary>
         public DateTime StartTime { get; set; }
         /// <summary>
-        /// 获取或设置班次下班时间
+        /// 获取或设置需要签退的时间
         /// </summary>
         public DateTime EndTime { get; set; }
+        /// <summary>
+        /// 获取或设置最早的上班打卡有效时间
+        /// </summary>
+        public DateTime EarlyestTime{get;set;}
+        /// <summary>
+        /// 获取或设置最晚的下班打卡有效时间
+        /// </summary>
+        public DateTime LatestTime{get;set;}
+        /// <summary>
+        /// 获取或设置允许迟到分钟数（即迟到时间小于这个数时不记录为迟到）
+        /// </summary>
+        public decimal AllowLateTime { get; set; }
+        /// <summary>
+        /// 获取或设置允许的早退分钟数，（即提前下班时间小于这个数时不记为早退）
+        /// </summary>
+        public decimal AllowLeaveEarlyTime { get; set; }
+        #endregion
+
+        #region 考勤结果
         /// <summary>
         /// 获取或设置实际上班时间
         /// </summary>
@@ -65,10 +92,6 @@ namespace Ralid.Attendance.Model
         /// 获取或设置实际下班时间
         /// </summary>
         public DateTime? OffDutyTime { get; set; }
-        /// <summary>
-        /// 获取或设置总的上班时间
-        /// </summary>
-        public decimal ShiftTime { get; set; }
         /// <summary>
         /// 获取或设置实出勤时间
         /// </summary>
@@ -113,6 +136,10 @@ namespace Ralid.Attendance.Model
         /// 获取或设置备注
         /// </summary>
         public string Memo { get; set; }
+        /// <summary>
+        /// 获取或设置班次时间段内缺勤的项的列表，缺勤项包括请假，外出，迟到早退等缺勤。
+        /// </summary>
+        public List<AbsentItem> AbsentItems { get; set; }
         #endregion
 
         #region 生成考勤中间结果时的一些属性
@@ -121,17 +148,9 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public bool LogWhenArrive { get; set; }
         /// <summary>
-        /// 获取或设置允许的最大提前刷卡分钟数，即上班前提前多少分钟打卡则记为已上班
-        /// </summary>
-        public int BeforeStartTime { get; set; }
-        /// <summary>
         /// 获取或设置离开时是否需要打卡
         /// </summary>
         public bool LogWhenLeave { get; set; }
-        /// <summary>
-        /// 获取或设置最大的延长刷卡分钟，即下班时间过了多少分钟后打卡仍算正常下班
-        /// </summary>
-        public int AfterEndTime { get; set; }
         /// <summary>
         /// 获取或设置是否计算迟到
         /// </summary>
@@ -144,29 +163,6 @@ namespace Ralid.Attendance.Model
         /// 获取或设置是否计算缺勤
         /// </summary>
         public bool EnableAbsent { get; set; }
-
-        #region 只读属性
-        /// <summary>
-        /// 获取最早的上班打卡有效时间
-        /// </summary>
-        public DateTime EarlyestTime
-        {
-            get
-            {
-                return StartTime.AddMinutes(-BeforeStartTime);
-            }
-        }
-        /// <summary>
-        /// 获取最晚的下班打卡有效时间
-        /// </summary>
-        public DateTime LatestTime
-        {
-            get
-            {
-                return EndTime.AddMinutes(AfterEndTime);
-            }
-        }
-        #endregion
         #endregion
 
         #region 只读属性
@@ -180,10 +176,37 @@ namespace Ralid.Attendance.Model
         #endregion
 
         #region 公共方法
-        public ShiftTimezone Clone()
+        public AttendanceResult  Clone()
         {
-            return this.MemberwiseClone() as ShiftTimezone;
+            return this.MemberwiseClone() as AttendanceResult;
         }
+        #endregion
+    }
+
+    /// <summary>
+    /// 表示缺勤项
+    /// </summary>
+    public class AbsentItem
+    {
+        #region 构造函数
+        public AbsentItem()
+        {
+        }
+        #endregion
+
+        #region 公共属性
+        /// <summary>
+        /// 获取或设置ID
+        /// </summary>
+        public int ID { get; set; }
+        /// <summary>
+        /// 获取或设置缺勤类别
+        /// </summary>
+        public string Category { get; set; }
+        /// <summary>
+        /// 获取或设置缺勤时间
+        /// </summary>
+        public decimal Duration { get; set; }
         #endregion
     }
 }

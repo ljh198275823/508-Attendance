@@ -31,7 +31,6 @@ namespace Ralid.Attendance.UI
 
             TASheetSearchCondition con2 = new TASheetSearchCondition();
             con2.StaffID = staff.ID;
-            con2.StartDate = dr;
             List<TASheet> sheets = (new TASheetBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con2).QueryObjects;
 
             AttendanceLogSearchCondition con3 = new AttendanceLogSearchCondition();

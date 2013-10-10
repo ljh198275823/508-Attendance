@@ -24,7 +24,7 @@ namespace Ralid.Attendance.DAL.LinqDataProvider
             ShiftArrange sa = attendance.GetTable<ShiftArrange>().SingleOrDefault(item => item.StaffID == id.StaffID && item.ShiftDate == id.ShiftDate && item.ShiftID == id.ShiftID);
             if (sa != null)
             {
-                sa.Shift = attendance.GetTable<Shift>().SingleOrDefault(item => item.ID == sa.ShiftID);
+                sa.Shift = (new ShiftProvider(ConnectStr)).GetByID(sa.ShiftID).QueryObject;
             }
             return sa;
         }
@@ -43,7 +43,7 @@ namespace Ralid.Attendance.DAL.LinqDataProvider
             List<ShiftArrange> items = ret.ToList();
             if (items != null && items.Count > 0)
             {
-                List<Shift> shifts = attendance.GetTable<Shift>().ToList();
+                List<Shift> shifts = (new ShiftProvider(ConnectStr)).GetItems(null).QueryObjects;
                 foreach (ShiftArrange item in items)
                 {
                     item.Shift = shifts.SingleOrDefault(it => it.ID == item.ShiftID);
