@@ -40,6 +40,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.colID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUserPosition1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colResigned1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMemo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -54,11 +59,6 @@
             this.colUserPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colResigned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUserPosition1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colResigned1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMemo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plnLeft.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -187,6 +187,41 @@
             this.dataGridView1.TabIndex = 32;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridView_CellMouseDown);
             // 
+            // colID1
+            // 
+            this.colID1.HeaderText = "编号";
+            this.colID1.Name = "colID1";
+            this.colID1.ReadOnly = true;
+            // 
+            // colName1
+            // 
+            this.colName1.HeaderText = "姓名";
+            this.colName1.MinimumWidth = 100;
+            this.colName1.Name = "colName1";
+            this.colName1.ReadOnly = true;
+            this.colName1.Width = 150;
+            // 
+            // colUserPosition1
+            // 
+            this.colUserPosition1.HeaderText = "职位";
+            this.colUserPosition1.MinimumWidth = 100;
+            this.colUserPosition1.Name = "colUserPosition1";
+            this.colUserPosition1.ReadOnly = true;
+            // 
+            // colResigned1
+            // 
+            this.colResigned1.HeaderText = "状态";
+            this.colResigned1.Name = "colResigned1";
+            this.colResigned1.ReadOnly = true;
+            // 
+            // colMemo1
+            // 
+            this.colMemo1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMemo1.HeaderText = "门禁部门";
+            this.colMemo1.Name = "colMemo1";
+            this.colMemo1.ReadOnly = true;
+            this.colMemo1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -314,41 +349,7 @@
             this.colMemo.Name = "colMemo";
             this.colMemo.ReadOnly = true;
             this.colMemo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colID1
-            // 
-            this.colID1.HeaderText = "编号";
-            this.colID1.Name = "colID1";
-            this.colID1.ReadOnly = true;
-            // 
-            // colName1
-            // 
-            this.colName1.HeaderText = "姓名";
-            this.colName1.MinimumWidth = 100;
-            this.colName1.Name = "colName1";
-            this.colName1.ReadOnly = true;
-            this.colName1.Width = 150;
-            // 
-            // colUserPosition1
-            // 
-            this.colUserPosition1.HeaderText = "职位";
-            this.colUserPosition1.MinimumWidth = 100;
-            this.colUserPosition1.Name = "colUserPosition1";
-            this.colUserPosition1.ReadOnly = true;
-            // 
-            // colResigned1
-            // 
-            this.colResigned1.HeaderText = "状态";
-            this.colResigned1.Name = "colResigned1";
-            this.colResigned1.ReadOnly = true;
-            // 
-            // colMemo1
-            // 
-            this.colMemo1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMemo1.HeaderText = "门禁部门";
-            this.colMemo1.Name = "colMemo1";
-            this.colMemo1.ReadOnly = true;
-            this.colMemo1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colMemo.Visible = false;
             // 
             // FrmStaff
             // 

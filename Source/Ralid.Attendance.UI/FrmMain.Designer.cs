@@ -85,13 +85,9 @@
             this.btnShiftResultStatistics2 = new System.Windows.Forms.ToolStripButton();
             this.btnResultDetail = new System.Windows.Forms.ToolStripButton();
             this.btnAttendanceLog = new System.Windows.Forms.ToolStripButton();
-            this.ucFormViewMain = new Ralid.GeneralLibrary.WinformControl.UCFormView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblOperator = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblStation = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblStartFrom = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblEventServiceStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblCommuicationStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ucFormViewMain = new Ralid.GeneralLibrary.WinformControl.UCFormView();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -486,21 +482,11 @@
             this.btnAttendanceLog.Name = "btnAttendanceLog";
             this.btnAttendanceLog.Click += new System.EventHandler(this.mnu_AttendanceLogReport_Click);
             // 
-            // ucFormViewMain
-            // 
-            resources.ApplyResources(this.ucFormViewMain, "ucFormViewMain");
-            this.ucFormViewMain.FormHeaderLength = 135;
-            this.ucFormViewMain.Name = "ucFormViewMain";
-            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblOperator,
-            this.lblStation,
-            this.lblStartFrom,
-            this.lblEventServiceStatus,
-            this.lblCommuicationStatus});
+            this.lblOperator});
             resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
             // 
@@ -513,51 +499,18 @@
             resources.ApplyResources(this.lblOperator, "lblOperator");
             this.lblOperator.Name = "lblOperator";
             // 
-            // lblStation
+            // ucFormViewMain
             // 
-            this.lblStation.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.lblStation.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
-            resources.ApplyResources(this.lblStation, "lblStation");
-            this.lblStation.Name = "lblStation";
-            // 
-            // lblStartFrom
-            // 
-            this.lblStartFrom.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.lblStartFrom.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
-            resources.ApplyResources(this.lblStartFrom, "lblStartFrom");
-            this.lblStartFrom.Name = "lblStartFrom";
-            // 
-            // lblEventServiceStatus
-            // 
-            this.lblEventServiceStatus.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.lblEventServiceStatus.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
-            resources.ApplyResources(this.lblEventServiceStatus, "lblEventServiceStatus");
-            this.lblEventServiceStatus.ForeColor = System.Drawing.Color.Black;
-            this.lblEventServiceStatus.Name = "lblEventServiceStatus";
-            // 
-            // lblCommuicationStatus
-            // 
-            resources.ApplyResources(this.lblCommuicationStatus, "lblCommuicationStatus");
-            this.lblCommuicationStatus.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.lblCommuicationStatus.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
-            this.lblCommuicationStatus.ForeColor = System.Drawing.Color.Red;
-            this.lblCommuicationStatus.Name = "lblCommuicationStatus";
-            this.lblCommuicationStatus.Spring = true;
+            resources.ApplyResources(this.ucFormViewMain, "ucFormViewMain");
+            this.ucFormViewMain.FormHeaderLength = 135;
+            this.ucFormViewMain.Name = "ucFormViewMain";
             // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ucFormViewMain);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -613,7 +566,6 @@
         private System.Windows.Forms.ToolStripButton btnAttendanceReader;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnShiftResultStatistics;
-        private GeneralLibrary.WinformControl.UCFormView ucFormViewMain;
         private System.Windows.Forms.ToolStripMenuItem mnu_ShiftResultStatistics2;
         private System.Windows.Forms.ToolStripMenuItem mnu_ManualLog;
         private System.Windows.Forms.ToolStripButton btnShiftArrange;
@@ -636,10 +588,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnu_AttendanceRules;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblOperator;
-        private System.Windows.Forms.ToolStripStatusLabel lblStation;
-        private System.Windows.Forms.ToolStripStatusLabel lblStartFrom;
-        private System.Windows.Forms.ToolStripStatusLabel lblEventServiceStatus;
-        private System.Windows.Forms.ToolStripStatusLabel lblCommuicationStatus;
+        private GeneralLibrary.WinformControl.UCFormView ucFormViewMain;
 
     }
 }
