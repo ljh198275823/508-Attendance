@@ -31,9 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.plnLeft = new System.Windows.Forms.Panel();
+            this.departmentTreeview1 = new Ralid.Attendance.UI.DepartmentTreeview(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_Remove = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Resign = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_CancelResign = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -46,8 +49,6 @@
             this.GridView = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.mnu_Resign = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_CancelResign = new System.Windows.Forms.ToolStripMenuItem();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUserPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +59,6 @@
             this.colUserPosition1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colResigned1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentTreeview1 = new Ralid.Attendance.UI.DepartmentTreeview(this.components);
             this.plnLeft.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,6 +90,18 @@
             this.plnLeft.Size = new System.Drawing.Size(324, 400);
             this.plnLeft.TabIndex = 4;
             // 
+            // departmentTreeview1
+            // 
+            this.departmentTreeview1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.departmentTreeview1.LoadUser = false;
+            this.departmentTreeview1.Location = new System.Drawing.Point(0, 34);
+            this.departmentTreeview1.Name = "departmentTreeview1";
+            this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
+            this.departmentTreeview1.ShowResigedStaff = false;
+            this.departmentTreeview1.Size = new System.Drawing.Size(324, 366);
+            this.departmentTreeview1.TabIndex = 3;
+            this.departmentTreeview1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.departmentTreeview1_NodeMouseClick);
+            // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -114,6 +126,20 @@
             this.mnu_Remove.Size = new System.Drawing.Size(160, 22);
             this.mnu_Remove.Text = "从所属部门删除";
             this.mnu_Remove.Click += new System.EventHandler(this.mnu_Remove_Click);
+            // 
+            // mnu_Resign
+            // 
+            this.mnu_Resign.Name = "mnu_Resign";
+            this.mnu_Resign.Size = new System.Drawing.Size(160, 22);
+            this.mnu_Resign.Text = "离职";
+            this.mnu_Resign.Click += new System.EventHandler(this.mnu_Resign_Click);
+            // 
+            // mnu_CancelResign
+            // 
+            this.mnu_CancelResign.Name = "mnu_CancelResign";
+            this.mnu_CancelResign.Size = new System.Drawing.Size(160, 22);
+            this.mnu_CancelResign.Text = "取消离职";
+            this.mnu_CancelResign.Click += new System.EventHandler(this.mnu_CancelResign_Click);
             // 
             // panel3
             // 
@@ -254,20 +280,6 @@
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "总共 0 项";
             // 
-            // mnu_Resign
-            // 
-            this.mnu_Resign.Name = "mnu_Resign";
-            this.mnu_Resign.Size = new System.Drawing.Size(160, 22);
-            this.mnu_Resign.Text = "离职";
-            this.mnu_Resign.Click += new System.EventHandler(this.mnu_Resign_Click);
-            // 
-            // mnu_CancelResign
-            // 
-            this.mnu_CancelResign.Name = "mnu_CancelResign";
-            this.mnu_CancelResign.Size = new System.Drawing.Size(160, 22);
-            this.mnu_CancelResign.Text = "取消离职";
-            this.mnu_CancelResign.Click += new System.EventHandler(this.mnu_CancelResign_Click);
-            // 
             // colID
             // 
             this.colID.HeaderText = "编号";
@@ -298,7 +310,7 @@
             // colMemo
             // 
             this.colMemo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMemo.HeaderText = "备注";
+            this.colMemo.HeaderText = "门禁部门";
             this.colMemo.Name = "colMemo";
             this.colMemo.ReadOnly = true;
             this.colMemo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -333,21 +345,10 @@
             // colMemo1
             // 
             this.colMemo1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMemo1.HeaderText = "备注";
+            this.colMemo1.HeaderText = "门禁部门";
             this.colMemo1.Name = "colMemo1";
             this.colMemo1.ReadOnly = true;
             this.colMemo1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // departmentTreeview1
-            // 
-            this.departmentTreeview1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.departmentTreeview1.LoadUser = false;
-            this.departmentTreeview1.Location = new System.Drawing.Point(0, 34);
-            this.departmentTreeview1.Name = "departmentTreeview1";
-            this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
-            this.departmentTreeview1.Size = new System.Drawing.Size(324, 366);
-            this.departmentTreeview1.TabIndex = 3;
-            this.departmentTreeview1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.departmentTreeview1_NodeMouseClick);
             // 
             // FrmStaff
             // 
@@ -401,15 +402,15 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem mnu_Resign;
         private System.Windows.Forms.ToolStripMenuItem mnu_CancelResign;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUserPosition;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colResigned;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUserPosition1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResigned1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMemo1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUserPosition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colResigned;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
     }
 }

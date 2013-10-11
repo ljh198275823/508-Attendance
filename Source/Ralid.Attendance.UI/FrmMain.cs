@@ -171,6 +171,8 @@ namespace Ralid.Attendance.UI
             List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
             HolidaySetting.Current.Holidays = holidays;
             AttendanceRules.Current = (new ParameterBLL(AppSettings.CurrentSetting.ConnectString)).GetOrDefaultParameter<AttendanceRules>();
+
+            if (Operator.CurrentOperator != null) this.lblOperator.Text = string.Format(Resource1.FrmMain_lblOperator, Operator.CurrentOperator.Name);
         }
 
         private void mnu_Exit_Click(object sender, EventArgs e)

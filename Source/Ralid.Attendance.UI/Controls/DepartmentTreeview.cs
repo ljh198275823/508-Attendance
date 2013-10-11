@@ -71,8 +71,9 @@ namespace Ralid.Attendance.UI
             }
         }
 
-        private TreeNode AddDepartmentNode(Department dept)
+        private TreeNode AddDepartmentNode(Department dept, out int userCount)
         {
+            int count = 0;
             List<Staff> users = null;
             if (LoadUser)
             {
@@ -100,17 +101,18 @@ namespace Ralid.Attendance.UI
                     }
                     else
                     {
-                        TreeNode dnode = AddDepartmentNode(child);
+                        int uc = 0;
+                        TreeNode dnode = AddDepartmentNode(child, out uc);
                         dnode.ImageIndex = 0;
                         dnode.SelectedImageIndex = 0;
                         parent.Nodes.Add(dnode);
                         _AllDeptNodes.Add(dnode);
+                        count += uc;
                     }
                 }
             }
             if (LoadUser)
             {
-                int userCount = 0;
                 foreach (Staff user in users)
                 {
                     if (user.Resigned && !ShowResigedStaff)
@@ -124,11 +126,12 @@ namespace Ralid.Attendance.UI
                         unode.SelectedImageIndex = 1;
                         parent.Nodes.Add(unode);
                         _AllUserNodes.Add(unode);
-                        userCount++;
+                        count++;
                     }
                 }
-                parent.Text = string.Format("[{0}] {1} ({2}人)", dept.ID, dept.Name, userCount);
             }
+            if (LoadUser) parent.Text = string.Format("[{0}] {1} ({2}人)", dept.ID, dept.Name, count);
+            userCount = count;
             return parent;
         }
         #endregion
@@ -245,6 +248,7 @@ namespace Ralid.Attendance.UI
             root.SelectedImageIndex = 2;
             this.Nodes.Add(root);
 
+            int count = 0;
             if (_Depts != null && _Depts.Count > 0)
             {
                 foreach (Department dept in _Depts)
@@ -256,11 +260,13 @@ namespace Ralid.Attendance.UI
                         }
                         else
                         {
-                            TreeNode dnode = AddDepartmentNode(dept);
+                            int userCount = 0;
+                            TreeNode dnode = AddDepartmentNode(dept, out userCount);
                             dnode.ImageIndex = 0;
                             dnode.SelectedImageIndex = 0;
                             root.Nodes.Add(dnode);
                             _AllDeptNodes.Add(dnode);
+                            count += userCount;
                         }
                     }
                 }
@@ -268,6 +274,7 @@ namespace Ralid.Attendance.UI
             if (LoadUser)
             {
                 root.Expand();
+                if (LoadUser) root.Text = string.Format("{0} ({1}人)", "所有部门", count);
             }
             else
             {

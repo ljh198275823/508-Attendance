@@ -125,6 +125,11 @@ namespace Ralid.Attendance.UI
                     {
                         departmentTreeview1.SelectedNode.Nodes.Add(node);
                     }
+                    if (!Operator.CurrentOperator.IsAdmin)
+                    {
+                        Operator.CurrentOperator.Depts.Add(dept.ID);
+                        (new OperatorBll(AppSettings.CurrentSetting.ConnectString)).Update(Operator.CurrentOperator);
+                    }
                 }
                 else
                 {
