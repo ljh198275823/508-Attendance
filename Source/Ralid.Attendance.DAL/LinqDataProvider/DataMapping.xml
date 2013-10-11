@@ -143,6 +143,17 @@
       <Column Name="Manager" Member="Manager"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="HR" Member="HR"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
+      <Association Name="FK_Sheet_Item" Member="Items"  ThisKey="SheetID" OtherKey="SheetID"/>
+    </Type>
+  </Table>
+  <Table Name="dbo.TASheetitem" Member="Ralid.Attendance.Model.TASheetItem">
+    <Type Name="Ralid.Attendance.Model.TASheetItem">
+      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null" UpdateCheck="Never"/>
+      <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
+      <Column Name="NextDay" Member="NextDay"  DbType="bit not null" UpdateCheck="Never"/>
+      <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
+      <Column Name="Duration" Member="Duration"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAOTType" Member="Ralid.Attendance.Model.OTType">

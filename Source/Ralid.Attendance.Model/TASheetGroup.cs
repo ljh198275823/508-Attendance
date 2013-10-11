@@ -26,9 +26,7 @@ namespace Ralid.Attendance.Model
                             CreateDate = sheet.CreateDate,
                             StartDate = sheet.StartDate,
                             EndDate = sheet.EndDate,
-                            StartTime = sheet.StartTime,
-                            EndTime = sheet.EndTime,
-                            Duration =sheet.Duration ,
+                            Items = sheet.Items,
                             Category = sheet.CategoryID,
                             Header = sheet.Header,
                             Manager = sheet.Manager,
@@ -59,9 +57,7 @@ namespace Ralid.Attendance.Model
                           CreateDate = group.CreateDate,
                           StartDate = group.StartDate,
                           EndDate = group.EndDate,
-                          StartTime = group.StartTime,
-                          EndTime = group.EndTime,
-                          Duration = group.Duration,
+                          Items = group.Items,
                           CategoryID = group.Category,
                           StaffID = staff.ID,
                           StaffName = staff.Name,
@@ -109,18 +105,6 @@ namespace Ralid.Attendance.Model
         /// </summary>
         public DateTime EndDate { get; set; }
         /// <summary>
-        /// 获取或设置开始时间
-        /// </summary>
-        public MyTime StartTime { get; set; }
-        /// <summary>
-        /// 获取或设置结束时间
-        /// </summary>
-        public MyTime EndTime { get; set; }
-        /// <summary>
-        /// 获取或设置计时时长(分)
-        /// </summary>
-        public int Duration { get; set; }
-        /// <summary>
         /// 获取或设置类别
         /// </summary>
         public string Category { get; set; }
@@ -140,6 +124,10 @@ namespace Ralid.Attendance.Model
         /// 获取或设置请假事由
         /// </summary>
         public string Memo { get; set; }
+        /// <summary>
+        /// 获取或设置时间段列表
+        /// </summary>
+        public List<TASheetItem> Items { get; set; }
         #endregion
 
         #region 公共方法

@@ -42,9 +42,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.colStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,9 +58,6 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colStartDate,
             this.colEndDate,
-            this.colStartTime,
-            this.colEndTime,
-            this.colDuration,
             this.colCategory,
             this.colStaff,
             this.colMemo});
@@ -189,24 +183,6 @@
             this.colEndDate.Name = "colEndDate";
             this.colEndDate.ReadOnly = true;
             // 
-            // colStartTime
-            // 
-            this.colStartTime.HeaderText = "开始时间";
-            this.colStartTime.Name = "colStartTime";
-            this.colStartTime.ReadOnly = true;
-            // 
-            // colEndTime
-            // 
-            this.colEndTime.HeaderText = "结束时间";
-            this.colEndTime.Name = "colEndTime";
-            this.colEndTime.ReadOnly = true;
-            // 
-            // colDuration
-            // 
-            this.colDuration.HeaderText = "计时";
-            this.colDuration.Name = "colDuration";
-            this.colDuration.ReadOnly = true;
-            // 
             // colCategory
             // 
             this.colCategory.HeaderText = "类别";
@@ -263,9 +239,6 @@
         private System.Windows.Forms.ToolStripMenuItem btn_TripSheet;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEndDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStartTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEndTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDuration;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;

@@ -59,9 +59,6 @@ namespace Ralid.Attendance.UI
             row.Tag = group;
             row.Cells["colStartDate"].Value = group.StartDate.ToLongDateString();
             row.Cells["colEndDate"].Value = group.EndDate.ToLongDateString();
-            row.Cells["colStartTime"].Value = group.StartTime.ToString();
-            row.Cells["colEndTime"].Value = group.EndTime.ToString();
-            row.Cells["colDuration"].Value = group.Duration;
             row.Cells["colCategory"].Value = group.Category;
             row.Cells["colStaff"].Value = group.GetStaffNameString(",");
             row.Cells["colMemo"].Value = group.Memo;

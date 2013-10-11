@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Linq;
 using System.Text;
 using Ralid.Attendance.Model;
 using Ralid.Attendance.Model.Result;
@@ -21,11 +22,17 @@ namespace Ralid.Attendance.DAL.LinqDataProvider
         #region 重写基类方法
         protected override TASheet GetingItemByID(int id, AttendanceDataContext attendance)
         {
+            DataLoadOptions opts = new DataLoadOptions();
+            opts.LoadWith<TASheet>(item => item.Items);
+            attendance.LoadOptions = opts;
             return attendance.GetTable<TASheet>().SingleOrDefault(item => item.ID == id);
         }
 
         protected override List<TASheet> GetingItems(AttendanceDataContext attendance, SearchCondition search)
         {
+            DataLoadOptions opts = new DataLoadOptions();
+            opts.LoadWith<TASheet>(item => item.Items);
+            attendance.LoadOptions = opts;
             IQueryable<TASheet> ret = attendance.GetTable<TASheet>();
             if (search is TASheetSearchCondition)
             {
@@ -37,6 +44,45 @@ namespace Ralid.Attendance.DAL.LinqDataProvider
                 if (con.StartDate != null) ret = ret.Where(item => item.StartDate >= con.StartDate.Begin && item.StartDate <= con.StartDate.End);
             }
             return ret.ToList();
+        }
+
+        protected override void UpdatingItem(TASheet newVal, TASheet original, AttendanceDataContext attendance)
+        {
+            attendance.GetTable<TASheet>().Attach(newVal, original);
+            foreach (TASheetItem item in newVal.Items)
+            {
+                TASheetItem old = original.Items.SingleOrDefault(it => it.ID == item.ID);
+                if (old != null)
+                {
+                    attendance.GetTable<TASheetItem>().Attach(item, old);
+                }
+                else
+                {
+                    attendance.GetTable<TASheetItem>().InsertOnSubmit(item);
+                }
+            }
+            foreach (TASheetItem item in original.Items)
+            {
+                if (newVal.Items.SingleOrDefault(it => it.ID == item.ID) == null)
+                {
+                    attendance.GetTable<TASheetItem>().Attach(item);
+                    attendance.GetTable<TASheetItem>().DeleteOnSubmit(item);
+                }
+            }
+        }
+
+        protected override void DeletingItem(TASheet info, AttendanceDataContext attendance)
+        {
+            attendance.GetTable<TASheet>().Attach(info);
+            attendance.GetTable<TASheet>().DeleteOnSubmit(info);
+            if (info.Items != null && info.Items.Count > 0)
+            {
+                foreach (TASheetItem si in info.Items)
+                {
+                    attendance.GetTable<TASheetItem>().Attach(si);
+                    attendance.GetTable<TASheetItem>().DeleteOnSubmit(si);
+                }
+            }
         }
         #endregion
     }

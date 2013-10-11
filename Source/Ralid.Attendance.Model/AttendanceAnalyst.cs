@@ -54,75 +54,82 @@ namespace Ralid.Attendance.Model
             DateTime dt = sheet.StartDate;
             while (dt<=sheet.EndDate && range.Contain(dt))
             {
-                DateTime dt1 = dt.AddHours(sheet.StartTime.Hour).AddMinutes(sheet.StartTime.Minute).AddSeconds(sheet.StartTime.Second);
-                DateTime dt2 = dt.AddHours(sheet.EndTime.Hour).AddMinutes(sheet.EndTime.Minute).AddSeconds(sheet.EndTime.Second);
-                DatetimeRange dr = new DatetimeRange(dt1, dt2);
-                List<AttendanceResult> sts = timezones.Where(it => it.ShiftDate == dt).ToList();
-                if (sts != null && sts.Count > 0)
+                if (sheet.Items != null && sheet.Items.Count > 0)
                 {
-                    foreach (AttendanceResult item in sts)
+                    foreach (TASheetItem item in sheet.Items)
                     {
-                        DatetimeRange drItem = new DatetimeRange(item.NewStartTime, item.NewEndTime);
-                        if (dr.Contain(drItem))
+                        DateTime dt1 = dt.AddHours(item.StartTime.Hour).AddMinutes(item.StartTime.Minute).AddSeconds(item.StartTime.Second);
+                        DateTime dt2 = dt.AddHours(item.EndTime.Hour).AddMinutes(item.EndTime.Minute).AddSeconds(item.EndTime.Second);
+                        if (item.NextDay) dt2 = dt2.AddDays(1);
+                        DatetimeRange dr = new DatetimeRange(dt1, dt2);
+                        List<AttendanceResult> sts = timezones.Where(it => it.ShiftDate == dt).ToList();
+                        if (sts != null && sts.Count > 0)
                         {
-                            if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
+                            foreach (AttendanceResult st in sts)
                             {
-                                item.Present = 0;
+                                DatetimeRange drItem = new DatetimeRange(st.NewStartTime, st.NewEndTime);
+                                if (dr.Contain(drItem))
+                                {
+                                    if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
+                                    {
+                                        st.Present = 0;
+                                    }
+                                    st.Category = sheet.CategoryID;
+                                    st.LogWhenArrive = false;
+                                    st.LogWhenLeave = false;
+                                    AbsentItem ai = new AbsentItem()
+                                    {
+                                        Category = sheet.CategoryID,
+                                        Duration = st.ShiftTime
+                                    };
+                                    st.AbsentItems.Add(ai);
+                                }
+                                else if (drItem.Contain(dr))
+                                {
+                                    if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
+                                    {
+                                        st.Present -= dr.TotalMinutes;
+                                    }
+                                    if (drItem.Begin == dr.Begin) st.NewStartTime = dr.End;
+                                    if (drItem.End == dr.End) st.NewEndTime = dr.Begin;
+                                    AbsentItem ai = new AbsentItem()
+                                    {
+                                        Category = sheet.CategoryID,
+                                        Duration = dr.TotalMinutes
+                                    };
+                                    st.AbsentItems.Add(ai);
+                                }
+                                else if (drItem.Contain(dr.Begin))
+                                {
+                                    DatetimeRange drTemp = new DatetimeRange(dr.Begin, drItem.End);
+                                    if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
+                                    {
+                                        st.Present -= drTemp.TotalMinutes;
+                                    }
+                                    st.NewEndTime = dr.Begin;
+                                    AbsentItem ai = new AbsentItem()
+                                    {
+                                        Category = sheet.CategoryID,
+                                        Duration = drTemp.TotalMinutes
+                                    };
+                                    st.AbsentItems.Add(ai);
+                                }
+                                else if (drItem.Contain(dr.End))
+                                {
+                                    DatetimeRange drTemp = new DatetimeRange(drItem.Begin, dr.End);
+                                    if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
+                                    {
+                                        st.Present -= drTemp.TotalMinutes;
+                                    }
+                                    st.NewStartTime = dr.End;
+                                    AbsentItem ai = new AbsentItem()
+                                    {
+                                        Category = sheet.CategoryID,
+                                        Duration = drTemp.TotalMinutes
+                                    };
+                                    st.AbsentItems.Add(ai);
+                                }
                             }
-                            item.Category = sheet.CategoryID;
-                            item.LogWhenArrive = false;
-                            item.LogWhenLeave = false;
-                            AbsentItem ai = new AbsentItem()
-                            {
-                                Category = sheet.CategoryID,
-                                Duration = item.ShiftTime
-                            };
-                            item.AbsentItems.Add(ai);
-                        }
-                        else if (drItem.Contain(dr))
-                        {
-                            if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
-                            {
-                                item.Present -= dr.TotalMinutes;
-                            }
-                            if (drItem.Begin == dr.Begin) item.NewStartTime = dr.End;
-                            if (drItem.End == dr.End) item.NewEndTime = dr.Begin;
-                            AbsentItem ai = new AbsentItem()
-                            {
-                                Category = sheet.CategoryID,
-                                Duration = dr.TotalMinutes
-                            };
-                            item.AbsentItems.Add(ai);
-                        }
-                        else if (drItem.Contain(dr.Begin))
-                        {
-                            DatetimeRange drTemp = new DatetimeRange(dr.Begin, drItem.End);
-                            if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
-                            {
-                                item.Present -= drTemp.TotalMinutes;
-                            }
-                            item.NewEndTime = dr.Begin;
-                            AbsentItem ai = new AbsentItem()
-                            {
-                                Category = sheet.CategoryID,
-                                Duration = drTemp.TotalMinutes
-                            };
-                            item.AbsentItems.Add(ai);
-                        }
-                        else if (drItem.Contain(dr.End))
-                        {
-                            DatetimeRange drTemp = new DatetimeRange(drItem.Begin, dr.End);
-                            if (!(sheet.SheetType == "C" && AttendanceRules.Current != null && AttendanceRules.Current.ShiftTimeIncludeWaiChu))
-                            {
-                                item.Present -= drTemp.TotalMinutes;
-                            }
-                            item.NewStartTime = dr.End;
-                            AbsentItem ai = new AbsentItem()
-                            {
-                                Category = sheet.CategoryID,
-                                Duration = drTemp.TotalMinutes
-                            };
-                            item.AbsentItems.Add(ai);
                         }
                     }
                 }
@@ -138,41 +145,37 @@ namespace Ralid.Attendance.Model
             DateTime dt = sheet.StartDate;
             while (dt <= sheet.EndDate && range.Contain(dt))
             {
-                AttendanceResult st = CreateAttendanceResult(staff, dt, sheet);
-                DateTime dt1 = dt.AddHours(sheet.StartTime.Hour).AddMinutes(sheet.StartTime.Minute).AddSeconds(sheet.StartTime.Second);
-                DateTime dt2 = dt.AddHours(sheet.EndTime.Hour).AddMinutes(sheet.EndTime.Minute).AddSeconds(sheet.EndTime.Second);
-                DatetimeRange dr = new DatetimeRange(dt1, dt2);
-                List<AttendanceResult> sts = timezones.Where(it => it.ShiftDate == st.ShiftDate).ToList();
-                if (sts != null && sts.Count > 0)
+                List<AttendanceResult> ots = CreateAttendanceResult(staff, dt, sheet);
+                if (ots == null || ots.Count == 0) break;
+                foreach (AttendanceResult ot in ots)
                 {
-                    foreach (AttendanceResult item in sts)
+                    DatetimeRange drOT = new DatetimeRange(ot.NewStartTime, ot.NewEndTime);
+                    List<AttendanceResult> sts = timezones.Where(it => it.ShiftDate == ot.ShiftDate).ToList();
+                    if (sts == null || sts.Count == 0) break;
+                    foreach (AttendanceResult st in sts)
                     {
-                        DatetimeRange drItem = new DatetimeRange(item.NewStartTime, item.NewEndTime);
-                        if (!drItem.Contain(dr)) //检查是否有全部重合的情况，如果与上班时间全部重合，则加班无效。
+                        DatetimeRange drSt = new DatetimeRange(st.NewStartTime, st.NewEndTime);
+                        if (!drSt.Contain(drOT)) //检查是否有全部重合的情况，如果与上班时间全部重合，则加班无效。
                         {
-                            if (drItem.Contain(dr.Begin)) //如果加班的开始时间与普通上班时间有重叠，加班时间要截取掉重合部分，并且普通上班下班不用再打卡。
+                            if (drSt.Contain(drOT.Begin)) //如果加班的开始时间与普通上班时间有重叠，加班时间要截取掉重合部分，并且普通上班下班不用再打卡。
                             {
-                                item.LogWhenLeave = false;
-                                st.NewStartTime = drItem.End;
-                                st.ShiftTime = (new DatetimeRange(st.NewStartTime, st.NewEndTime)).TotalMinutes;
-                                st.Present = (new DatetimeRange(st.NewStartTime, st.NewEndTime)).TotalMinutes;
+                                st.LogWhenLeave = false;
+                                ot.NewStartTime = drSt.End;
+                                ot.ShiftTime = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
+                                ot.Present = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
+                                ot.LogWhenArrive = false;
+                            }
+                            if (drSt.Contain(drOT.End))
+                            {
+                                ot.NewEndTime = drSt.Begin;
+                                ot.ShiftTime = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
+                                ot.Present = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
+                                ot.LogWhenLeave = false;
                                 st.LogWhenArrive = false;
                             }
-                            if (drItem.Contain(dr.End))
-                            {
-                                st.NewEndTime = drItem.Begin;
-                                st.ShiftTime = (new DatetimeRange(st.NewStartTime, st.NewEndTime)).TotalMinutes;
-                                st.Present = (new DatetimeRange(st.NewStartTime, st.NewEndTime)).TotalMinutes;
-                                st.LogWhenLeave = false;
-                                item.LogWhenArrive = false;
-                            }
-                            items.Add(st);
+                            items.Add(ot);
                         }
                     }
-                }
-                else
-                {
-                    items.Add(st);
                 }
                 dt = dt.AddDays(1);
             }
@@ -219,41 +222,49 @@ namespace Ralid.Attendance.Model
             return items;
         }
 
-        private AttendanceResult CreateAttendanceResult(Staff staff, DateTime shiftDate, TASheet sheet)
+        private List<AttendanceResult> CreateAttendanceResult(Staff staff, DateTime shiftDate, TASheet sheet)
         {
-            DateTime dt1 = shiftDate.AddHours(sheet.StartTime.Hour).AddMinutes(sheet.StartTime.Minute).AddSeconds(sheet.StartTime.Second);
-            DateTime dt2 = shiftDate.AddHours(sheet.EndTime.Hour).AddMinutes(sheet.EndTime.Minute).AddSeconds(sheet.EndTime.Second);
-            if (dt1 > dt2) dt2 = dt2.AddDays(1); //跨天
-            AttendanceResult st = new AttendanceResult();
-            st.ID = Guid.NewGuid();
-            st.StaffID = staff.ID;
-            st.StaffName = staff.Name;
-            st.ShiftDate = shiftDate;
-            st.Category = sheet.CategoryID;
-            st.StartTime = dt1;
-            st.NewStartTime = dt1;
-            st.EndTime = dt2;
-            st.NewEndTime = dt2;
-            if (AttendanceRules.Current != null)
+            List<AttendanceResult> items = new List<AttendanceResult>();
+            if (sheet.Items != null && sheet.Items.Count > 0)
             {
-                st.EarlyestTime = st.NewStartTime.AddMinutes(-(int)AttendanceRules.Current.BeforeOTStartTime);
-                st.LatestTime = st.NewEndTime.AddMinutes((int)AttendanceRules.Current.AfterOTEndTime);
-            }
-            else
-            {
-                st.EarlyestTime = st.NewStartTime.AddMinutes(-30);
-                st.LatestTime = st.NewEndTime.AddMinutes(30);
-            }
-            st.ShiftTime = sheet.Duration;
-            st.Present = sheet.Duration;
-            st.AbsentItems = new List<AbsentItem>();
+                foreach (TASheetItem item in sheet.Items)
+                {
+                    DateTime dt1 = shiftDate.AddHours(item.StartTime.Hour).AddMinutes(item.StartTime.Minute).AddSeconds(item.StartTime.Second);
+                    DateTime dt2 = shiftDate.AddHours(item.EndTime.Hour).AddMinutes(item.EndTime.Minute).AddSeconds(item.EndTime.Second);
+                    if (dt1 > dt2) dt2 = dt2.AddDays(1); //跨天
+                    AttendanceResult st = new AttendanceResult();
+                    st.ID = Guid.NewGuid();
+                    st.StaffID = staff.ID;
+                    st.StaffName = staff.Name;
+                    st.ShiftDate = shiftDate;
+                    st.Category = sheet.CategoryID;
+                    st.StartTime = dt1;
+                    st.NewStartTime = dt1;
+                    st.EndTime = dt2;
+                    st.NewEndTime = dt2;
+                    if (AttendanceRules.Current != null)
+                    {
+                        st.EarlyestTime = st.NewStartTime.AddMinutes(-(int)AttendanceRules.Current.BeforeOTStartTime);
+                        st.LatestTime = st.NewEndTime.AddMinutes((int)AttendanceRules.Current.AfterOTEndTime);
+                    }
+                    else
+                    {
+                        st.EarlyestTime = st.NewStartTime.AddMinutes(-30);
+                        st.LatestTime = st.NewEndTime.AddMinutes(30);
+                    }
+                    st.ShiftTime = item.Duration;
+                    st.Present = item.Duration;
+                    st.AbsentItems = new List<AbsentItem>();
 
-            st.LogWhenArrive = true;
-            st.LogWhenLeave = true;
-            st.EnableLate = true;
-            st.EnableLeaveEarly = true;
-            st.EnableAbsent = true;
-            return st;
+                    st.LogWhenArrive = true;
+                    st.LogWhenLeave = true;
+                    st.EnableLate = true;
+                    st.EnableLeaveEarly = true;
+                    st.EnableAbsent = true;
+                    items.Add(st);
+                }
+            }
+            return items;
         }
 
         private void AttachAttendanceReocrds(List<AttendanceResult> timezones, List<AttendanceLog> ars)

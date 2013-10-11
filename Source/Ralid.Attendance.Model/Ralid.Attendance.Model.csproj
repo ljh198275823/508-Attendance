@@ -71,6 +71,7 @@
     <Compile Include="SearchCondition\StaffAttendanceResultSearchCondition.cs" />
     <Compile Include="SearchCondition\StaffDepartmentPairSearchCondition.cs" />
     <Compile Include="SearchCondition\TASheetSearchCondition.cs" />
+    <Compile Include="TASheetItem.cs" />
     <Compile Include="ShiftArrange.cs" />
     <Compile Include="ShiftArrangeID.cs" />
     <Compile Include="ShiftItem.cs" />
