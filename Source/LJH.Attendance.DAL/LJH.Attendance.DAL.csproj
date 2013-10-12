@@ -68,7 +68,6 @@
     <Compile Include="IDAL\IShiftTemplateProvider.cs" />
     <Compile Include="IDAL\IShiftProvider.cs" />
     <Compile Include="IDAL\IAttendanceResultProvider.cs" />
-    <Compile Include="IDAL\IStaffDepartmentPairProvider.cs" />
     <Compile Include="IDAL\ISysparameterProvider.cs" />
     <Compile Include="IDAL\ITripTypeProvider.cs" />
     <Compile Include="IDAL\IUnitWork.cs" />
@@ -93,14 +92,11 @@
     <Compile Include="LinqDataProvider\ShiftTemplateProvider.cs" />
     <Compile Include="LinqDataProvider\ShiftProvider.cs" />
     <Compile Include="LinqDataProvider\AttendanceResultProvider.cs" />
-    <Compile Include="LinqDataProvider\StaffDepartmentPairProvider.cs" />
     <Compile Include="LinqDataProvider\SysparameterProvider.cs" />
     <Compile Include="LinqDataProvider\TripTypeProvider.cs" />
     <Compile Include="LinqDataProvider\T_OperatorDept.cs" />
-    <Compile Include="LinqDataProvider\T_ResignStaff.cs" />
     <Compile Include="LinqDataProvider\T_ShiftArrange.cs" />
     <Compile Include="LinqDataProvider\T_ShiftArrangeTemplate.cs" />
-    <Compile Include="LinqDataProvider\T_StaffDepartmentPair.cs" />
     <Compile Include="LinqDataProvider\T_TAManualLog.cs" />
     <Compile Include="LinqDataProvider\UnitWork.cs" />
     <Compile Include="LinqDataProvider\StaffProvider.cs" />

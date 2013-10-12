@@ -266,7 +266,7 @@ namespace LJH.Attendance.UI
 
         private void mnu_Staff_Click(object sender, EventArgs e)
         {
-            ShowSingleForm(typeof(FrmStaff));
+            ShowSingleForm(typeof(FrmStaffMaster));
         }
 
         private void mnu_TASheet_Click(object sender, EventArgs e)

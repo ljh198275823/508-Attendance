@@ -23,17 +23,21 @@ namespace LJH.Attendance.Model
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// 获取或设置人员在门禁中的部门ID
-        /// </summary>
-        public string ACSDepartmentID { get; set; }
-        /// <summary>
         /// 获取或设置人员在考勤系统中的部门ID
         /// </summary>
         public string DepartmentID { get; set; }
         /// <summary>
+        /// 获取或设置部门
+        /// </summary>
+        public Department Department { get; set; }
+        /// <summary>
         /// 获取或设置员工是否已经离职
         /// </summary>
         public bool Resigned { get; set; }
+        /// <summary>
+        /// 获取或设置人员编号
+        /// </summary>
+        public string Certificate { get; set; }
         /// <summary>
         /// 获取或设置人员职位
         /// </summary>

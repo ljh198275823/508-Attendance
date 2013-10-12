@@ -70,6 +70,12 @@
     <Compile Include="Controls\FunctionTree.designer.cs">
       <DependentUpon>FunctionTree.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DepartmentComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DepartmentComboBox.designer.cs">
+      <DependentUpon>DepartmentComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RoleCombobox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -221,6 +227,12 @@
     <Compile Include="FrmShiftTemplateMaster.Designer.cs">
       <DependentUpon>FrmShiftTemplateMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmStaffDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffDetail.Designer.cs">
+      <DependentUpon>FrmStaffDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTASheetGroupDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,11 +323,11 @@
     <Compile Include="FrmShiftSelection.Designer.cs">
       <DependentUpon>FrmShiftSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmStaff.cs">
+    <Compile Include="FrmStaffMaster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmStaff.Designer.cs">
-      <DependentUpon>FrmStaff.cs</DependentUpon>
+    <Compile Include="FrmStaffMaster.Designer.cs">
+      <DependentUpon>FrmStaffMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStaffSelection.cs">
       <SubType>Form</SubType>
@@ -488,6 +500,9 @@
     <EmbeddedResource Include="FrmShiftTemplateMaster.resx">
       <DependentUpon>FrmShiftTemplateMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffDetail.resx">
+      <DependentUpon>FrmStaffDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTASheetGroupDetail.resx">
       <DependentUpon>FrmTASheetGroupDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -548,8 +563,8 @@
     <EmbeddedResource Include="FrmShiftSelection.resx">
       <DependentUpon>FrmShiftSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStaff.resx">
-      <DependentUpon>FrmStaff.cs</DependentUpon>
+    <EmbeddedResource Include="FrmStaffMaster.resx">
+      <DependentUpon>FrmStaffMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffSelection.resx">
       <DependentUpon>FrmStaffSelection.cs</DependentUpon>

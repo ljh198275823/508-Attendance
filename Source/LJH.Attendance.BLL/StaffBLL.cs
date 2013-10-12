@@ -28,6 +28,11 @@ namespace LJH.Attendance.BLL
             return ProviderFactory.Create<IStaffProvider>(_RepoUri).GetItems(con);
         }
 
+        public CommandResult Add(Staff info)
+        {
+            return ProviderFactory.Create<IStaffProvider>(_RepoUri).Insert(info);
+        }
+
         public CommandResult Update(Staff info)
         {
             Staff original = ProviderFactory.Create<IStaffProvider>(_RepoUri).GetByID(info.ID).QueryObject;
@@ -39,6 +44,11 @@ namespace LJH.Attendance.BLL
             {
                 return new CommandResult(ResultCode.NoRecord, ResultCodeDecription.GetDescription(ResultCode.NoRecord));
             }
+        }
+
+        public CommandResult Delete(Staff info)
+        {
+            return ProviderFactory.Create<IStaffProvider>(_RepoUri).Delete(info);
         }
         #endregion
     }
