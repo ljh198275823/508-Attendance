@@ -24,19 +24,7 @@ namespace LJH.Attendance.UI
         private void FrmDepartmentMaster_Load(object sender, EventArgs e)
         {
             this.departmentTreeview1.Init();
-            txtDeptID.Enabled = !SystemOptions.Current.UsingACSDept;
-            txtDeptName.Enabled = !SystemOptions.Current.UsingACSDept;
-            txtMemo.Enabled = !SystemOptions.Current.UsingACSDept;
-            btnSave.Enabled = !SystemOptions.Current.UsingACSDept;
-            if (!SystemOptions.Current.UsingACSDept)
-            {
-                this.departmentTreeview1.ContextMenuStrip = contextMenuStrip1;
-            }
-            else
-            {
-                this.departmentTreeview1.ContextMenuStrip = null;
-            }
-
+            this.departmentTreeview1.ContextMenuStrip = contextMenuStrip1;
             mnu_Add.Enabled = Operator.CurrentOperator.Permit(Permission.EditDepartment);
             mnu_Delete.Enabled = Operator.CurrentOperator.Permit(Permission.EditDepartment);
             btnSave.Enabled = Operator.CurrentOperator.Permit(Permission.EditDepartment);

@@ -622,9 +622,6 @@
     <None Include="Resources\clear.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RalidTA.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\door.png" />
   </ItemGroup>
   <ItemGroup>
@@ -671,6 +668,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="attendance.ico" />
+    <None Include="Resources\img15.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LJH.Attendance.BLL\LJH.Attendance.BLL.csproj">

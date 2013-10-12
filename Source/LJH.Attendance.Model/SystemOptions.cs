@@ -14,12 +14,8 @@ namespace LJH.Attendance.Model
         #region 构造函数
         public SystemOptions()
         {
-            UsingACSDept = true;
         }
         #endregion
 
-        #region 公共属性
-        public bool UsingACSDept { get; set; }
-        #endregion
     }
 }

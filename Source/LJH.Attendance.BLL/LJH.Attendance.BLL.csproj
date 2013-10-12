@@ -65,7 +65,6 @@
     <Compile Include="ShiftArrangeBLL.cs" />
     <Compile Include="ShiftTemplateBLL.cs" />
     <Compile Include="AttendanceResultBLL.cs" />
-    <Compile Include="SystemOptionsBLL.cs" />
     <Compile Include="DatabaseUpgrader.cs" />
     <Compile Include="DepartmentBLL.cs" />
     <Compile Include="OperatorBll.cs" />

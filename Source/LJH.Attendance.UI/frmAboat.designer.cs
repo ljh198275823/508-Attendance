@@ -53,7 +53,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::LJH.Attendance.UI.Properties.Resources.RalidTA;
+            this.BackgroundImage = global::LJH.Attendance.UI.Properties.Resources.img15;
             this.ControlBox = false;
             this.Controls.Add(this.lbVersion);
             this.Controls.Add(this.label1);

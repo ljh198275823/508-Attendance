@@ -52,14 +52,7 @@ namespace LJH.Attendance.UI
         {
             GridView.Rows.Clear();
             List<Staff> staff = null;
-            if (SystemOptions.Current.UsingACSDept)
-            {
-                staff = _AllStaff.Where(item => item.ACSDepartmentID == dept.ID).ToList();
-            }
-            else
-            {
-                staff = _AllStaff.Where(item => item.DepartmentID == dept.ID).ToList();
-            }
+            staff = _AllStaff.Where(item => item.DepartmentID == dept.ID).ToList();
             foreach (Staff item in staff)
             {
                 int row = GridView.Rows.Add();
@@ -95,8 +88,6 @@ namespace LJH.Attendance.UI
         #region 事件处理程序
         private void FrmStaff_Load(object sender, EventArgs e)
         {
-            mnu_Remove.Visible = !SystemOptions.Current.UsingACSDept;
-            panel3.Visible = SystemOptions.Current.UsingACSDept ? false : true; //未归组人员容器
             departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             departmentTreeview1.Init();
             _AllStaff = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;

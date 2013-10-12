@@ -77,14 +77,7 @@ namespace LJH.Attendance.UI
             List<Staff> users = null;
             if (LoadUser)
             {
-                if (SystemOptions.Current.UsingACSDept)
-                {
-                    users = _Users.Where(item => item.ACSDepartmentID == dept.ID).ToList();
-                }
-                else
-                {
-                    users = _Users.Where(item => item.DepartmentID == dept.ID).ToList();
-                }
+                users = _Users.Where(item => item.DepartmentID == dept.ID).ToList();
             }
 
             TreeNode parent = new TreeNode();
@@ -227,14 +220,7 @@ namespace LJH.Attendance.UI
         {
             _AllUserNodes.Clear();
             _AllDeptNodes.Clear();
-            if (SystemOptions.Current.UsingACSDept)
-            {
-                _Depts = (new ACSDepartmentBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
-            }
-            else
-            {
-                _Depts = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
-            }
+            _Depts = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
             if (LoadUser)
             {
                 _Users = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;

@@ -277,7 +277,7 @@
     <value>txtPassword</value>
   </data>
   <data name="&gt;&gt;txtPassword.Type" xml:space="preserve">
-    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.923, Culture=neutral, PublicKeyToken=null</value>
+    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.1011, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtPassword.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -313,7 +313,7 @@
     <value>txtPasswd</value>
   </data>
   <data name="&gt;&gt;txtPasswd.Type" xml:space="preserve">
-    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.923, Culture=neutral, PublicKeyToken=null</value>
+    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.1011, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtPasswd.Parent" xml:space="preserve">
     <value>gpDB</value>
@@ -343,7 +343,7 @@
     <value>txtUserID</value>
   </data>
   <data name="&gt;&gt;txtUserID.Type" xml:space="preserve">
-    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.923, Culture=neutral, PublicKeyToken=null</value>
+    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.1011, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtUserID.Parent" xml:space="preserve">
     <value>gpDB</value>
@@ -370,7 +370,7 @@
     <value>txtDataBase</value>
   </data>
   <data name="&gt;&gt;txtDataBase.Type" xml:space="preserve">
-    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.923, Culture=neutral, PublicKeyToken=null</value>
+    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.1011, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtDataBase.Parent" xml:space="preserve">
     <value>gpDB</value>
@@ -397,7 +397,7 @@
     <value>txtServer</value>
   </data>
   <data name="&gt;&gt;txtServer.Type" xml:space="preserve">
-    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.923, Culture=neutral, PublicKeyToken=null</value>
+    <value>LJH.GeneralLibrary.WinformControl.DBCTextBox, LJH.GeneralLibrary, Version=2.0.2013.1011, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtServer.Parent" xml:space="preserve">
     <value>gpDB</value>
@@ -3158,7 +3158,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>瑞立德考勤系统 登录</value>
+    <value>登录</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmLogin</value>

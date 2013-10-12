@@ -172,9 +172,9 @@ namespace LJH.Attendance.UI.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap RalidTA {
+        internal static System.Drawing.Bitmap img15 {
             get {
-                object obj = ResourceManager.GetObject("RalidTA", resourceCulture);
+                object obj = ResourceManager.GetObject("img15", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

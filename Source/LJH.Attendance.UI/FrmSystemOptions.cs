@@ -22,14 +22,11 @@ namespace LJH.Attendance.UI
         #region 事件处理程序
         private void SystemOptions_Load(object sender, EventArgs e)
         {
-            this.rdUseACSDept.Checked = SystemOptions.Current.UsingACSDept;
-            this.rdUseMyDept.Checked = !SystemOptions.Current.UsingACSDept;
             this.btnOk.Enabled = Operator.CurrentOperator.Permit(Permission.EditOptions);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            SystemOptions.Current.UsingACSDept = this.rdUseACSDept.Checked;
             CommandResult ret = (new ParameterBLL(AppSettings.CurrentSetting.ConnectString)).Save<SystemOptions>(SystemOptions.Current);
             if (ret.Result != ResultCode.Successful)
             {
@@ -46,5 +43,9 @@ namespace LJH.Attendance.UI
             this.Close();
         }
         #endregion
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+                    }
     }
 }
