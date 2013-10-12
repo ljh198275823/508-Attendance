@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LJH.Attendance.Model {
+namespace LJH.Attendance.Model.Resource {
     using System;
     
     

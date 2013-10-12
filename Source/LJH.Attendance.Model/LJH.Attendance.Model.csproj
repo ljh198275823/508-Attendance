@@ -8,7 +8,7 @@
     <ProjectGuid>{E5BCDE1E-DC97-4956-BEAB-CA7720C8EEF5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ralid.Attendance.Model</RootNamespace>
+    <RootNamespace>LJH.Attendance.Model</RootNamespace>
     <AssemblyName>Ralid.Attendance.Model</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

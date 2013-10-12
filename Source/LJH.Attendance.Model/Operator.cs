@@ -57,11 +57,18 @@ namespace LJH.Attendance.Model
         {
             get
             {
-                return (new DSEncrypt()).Encrypt(_Password);
+                if (_Password.Length > 14)
+                {
+                    return (new DTEncrypt()).DSEncrypt(_Password);
+                }
+                else
+                {
+                    return _Password;
+                }
             }
             set
             {
-                _Password = (new DSEncrypt()).Encrypt(value);
+                _Password = (new DTEncrypt()).Encrypt(value);
             }
         }
         /// <summary>

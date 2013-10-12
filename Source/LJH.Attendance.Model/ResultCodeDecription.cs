@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LJH.Attendance.Model.Result ;
+using LJH.Attendance.Model.Resource;
 
 namespace LJH.Attendance.Model
 {
