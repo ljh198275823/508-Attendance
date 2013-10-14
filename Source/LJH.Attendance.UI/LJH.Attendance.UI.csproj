@@ -40,6 +40,10 @@
     <Reference Include="LJH.GeneralLibrary">
       <HintPath>..\Reference\LJH.GeneralLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="SqlClientHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\SqlClientHelper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -112,6 +116,12 @@
     </Compile>
     <Compile Include="FrmAttendanceRules.Designer.cs">
       <DependentUpon>FrmAttendanceRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBackUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBackUp.designer.cs">
+      <DependentUpon>FrmBackUp.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmChangePwd.cs">
       <SubType>Form</SubType>
@@ -400,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAttendanceRules.resx">
       <DependentUpon>FrmAttendanceRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBackUp.resx">
+      <DependentUpon>FrmBackUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmChangePwd.en.resx">
       <DependentUpon>FrmChangePwd.cs</DependentUpon>

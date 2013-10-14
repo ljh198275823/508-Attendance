@@ -77,6 +77,7 @@
             this.btnHoliday = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnShift = new System.Windows.Forms.ToolStripButton();
+            this.btnShiftTemplate = new System.Windows.Forms.ToolStripButton();
             this.btnShiftArrange = new System.Windows.Forms.ToolStripButton();
             this.btnManualLog = new System.Windows.Forms.ToolStripButton();
             this.btnAttendanceAnalyst = new System.Windows.Forms.ToolStripButton();
@@ -88,7 +89,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblOperator = new System.Windows.Forms.ToolStripStatusLabel();
             this.ucFormViewMain = new LJH.GeneralLibrary.WinformControl.UCFormView();
-            this.btnShiftTemplate = new System.Windows.Forms.ToolStripButton();
+            this.维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_BackupData = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_UpdateDB = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -102,6 +105,7 @@
             this.考勤管理ToolStripMenuItem,
             this.安全管理ToolStripMenuItem,
             this.报表ToolStripMenuItem,
+            this.维护ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
@@ -430,6 +434,13 @@
             this.btnShift.Name = "btnShift";
             this.btnShift.Click += new System.EventHandler(this.mnu_Shifts_Click);
             // 
+            // btnShiftTemplate
+            // 
+            this.btnShiftTemplate.Image = global::LJH.Attendance.UI.Properties.Resources.shift;
+            resources.ApplyResources(this.btnShiftTemplate, "btnShiftTemplate");
+            this.btnShiftTemplate.Name = "btnShiftTemplate";
+            this.btnShiftTemplate.Click += new System.EventHandler(this.mnu_ShiftTemplate_Click);
+            // 
             // btnShiftArrange
             // 
             this.btnShiftArrange.Image = global::LJH.Attendance.UI.Properties.Resources.shiftArrange;
@@ -507,12 +518,25 @@
             this.ucFormViewMain.FormHeaderLength = 135;
             this.ucFormViewMain.Name = "ucFormViewMain";
             // 
-            // btnShiftTemplate
+            // 维护ToolStripMenuItem
             // 
-            this.btnShiftTemplate.Image = global::LJH.Attendance.UI.Properties.Resources.shift;
-            resources.ApplyResources(this.btnShiftTemplate, "btnShiftTemplate");
-            this.btnShiftTemplate.Name = "btnShiftTemplate";
-            this.btnShiftTemplate.Click += new System.EventHandler(this.mnu_ShiftTemplate_Click);
+            this.维护ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu_BackupData,
+            this.mnu_UpdateDB});
+            this.维护ToolStripMenuItem.Name = "维护ToolStripMenuItem";
+            resources.ApplyResources(this.维护ToolStripMenuItem, "维护ToolStripMenuItem");
+            // 
+            // mnu_BackupData
+            // 
+            this.mnu_BackupData.Name = "mnu_BackupData";
+            resources.ApplyResources(this.mnu_BackupData, "mnu_BackupData");
+            this.mnu_BackupData.Click += new System.EventHandler(this.mnu_BackupData_Click);
+            // 
+            // mnu_UpdateDB
+            // 
+            this.mnu_UpdateDB.Name = "mnu_UpdateDB";
+            resources.ApplyResources(this.mnu_UpdateDB, "mnu_UpdateDB");
+            this.mnu_UpdateDB.Click += new System.EventHandler(this.mnu_UpdateDB_Click);
             // 
             // FrmMain
             // 
@@ -599,6 +623,9 @@
         private System.Windows.Forms.ToolStripStatusLabel lblOperator;
         private GeneralLibrary.WinformControl.UCFormView ucFormViewMain;
         private System.Windows.Forms.ToolStripButton btnShiftTemplate;
+        private System.Windows.Forms.ToolStripMenuItem 维护ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnu_BackupData;
+        private System.Windows.Forms.ToolStripMenuItem mnu_UpdateDB;
 
     }
 }
