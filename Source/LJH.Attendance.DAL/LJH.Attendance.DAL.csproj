@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDAL\IACSDepartmentProvider.cs" />
     <Compile Include="IDAL\IAttendanceReaderProvider.cs" />
     <Compile Include="IDAL\IAttendanceLogProvider.cs" />
     <Compile Include="IDAL\IDepartmentProvider.cs" />
@@ -74,7 +73,6 @@
     <Compile Include="IDAL\IStaffProvider.cs" />
     <Compile Include="IDAL\ITASheetProvider.cs" />
     <Compile Include="IDAL\IVacationTypeProvider.cs" />
-    <Compile Include="LinqDataProvider\ACSDepartmentProvider.cs" />
     <Compile Include="LinqDataProvider\AttendanceReaderProvider.cs" />
     <Compile Include="LinqDataProvider\AttendanceLogProvider.cs" />
     <Compile Include="LinqDataProvider\DepartmentProvider.cs" />
@@ -95,9 +93,7 @@
     <Compile Include="LinqDataProvider\SysparameterProvider.cs" />
     <Compile Include="LinqDataProvider\TripTypeProvider.cs" />
     <Compile Include="LinqDataProvider\T_OperatorDept.cs" />
-    <Compile Include="LinqDataProvider\T_ShiftArrange.cs" />
     <Compile Include="LinqDataProvider\T_ShiftArrangeTemplate.cs" />
-    <Compile Include="LinqDataProvider\T_TAManualLog.cs" />
     <Compile Include="LinqDataProvider\UnitWork.cs" />
     <Compile Include="LinqDataProvider\StaffProvider.cs" />
     <Compile Include="LinqDataProvider\TASheetProvider.cs" />

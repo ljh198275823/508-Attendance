@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbsentItem.cs" />
-    <Compile Include="ACSDepartment.cs" />
     <Compile Include="ACSStaff.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="AttendanceDuration.cs" />

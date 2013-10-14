@@ -22,12 +22,6 @@
       <Column Name="IsBottom" Member="IsBottom"  DbType="bit null" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.Department" Member="LJH.Attendance.Model.ACSDepartment">
-    <Type Name="LJH.Attendance.Model.ACSDepartment">
-      <Column Name="DepartmentID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="DepartmentName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
-    </Type>
-  </Table>
   <Table Name="dbo.TAStaff" Member="LJH.Attendance.Model.Staff">
     <Type Name="LJH.Attendance.Model.Staff">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
@@ -78,18 +72,11 @@
       <Column Name="Duration" Member="Duration"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.View_TAShiftArrange" Member="LJH.Attendance.Model.ShiftArrange">
+  <Table Name="dbo.TAShiftArrange" Member="LJH.Attendance.Model.ShiftArrange">
     <Type Name="LJH.Attendance.Model.ShiftArrange">
       <Column Name="UserID" Member="StaffID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ShiftID" Member="ShiftID"  DbType="nvarchar(4) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ShiftDate" Member="ShiftDate"  DbType="datetime NOT NULL" IsPrimaryKey="true"/>
-    </Type>
-  </Table>
-  <Table Name="dbo.TAShiftArrange" Member="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrange">
-    <Type Name="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrange">
-      <Column Name="UserID" Member="StaffID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="ShiftID" Member="ShiftID"  DbType="nvarchar(4) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="ShiftDate" Member="ShiftDate"  DbType="nvarchar(8) NOT NULL" IsPrimaryKey="true"/>
     </Type>
   </Table>
   <Table Name="dbo.TAHoliday" Member="LJH.Attendance.Model.Holiday">
@@ -160,9 +147,9 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.View_TAAttendanceLog" Member="LJH.Attendance.Model.AttendanceLog">
+  <Table Name="dbo.TAAttendanceLog" Member="LJH.Attendance.Model.AttendanceLog">
     <Type Name="LJH.Attendance.Model.AttendanceLog">
-      <Column Name="ID" Member="ID"  DbType="bigint NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="ID" Member="ID"  DbType="bigint NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
       <Column Name="StaffID" Member="StaffID"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
       <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null" UpdateCheck="Never"/>
@@ -172,17 +159,6 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAManualLog" Member="LJH.Attendance.DAL.LinqDataProvider.T_TAManualLog">
-  <Type Name="LJH.Attendance.DAL.LinqDataProvider.T_TAManualLog">
-    <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
-    <Column Name="StaffID" Member="StaffID"  DbType="int not null" UpdateCheck="Never"/>
-    <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
-    <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null" UpdateCheck="Never"/>
-    <Column Name="ReaderID" Member="ReaderID"  DbType="nvarchar(20) NOT NULL" UpdateCheck="Never"/>
-    <Column Name="IsManual" Member="IsManual"  DbType="bit NOT NULL" UpdateCheck="Never"/>
-    <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
-  </Type>
-</Table>
   <Table Name="dbo.TAAttendanceResult" Member="LJH.Attendance.Model.AttendanceResult">
     <Type Name="LJH.Attendance.Model.AttendanceResult">
       <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>

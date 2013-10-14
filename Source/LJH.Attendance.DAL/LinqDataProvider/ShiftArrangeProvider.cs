@@ -51,18 +51,6 @@ namespace LJH.Attendance.DAL.LinqDataProvider
             }
             return items.Where(item => item.Shift != null).ToList();
         }
-
-        protected override void InsertingItem(ShiftArrange info, AttendanceDataContext attendance)
-        {
-            attendance.GetTable<T_ShiftArrange>().InsertOnSubmit(new T_ShiftArrange(info));
-        }
-
-        protected override void DeletingItem(ShiftArrange info, AttendanceDataContext attendance)
-        {
-            T_ShiftArrange item = new T_ShiftArrange(info);
-            attendance.GetTable<T_ShiftArrange>().Attach(item);
-            attendance.GetTable<T_ShiftArrange>().DeleteOnSubmit(item);
-        }
         #endregion
     }
 }

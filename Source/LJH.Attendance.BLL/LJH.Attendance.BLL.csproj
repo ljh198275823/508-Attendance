@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ACSDepartmentBLL.cs" />
     <Compile Include="AttendanceReaderBLL.cs" />
     <Compile Include="AttendanceLogBLL.cs" />
     <Compile Include="HolidayBLL.cs" />
