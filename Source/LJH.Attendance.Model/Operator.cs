@@ -82,10 +82,6 @@ namespace LJH.Attendance.Model
         [DataMember]
         public Role Role { get; set; }
         /// <summary>
-        ///获取或设置用户ID
-        /// </summary>
-        public int StaffID { get; set; }
-        /// <summary>
         /// 获取或设置操作员能看到或操作的部门
         /// </summary>
         public List<string> Depts { get; set; }

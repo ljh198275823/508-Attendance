@@ -24,13 +24,9 @@ namespace LJH.Attendance.Model
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// 获取或设置角色描述
+        /// 获取或设置权限
         /// </summary>
-        public string RWPermission { get; set; }
-        /// <summary>
-        /// 权限列表
-        /// </summary>
-        public string RPermission { get; set; }
+        public string Permission { get; set; }
         /// <summary>
         /// 获取或设置备注
         /// </summary>
@@ -74,7 +70,7 @@ namespace LJH.Attendance.Model
         /// </summary>
         public bool Permit(Permission right)
         {
-            if (RWPermission == "all" || IsAdmin)
+            if (Permission == "all" || IsAdmin)
             {
                 return true;
             }
@@ -83,9 +79,9 @@ namespace LJH.Attendance.Model
                 if (_rights == null)
                 {
                     _rights = new List<Permission>();
-                    if (!string.IsNullOrEmpty(RWPermission))
+                    if (!string.IsNullOrEmpty(Permission))
                     {
-                        foreach (string str in RWPermission.Split(','))
+                        foreach (string str in Permission.Split(','))
                         {
                             int i;
                             if (int.TryParse(str, out i))

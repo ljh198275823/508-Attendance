@@ -121,7 +121,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="LinqDataProvider\DataMapping.xml" />
+    <EmbeddedResource Include="LinqDataProvider\DataMapping.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LJH.Attendance.Model\LJH.Attendance.Model.csproj">

@@ -28,13 +28,13 @@
         "Entry"
         {
         "MsmKey" = "8:_34E1ADDC6D4FE071CB7B1C519AE6B98C"
-        "OwnerKey" = "8:_B0B8347579D11AF30B7BE2AFC08F5B2E"
+        "OwnerKey" = "8:_BDABE6166B064267AAB9411ED77DE413"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_34E1ADDC6D4FE071CB7B1C519AE6B98C"
-        "OwnerKey" = "8:_BDABE6166B064267AAB9411ED77DE413"
+        "OwnerKey" = "8:_B0B8347579D11AF30B7BE2AFC08F5B2E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,7 +70,7 @@
         "Entry"
         {
         "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
-        "OwnerKey" = "8:_B0B8347579D11AF30B7BE2AFC08F5B2E"
+        "OwnerKey" = "8:_92AB23B06531A273BB1C4A08FE17EAFD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,7 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
-        "OwnerKey" = "8:_92AB23B06531A273BB1C4A08FE17EAFD"
+        "OwnerKey" = "8:_B0B8347579D11AF30B7BE2AFC08F5B2E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -124,19 +124,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BDABE6166B064267AAB9411ED77DE413"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_41DA0D877F0BB94190B3896519705CF5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_92AB23B06531A273BB1C4A08FE17EAFD"
+        "OwnerKey" = "8:_86EE56F28A1C850164057504DEB28628"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -148,7 +136,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_86EE56F28A1C850164057504DEB28628"
+        "OwnerKey" = "8:_92AB23B06531A273BB1C4A08FE17EAFD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_41DA0D877F0BB94190B3896519705CF5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BDABE6166B064267AAB9411ED77DE413"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -283,11 +283,6 @@
             "AssemblyAsmDisplayName" = "8:Ralid.Attendance.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_34E1ADDC6D4FE071CB7B1C519AE6B98C"
-                    {
-                    "Name" = "8:Ralid.Attendance.Model.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Ralid.Attendance.Model.dll"
             "TargetName" = "8:"
@@ -314,11 +309,6 @@
             "AssemblyAsmDisplayName" = "8:SqlClientHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_41DA0D877F0BB94190B3896519705CF5"
-                    {
-                    "Name" = "8:SqlClientHelper.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SqlClientHelper.dll"
             "TargetName" = "8:"
@@ -385,11 +375,6 @@
             "AssemblyAsmDisplayName" = "8:LJH.GeneralLibrary, Version=2.0.2013.1011, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_86EE56F28A1C850164057504DEB28628"
-                    {
-                    "Name" = "8:LJH.GeneralLibrary.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LJH.GeneralLibrary.dll"
             "TargetName" = "8:"
@@ -416,11 +401,6 @@
             "AssemblyAsmDisplayName" = "8:Ralid.Attendance.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_92AB23B06531A273BB1C4A08FE17EAFD"
-                    {
-                    "Name" = "8:Ralid.Attendance.DAL.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Ralid.Attendance.DAL.dll"
             "TargetName" = "8:"
@@ -447,11 +427,6 @@
             "AssemblyAsmDisplayName" = "8:Ralid.Attendance.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_B0B8347579D11AF30B7BE2AFC08F5B2E"
-                    {
-                    "Name" = "8:Ralid.Attendance.BLL.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Ralid.Attendance.BLL.dll"
             "TargetName" = "8:"
@@ -518,6 +493,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_C291C852FA034B048C6A4DA61275E34F"
+                    {
+                    "Name" = "8:DataTool"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_7F0335B5A2374C0CB032373D183FC8BD"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_DB4E781F05F9482CA846EA7A36C0D24F"

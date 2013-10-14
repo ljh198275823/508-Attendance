@@ -49,7 +49,7 @@ namespace LJH.Attendance.UI
             this.txtName.Text = info.Name;
             this.txtName.BackColor = Color.White;
             this.txtDescription.Text = info.Memo;
-            this.funcTree.SelectedRights = info.IsAdmin ? "all" : info.RWPermission;
+            this.funcTree.SelectedRights = info.IsAdmin ? "all" : info.Permission;
             this.funcTree.Enabled = info.CanEdit;//角色不可编辑,用于系统管理员,用户不可以更改
         }
 
@@ -67,7 +67,7 @@ namespace LJH.Attendance.UI
             }
             info.Name = this.txtName.Text.Trim();
             info.Memo = this.txtDescription.Text;
-            info.RWPermission = this.funcTree.SelectedRights;
+            info.Permission = this.funcTree.SelectedRights;
             return info;
         }
 

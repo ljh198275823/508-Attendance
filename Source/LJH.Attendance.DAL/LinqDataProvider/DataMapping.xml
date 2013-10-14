@@ -198,20 +198,19 @@
   </Table>
   <Table Name="dbo.TAOperator" Member="LJH.Attendance.Model.Operator">
     <Type Name="LJH.Attendance.Model.Operator">
-      <Column Name="OperatorID" Member="ID" DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="ID" Member="ID" DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Password" Member="_Password"  DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
-      <Column Name="RealName" Member="Name"  DbType="nvarchar(50) NOT NULL"   UpdateCheck="Never"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) NOT NULL"   UpdateCheck="Never"/>
       <Column Name="RoleID" Member="RoleID" DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
       <Column Name="UserID" Member="StaffID"  DbType="Int"  UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TARoles" Member="LJH.Attendance.Model.Role">
+  <Table Name="dbo.TARole" Member="LJH.Attendance.Model.Role">
     <Type Name="LJH.Attendance.Model.Role">
-      <Column Name="RoleID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="RoleName" Member="Name"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
-      <Column Name="RWPermission" Member="RWPermission"  DbType="nvarchar(200)"  UpdateCheck="Never"/>
-      <Column Name="RPermission" Member="RPermission"  DbType="nvarchar(200)"  UpdateCheck="Never"/>
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
+      <Column Name="Permission" Member="Permission"  DbType="nvarchar(200)"  UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
