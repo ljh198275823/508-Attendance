@@ -38,11 +38,12 @@ namespace LJH.Attendance.UI
         {
             Staff info = item as Staff;
             row.Tag = info;
-            row.Cells["colName"].Value =info.Name;
+            row.Cells["colName"].Value = info.Name;
             row.Cells["colDepartment"].Value = info.Department != null ? info.Department.Name : string.Empty;
             row.Cells["colCertificate"].Value = info.Certificate;
             row.Cells["colUserPosition"].Value = info.UserPosition;
-            row.Cells["colResigned"].Value = info.Resigned ? "离职" : "在职";
+            row.Cells["colResigned"].Value = info.Resigned ? "离职" : string.Empty;
+            row.DefaultCellStyle.ForeColor = info.Resigned ? Color.Red : Color.Black;
             row.Cells["colMemo"].Value = info.Memo;
         }
 

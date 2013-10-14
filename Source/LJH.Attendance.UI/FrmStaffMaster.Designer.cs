@@ -179,7 +179,7 @@
             // 
             // colResigned
             // 
-            this.colResigned.HeaderText = "状态";
+            this.colResigned.HeaderText = "离职";
             this.colResigned.Name = "colResigned";
             this.colResigned.ReadOnly = true;
             // 
