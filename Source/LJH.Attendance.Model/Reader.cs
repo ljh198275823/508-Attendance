@@ -25,6 +25,10 @@ namespace LJH.Attendance.Model
         /// 获取或设置名称
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 获取或设置是否用于考勤
+        /// </summary>
+        public bool ForAttendance { get; set; }
         #endregion
     }
 }

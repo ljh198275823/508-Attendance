@@ -27,6 +27,41 @@ namespace LJH.Attendance.BLL
         {
             return ProviderFactory.Create<IReaderProvider>(_RepoUri).GetItems(con);
         }
+
+        public QueryResultList<Reader> GetAttendanceReaders()
+        {
+            QueryResultList<Reader> ret = ProviderFactory.Create<IReaderProvider>(_RepoUri).GetItems(null);
+            List<Reader> items = ret.QueryObjects;
+            if (items != null && items.Count > 0)
+            {
+                items = items.Where(item => item.ForAttendance).ToList();
+            }
+            return new QueryResultList<Reader>(ret.Result, items);
+        }
+
+        public CommandResult Add(Reader info)
+        {
+            return ProviderFactory.Create<IReaderProvider>(_RepoUri).Insert(info);
+        }
+
+        public CommandResult Update(Reader info)
+        {
+
+            Reader original = ProviderFactory.Create<IReaderProvider>(_RepoUri).GetByID(info.ID).QueryObject;
+            if (original != null)
+            {
+                return ProviderFactory.Create<IReaderProvider>(_RepoUri).Update(info, original);
+            }
+            else
+            {
+                return new CommandResult(ResultCode.NoRecord, ResultCodeDecription.GetDescription(ResultCode.NoRecord));
+            }
+        }
+
+        public CommandResult Delete(Reader info)
+        {
+            return ProviderFactory.Create<IReaderProvider>(_RepoUri).Delete(info);
+        }
         #endregion
     }
 }

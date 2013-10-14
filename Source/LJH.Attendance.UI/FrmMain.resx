@@ -140,68 +140,68 @@
     <value>系统</value>
   </data>
   <data name="mnu_Departments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_Departments.Text" xml:space="preserve">
     <value>多级部门管理</value>
   </data>
   <data name="mnu_Staff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_Staff.Text" xml:space="preserve">
     <value>人员管理</value>
   </data>
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>145, 6</value>
   </data>
   <data name="mnu_OTType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_OTType.Text" xml:space="preserve">
     <value>加班类别管理</value>
   </data>
   <data name="mnu_VacationType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_VacationType.Text" xml:space="preserve">
     <value>请假类别管理</value>
   </data>
   <data name="mnu_TripType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_TripType.Text" xml:space="preserve">
     <value>外出类别管理</value>
   </data>
   <data name="mnu_TASheet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_TASheet.Text" xml:space="preserve">
     <value>申请单登记</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>145, 6</value>
   </data>
   <data name="mnu_Holiday.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_Holiday.Text" xml:space="preserve">
     <value>节假日管理</value>
   </data>
   <data name="mnu_AttendanceDoorSelection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_AttendanceDoorSelection.Text" xml:space="preserve">
     <value>考勤点选择</value>
   </data>
   <data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>145, 6</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="toolStripSeparator8.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="mnu_Options.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_Options.Text" xml:space="preserve">
     <value>选项</value>
@@ -216,40 +216,40 @@
     <value>基本资料</value>
   </data>
   <data name="mnu_AttendanceRules.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_AttendanceRules.Text" xml:space="preserve">
     <value>考勤规则</value>
   </data>
   <data name="mnu_Shifts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_Shifts.Text" xml:space="preserve">
     <value>班次管理</value>
   </data>
   <data name="mnu_ShiftTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_ShiftTemplate.Text" xml:space="preserve">
     <value>排班模板</value>
   </data>
   <data name="mnu_ShiftArrange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_ShiftArrange.Text" xml:space="preserve">
     <value>人员排班</value>
   </data>
   <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="mnu_ManualLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_ManualLog.Text" xml:space="preserve">
     <value>补签</value>
   </data>
   <data name="mnu_AttendanceAnalyst.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_AttendanceAnalyst.Text" xml:space="preserve">
     <value>生成考勤结果</value>
@@ -442,6 +442,18 @@
     <value>班次管理</value>
   </data>
   <data name="btnShift.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="btnShiftTemplate.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="btnShiftTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 61</value>
+  </data>
+  <data name="btnShiftTemplate.Text" xml:space="preserve">
+    <value>排班模板</value>
+  </data>
+  <data name="btnShiftTemplate.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
   </data>
   <data name="btnShiftArrange.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -3399,6 +3411,12 @@
   </data>
   <data name="&gt;&gt;lblOperator.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnShiftTemplate.Name" xml:space="preserve">
+    <value>btnShiftTemplate</value>
+  </data>
+  <data name="&gt;&gt;btnShiftTemplate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMain</value>

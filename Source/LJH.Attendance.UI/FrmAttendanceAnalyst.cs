@@ -62,7 +62,7 @@ namespace LJH.Attendance.UI
             List<Staff> staffs = departmentTreeview1.SelectedStaff;
             FrmProcessing frm = new FrmProcessing();
             DatetimeRange dr = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime.AddDays(1).AddSeconds(-1));
-            List<AttendanceReader> attendanceReaders = (new AttendanceReaderBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<Reader> attendanceReaders = (new ReaderBLL(AppSettings.CurrentSetting.ConnectString)).GetAttendanceReaders().QueryObjects;
             if (attendanceReaders == null || attendanceReaders.Count == 0)
             {
                 MessageBox.Show("还没有指定考勤点，请先在 \"考勤点选择\" 上指定考勤点");

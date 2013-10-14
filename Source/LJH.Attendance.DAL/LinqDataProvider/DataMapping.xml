@@ -1,25 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="attendance" xmlns="http://schemas.microsoft.com/linqtosql/mapping/2007">
-  <Table Name="dbo.Reader" Member="LJH.Attendance.Model.Reader">
+  <Table Name="dbo.TAReader" Member="LJH.Attendance.Model.Reader">
     <Type Name="LJH.Attendance.Model.Reader">
-      <Column Name="ReaderID" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="ReaderName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
-    </Type>
-  </Table>
-  <Table Name="dbo.TAReaderList" Member="LJH.Attendance.Model.AttendanceReader">
-    <Type Name="LJH.Attendance.Model.AttendanceReader">
-      <Column Name="ReaderID" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="ID" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="ForAttendance" Member="ForAttendance"  DbType="bit null" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TADepartment" Member="LJH.Attendance.Model.Department">
     <Type Name="LJH.Attendance.Model.Department">
-      <Column Name="DepartmentID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="DepartmentName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
-      <Column Name="PreDeptID" Member="ParentID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
-      <Column Name="Descr" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
-      <Column Name="TopDeptID" Member="TopDeptID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
-      <Column Name="DeptLevel" Member="DeptLevel"  DbType="int not null" UpdateCheck="Never"/>
-      <Column Name="IsBottom" Member="IsBottom"  DbType="bit null" UpdateCheck="Never"/>
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="ParentID" Member="ParentID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="dbo.TAStaff" Member="LJH.Attendance.Model.Staff">
@@ -33,7 +26,7 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(50)" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAShiftArrangeTemplate" Member="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
+  <Table Name="dbo.TAShiftTemplate" Member="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
     <Type Name="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>

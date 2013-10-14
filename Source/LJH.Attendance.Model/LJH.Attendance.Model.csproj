@@ -55,7 +55,6 @@
     <Compile Include="HolidaySetting.cs" />
     <Compile Include="MyTime.cs" />
     <Compile Include="AttendanceAnalyst.cs" />
-    <Compile Include="AttendanceReader.cs" />
     <Compile Include="AttendanceResultCode.cs" />
     <Compile Include="AttendanceLog.cs" />
     <Compile Include="DatetimeRange.cs" />

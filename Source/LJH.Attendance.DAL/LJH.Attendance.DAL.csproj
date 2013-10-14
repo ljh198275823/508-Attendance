@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDAL\IAttendanceReaderProvider.cs" />
     <Compile Include="IDAL\IAttendanceLogProvider.cs" />
     <Compile Include="IDAL\IDepartmentProvider.cs" />
     <Compile Include="IDAL\IHolidayProvider.cs" />
@@ -73,7 +72,6 @@
     <Compile Include="IDAL\IStaffProvider.cs" />
     <Compile Include="IDAL\ITASheetProvider.cs" />
     <Compile Include="IDAL\IVacationTypeProvider.cs" />
-    <Compile Include="LinqDataProvider\AttendanceReaderProvider.cs" />
     <Compile Include="LinqDataProvider\AttendanceLogProvider.cs" />
     <Compile Include="LinqDataProvider\DepartmentProvider.cs" />
     <Compile Include="LinqDataProvider\HolidayProvider.cs" />

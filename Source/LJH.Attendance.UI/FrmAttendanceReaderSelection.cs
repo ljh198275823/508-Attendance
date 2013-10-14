@@ -22,12 +22,11 @@ namespace LJH.Attendance.UI
         private void FrmAttendanceDoors_Load(object sender, EventArgs e)
         {
             List<Reader> items = (new ReaderBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
-            List<AttendanceReader> readers = (new AttendanceReaderBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
             foreach (Reader item in items)
             {
                 int row = dataGridView1.Rows.Add();
                 dataGridView1.Rows[row].Tag = item;
-                dataGridView1.Rows[row].Cells["colCheck"].Value = readers.Exists(it => it.ID == item.ID);
+                dataGridView1.Rows[row].Cells["colCheck"].Value = item.ForAttendance;
                 dataGridView1.Rows[row].Cells["colID"].Value = item.ID;
                 dataGridView1.Rows[row].Cells["colName"].Value = item.Name;
             }
@@ -65,14 +64,11 @@ namespace LJH.Attendance.UI
                 DataGridViewCheckBoxCell cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewCheckBoxCell;
                 bool value = Convert.ToBoolean(cell.EditingCellFormattedValue);
                 Reader reader = dataGridView1.Rows[e.RowIndex].Tag as Reader;
-                AttendanceReader ar = new AttendanceReader() { ID = reader.ID, Name = reader.Name };
-                if (value)
+                reader.ForAttendance = value;
+                CommandResult ret = (new ReaderBLL(AppSettings.CurrentSetting.ConnectString)).Update(reader);
+                if (ret.Result != ResultCode.Successful)
                 {
-                    (new AttendanceReaderBLL(AppSettings.CurrentSetting.ConnectString)).Add(ar);
-                }
-                else
-                {
-                    (new AttendanceReaderBLL(AppSettings.CurrentSetting.ConnectString)).Delete(ar);
+                    MessageBox.Show(ret.Message);
                 }
             }
         }

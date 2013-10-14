@@ -21,6 +21,16 @@ namespace LJH.Attendance.UI
 
         private Department _UpdatingItem;
 
+        private bool CheckInput()
+        {
+            if (string.IsNullOrEmpty(txtDeptName.Text))
+            {
+                MessageBox.Show("部门名称不能为空");
+                return false;
+            }
+            return true;
+        }
+
         private void FrmDepartmentMaster_Load(object sender, EventArgs e)
         {
             this.departmentTreeview1.Init();
@@ -89,6 +99,7 @@ namespace LJH.Attendance.UI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (CheckInput() == false) return;
             Department dept = _UpdatingItem;
             if (dept == null)
             {
@@ -108,16 +119,20 @@ namespace LJH.Attendance.UI
                     if (departmentTreeview1.SelectedNode == null)
                     {
                         departmentTreeview1.Nodes[0].Nodes.Add(node);
+                        departmentTreeview1.Nodes[0].Expand();
                     }
                     else
                     {
                         departmentTreeview1.SelectedNode.Nodes.Add(node);
+                        departmentTreeview1.SelectedNode.Expand();
                     }
                     if (!Operator.CurrentOperator.IsAdmin)
                     {
                         Operator.CurrentOperator.Depts.Add(dept.ID);
                         (new OperatorBll(AppSettings.CurrentSetting.ConnectString)).Update(Operator.CurrentOperator);
                     }
+                    _UpdatingItem = dept;
+                    this.departmentTreeview1.SelectedNode = node;
                 }
                 else
                 {

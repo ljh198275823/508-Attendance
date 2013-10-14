@@ -88,6 +88,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblOperator = new System.Windows.Forms.ToolStripStatusLabel();
             this.ucFormViewMain = new LJH.GeneralLibrary.WinformControl.UCFormView();
+            this.btnShiftTemplate = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -370,6 +371,7 @@
             this.btnHoliday,
             this.toolStripSeparator4,
             this.btnShift,
+            this.btnShiftTemplate,
             this.btnShiftArrange,
             this.btnManualLog,
             this.btnAttendanceAnalyst,
@@ -505,6 +507,13 @@
             this.ucFormViewMain.FormHeaderLength = 135;
             this.ucFormViewMain.Name = "ucFormViewMain";
             // 
+            // btnShiftTemplate
+            // 
+            this.btnShiftTemplate.Image = global::LJH.Attendance.UI.Properties.Resources.shift;
+            resources.ApplyResources(this.btnShiftTemplate, "btnShiftTemplate");
+            this.btnShiftTemplate.Name = "btnShiftTemplate";
+            this.btnShiftTemplate.Click += new System.EventHandler(this.mnu_ShiftTemplate_Click);
+            // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -589,6 +598,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblOperator;
         private GeneralLibrary.WinformControl.UCFormView ucFormViewMain;
+        private System.Windows.Forms.ToolStripButton btnShiftTemplate;
 
     }
 }
