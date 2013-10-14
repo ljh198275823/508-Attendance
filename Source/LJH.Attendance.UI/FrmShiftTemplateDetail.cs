@@ -86,6 +86,7 @@ namespace LJH.Attendance.UI
             if (item == null)
             {
                 item = new ShiftTemplate();
+                item.ID = Guid.NewGuid();
             }
             item.Name = txtName.Text;
             item.Options = TemplateOptions.None;

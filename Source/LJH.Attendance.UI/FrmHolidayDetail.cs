@@ -93,6 +93,12 @@ namespace LJH.Attendance.UI
             info.StartDate = this.dtStartDate.Value.Date;
             info.EndDate = this.dtEndDate.Value.Date;
             info.Memo = this.txtMemo.Text;
+            info.WeekendToWorkDay1 = null;
+            info.WeekendToWorkDay2 = null;
+            info.WeekendToWorkDay3 = null;
+            info.WeekendToWorkDay4 = null;
+            info.WeekendToWorkDay5 = null;
+            info.WeekendToWorkDay6 = null;
             if (checkBox1.Checked) info.WeekendToWorkDay1 = dtWorkday1.Value;
             if (checkBox2.Checked) info.WeekendToWorkDay2 = dtWorkday2.Value;
             if (checkBox3.Checked) info.WeekendToWorkDay3 = dtWorkday3.Value;

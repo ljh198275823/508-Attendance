@@ -363,6 +363,7 @@
             this.chkNextDay1.TabIndex = 83;
             this.chkNextDay1.Text = "第二天";
             this.chkNextDay1.UseVisualStyleBackColor = true;
+            this.chkNextDay1.CheckedChanged += new System.EventHandler(this.txtStartHour1_ValueChanged);
             // 
             // chkTime1
             // 
@@ -472,6 +473,7 @@
             this.chkNextDay2.TabIndex = 96;
             this.chkNextDay2.Text = "第二天";
             this.chkNextDay2.UseVisualStyleBackColor = true;
+            this.chkNextDay2.CheckedChanged += new System.EventHandler(this.txtStartHour2_ValueChanged);
             // 
             // label14
             // 
@@ -602,6 +604,7 @@
             this.chkNextDay3.TabIndex = 108;
             this.chkNextDay3.Text = "第二天";
             this.chkNextDay3.UseVisualStyleBackColor = true;
+            this.chkNextDay3.CheckedChanged += new System.EventHandler(this.txtStartHour3_ValueChanged);
             // 
             // label19
             // 

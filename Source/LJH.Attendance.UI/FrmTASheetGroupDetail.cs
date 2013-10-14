@@ -166,6 +166,7 @@ namespace LJH.Attendance.UI
                         chkTime1.Checked = true;
                         txtStartHour1.Value = item.Items [0].StartTime.Hour;
                         txtStartMinute1.Value = item.Items[0].StartTime.Minute;
+                        chkNextDay1.Checked = item.Items[0].NextDay;
                         txtEndHour1.Value = item.Items[0].EndTime.Hour;
                         txtEndMinute1.Value = item.Items[0].EndTime.Minute;
                         txtDuration1.Value = item.Items[0].Duration;
@@ -175,6 +176,7 @@ namespace LJH.Attendance.UI
                         chkTime2.Checked = true;
                         txtStartHour2.Value = item.Items[1].StartTime.Hour;
                         txtStartMinute2.Value = item.Items[1].StartTime.Minute;
+                        chkNextDay2.Checked = item.Items[1].NextDay;
                         txtEndHour2.Value = item.Items[1].EndTime.Hour;
                         txtEndMinute2.Value = item.Items[1].EndTime.Minute;
                         txtDuration2.Value = item.Items[1].Duration;
@@ -184,6 +186,7 @@ namespace LJH.Attendance.UI
                         chkTime3.Checked = true;
                         txtStartHour3.Value = item.Items[2].StartTime.Hour;
                         txtStartMinute3.Value = item.Items[2].StartTime.Minute;
+                        chkNextDay3.Checked = item.Items[2].NextDay;
                         txtEndHour3.Value = item.Items[2].EndTime.Hour;
                         txtEndMinute3.Value = item.Items[2].EndTime.Minute;
                         txtDuration3.Value = item.Items[2].Duration;

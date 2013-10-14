@@ -37,7 +37,7 @@ namespace LJH.Attendance.BLL
             List<TASheet> items = provider.GetItems(con).QueryObjects;
             foreach (TASheet item in items)
             {
-                provider.Delete(item, unitWork);
+                provider.Delete(item);
             }
             List<TASheet> sheets = TASheetGroup.UnGroup(info);
             foreach (TASheet sheet in sheets)

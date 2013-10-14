@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnFresh = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.ucDateTimeInterval1 = new LJH.Attendance.UI.UCDateTimeInterval();
@@ -45,8 +44,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.GridView = new System.Windows.Forms.DataGridView();
             this.colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plnLeft.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -101,6 +98,7 @@
             this.departmentTreeview1.Location = new System.Drawing.Point(0, 86);
             this.departmentTreeview1.Name = "departmentTreeview1";
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
+            this.departmentTreeview1.ShowResigedStaff = false;
             this.departmentTreeview1.Size = new System.Drawing.Size(324, 244);
             this.departmentTreeview1.TabIndex = 3;
             // 
@@ -176,9 +174,7 @@
             this.GridView.AllowUserToResizeRows = false;
             this.GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colUser,
-            this.colRest,
-            this.colAmount});
+            this.colUser});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(330, 0);
             this.GridView.Name = "GridView";
@@ -195,25 +191,7 @@
             this.colUser.Name = "colUser";
             this.colUser.ReadOnly = true;
             // 
-            // colRest
-            // 
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            this.colRest.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colRest.HeaderText = "休息";
-            this.colRest.Name = "colRest";
-            this.colRest.ReadOnly = true;
-            this.colRest.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colRest.Width = 40;
-            // 
-            // colAmount
-            // 
-            this.colAmount.HeaderText = "合计";
-            this.colAmount.Name = "colAmount";
-            this.colAmount.ReadOnly = true;
-            this.colAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colAmount.Width = 40;
-            // 
-            // FrmShiftResultStatistics2
+            // FrmShiftResultMonthDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -222,7 +200,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.plnLeft);
-            this.Name = "FrmShiftResultStatistics2";
+            this.Name = "FrmShiftResultMonthDetail";
             this.Text = "月考勤明细表";
             this.Load += new System.EventHandler(this.FrmShiftResultStatistics_Load);
             this.plnLeft.ResumeLayout(false);
@@ -254,7 +232,5 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.DataGridView GridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRest;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAmount;
     }
 }

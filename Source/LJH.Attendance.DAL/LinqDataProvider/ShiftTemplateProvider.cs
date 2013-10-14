@@ -9,7 +9,7 @@ using LJH.Attendance.DAL.IDAL;
 
 namespace LJH.Attendance.DAL.LinqDataProvider
 {
-    public class ShiftTemplateProvider : ProviderBase<ShiftTemplate, int>, IShiftTemplateProvider
+    public class ShiftTemplateProvider : ProviderBase<ShiftTemplate, Guid>, IShiftTemplateProvider
     {
         #region 构造函数
         public ShiftTemplateProvider(string connStr)
@@ -19,7 +19,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
         #endregion
 
         #region 重写基类方法
-        protected override ShiftTemplate GetingItemByID(int id, AttendanceDataContext attendance)
+        protected override ShiftTemplate GetingItemByID(Guid id, AttendanceDataContext attendance)
         {
             T_ShiftArrangeTemplate tst= attendance.GetTable<T_ShiftArrangeTemplate>().SingleOrDefault(item => item.ID == id);
             if (tst != null) return T_ShiftArrangeTemplate.Create(tst);
@@ -44,7 +44,8 @@ namespace LJH.Attendance.DAL.LinqDataProvider
 
         protected override void InsertingItem(ShiftTemplate info, AttendanceDataContext attendance)
         {
-            attendance.GetTable<T_ShiftArrangeTemplate>().InsertOnSubmit(T_ShiftArrangeTemplate.Create(info));
+            T_ShiftArrangeTemplate template = T_ShiftArrangeTemplate.Create(info);
+            attendance.GetTable<T_ShiftArrangeTemplate>().InsertOnSubmit(template);
         }
 
         protected override void UpdatingItem(ShiftTemplate newVal, ShiftTemplate original, AttendanceDataContext attendance)

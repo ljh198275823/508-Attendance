@@ -18,7 +18,7 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置ID
         /// </summary>
-        public int ID { get; set; }
+        public Guid ID { get; set; }
         /// <summary>
         /// 获取或设置模板名称
         /// </summary>
@@ -53,15 +53,13 @@ namespace LJH.Attendance.Model
                         while (duration <= item.Duration)
                         {
                             if (HolidaySetting.Current != null &&
-                                HolidaySetting.Current.IsHoliday(dt) &&
-                                (this.Options & TemplateOptions.HolidayShifted) == 0) //节假日不排班
+                                HolidaySetting.Current.IsHoliday(dt) && (this.Options & TemplateOptions.HolidayShifted) == 0) //节假日不排班
                             {
                                 dt = dt.AddDays(1);
                                 if (item.DurationUnit == 0) duration++; //按天为单位，即使不排班也要减少次数
                             }
                             else if (HolidaySetting.Current != null &&
-                                HolidaySetting.Current.IsWeekend(dt) &&
-                                (this.Options & TemplateOptions.WeekendShifted) == 0)//周末不排班
+                                HolidaySetting.Current.IsWeekend(dt) && (this.Options & TemplateOptions.WeekendShifted) == 0)//周末不排班
                             {
                                 dt = dt.AddDays(1);
                                 if (item.DurationUnit == 0) duration++; //按天为单位，即使不排班也要减少次数

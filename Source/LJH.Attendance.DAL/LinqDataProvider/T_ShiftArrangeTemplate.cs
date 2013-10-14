@@ -76,7 +76,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
         /// <summary>
         /// 获取或设置ID
         /// </summary>
-        public int ID { get; set; }
+        public Guid  ID { get; set; }
         /// <summary>
         /// 获取或设置模板名称
         /// </summary>

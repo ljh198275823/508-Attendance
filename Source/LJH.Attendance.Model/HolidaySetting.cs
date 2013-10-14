@@ -38,13 +38,13 @@ namespace LJH.Attendance.Model
             return ret;
         }
         /// <summary>
-        /// 判断日期是否是周未（一般是指周六日，但由法定节假日调整为工作日的周末不计在内)
+        /// 判断日期是否是周末，一般是指除节假日外的周六日为周末
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
         public bool IsWeekend(DateTime dt)
         {
-            if (IsHoliday(dt)) return true;
+            if (IsHoliday(dt)) return false;
             if (dt.DayOfWeek == DayOfWeek.Saturday || dt.DayOfWeek == DayOfWeek.Sunday) //如果是周末,则只要周末不在节假日调整后的工作日内就当成是周末
             {
                 if (Holidays != null && Holidays.Count > 0)

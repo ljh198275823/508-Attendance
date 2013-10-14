@@ -136,6 +136,7 @@
             // 
             // comAttendanceUnit
             // 
+            this.comAttendanceUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comAttendanceUnit.FormattingEnabled = true;
             this.comAttendanceUnit.Location = new System.Drawing.Point(119, 265);
             this.comAttendanceUnit.Name = "comAttendanceUnit";
