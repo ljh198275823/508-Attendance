@@ -136,7 +136,66 @@ namespace LJH.Attendance.UI
             if (!_DateColumns.Contains(GridView.Columns[e.ColumnIndex])) return;
             Staff staff = GridView.Rows[e.RowIndex].Cells[0].Tag as Staff;
             DateTime dt = Convert.ToDateTime(GridView.Columns[e.ColumnIndex].Tag);
-        }//end method
+        }
+
+        private void btn_Export_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridView view = this.GridView;
+                if (view != null)
+                {
+                    SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                    saveFileDialog1.Filter = "Excel文档|*.xls|所有文件(*.*)|*.*";
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        string path = saveFileDialog1.FileName;
+                        if (LJH.GeneralLibrary.WinformControl.DataGridViewExporter.Export(view, path, false))
+                        {
+                            MessageBox.Show("导出成功");
+                        }
+                        else
+                        {
+                            MessageBox.Show("保存到电子表格时出现错误!");
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("保存到电子表格时出现错误!");
+            }
+        }
+
+        private void txtKeyword_TextChanged(object sender, EventArgs e)
+        {
+            if (GridView == null) return;
+            string keyword = string.Empty;
+            if (sender is ToolStripTextBox)
+            {
+                keyword = (sender as ToolStripTextBox).Text;
+            }
+            int count = 0;
+            DataGridView grid = this.GridView;
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+                bool visible = false;
+                foreach (DataGridViewColumn col in grid.Columns)
+                {
+                    if (
+                        string.IsNullOrEmpty(keyword) ||
+                        ((row.Cells[col.Index] is DataGridViewTextBoxCell) && row.Cells[col.Index].Value != null && row.Cells[col.Index].Value.ToString().Contains(keyword))
+                        )
+                    {
+                        visible = true;
+                        count++;
+                        break;
+                    }
+                }
+                row.Visible = visible;
+            }
+            this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", count);
+        }
         #endregion
     }
 }

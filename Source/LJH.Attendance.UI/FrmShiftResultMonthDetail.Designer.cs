@@ -42,6 +42,10 @@
             this.重新生成结果ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.GridView = new System.Windows.Forms.DataGridView();
             this.colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plnLeft.SuspendLayout();
@@ -49,6 +53,7 @@
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,6 +172,40 @@
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "总共 0 项";
             // 
+            // menu
+            // 
+            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Export,
+            this.toolStripSeparator1,
+            this.txtKeyword});
+            this.menu.Location = new System.Drawing.Point(330, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(562, 45);
+            this.menu.TabIndex = 60;
+            // 
+            // btn_Export
+            // 
+            this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
+            this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Export.Name = "btn_Export";
+            this.btn_Export.Size = new System.Drawing.Size(59, 41);
+            this.btn_Export.Text = "导出(&E)";
+            this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            // 
+            // txtKeyword
+            // 
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(200, 41);
+            this.txtKeyword.TextChanged += new System.EventHandler(this.txtKeyword_TextChanged);
+            // 
             // GridView
             // 
             this.GridView.AllowUserToAddRows = false;
@@ -176,13 +215,13 @@
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colUser});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridView.Location = new System.Drawing.Point(330, 0);
+            this.GridView.Location = new System.Drawing.Point(330, 45);
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.GridView.Size = new System.Drawing.Size(562, 308);
-            this.GridView.TabIndex = 19;
+            this.GridView.Size = new System.Drawing.Size(562, 263);
+            this.GridView.TabIndex = 61;
             // 
             // colUser
             // 
@@ -197,6 +236,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 330);
             this.Controls.Add(this.GridView);
+            this.Controls.Add(this.menu);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.plnLeft);
@@ -209,6 +249,8 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -230,6 +272,10 @@
         private System.Windows.Forms.ToolStripMenuItem 重新生成结果ToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.ToolStripMenuItem btn_Export;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox txtKeyword;
         private System.Windows.Forms.DataGridView GridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUser;
     }
