@@ -125,11 +125,6 @@ namespace LJH.Attendance.UI
             }
         }
 
-        private void ShowRowBackColor(DataGridViewRow row)
-        {
-            row.DefaultCellStyle.BackColor = (row.Index % 2 == 1) ? Color.FromArgb(230, 230, 230) : Color.White;
-        }
-
         protected DataGridViewRow Add_A_Row(object item, bool forNewItem)
         {
             int row = GridView.Rows.Add();
@@ -275,13 +270,26 @@ namespace LJH.Attendance.UI
                 foreach (object item in items)
                 {
                     DataGridViewRow row = Add_A_Row(item, false);
-                    ShowRowBackColor(row);
                 }
             }
+            ShowRowBackColor();
             if (this.GridView.Rows.Count > 0)
             {
                 this.GridView.Rows[0].Selected = false;
                 this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);
+            }
+        }
+
+        public void ShowRowBackColor()
+        {
+            int count = 0;
+            foreach (DataGridViewRow row in this.GridView.Rows)
+            {
+                if (row.Visible)
+                {
+                    count++;
+                    row.DefaultCellStyle.BackColor = (count % 2 == 1) ? Color.FromArgb(230, 230, 230) : Color.White;
+                }
             }
         }
         #endregion
@@ -308,10 +316,7 @@ namespace LJH.Attendance.UI
 
         private void GridView_Sorted(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in GridView.Rows)
-            {
-                ShowRowBackColor(row);
-            }
+            ShowRowBackColor();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -577,6 +582,7 @@ namespace LJH.Attendance.UI
                 }
                 row.Visible = visible;
             }
+            ShowRowBackColor();
             this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", count);
         }
         #endregion
