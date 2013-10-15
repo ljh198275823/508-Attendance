@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.查看所有刷卡记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentTreeview1 = new LJH.Attendance.UI.DepartmentTreeview(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
@@ -44,15 +44,17 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.plnLeft = new System.Windows.Forms.Panel();
             this.GridView = new System.Windows.Forms.DataGridView();
-            this.menu = new System.Windows.Forms.MenuStrip();
-            this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShiftTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPresent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAbsent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBelateCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLeaveEarlyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -180,36 +182,6 @@
             this.GridView.Size = new System.Drawing.Size(635, 315);
             this.GridView.TabIndex = 60;
             // 
-            // menu
-            // 
-            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Export,
-            this.btn_SelectColumns});
-            this.menu.Location = new System.Drawing.Point(330, 0);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(635, 45);
-            this.menu.TabIndex = 59;
-            // 
-            // btn_Export
-            // 
-            this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
-            this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(59, 41);
-            this.btn_Export.Text = "导出(&E)";
-            this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // btn_SelectColumns
-            // 
-            this.btn_SelectColumns.Image = global::LJH.Attendance.UI.Properties.Resources.columns;
-            this.btn_SelectColumns.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_SelectColumns.Name = "btn_SelectColumns";
-            this.btn_SelectColumns.Size = new System.Drawing.Size(70, 41);
-            this.btn_SelectColumns.Text = "选择列(&L)";
-            this.btn_SelectColumns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
             // colStaff
             // 
             this.colStaff.HeaderText = "人员";
@@ -234,8 +206,8 @@
             // 
             // colAbsent
             // 
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            this.colAbsent.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
+            this.colAbsent.DefaultCellStyle = dataGridViewCellStyle4;
             this.colAbsent.HeaderText = "缺勤";
             this.colAbsent.Name = "colAbsent";
             this.colAbsent.ReadOnly = true;
@@ -244,8 +216,8 @@
             // 
             // colBelateCount
             // 
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            this.colBelateCount.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
+            this.colBelateCount.DefaultCellStyle = dataGridViewCellStyle5;
             this.colBelateCount.HeaderText = "迟到次数";
             this.colBelateCount.Name = "colBelateCount";
             this.colBelateCount.ReadOnly = true;
@@ -254,13 +226,55 @@
             // 
             // colLeaveEarlyCount
             // 
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            this.colLeaveEarlyCount.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            this.colLeaveEarlyCount.DefaultCellStyle = dataGridViewCellStyle6;
             this.colLeaveEarlyCount.HeaderText = "早退次数";
             this.colLeaveEarlyCount.Name = "colLeaveEarlyCount";
             this.colLeaveEarlyCount.ReadOnly = true;
             this.colLeaveEarlyCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colLeaveEarlyCount.Width = 80;
+            // 
+            // menu
+            // 
+            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Export,
+            this.btn_SelectColumns,
+            this.toolStripSeparator1,
+            this.txtKeyword});
+            this.menu.Location = new System.Drawing.Point(330, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(635, 45);
+            this.menu.TabIndex = 59;
+            // 
+            // btn_Export
+            // 
+            this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
+            this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Export.Name = "btn_Export";
+            this.btn_Export.Size = new System.Drawing.Size(59, 41);
+            this.btn_Export.Text = "导出(&E)";
+            this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // btn_SelectColumns
+            // 
+            this.btn_SelectColumns.Image = global::LJH.Attendance.UI.Properties.Resources.columns;
+            this.btn_SelectColumns.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_SelectColumns.Name = "btn_SelectColumns";
+            this.btn_SelectColumns.Size = new System.Drawing.Size(70, 41);
+            this.btn_SelectColumns.Text = "选择列(&L)";
+            this.btn_SelectColumns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            // 
+            // txtKeyword
+            // 
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(200, 41);
             // 
             // FrmShiftResultStatistics
             // 
@@ -312,5 +326,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colAbsent;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBelateCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarlyCount;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox txtKeyword;
     }
 }

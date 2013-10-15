@@ -50,6 +50,31 @@ namespace LJH.Attendance.UI
                 txtName.Focus();
                 return false;
             }
+            bool selectedOne = false;
+            for (int i = 1; i <= 6; i++)
+            {
+                if ((this.Controls["chkShift" + i.ToString()] as CheckBox).Checked)
+                {
+                    selectedOne = true;
+                    List<Shift> shifts= (this.Controls["txtShifts" + i.ToString()] as TextBox).Tag as List<Shift>;
+                    if (shifts == null || shifts.Count == 0)
+                    {
+                        MessageBox.Show("模板第 " + i.ToString () + " 项没有选择班次");
+                        return false;
+                    }
+                    int duration = (int)(this.Controls["txtDuration" + i.ToString()] as NumericUpDown).Value;
+                    if (duration <= 0)
+                    {
+                        MessageBox.Show("模板第 " + i.ToString() + " 项没有设置持续数量");
+                        return false;
+                    }
+                }
+            }
+            if (!selectedOne)
+            {
+                MessageBox.Show("请至少设置一个模板项");
+                return false;
+            }
             return true;
         }
 
