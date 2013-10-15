@@ -66,6 +66,9 @@
             this.mnu_ResultDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnu_AttendanceLogReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_BackupData = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_UpdateDB = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.用户手册ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Aboat = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,9 +92,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblOperator = new System.Windows.Forms.ToolStripStatusLabel();
             this.ucFormViewMain = new LJH.GeneralLibrary.WinformControl.UCFormView();
-            this.维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_BackupData = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_UpdateDB = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -344,6 +344,26 @@
             resources.ApplyResources(this.mnu_AttendanceLogReport, "mnu_AttendanceLogReport");
             this.mnu_AttendanceLogReport.Click += new System.EventHandler(this.mnu_AttendanceLogReport_Click);
             // 
+            // 维护ToolStripMenuItem
+            // 
+            this.维护ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu_BackupData,
+            this.mnu_UpdateDB});
+            this.维护ToolStripMenuItem.Name = "维护ToolStripMenuItem";
+            resources.ApplyResources(this.维护ToolStripMenuItem, "维护ToolStripMenuItem");
+            // 
+            // mnu_BackupData
+            // 
+            this.mnu_BackupData.Name = "mnu_BackupData";
+            resources.ApplyResources(this.mnu_BackupData, "mnu_BackupData");
+            this.mnu_BackupData.Click += new System.EventHandler(this.mnu_BackupData_Click);
+            // 
+            // mnu_UpdateDB
+            // 
+            this.mnu_UpdateDB.Name = "mnu_UpdateDB";
+            resources.ApplyResources(this.mnu_UpdateDB, "mnu_UpdateDB");
+            this.mnu_UpdateDB.Click += new System.EventHandler(this.mnu_UpdateDB_Click);
+            // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -436,7 +456,7 @@
             // 
             // btnShiftTemplate
             // 
-            this.btnShiftTemplate.Image = global::LJH.Attendance.UI.Properties.Resources.shift;
+            this.btnShiftTemplate.Image = global::LJH.Attendance.UI.Properties.Resources.template;
             resources.ApplyResources(this.btnShiftTemplate, "btnShiftTemplate");
             this.btnShiftTemplate.Name = "btnShiftTemplate";
             this.btnShiftTemplate.Click += new System.EventHandler(this.mnu_ShiftTemplate_Click);
@@ -517,26 +537,6 @@
             resources.ApplyResources(this.ucFormViewMain, "ucFormViewMain");
             this.ucFormViewMain.FormHeaderLength = 135;
             this.ucFormViewMain.Name = "ucFormViewMain";
-            // 
-            // 维护ToolStripMenuItem
-            // 
-            this.维护ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnu_BackupData,
-            this.mnu_UpdateDB});
-            this.维护ToolStripMenuItem.Name = "维护ToolStripMenuItem";
-            resources.ApplyResources(this.维护ToolStripMenuItem, "维护ToolStripMenuItem");
-            // 
-            // mnu_BackupData
-            // 
-            this.mnu_BackupData.Name = "mnu_BackupData";
-            resources.ApplyResources(this.mnu_BackupData, "mnu_BackupData");
-            this.mnu_BackupData.Click += new System.EventHandler(this.mnu_BackupData_Click);
-            // 
-            // mnu_UpdateDB
-            // 
-            this.mnu_UpdateDB.Name = "mnu_UpdateDB";
-            resources.ApplyResources(this.mnu_UpdateDB, "mnu_UpdateDB");
-            this.mnu_UpdateDB.Click += new System.EventHandler(this.mnu_UpdateDB_Click);
             // 
             // FrmMain
             // 
