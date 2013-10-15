@@ -40,7 +40,7 @@ namespace LJH.Attendance.Model
         #region 公共方法
         public List<ShiftArrange> ApplyTemplateTo(Staff staff, DatetimeRange range)
         {
-            if (Items.Exists(it => it.Duration <= 0)) return null; //如果存在某个班次持续时间小于0,直接退出
+            if (Items != null && Items.Count > 0 && Items.Exists(it => it.Duration <= 0)) return null; //如果存在某个班次持续时间小于0,直接退出
             List<ShiftArrange> sas = new List<ShiftArrange>();
             if (this.Items != null && this.Items.Count > 0)
             {

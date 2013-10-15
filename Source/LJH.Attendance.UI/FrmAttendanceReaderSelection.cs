@@ -30,7 +30,7 @@ namespace LJH.Attendance.UI
                 dataGridView1.Rows[row].Cells["colID"].Value = item.ID;
                 dataGridView1.Rows[row].Cells["colName"].Value = item.Name;
             }
-            this.dataGridView1.Rows[0].Selected = false;
+            if (this.dataGridView1.Rows.Count > 0) this.dataGridView1.Rows[0].Selected = false;
             this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", dataGridView1.Rows.Count);
         }
 
