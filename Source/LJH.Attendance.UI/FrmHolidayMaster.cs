@@ -56,6 +56,8 @@ namespace LJH.Attendance.UI
         protected override bool DeletingItem(object item)
         {
             CommandResult ret = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as Holiday);
+            List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            HolidaySetting.Current.Holidays = holidays;
             return ret.Result == ResultCode.Successful;
         }
         #endregion

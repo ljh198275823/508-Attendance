@@ -35,9 +35,13 @@ namespace LJH.Attendance.UI
         protected override List<object> GetDataSource()
         {
             List<ShiftTemplate> items = (new ShiftTemplateBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
-            return (from item in items
-                    orderby item.ID ascending
-                    select (object)item).ToList();
+            if (items != null && items.Count > 0)
+            {
+                return (from item in items
+                        orderby item.ID ascending
+                        select (object)item).ToList();
+            }
+            return null;
         }
 
         protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)

@@ -60,12 +60,18 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            return (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as Holiday);
+            CommandResult ret = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as Holiday);
+            List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            HolidaySetting.Current.Holidays = holidays;
+            return ret;
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            return (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as Holiday);
+            CommandResult ret = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as Holiday);
+            List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            HolidaySetting.Current.Holidays = holidays;
+            return ret;
         }
 
         protected override bool CheckInput()
