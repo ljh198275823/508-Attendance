@@ -20,7 +20,7 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置ID
         /// </summary>
-        public Guid  ID { get; set; }
+        public Guid ID { get; set; }
         /// <summary>
         /// 获取或设置人员ID
         /// </summary>
@@ -191,7 +191,7 @@ namespace LJH.Attendance.Model
                         {
                             AbsentItem ai = new AbsentItem()
                             {
-                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.Late),
+                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.Late) + "计缺勤",
                                 Duration = Present > AttendanceRules.Current.MinLateAsAbsentMinute ? AttendanceRules.Current.MinLateAsAbsentMinute : Present,
                             };
                             this.AbsentItems.Add(ai);
@@ -205,7 +205,7 @@ namespace LJH.Attendance.Model
                         {
                             AbsentItem ai = new AbsentItem()
                             {
-                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.Late),
+                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.Late) + "计缺勤",
                                 Duration = this.Present,
                             };
                             this.AbsentItems.Add(ai);
@@ -231,7 +231,7 @@ namespace LJH.Attendance.Model
                         {
                             AbsentItem ai = new AbsentItem()
                             {
-                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.LeaveEarly),
+                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.LeaveEarly) + "计缺勤",
                                 Duration = Present > AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute ? AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute : Present,
                             };
                             this.AbsentItems.Add(ai);
@@ -245,7 +245,7 @@ namespace LJH.Attendance.Model
                         {
                             AbsentItem ai = new AbsentItem()
                             {
-                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.LeaveEarly),
+                                Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.LeaveEarly) + "计缺勤",
                                 Duration = this.Present,
                             };
                             this.AbsentItems.Add(ai);
@@ -309,6 +309,7 @@ namespace LJH.Attendance.Model
                 {
                     this.Present = 0;
                 }
+                CalResult();
             }
         }
         #endregion

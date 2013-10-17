@@ -105,7 +105,7 @@ namespace LJH.Attendance.UI
             row.Cells["colPresent"].Value = AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value;
             row.Cells["colResult"].Value = sar.ResultDescr;
             row.Cells["colResult"].Style.ForeColor = sar.Result == AttendanceResultCode.OK ? Color.Blue : Color.Red;
-            row.Cells["colMemo"].Value = AbsentItemsDescr(sar);
+            row.Cells["colMemo"].Value = (!string.IsNullOrEmpty(sar.ShiftID)) ? AbsentItemsDescr(sar) : sar.Category;
         }
 
         protected override bool DeletingItem(object item)

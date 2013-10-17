@@ -31,9 +31,9 @@ namespace LJH.Attendance.UI
                 MessageBox.Show("开始日期大于结束日期");
                 return false;
             }
-            if (!this.chkTime1.Checked && !this.chkTime2.Checked)
+            if (!chkTime1.Checked && !chkTime2.Checked && !chkTime3.Checked && !chkTime4.Checked && !chkTime5.Checked && !chkTime6.Checked)
             {
-                MessageBox.Show("没有指定答卡时间");
+                MessageBox.Show("没有指定补签时间");
                 return false;
             }
             return true;
