@@ -118,13 +118,13 @@ namespace LJH.Attendance.UI
             IGrouping<int, AttendanceResult> group = item as IGrouping<int, AttendanceResult>;
             row.Tag = group;
             row.Cells["colStaff"].Value = group.First().StaffName;
-            decimal shiftTime = group.Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value);
-            decimal present = group.Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value);
+            decimal shiftTime = group.Where(sar => !string.IsNullOrEmpty(sar.ShiftID)).Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value);
+            decimal present = group.Where(sar => !string.IsNullOrEmpty(sar.ShiftID)).Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value);
             row.Cells["colShiftTime"].Value = shiftTime;
             row.Cells["colPresent"].Value = present;
             row.Cells["colAbsent"].Value = shiftTime - present > 0 ? (shiftTime - present).ToString() : string.Empty;
-            int lateCount = group.Count(sar => sar.Result == AttendanceResultCode.Late || sar.Result == AttendanceResultCode.LateEarly);
-            int leaveEarlyCount = group.Count(sar => sar.Result == AttendanceResultCode.LeaveEarly || sar.Result == AttendanceResultCode.LateEarly);
+            int lateCount = group.Count(sar => sar.Belate > 0);
+            int leaveEarlyCount = group.Count(sar => sar.LeaveEarly > 0);
             row.Cells["colBelateCount"].Value = lateCount > 0 ? lateCount.ToString() : string.Empty;
             row.Cells["colLeaveEarlyCount"].Value = leaveEarlyCount > 0 ? leaveEarlyCount.ToString() : string.Empty;
 
