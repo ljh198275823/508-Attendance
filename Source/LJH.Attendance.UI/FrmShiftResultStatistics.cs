@@ -130,7 +130,7 @@ namespace LJH.Attendance.UI
 
             foreach (DataGridViewColumn col in _OTCols)
             {
-                decimal sum = group.Where(sar => sar.Category == col.Name).Sum(sar => sar.Present); //加班
+                decimal sum = SumOfOT(group, col.Tag.ToString()); //加班
                 row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
             }
             foreach (DataGridViewColumn col in _VacationCols)
@@ -156,6 +156,16 @@ namespace LJH.Attendance.UI
                 }
             }
             return items.Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Duration, true).Value);
+        }
+
+        private decimal SumOfOT(IGrouping<int, AttendanceResult> group, string id)
+        {
+            List<AttendanceResult> items = group.Where(sar => !string.IsNullOrEmpty(id) && id == sar.Category).ToList();
+            if (items != null && items.Count > 0)
+            {
+                return items.Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Present, true).Value);
+            }
+            return 0;
         }
 
         protected override bool DeletingItem(object item)
