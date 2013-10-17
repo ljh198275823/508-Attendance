@@ -52,7 +52,7 @@ namespace LJH.Attendance.Model
             List<AttendanceResult> items = new List<AttendanceResult>();
             if (!range.Contain(sheet.StartDate) && !range.Contain(sheet.EndDate)) return;
             DateTime dt = sheet.StartDate;
-            while (dt<=sheet.EndDate && range.Contain(dt))
+            while (dt <= sheet.EndDate && range.Contain(dt))
             {
                 if (sheet.Items != null && sheet.Items.Count > 0)
                 {
@@ -372,10 +372,10 @@ namespace LJH.Attendance.Model
             //与加班单和请假外出单等合并,得出最后每个上下班时间的准确日期
             AddTASheetsToTimezones(staff, results, sheets, range);
             //为那些所有需要记录上下班时间的时间段附加签到和签退
-            List<AttendanceResult> items = (from item in results
-                                            where item.LogWhenArrive || item.LogWhenLeave
-                                            orderby item.NewStartTime ascending
-                                            select item).ToList();
+            results = (from item in results
+                       where item.LogWhenArrive || item.LogWhenLeave
+                       orderby item.NewStartTime ascending
+                       select item).ToList();
             //对每个时间段附加上实际的打卡时间
             AttachAttendanceReocrds(results, ars);
             ////对最终需要上班的时间段和实际的刷卡记录进行分析，得出每个时间段的考勤结果
