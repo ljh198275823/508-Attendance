@@ -301,7 +301,7 @@ namespace LJH.Attendance.Model
             {
                 DateTime? dt1 = LogWhenArrive ? this.OnDutyTime : this.NewStartTime;
                 DateTime? dt2 = LogWhenLeave ? this.OffDutyTime : this.NewEndTime;
-                if (dt1.Value != null && dt2.Value != null)
+                if (dt1 != null && dt2 != null)
                 {
                     this.Present = (new DatetimeRange(dt1.Value, dt2.Value)).TotalMinutes;
                 }
