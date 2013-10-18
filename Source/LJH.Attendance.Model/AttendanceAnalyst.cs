@@ -151,29 +151,35 @@ namespace LJH.Attendance.Model
                 {
                     DatetimeRange drOT = new DatetimeRange(ot.NewStartTime, ot.NewEndTime);
                     List<AttendanceResult> sts = timezones.Where(it => it.ShiftDate == ot.ShiftDate).ToList();
-                    if (sts == null || sts.Count == 0) break;
-                    foreach (AttendanceResult st in sts)
+                    if (sts == null || sts.Count == 0)
                     {
-                        DatetimeRange drSt = new DatetimeRange(st.NewStartTime, st.NewEndTime);
-                        if (!drSt.Contain(drOT)) //检查是否有全部重合的情况，如果与上班时间全部重合，则加班无效。
+                        items.Add(ot);
+                    }
+                    else
+                    {
+                        foreach (AttendanceResult st in sts)
                         {
-                            if (drSt.Contain(drOT.Begin)) //如果加班的开始时间与普通上班时间有重叠，加班时间要截取掉重合部分，并且普通上班下班不用再打卡。
+                            DatetimeRange drSt = new DatetimeRange(st.NewStartTime, st.NewEndTime);
+                            if (!drSt.Contain(drOT)) //检查是否有全部重合的情况，如果与上班时间全部重合，则加班无效。
                             {
-                                st.LogWhenLeave = false;
-                                ot.NewStartTime = drSt.End;
-                                ot.ShiftTime = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
-                                ot.Present = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
-                                ot.LogWhenArrive = false;
+                                if (drSt.Contain(drOT.Begin)) //如果加班的开始时间与普通上班时间有重叠，加班时间要截取掉重合部分，并且普通上班下班不用再打卡。
+                                {
+                                    st.LogWhenLeave = false;
+                                    ot.NewStartTime = drSt.End;
+                                    ot.ShiftTime = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
+                                    ot.Present = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
+                                    ot.LogWhenArrive = false;
+                                }
+                                if (drSt.Contain(drOT.End))
+                                {
+                                    ot.NewEndTime = drSt.Begin;
+                                    ot.ShiftTime = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
+                                    ot.Present = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
+                                    ot.LogWhenLeave = false;
+                                    st.LogWhenArrive = false;
+                                }
+                                items.Add(ot);
                             }
-                            if (drSt.Contain(drOT.End))
-                            {
-                                ot.NewEndTime = drSt.Begin;
-                                ot.ShiftTime = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
-                                ot.Present = (new DatetimeRange(ot.NewStartTime, ot.NewEndTime)).TotalMinutes;
-                                ot.LogWhenLeave = false;
-                                st.LogWhenArrive = false;
-                            }
-                            items.Add(ot);
                         }
                     }
                 }
