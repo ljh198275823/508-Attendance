@@ -15,12 +15,12 @@ using LJH.GeneralLibrary;
 
 namespace LJH.Attendance.UI
 {
-    public partial class FrmLogin : Form
+    public partial class FrmLoginDemo : Form
     {
         private bool _Adance = false;
         private SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
 
-        public FrmLogin()
+        public FrmLoginDemo()
         {
             InitializeComponent();
         }
@@ -28,17 +28,8 @@ namespace LJH.Attendance.UI
         #region 私有方法
         private void SaveConnectString()
         {
-            sb.DataSource = this.txtServer.Text;
-            sb.InitialCatalog = this.txtDataBase.Text;
-            sb.IntegratedSecurity = rdSystem.Checked;
-            sb.UserID = this.txtUserID.Text;
-            sb.Password = this.txtPasswd.Text;
-
-            sb.PersistSecurityInfo = true;
-            AppSettings.CurrentSetting.ConnectString = "MSSQL:" + sb.ConnectionString;
-
-            //string p = "Data Source=" + Path.Combine(Application.StartupPath, "Attendance.db");
-            //AppSettings.CurrentSetting.ConnectString = "SQLITE:" + p;
+            string p = "Data Source=" + Path.Combine(Application.StartupPath, "Attendance.db");
+            AppSettings.CurrentSetting.ConnectString = "SQLITE:" + p;
         }
 
         private bool UpGradeDataBase()
@@ -110,46 +101,9 @@ namespace LJH.Attendance.UI
             }
         }
         #endregion
+
         private void Login_Load(object sender, EventArgs e)
         {
-            this.gpDB.Visible = false;
-            this.Height = 148;
-
-            if (!string.IsNullOrEmpty(AppSettings.CurrentSetting.ConnectString))
-            {
-                try
-                {
-                    string connStr = AppSettings.CurrentSetting.ConnectString;
-                    if (!string.IsNullOrEmpty(connStr))
-                    {
-                        int p = connStr.IndexOf(':');
-                        if (p > 0)
-                        {
-                            string sqlType = connStr.Substring(0, p);
-                            if (sqlType.ToUpper() == "MSSQL")
-                            {
-                                sb = new SqlConnectionStringBuilder(connStr.Substring(p + 1));
-                                txtServer.Text = sb.DataSource;
-                                txtDataBase.Text = sb.InitialCatalog;
-                                if (sb.IntegratedSecurity)
-                                {
-                                    this.rdSystem.Checked = true;
-                                }
-                                else
-                                {
-                                    this.rdUser.Checked = true;
-                                    this.txtUserID.Text = sb.UserID;
-                                    this.txtPasswd.Text = sb.Password;
-                                }
-                            }
-                        }
-                    }
-                }
-                catch
-                {
-                }
-            }
-
             if (!string.IsNullOrEmpty(CommandLineArgs.UserName))
             {
                 this.txtLogName.Text = CommandLineArgs.UserName;
@@ -197,21 +151,7 @@ namespace LJH.Attendance.UI
                 MessageBox.Show(Resource1.FrmLogin_InvalidPwd);
                 return;
             }
-            if (string.IsNullOrEmpty(txtServer.Text))
-            {
-                MessageBox.Show(Resource1.FrmLogin_InvalidServer);
-                this.txtServer.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(txtDataBase.Text))
-            {
-                MessageBox.Show(Resource1.FrmLogin_InvalidDataBase);
-                this.txtDataBase.Focus();
-                return;
-            }
-
             SaveConnectString();
-            UpGradeDataBase(); //升级数据库
 
             OperatorBll authen = new OperatorBll(AppSettings.CurrentSetting.ConnectString);
             if (authen.Authentication(logName, pwd))
@@ -230,33 +170,6 @@ namespace LJH.Attendance.UI
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        private void rdSystem_CheckedChanged(object sender, EventArgs e)
-        {
-            this.txtUserID.Enabled = !rdSystem.Checked;
-            this.txtPasswd.Enabled = !rdSystem.Checked;
-        }
-
-        private void rdUser_CheckedChanged(object sender, EventArgs e)
-        {
-            this.txtUserID.Enabled = rdUser.Checked;
-            this.txtPasswd.Enabled = rdUser.Checked;
-        }
-
-        private void btnAdvance_Click(object sender, EventArgs e)
-        {
-            _Adance = !_Adance;
-            if (_Adance)
-            {
-                this.gpDB.Visible = _Adance;
-                this.Height = 248;
-            }
-            else
-            {
-                this.gpDB.Visible = false;
-                this.Height = 148;
-            }
         }
     }
 }

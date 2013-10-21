@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="attendance" xmlns="http://schemas.microsoft.com/linqtosql/mapping/2007">
-  <Table Name="dbo.TAReader" Member="LJH.Attendance.Model.Reader">
+  <Table Name="TAReader" Member="LJH.Attendance.Model.Reader">
     <Type Name="LJH.Attendance.Model.Reader">
       <Column Name="ID" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="ForAttendance" Member="ForAttendance"  DbType="bit null" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TADepartment" Member="LJH.Attendance.Model.Department">
+  <Table Name="TADepartment" Member="LJH.Attendance.Model.Department">
     <Type Name="LJH.Attendance.Model.Department">
       <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
@@ -15,7 +15,7 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAStaff" Member="LJH.Attendance.Model.Staff">
+  <Table Name="TAStaff" Member="LJH.Attendance.Model.Staff">
     <Type Name="LJH.Attendance.Model.Staff">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" />
@@ -26,7 +26,7 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(50)" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAShiftTemplate" Member="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
+  <Table Name="TAShiftTemplate" Member="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
     <Type Name="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
       <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
@@ -35,7 +35,7 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAOptions" Member="LJH.Attendance.Model.Sysparameter">
+  <Table Name="TAOptions" Member="LJH.Attendance.Model.Sysparameter">
     <Type Name="LJH.Attendance.Model.Sysparameter">
       <Column Name="OptionName" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="OptionValue" Member="Value"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
@@ -43,7 +43,7 @@
       <Column Name="OptionDescr" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAShift" Member="LJH.Attendance.Model.Shift">
+  <Table Name="TAShift" Member="LJH.Attendance.Model.Shift">
     <Type Name="LJH.Attendance.Model.Shift">
       <Column Name="ShiftID" Member="ID"  DbType="nvarchar(4) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ShiftName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
@@ -51,7 +51,7 @@
       <Association Name="FK_Shift_Item" Member="Items"  ThisKey="ID" OtherKey="ShiftID"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAShiftItem" Member="LJH.Attendance.Model.ShiftItem">
+  <Table Name="TAShiftItem" Member="LJH.Attendance.Model.ShiftItem">
     <Type Name="LJH.Attendance.Model.ShiftItem">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
       <Column Name="ShiftID" Member="ShiftID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
@@ -65,14 +65,14 @@
       <Column Name="Duration" Member="Duration"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAShiftArrange" Member="LJH.Attendance.Model.ShiftArrange">
+  <Table Name="TAShiftArrange" Member="LJH.Attendance.Model.ShiftArrange">
     <Type Name="LJH.Attendance.Model.ShiftArrange">
       <Column Name="UserID" Member="StaffID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ShiftID" Member="ShiftID"  DbType="nvarchar(4) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ShiftDate" Member="ShiftDate"  DbType="datetime NOT NULL" IsPrimaryKey="true"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAHoliday" Member="LJH.Attendance.Model.Holiday">
+  <Table Name="TAHoliday" Member="LJH.Attendance.Model.Holiday">
     <Type Name="LJH.Attendance.Model.Holiday">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
       <Column Name="StartDate" Member="StartDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
@@ -86,14 +86,14 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAVacationType" Member="LJH.Attendance.Model.VacationType">
+  <Table Name="TAVacationType" Member="LJH.Attendance.Model.VacationType">
     <Type Name="LJH.Attendance.Model.VacationType">
       <Column Name="ID" Member="ID"  DbType="nvarchar(50)" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/> 
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TASheet" Member="LJH.Attendance.Model.TASheet">
+  <Table Name="TASheet" Member="LJH.Attendance.Model.TASheet">
     <Type Name="LJH.Attendance.Model.TASheet">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
       <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null" UpdateCheck="Never"/>
@@ -115,7 +115,7 @@
       <Association Name="FK_Sheet_Item" Member="Items"  ThisKey="SheetID" OtherKey="SheetID"/>
     </Type>
   </Table>
-  <Table Name="dbo.TASheetitem" Member="LJH.Attendance.Model.TASheetItem">
+  <Table Name="TASheetitem" Member="LJH.Attendance.Model.TASheetItem">
     <Type Name="LJH.Attendance.Model.TASheetItem">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
       <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null" UpdateCheck="Never"/>
@@ -125,7 +125,7 @@
       <Column Name="Duration" Member="Duration"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAOTType" Member="LJH.Attendance.Model.OTType">
+  <Table Name="TAOTType" Member="LJH.Attendance.Model.OTType">
     <Type Name="LJH.Attendance.Model.OTType">
       <Column Name="ID" Member="ID"  DbType="nvarchar(50) not null" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
@@ -133,14 +133,14 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TATripType" Member="LJH.Attendance.Model.TripType">
+  <Table Name="TATripType" Member="LJH.Attendance.Model.TripType">
     <Type Name="LJH.Attendance.Model.TripType">
       <Column Name="ID" Member="ID"  DbType="nvarchar(50) not null" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAAttendanceLog" Member="LJH.Attendance.Model.AttendanceLog">
+  <Table Name="TAAttendanceLog" Member="LJH.Attendance.Model.AttendanceLog">
     <Type Name="LJH.Attendance.Model.AttendanceLog">
       <Column Name="ID" Member="ID"  DbType="bigint NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
       <Column Name="StaffID" Member="StaffID"  DbType="int not null" UpdateCheck="Never"/>
@@ -152,7 +152,7 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAAttendanceResult" Member="LJH.Attendance.Model.AttendanceResult">
+  <Table Name="TAAttendanceResult" Member="LJH.Attendance.Model.AttendanceResult">
     <Type Name="LJH.Attendance.Model.AttendanceResult">
       <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="StaffID" Member="StaffID"  DbType="int NOT NULL" UpdateCheck="Never"/>
@@ -181,7 +181,7 @@
       <Association Name="FK_Absent_Item" Member="AbsentItems"  ThisKey="ID" OtherKey="ResultID"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAAbsentItem" Member="LJH.Attendance.Model.AbsentItem">
+  <Table Name="TAAbsentItem" Member="LJH.Attendance.Model.AbsentItem">
     <Type Name="LJH.Attendance.Model.AbsentItem">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
       <Column Name="ResultID" Member="ResultID"  DbType="uniqueidentifier NOT NULL" UpdateCheck="Never"/>
@@ -189,7 +189,7 @@
       <Column Name="Duration" Member="Duration"  DbType="decimal(10,2) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAOperator" Member="LJH.Attendance.Model.Operator">
+  <Table Name="TAOperator" Member="LJH.Attendance.Model.Operator">
     <Type Name="LJH.Attendance.Model.Operator">
       <Column Name="ID" Member="ID" DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Password" Member="_Password"  DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
@@ -199,7 +199,7 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TARole" Member="LJH.Attendance.Model.Role">
+  <Table Name="TARole" Member="LJH.Attendance.Model.Role">
     <Type Name="LJH.Attendance.Model.Role">
       <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
@@ -207,13 +207,13 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAOperatorDept" Member="LJH.Attendance.DAL.LinqDataProvider.T_OperatorDept">
+  <Table Name="TAOperatorDept" Member="LJH.Attendance.DAL.LinqDataProvider.T_OperatorDept">
     <Type Name="LJH.Attendance.DAL.LinqDataProvider.T_OperatorDept">
       <Column Name="OperatorID" Member="OperatorID"  DbType="varchar(20) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="DepartmentID" Member="DepartmentID"  DbType="varchar(40) NOT NULL" IsPrimaryKey="true"/>
     </Type>
   </Table>
-  <Table Name="dbo.TAParameter" Member="LJH.Attendance.Model.Parameter">
+  <Table Name="TAParameter" Member="LJH.Attendance.Model.Parameter">
     <Type Name="LJH.Attendance.Model.Parameter">
       <Column Name="ID" Member="ID"  DbType="nvarchar(200) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Value" Member="Value"  DbType="nvarchar(4000)"  UpdateCheck="Never"/>
