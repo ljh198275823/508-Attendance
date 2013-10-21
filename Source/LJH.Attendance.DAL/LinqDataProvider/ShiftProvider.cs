@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DbLinq.Data.Linq;
+using System.Data.Linq;
 using LJH.Attendance.Model;
 using LJH.Attendance.Model.Result;
 using LJH.Attendance.Model.SearchCondition;

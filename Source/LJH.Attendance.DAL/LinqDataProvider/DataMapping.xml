@@ -189,22 +189,22 @@
       <Column Name="Duration" Member="Duration"  DbType="decimal(10,2) not null" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="TAOperator" Storage="LJH.Attendance.Model.Operator">
+  <Table Name="TAOperator" Member="LJH.Attendance.Model.Operator">
     <Type Name="LJH.Attendance.Model.Operator">
-      <Column Name="ID" Storage="ID" DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="Password" Storage="_Password"  DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
-      <Column Name="Name" Storage="Name"  DbType="nvarchar(50) NOT NULL"   UpdateCheck="Never"/>
-      <Column Name="RoleID" Storage="RoleID" DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
-      <Column Name="UserID" Storage="StaffID"  DbType="Int"  UpdateCheck="Never"/>
-      <Column Name="Memo" Storage="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
+      <Column Name="ID" Member="ID" DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="Password" Member="_Password"  DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) NOT NULL"   UpdateCheck="Never"/>
+      <Column Name="RoleID" Member="RoleID" DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
+      <Column Name="UserID" Member="StaffID"  DbType="Int"  UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="TARole" Storage="LJH.Attendance.Model.Role">
+  <Table Name="TARole" Member="LJH.Attendance.Model.Role">
     <Type Name="LJH.Attendance.Model.Role">
-      <Column Name="ID" Storage="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="Name" Storage="Name"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
-      <Column Name="Permission" Storage="Permission"  DbType="nvarchar(200)"  UpdateCheck="Never"/>
-      <Column Name="Memo" Storage="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
+      <Column Name="Permission" Member="Permission"  DbType="nvarchar(200)"  UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="TAOperatorDept" Member="LJH.Attendance.DAL.LinqDataProvider.T_OperatorDept">

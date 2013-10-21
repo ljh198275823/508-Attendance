@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DbLinq.Data.Linq;
+using System.Data.Linq;
 using System.Text;
 using LJH.Attendance.Model;
 using LJH.Attendance.Model.Result;

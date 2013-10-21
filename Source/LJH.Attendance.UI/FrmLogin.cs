@@ -37,16 +37,15 @@ namespace LJH.Attendance.UI
             sb.PersistSecurityInfo = true;
             AppSettings.CurrentSetting.ConnectString = "MSSQL:" + sb.ConnectionString;
 
-            //string p = "Data Source=" + Path.Combine(Application.StartupPath, "Attendance.db");
-            //AppSettings.CurrentSetting.ConnectString = "SQLITE:" + p;
+            UpGradeDataBase(sb.ConnectionString); //升级数据库
         }
 
-        private bool UpGradeDataBase()
+        private bool UpGradeDataBase(string connStr)
         {
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, "DbUpdate.sql");
             if (System.IO.File.Exists(path))
             {
-                return DatabaseUpgrader.ExeSQLFile(AppSettings.CurrentSetting.ConnectString, path);
+                return DatabaseUpgrader.ExeSQLFile(connStr, path);
             }
             return false;
         }
@@ -211,7 +210,7 @@ namespace LJH.Attendance.UI
             }
 
             SaveConnectString();
-            UpGradeDataBase(); //升级数据库
+           
 
             OperatorBll authen = new OperatorBll(AppSettings.CurrentSetting.ConnectString);
             if (authen.Authentication(logName, pwd))

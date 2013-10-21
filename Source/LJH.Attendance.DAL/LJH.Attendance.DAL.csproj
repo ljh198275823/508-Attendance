@@ -38,15 +38,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DbLinq">
-      <HintPath>..\Reference\DbLinq.dll</HintPath>
-    </Reference>
-    <Reference Include="DbLinq.Sqlite">
-      <HintPath>..\Reference\DbLinq.Sqlite.dll</HintPath>
-    </Reference>
-    <Reference Include="DbLinq.SqlServer">
-      <HintPath>..\Reference\DbLinq.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="LJH.GeneralLibrary">
       <HintPath>..\Reference\LJH.GeneralLibrary.dll</HintPath>
     </Reference>

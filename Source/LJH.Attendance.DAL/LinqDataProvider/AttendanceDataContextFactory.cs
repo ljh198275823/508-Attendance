@@ -14,7 +14,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
             System.Diagnostics.Debug.Assert(!string.IsNullOrEmpty(connStr), "没有找到有效的数据库连接!");
             IDbConnection connection = null;
             Stream stream = typeof(AttendanceDataContextFactory).Assembly.GetManifestResourceStream("LJH.Attendance.DAL.LinqDataProvider.DataMapping.xml");
-            MappingSource mappingSource = XmlMappingSource.FromStream(stream);
+            XmlMappingSource mappingSource = XmlMappingSource.FromStream(stream);
             int p = connStr.IndexOf(':');
             if (p > 0)
             {
