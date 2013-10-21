@@ -9,8 +9,6 @@ namespace LJH.Attendance.DAL.LinqDataProvider
 {
     class AttendanceDataContextFactory
     {
-        private static SqlConnection _Connection;
-
         public static AttendanceDataContext Createattendance(string connStr)
         {
             System.Diagnostics.Debug.Assert(!string.IsNullOrEmpty(connStr), "没有找到有效的数据库连接!");
@@ -32,7 +30,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
             }
             System.Diagnostics.Debug.Assert(connection != null, "没有找到有效的数据库连接!");
             AttendanceDataContext attendance = new AttendanceDataContext(connection, mappingSource);
-            //attendance.Log = System.Console.Out;
+            attendance.Log = System.Console.Out;
             return attendance;
         }
     }

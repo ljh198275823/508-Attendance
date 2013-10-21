@@ -23,7 +23,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
         #region 重写模板方法
         protected override Operator GetingItemByID(string id, AttendanceDataContext attendance)
         {
-            Operator opt = attendance.Operator.SingleOrDefault(o => o.ID == id);
+            Operator opt = attendance.GetTable<Operator>().SingleOrDefault(o => o.ID == id);
             if (opt != null)
             {
                 opt.Role = attendance.GetTable<Role>().SingleOrDefault(item => item.ID == opt.RoleID);
