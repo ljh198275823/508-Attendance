@@ -30,7 +30,16 @@ namespace LJH.Attendance.BLL
 
         public CommandResult Add(ShiftTemplate info)
         {
-            return ProviderFactory.Create<IShiftTemplateProvider>(_RepoUri).Insert(info);
+            string id = ProviderFactory.Create<IStringIDCreater>(_RepoUri).CreateID("T", 3, "ShiftTemplate");
+            if (!string.IsNullOrEmpty(id))
+            {
+                info.ID = id;
+                return ProviderFactory.Create<IShiftTemplateProvider>(_RepoUri).Insert(info);
+            }
+            else
+            {
+                return new CommandResult(ResultCode.Fail, "创建班次ID失败");
+            }
         }
 
         public CommandResult Update(ShiftTemplate info)

@@ -35,7 +35,7 @@
   </Table>
   <Table Name="TAShiftTemplate" Member="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
     <Type Name="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate">
-      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="Options" Member="Options"  DbType="tinyint not null" UpdateCheck="Never"/>
       <Column Name="Value" Member="Value"  DbType="nvarchar(4000)" UpdateCheck="Never"/>

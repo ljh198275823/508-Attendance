@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LJH.Attendance.DAL.IDAL
 {
-    public interface IShiftTemplateProvider : IProvider<LJH.Attendance.Model.ShiftTemplate, Guid>
+    public interface IShiftTemplateProvider : IProvider<LJH.Attendance.Model.ShiftTemplate, string>
     {
     }
 }
