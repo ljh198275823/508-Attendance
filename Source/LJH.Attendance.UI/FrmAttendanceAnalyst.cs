@@ -25,7 +25,7 @@ namespace LJH.Attendance.UI
         private bool CreateAttendanceResults(Staff staff, DatetimeRange dr, List<string> readers)
         {
             ShiftArrangeSearchCondition con1 = new ShiftArrangeSearchCondition();
-            con1.UserID = staff.ID;
+            con1.StaffID = staff.ID;
             con1.ShiftDate = dr;
             List<ShiftArrange> sas = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con1).QueryObjects;
 
@@ -34,14 +34,14 @@ namespace LJH.Attendance.UI
             List<TASheet> sheets = (new TASheetBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con2).QueryObjects;
 
             AttendanceLogSearchCondition con3 = new AttendanceLogSearchCondition();
-            con3.Staff = new List<int>();
+            con3.Staff = new List<string>();
             con3.Staff.Add(staff.ID);
             con3.Readers = readers;
             con3.ReadDateTime = dr;
             con3.ContainManualLogs = true;
             List<AttendanceLog> records = (new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con3).QueryObjects;
 
-            List<AttendanceResult> results = (new AttendanceAnalyst()).Analist(staff, sas, records, sheets,dr);
+            List<AttendanceResult> results = (new AttendanceAnalyst()).Analist(staff, sas, records, sheets, dr);
             CommandResult ret = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).Add(staff.ID, dr, results);
             return ret.Result == ResultCode.Successful;
         }

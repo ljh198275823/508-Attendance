@@ -33,7 +33,7 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置请假人员ID
         /// </summary>
-        public int StaffID { get; set; }
+        public string StaffID { get; set; }
         /// <summary>
         /// 获取或设置申请人员
         /// </summary>

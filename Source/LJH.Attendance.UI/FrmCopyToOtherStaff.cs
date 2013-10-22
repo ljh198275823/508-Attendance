@@ -73,7 +73,7 @@ namespace LJH.Attendance.UI
             {
                 ShiftArrangeBLL bll = new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString);
                 ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
-                con.UserID = (txtStaff.Tag as Staff).ID;
+                con.StaffID = (txtStaff.Tag as Staff).ID;
                 con.ShiftDate = new DatetimeRange(dtBegin.Value, dtEnd.Value);
                 List<ShiftArrange> items = bll.GetItems(con).QueryObjects;
                 List<Staff> copyees = departmentTreeview1.SelectedStaff;

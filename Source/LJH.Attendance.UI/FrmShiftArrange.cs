@@ -202,7 +202,7 @@ namespace LJH.Attendance.UI
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
-                        con.UserID = staff.ID;
+                        con.StaffID = staff.ID;
                         con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
                         List<ShiftArrange> items = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
                         ShowUserShiftArrangesOnRow(staff, items, GridView.Rows[cell.RowIndex]);

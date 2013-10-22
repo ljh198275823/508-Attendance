@@ -45,11 +45,11 @@ namespace LJH.Attendance.BLL
             }
         }
 
-        public CommandResult ShiftArrange(int userID, DatetimeRange range, List<ShiftArrange> arranges)
+        public CommandResult ShiftArrange(string userID, DatetimeRange range, List<ShiftArrange> arranges)
         {
             IShiftArrangeProvider provider = ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri);
             ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
-            con.UserID = userID;
+            con.StaffID = userID;
             con.ShiftDate = range;
             List<ShiftArrange> items = provider.GetItems(con).QueryObjects;
             IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);
@@ -67,11 +67,11 @@ namespace LJH.Attendance.BLL
             return unitWork.Commit();
         }
 
-        public CommandResult ShiftArrange(int userID, DateTime dt, List<Shift> shifts)
+        public CommandResult ShiftArrange(string userID, DateTime dt, List<Shift> shifts)
         {
             IShiftArrangeProvider provider = ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri);
             ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
-            con.UserID = userID;
+            con.StaffID = userID;
             con.ShiftDate = new DatetimeRange(dt, dt);
             List<ShiftArrange> items = provider.GetItems(con).QueryObjects;
             IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);
@@ -115,11 +115,11 @@ namespace LJH.Attendance.BLL
             return new CommandResult(ResultCode.NoRecord, "没有记录");
         }
 
-        public CommandResult ClearShiftArrange(int userID, DateTime dt)
+        public CommandResult ClearShiftArrange(string userID, DateTime dt)
         {
             IShiftArrangeProvider provider = ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri);
             ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
-            con.UserID = userID;
+            con.StaffID = userID;
             con.ShiftDate = new DatetimeRange(dt, dt);
             List<ShiftArrange> items = provider.GetItems(con).QueryObjects;
             IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);

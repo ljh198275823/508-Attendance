@@ -9,7 +9,7 @@ using LJH.Attendance.DAL.IDAL;
 
 namespace LJH.Attendance.DAL.LinqDataProvider
 {
-    public class StaffProvider : ProviderBase<Staff, int>, IStaffProvider
+    public class StaffProvider : ProviderBase<Staff, string>, IStaffProvider
     {
         #region 构造函数
         public StaffProvider(string connStr)
@@ -19,7 +19,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
         #endregion
 
         #region 重写基类方法
-        protected override Staff GetingItemByID(int id, AttendanceDataContext attendance)
+        protected override Staff GetingItemByID(string id, AttendanceDataContext attendance)
         {
             Staff staff = attendance.GetTable<Staff>().SingleOrDefault(item => item.ID == id);
             if (staff != null && !string.IsNullOrEmpty(staff.DepartmentID))
@@ -45,16 +45,6 @@ namespace LJH.Attendance.DAL.LinqDataProvider
                 }
             }
             return items;
-        }
-
-        protected override void InsertingItem(LJH.Attendance.Model.Staff info, LJH.Attendance.DAL.LinqDataProvider.AttendanceDataContext attendance)
-        {
-            long? id = (new IntegerIDCreater(ConnectStr)).CreateID("Staff");
-            if (id != null)
-            {
-                info.ID = (int)id.Value;
-                base.InsertingItem(info, attendance);
-            }
         }
         #endregion
     }

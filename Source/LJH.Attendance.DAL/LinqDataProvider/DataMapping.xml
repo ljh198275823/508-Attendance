@@ -24,7 +24,7 @@
   </Table>
   <Table Name="TAStaff" Member="LJH.Attendance.Model.Staff">
     <Type Name="LJH.Attendance.Model.Staff">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" />
       <Column Name="DepartmentID" Member="DepartmentID"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="Resigned" Member="Resigned" DbType="bit not null" UpdateCheck="Never"/>
@@ -66,8 +66,8 @@
   </Table>
   <Table Name="TAShiftArrange" Member="LJH.Attendance.Model.ShiftArrange">
     <Type Name="LJH.Attendance.Model.ShiftArrange">
-      <Column Name="UserID" Member="StaffID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="ShiftID" Member="ShiftID"  DbType="nvarchar(4) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="ShiftID" Member="ShiftID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ShiftDate" Member="ShiftDate"  DbType="datetime NOT NULL" IsPrimaryKey="true"/>
     </Type>
   </Table>
@@ -98,7 +98,7 @@
       <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null" UpdateCheck="Never"/>
       <Column Name="SheetType" Member="SheetType"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="CreateDate" Member="CreateDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
-      <Column Name="StaffID" Member="StaffID"  DbType="int not NULL" UpdateCheck="Never"/>
+      <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
       <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="Department" Member="Department"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="StartDate" Member="StartDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
@@ -142,7 +142,7 @@
   <Table Name="TAAttendanceLog" Member="LJH.Attendance.Model.AttendanceLog">
     <Type Name="LJH.Attendance.Model.AttendanceLog">
       <Column Name="ID" Member="ID"  DbType="bigint NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
-      <Column Name="StaffID" Member="StaffID"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
       <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null" UpdateCheck="Never"/>
       <Column Name="ReaderID" Member="ReaderID"  DbType="nvarchar(20) NOT NULL" UpdateCheck="Never"/>
@@ -154,7 +154,7 @@
   <Table Name="TAAttendanceResult" Member="LJH.Attendance.Model.AttendanceResult">
     <Type Name="LJH.Attendance.Model.AttendanceResult">
       <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="StaffID" Member="StaffID"  DbType="int NOT NULL" UpdateCheck="Never"/>
+      <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
       <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
       <Column Name="ShiftDate" Member="ShiftDate"  DbType="datetime not null" UpdateCheck="Never"/>
       <Column Name="ShiftID" Member="ShiftID"  DbType="varchar(50)" UpdateCheck="Never"/>
@@ -194,7 +194,6 @@
       <Column Name="Password" Member="_Password"  DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) NOT NULL"   UpdateCheck="Never"/>
       <Column Name="RoleID" Member="RoleID" DbType="nvarchar(50) NOT NULL"  UpdateCheck="Never"/>
-      <Column Name="UserID" Member="StaffID"  DbType="Int"  UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>

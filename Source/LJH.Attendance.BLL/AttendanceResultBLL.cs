@@ -30,16 +30,16 @@ namespace LJH.Attendance.BLL
         /// <summary>
         /// 增加考勤结果，此用户在此时间段内的所以考勤结果都清除，再写入新结果
         /// </summary>
-        /// <param name="userID"></param>
+        /// <param name="staffID"></param>
         /// <param name="range"></param>
         /// <param name="arranges"></param>
         /// <returns></returns>
-        public CommandResult Add(int userID, DatetimeRange range, List<AttendanceResult> arranges)
+        public CommandResult Add(string staffID, DatetimeRange range, List<AttendanceResult> arranges)
         {
             IAttendanceResultProvider provider = ProviderFactory.Create<IAttendanceResultProvider>(_RepoUri);
             StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
-            con.Staff = new List<int>();
-            con.Staff.Add(userID);
+            con.Staff = new List<string>();
+            con.Staff.Add(staffID);
             con.ShiftDate = range;
             List<AttendanceResult> items = provider.GetItems(con).QueryObjects;
             IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);

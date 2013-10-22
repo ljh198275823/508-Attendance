@@ -38,7 +38,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
             {
                 TASheetSearchCondition con = search as TASheetSearchCondition;
                 if (con.SheetID != null) ret = ret.Where(item => item.SheetID == con.SheetID.Value);
-                if (con.StaffID != null) ret = ret.Where(item => item.StaffID == con.StaffID.Value);
+                if (!string.IsNullOrEmpty (con.StaffID)) ret = ret.Where(item => item.StaffID == con.StaffID);
                 if (!string.IsNullOrEmpty(con.SheetType)) ret = ret.Where(item => item.SheetType == con.SheetType);
                 if (!string.IsNullOrEmpty(con.Department)) ret = ret.Where(item => item.Department == con.Department);
                 if (con.StartDate != null) ret = ret.Where(item => item.StartDate >= con.StartDate.Begin && item.StartDate <= con.StartDate.End);
