@@ -30,21 +30,31 @@ namespace LJH.Attendance.BLL
 
         public CommandResult Save(TASheetGroup info)
         {
-            TASheetSearchCondition con = new TASheetSearchCondition();
-            con.SheetID = info.SheetID;
+            string id = null;
             ITASheetProvider provider = ProviderFactory.Create<ITASheetProvider>(_RepoUri);
             IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);
-            List<TASheet> items = provider.GetItems(con).QueryObjects;
-            foreach (TASheet item in items)
+            if (!string.IsNullOrEmpty(info.SheetID))
             {
-                provider.Delete(item);
+                TASheetSearchCondition con = new TASheetSearchCondition();
+                con.SheetID = info.SheetID;
+                List<TASheet> items = provider.GetItems(con).QueryObjects;
+                foreach (TASheet item in items)
+                {
+                    provider.Delete(item);
+                }
+                id = info.SheetID;
             }
+            else
+            {
+                id = ProviderFactory.Create<IStringIDCreater>(_RepoUri).CreateID("SH", 4, "TASheet");
+                if (string.IsNullOrEmpty(id)) return new CommandResult(ResultCode.Fail, "创建ID失败");
+                info.SheetID = id;
+            }
+            if (info.Items != null && info.Items.Count > 0) info.Items.ForEach(it => it.SheetID = id);
             List<TASheet> sheets = TASheetGroup.UnGroup(info);
             foreach (TASheet sheet in sheets)
             {
-                sheet.ID = Guid.NewGuid();
                 provider.Insert(sheet, unitWork);
-                if (sheet.Items != null && sheet.Items.Count > 0) sheet.Items.ForEach(it => it.ID = Guid.NewGuid());
             }
             return unitWork.Commit();
         }

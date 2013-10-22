@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LJH.Attendance.DAL.IDAL
 {
-    public interface ITASheetProvider : IProvider<LJH.Attendance.Model.TASheet, Guid>
+    public interface ITASheetProvider : IProvider<LJH.Attendance.Model.TASheet, int>
     {
     }
 }

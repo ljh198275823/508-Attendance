@@ -38,7 +38,7 @@ namespace LJH.Attendance.BLL
             }
             else
             {
-                return new CommandResult(ResultCode.Fail, "创建班次ID失败");
+                return new CommandResult(ResultCode.Fail, "创建ID失败");
             }
         }
 

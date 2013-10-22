@@ -7,7 +7,7 @@ namespace LJH.Attendance.Model.SearchCondition
 {
     public class TASheetSearchCondition : SearchCondition
     {
-        public Guid? SheetID { get; set; }
+        public string SheetID { get; set; }
 
         public string  StaffID { get; set; }
 

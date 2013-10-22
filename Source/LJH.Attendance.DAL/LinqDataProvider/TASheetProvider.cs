@@ -10,7 +10,7 @@ using LJH.Attendance.DAL.IDAL;
 
 namespace LJH.Attendance.DAL.LinqDataProvider
 {
-    public class TASheetProvider : ProviderBase<TASheet, Guid>, ITASheetProvider
+    public class TASheetProvider : ProviderBase<TASheet, int>, ITASheetProvider
     {
         #region 构造函数
         public TASheetProvider(string connStr)
@@ -20,7 +20,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
         #endregion
 
         #region 重写基类方法
-        protected override TASheet GetingItemByID(Guid id, AttendanceDataContext attendance)
+        protected override TASheet GetingItemByID(int  id, AttendanceDataContext attendance)
         {
             DataLoadOptions opts = new DataLoadOptions();
             opts.LoadWith<TASheet>(item => item.Items);
@@ -37,7 +37,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
             if (search is TASheetSearchCondition)
             {
                 TASheetSearchCondition con = search as TASheetSearchCondition;
-                if (con.SheetID != null) ret = ret.Where(item => item.SheetID == con.SheetID.Value);
+                if (!string.IsNullOrEmpty (con.SheetID)) ret = ret.Where(item => item.SheetID == con.SheetID);
                 if (!string.IsNullOrEmpty (con.StaffID)) ret = ret.Where(item => item.StaffID == con.StaffID);
                 if (!string.IsNullOrEmpty(con.SheetType)) ret = ret.Where(item => item.SheetType == con.SheetType);
                 if (!string.IsNullOrEmpty(con.Department)) ret = ret.Where(item => item.Department == con.Department);

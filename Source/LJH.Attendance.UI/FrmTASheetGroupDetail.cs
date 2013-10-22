@@ -211,7 +211,6 @@ namespace LJH.Attendance.UI
             if (item == null)
             {
                 item = new TASheetGroup();
-                item.SheetID = Guid.NewGuid();
                 item.SheetType = SheetType;
                 item.CreateDate = DateTime.Now;
             }
@@ -222,31 +221,31 @@ namespace LJH.Attendance.UI
             if (chkTime1.Checked)
             {
                 TASheetItem ti = new TASheetItem();
+                ti.ID = Guid.NewGuid();
                 ti.StartTime = new MyTime((int)txtStartHour1.Value, (int)txtStartMinute1.Value, 0);
                 ti.NextDay = chkNextDay1.Checked;
                 ti.EndTime = new MyTime((int)txtEndHour1.Value, (int)txtEndMinute1.Value, 0);
                 ti.Duration = txtDuration1.Value;
-                ti.SheetID = item.SheetID;
                 item.Items.Add(ti);
             }
             if (chkTime2.Checked)
             {
                 TASheetItem ti = new TASheetItem();
+                ti.ID = Guid.NewGuid();
                 ti.StartTime = new MyTime((int)txtStartHour2.Value, (int)txtStartMinute2.Value, 0);
                 ti.NextDay = chkNextDay2.Checked;
                 ti.EndTime = new MyTime((int)txtEndHour2.Value, (int)txtEndMinute2.Value, 0);
                 ti.Duration = txtDuration2.Value;
-                ti.SheetID = item.SheetID;
                 item.Items.Add(ti);
             }
             if (chkTime3.Checked)
             {
                 TASheetItem ti = new TASheetItem();
+                ti.ID = Guid.NewGuid();
                 ti.StartTime = new MyTime((int)txtStartHour3.Value, (int)txtStartMinute3.Value, 0);
                 ti.NextDay = chkNextDay3.Checked;
                 ti.EndTime = new MyTime((int)txtEndHour3.Value, (int)txtEndMinute3.Value, 0);
                 ti.Duration = txtDuration3.Value;
-                ti.SheetID = item.SheetID;
                 item.Items.Add(ti);
             }
             item.Category = GetCategory();

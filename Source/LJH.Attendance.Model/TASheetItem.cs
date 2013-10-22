@@ -26,7 +26,7 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置名称
         /// </summary>
-        public Guid SheetID { get; set; }
+        public string SheetID { get; set; }
         /// <summary>
         /// 获取或设置上班时间
         /// </summary>

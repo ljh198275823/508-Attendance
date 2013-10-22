@@ -94,8 +94,8 @@
   </Table>
   <Table Name="TASheet" Member="LJH.Attendance.Model.TASheet">
     <Type Name="LJH.Attendance.Model.TASheet">
-      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null" UpdateCheck="Never"/>
+      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true"/>
+      <Column Name="SheetID" Member="SheetID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="SheetType" Member="SheetType"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="CreateDate" Member="CreateDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
       <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
@@ -117,7 +117,7 @@
   <Table Name="TASheetitem" Member="LJH.Attendance.Model.TASheetItem">
     <Type Name="LJH.Attendance.Model.TASheetItem">
       <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null" UpdateCheck="Never"/>
+      <Column Name="SheetID" Member="SheetID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
       <Column Name="NextDay" Member="NextDay"  DbType="bit not null" UpdateCheck="Never"/>
       <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>

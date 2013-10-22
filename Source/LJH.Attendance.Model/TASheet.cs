@@ -17,11 +17,11 @@ namespace LJH.Attendance.Model
         #endregion
 
         #region 公共属性
-        public Guid ID { get; set; }
+        public int ID { get; set; }
         /// <summary>
         /// 获取或设置单据ID
         /// </summary>
-        public Guid SheetID { get; set; }
+        public string SheetID { get; set; }
         /// <summary>
         /// 获取或设置单据类别(‘A’表示加班单，‘B’表示请假单，‘C’表示外出出差单
         /// </summary>
