@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbsentItem.cs" />
-    <Compile Include="ACSStaff.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="AttendanceDuration.cs" />
     <Compile Include="AttendanceResultGroup.cs" />
@@ -93,7 +92,6 @@
     <Compile Include="SearchCondition\SearchCondition.cs" />
     <Compile Include="Shift.cs" />
     <Compile Include="StaffDepartmentPair.cs" />
-    <Compile Include="Sysparameter.cs" />
     <Compile Include="SystemOptions.cs" />
     <Compile Include="Staff.cs" />
     <Compile Include="TASheet.cs" />

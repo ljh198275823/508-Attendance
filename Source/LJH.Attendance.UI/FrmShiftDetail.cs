@@ -34,22 +34,21 @@ namespace LJH.Attendance.UI
 
         private void AddShiftItemToGridView(ShiftItem item)
         {
-            if (item.ID == 0)
+            bool exists = false;
+            foreach (DataGridViewRow row in this.dataGridView1.Rows)
+            {
+                ShiftItem si = row.Tag as ShiftItem;
+                if (si.ID == item.ID)
+                {
+                    ShowShiftItemOnRow(row, item);
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists)
             {
                 int row = dataGridView1.Rows.Add();
                 ShowShiftItemOnRow(dataGridView1.Rows[row], item);
-            }
-            else
-            {
-                foreach (DataGridViewRow row in this.dataGridView1.Rows)
-                {
-                    ShiftItem si = row.Tag as ShiftItem;
-                    if (si.ID == item.ID)
-                    {
-                        ShowShiftItemOnRow(row, item);
-                        break;
-                    }
-                }
             }
         }
         #endregion
@@ -125,6 +124,7 @@ namespace LJH.Attendance.UI
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 ShiftItem item = frm.ShiftItem;
+                item.ID = Guid.NewGuid();
                 AddShiftItemToGridView(item);
             }
         }

@@ -42,32 +42,11 @@ namespace LJH.Attendance.BLL
             List<TASheet> sheets = TASheetGroup.UnGroup(info);
             foreach (TASheet sheet in sheets)
             {
+                sheet.ID = Guid.NewGuid();
                 provider.Insert(sheet, unitWork);
+                if (sheet.Items != null && sheet.Items.Count > 0) sheet.Items.ForEach(it => it.ID = Guid.NewGuid());
             }
             return unitWork.Commit();
-        }
-
-        public CommandResult Add(TASheet info)
-        {
-            return ProviderFactory.Create<ITASheetProvider>(_RepoUri).Insert(info);
-        }
-
-        public CommandResult Update(TASheet info)
-        {
-            TASheet original = ProviderFactory.Create<ITASheetProvider>(_RepoUri).GetByID(info.ID).QueryObject;
-            if (original != null)
-            {
-                return ProviderFactory.Create<ITASheetProvider>(_RepoUri).Update(info, original);
-            }
-            else
-            {
-                return new CommandResult(ResultCode.NoRecord, ResultCodeDecription.GetDescription(ResultCode.NoRecord));
-            }
-        }
-
-        public CommandResult Delete(TASheet info)
-        {
-            return ProviderFactory.Create<ITASheetProvider>(_RepoUri).Delete(info);
         }
 
         public CommandResult Delete(TASheetGroup info)

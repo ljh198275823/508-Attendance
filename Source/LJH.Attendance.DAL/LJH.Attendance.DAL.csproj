@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDAL\IAttendanceLogProvider.cs" />
+    <Compile Include="IDAL\IIntegerCreater.cs" />
+    <Compile Include="IDAL\IStringIDCreater.cs" />
     <Compile Include="IDAL\IDepartmentProvider.cs" />
     <Compile Include="IDAL\IHolidayProvider.cs" />
     <Compile Include="IDAL\IOperatorProvider.cs" />
@@ -70,13 +72,14 @@
     <Compile Include="IDAL\IShiftTemplateProvider.cs" />
     <Compile Include="IDAL\IShiftProvider.cs" />
     <Compile Include="IDAL\IAttendanceResultProvider.cs" />
-    <Compile Include="IDAL\ISysparameterProvider.cs" />
     <Compile Include="IDAL\ITripTypeProvider.cs" />
     <Compile Include="IDAL\IUnitWork.cs" />
     <Compile Include="IDAL\IStaffProvider.cs" />
     <Compile Include="IDAL\ITASheetProvider.cs" />
     <Compile Include="IDAL\IVacationTypeProvider.cs" />
     <Compile Include="LinqDataProvider\AttendanceLogProvider.cs" />
+    <Compile Include="LinqDataProvider\IntegerIDCreater.cs" />
+    <Compile Include="LinqDataProvider\StringIDCreater.cs" />
     <Compile Include="LinqDataProvider\DepartmentProvider.cs" />
     <Compile Include="LinqDataProvider\HolidayProvider.cs" />
     <Compile Include="LinqDataProvider\OperatorProvider.cs" />
@@ -92,7 +95,6 @@
     <Compile Include="LinqDataProvider\ShiftTemplateProvider.cs" />
     <Compile Include="LinqDataProvider\ShiftProvider.cs" />
     <Compile Include="LinqDataProvider\AttendanceResultProvider.cs" />
-    <Compile Include="LinqDataProvider\SysparameterProvider.cs" />
     <Compile Include="LinqDataProvider\TripTypeProvider.cs" />
     <Compile Include="LinqDataProvider\T_OperatorDept.cs" />
     <Compile Include="LinqDataProvider\T_ShiftArrangeTemplate.cs" />

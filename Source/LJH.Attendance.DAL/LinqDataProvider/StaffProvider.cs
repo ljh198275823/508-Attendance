@@ -22,7 +22,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
         protected override Staff GetingItemByID(int id, AttendanceDataContext attendance)
         {
             Staff staff = attendance.GetTable<Staff>().SingleOrDefault(item => item.ID == id);
-            if (staff != null && !string.IsNullOrEmpty (staff.DepartmentID ))
+            if (staff != null && !string.IsNullOrEmpty(staff.DepartmentID))
             {
                 staff.Department = (new DepartmentProvider(ConnectStr)).GetByID(staff.DepartmentID).QueryObject;
             }
@@ -40,11 +40,21 @@ namespace LJH.Attendance.DAL.LinqDataProvider
                 {
                     foreach (Staff staff in items)
                     {
-                        if (!string.IsNullOrEmpty(staff.DepartmentID)) staff.Department = depts.SingleOrDefault(dept => staff.DepartmentID == dept.ID); 
+                        if (!string.IsNullOrEmpty(staff.DepartmentID)) staff.Department = depts.SingleOrDefault(dept => staff.DepartmentID == dept.ID);
                     }
                 }
             }
             return items;
+        }
+
+        protected override void InsertingItem(LJH.Attendance.Model.Staff info, LJH.Attendance.DAL.LinqDataProvider.AttendanceDataContext attendance)
+        {
+            long? id = (new IntegerIDCreater(ConnectStr)).CreateID("Staff");
+            if (id != null)
+            {
+                info.ID = (int)id.Value;
+                base.InsertingItem(info, attendance);
+            }
         }
         #endregion
     }

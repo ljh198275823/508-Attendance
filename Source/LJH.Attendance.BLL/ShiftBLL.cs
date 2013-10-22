@@ -22,18 +22,6 @@ namespace LJH.Attendance.BLL
         private string _RepoUri;
         #endregion
 
-        #region 私有方法
-        private string CreateShiftID()
-        {
-            List<Shift> shifts = ProviderFactory.Create<IShiftProvider>(_RepoUri).GetItems(null).QueryObjects;
-            for (int i = 1; i < 10000; i++) //shiftID为四位
-            {
-                if (!shifts.Exists(item => item.ID == i.ToString("D4"))) return i.ToString("D4");
-            }
-            return null;
-        }
-        #endregion
-
         #region 公共方法
         public QueryResultList<Shift> GetItems(SearchCondition con)
         {
@@ -42,11 +30,11 @@ namespace LJH.Attendance.BLL
 
         public CommandResult Add(Shift info)
         {
-            string shiftID = CreateShiftID();
-            if (!string.IsNullOrEmpty(shiftID))
+            string id = ProviderFactory.Create<IStringIDCreater>(_RepoUri).CreateID("S", 3, "Shift");
+            if (!string.IsNullOrEmpty(id))
             {
-                info.ID = shiftID;
-                if (info.Items != null && info.Items.Count > 0) info.Items.ForEach(item => item.ShiftID = shiftID);
+                info.ID = id;
+                if (info.Items != null && info.Items.Count > 0) info.Items.ForEach(item => item.ShiftID = id);
                 return ProviderFactory.Create<IShiftProvider>(_RepoUri).Insert(info);
             }
             else

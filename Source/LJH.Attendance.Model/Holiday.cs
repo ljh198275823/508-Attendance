@@ -15,7 +15,7 @@ namespace LJH.Attendance.Model
         #endregion
 
         #region 公共属性
-        public int ID { get; set; }
+        public string ID { get; set; }
         /// <summary>
         /// 获取或设置节假日的开始日期
         /// </summary>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LJH.Attendance.DAL.IDAL
 {
-    public interface IHolidayProvider : IProvider<LJH.Attendance.Model.Holiday, int>
+    public interface IHolidayProvider : IProvider<LJH.Attendance.Model.Holiday, string>
     {
     }
 }

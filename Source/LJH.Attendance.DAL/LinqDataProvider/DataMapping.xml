@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="attendance" xmlns="http://schemas.microsoft.com/linqtosql/mapping/2007">
+  <Table Name="StringID" Member="LJH.Attendance.DAL.LinqDataProvider.StringID">
+    <Type Name="LJH.Attendance.DAL.LinqDataProvider.StringID">
+      <Column Name="Prefix" Member="Prefix"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="Serial" Member="Serial"  DbType="bigint not null" UpdateCheck="Never"/>
+      <Column Name="Entity" Member="Entity"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+    </Type>
+  </Table>
   <Table Name="TAReader" Member="LJH.Attendance.Model.Reader">
     <Type Name="LJH.Attendance.Model.Reader">
       <Column Name="ID" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
@@ -17,7 +24,7 @@
   </Table>
   <Table Name="TAStaff" Member="LJH.Attendance.Model.Staff">
     <Type Name="LJH.Attendance.Model.Staff">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" />
       <Column Name="DepartmentID" Member="DepartmentID"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="Resigned" Member="Resigned" DbType="bit not null" UpdateCheck="Never"/>
@@ -35,14 +42,6 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
-  <Table Name="TAOptions" Member="LJH.Attendance.Model.Sysparameter">
-    <Type Name="LJH.Attendance.Model.Sysparameter">
-      <Column Name="OptionName" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="OptionValue" Member="Value"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
-      <Column Name="DefaultValue" Member="DefaultValue"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
-      <Column Name="OptionDescr" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
-    </Type>
-  </Table>
   <Table Name="TAShift" Member="LJH.Attendance.Model.Shift">
     <Type Name="LJH.Attendance.Model.Shift">
       <Column Name="ShiftID" Member="ID"  DbType="nvarchar(4) NOT NULL" IsPrimaryKey="true"/>
@@ -53,7 +52,7 @@
   </Table>
   <Table Name="TAShiftItem" Member="LJH.Attendance.Model.ShiftItem">
     <Type Name="LJH.Attendance.Model.ShiftItem">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ShiftID" Member="ShiftID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
       <Column Name="NextDay" Member="NextDay"  DbType="bit not null" UpdateCheck="Never"/>
@@ -74,7 +73,7 @@
   </Table>
   <Table Name="TAHoliday" Member="LJH.Attendance.Model.Holiday">
     <Type Name="LJH.Attendance.Model.Holiday">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="StartDate" Member="StartDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
       <Column Name="EndDate" Member="EndDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
       <Column Name="WeekendToWorkDay1" Member="WeekendToWorkDay1" DbType="datetime" UpdateCheck="Never"/>
@@ -95,7 +94,7 @@
   </Table>
   <Table Name="TASheet" Member="LJH.Attendance.Model.TASheet">
     <Type Name="LJH.Attendance.Model.TASheet">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null" UpdateCheck="Never"/>
       <Column Name="SheetType" Member="SheetType"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="CreateDate" Member="CreateDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
@@ -117,7 +116,7 @@
   </Table>
   <Table Name="TASheetitem" Member="LJH.Attendance.Model.TASheetItem">
     <Type Name="LJH.Attendance.Model.TASheetItem">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="SheetID" Member="SheetID"  DbType="uniqueidentifier not null" UpdateCheck="Never"/>
       <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
       <Column Name="NextDay" Member="NextDay"  DbType="bit not null" UpdateCheck="Never"/>

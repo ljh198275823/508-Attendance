@@ -30,7 +30,16 @@ namespace LJH.Attendance.BLL
 
         public CommandResult Add(Holiday info)
         {
-            return ProviderFactory.Create<IHolidayProvider>(_RepoUri).Insert(info);
+            string id = ProviderFactory.Create<IStringIDCreater>(_RepoUri).CreateID("H", 3, "Holiday");
+            if (!string.IsNullOrEmpty(id))
+            {
+                info.ID = id;
+                return ProviderFactory.Create<IHolidayProvider>(_RepoUri).Insert(info);
+            }
+            else
+            {
+                return new CommandResult(ResultCode.Fail, "创建班次ID失败");
+            }
         }
 
         public CommandResult Update(Holiday info)
