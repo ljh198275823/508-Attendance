@@ -30,7 +30,16 @@ namespace LJH.Attendance.BLL
 
         public CommandResult Add(Staff info)
         {
-            return ProviderFactory.Create<IStaffProvider>(_RepoUri).Insert(info);
+            string id = ProviderFactory.Create<IStringIDCreater>(_RepoUri).CreateID("U", 5, "Staff");
+            if (!string.IsNullOrEmpty(id))
+            {
+                info.ID = id;
+                return ProviderFactory.Create<IStaffProvider>(_RepoUri).Insert(info);
+            }
+            else
+            {
+                return new CommandResult(ResultCode.Fail, "创建ID失败");
+            }
         }
 
         public CommandResult Update(Staff info)

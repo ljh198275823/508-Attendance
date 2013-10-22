@@ -69,9 +69,10 @@ namespace LJH.Attendance.UI
                             if ((this.Controls["chkTime" + i.ToString()] as CheckBox).Checked)
                             {
                                 int hour = (int)((this.Controls["txtHour" + i.ToString()] as NumericUpDown).Value);
-                                int minute=(int)((this.Controls["txtMinute" +i.ToString ()] as NumericUpDown ).Value);
+                                int minute = (int)((this.Controls["txtMinute" + i.ToString()] as NumericUpDown).Value);
                                 AttendanceLog record = new AttendanceLog()
                                 {
+                                    ID = Guid.NewGuid(),
                                     StaffID = staff.ID,
                                     StaffName = staff.Name,
                                     ReaderID = string.Empty,
@@ -85,6 +86,7 @@ namespace LJH.Attendance.UI
                         dt1 = dt1.AddDays(1);
                     }
                 }
+                MessageBox.Show("补签完成，可以继续补签");
             }
             this.departmentTreeview1.SelectedStaff = null;
         }

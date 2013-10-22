@@ -191,6 +191,7 @@ namespace LJH.Attendance.Model
                         {
                             AbsentItem ai = new AbsentItem()
                             {
+                                ID=Guid .NewGuid (),
                                 Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.Late) + "计缺勤",
                                 Duration = Present > AttendanceRules.Current.MinLateAsAbsentMinute ? AttendanceRules.Current.MinLateAsAbsentMinute : Present,
                             };
@@ -205,6 +206,7 @@ namespace LJH.Attendance.Model
                         {
                             AbsentItem ai = new AbsentItem()
                             {
+                                ID = Guid.NewGuid(),
                                 Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.Late) + "计缺勤",
                                 Duration = this.Present,
                             };
@@ -231,6 +233,7 @@ namespace LJH.Attendance.Model
                         {
                             AbsentItem ai = new AbsentItem()
                             {
+                                ID = Guid.NewGuid(),
                                 Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.LeaveEarly) + "计缺勤",
                                 Duration = Present > AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute ? AttendanceRules.Current.MinLeaveEarlyAsAbsentMinute : Present,
                             };
@@ -245,6 +248,7 @@ namespace LJH.Attendance.Model
                         {
                             AbsentItem ai = new AbsentItem()
                             {
+                                ID = Guid.NewGuid(),
                                 Category = AttendanceResultDescription.GetDescription(AttendanceResultCode.LeaveEarly) + "计缺勤",
                                 Duration = this.Present,
                             };

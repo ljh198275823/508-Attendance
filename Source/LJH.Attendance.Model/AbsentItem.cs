@@ -20,7 +20,7 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置ID
         /// </summary>
-        public int ID { get; set; }
+        public Guid ID { get; set; }
         /// <summary>
         /// 考勤结果的ID
         /// </summary>

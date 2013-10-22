@@ -79,6 +79,7 @@ namespace LJH.Attendance.Model
                                     st.LogWhenLeave = false;
                                     AbsentItem ai = new AbsentItem()
                                     {
+                                        ID=Guid.NewGuid (),
                                         Category = sheet.CategoryID,
                                         Duration = st.ShiftTime
                                     };
@@ -94,6 +95,7 @@ namespace LJH.Attendance.Model
                                     if (drItem.End == dr.End) st.NewEndTime = dr.Begin;
                                     AbsentItem ai = new AbsentItem()
                                     {
+                                        ID=Guid.NewGuid (),
                                         Category = sheet.CategoryID,
                                         Duration = dr.TotalMinutes
                                     };
@@ -109,6 +111,7 @@ namespace LJH.Attendance.Model
                                     st.NewEndTime = dr.Begin;
                                     AbsentItem ai = new AbsentItem()
                                     {
+                                        ID=Guid.NewGuid (),
                                         Category = sheet.CategoryID,
                                         Duration = drTemp.TotalMinutes
                                     };
@@ -124,6 +127,7 @@ namespace LJH.Attendance.Model
                                     st.NewStartTime = dr.End;
                                     AbsentItem ai = new AbsentItem()
                                     {
+                                        ID=Guid .NewGuid (),
                                         Category = sheet.CategoryID,
                                         Duration = drTemp.TotalMinutes
                                     };

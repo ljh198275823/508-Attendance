@@ -30,7 +30,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
             }
             System.Diagnostics.Debug.Assert(connection != null, "没有找到有效的数据库连接!");
             AttendanceDataContext attendance = new AttendanceDataContext(connection, mappingSource);
-            attendance.Log = System.Console.Out;
+            //attendance.Log = System.Console.Out;
             return attendance;
         }
     }

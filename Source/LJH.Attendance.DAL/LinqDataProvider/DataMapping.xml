@@ -44,8 +44,8 @@
   </Table>
   <Table Name="TAShift" Member="LJH.Attendance.Model.Shift">
     <Type Name="LJH.Attendance.Model.Shift">
-      <Column Name="ShiftID" Member="ID"  DbType="nvarchar(4) NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="ShiftName" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="ShortName" Member="ShortName"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Association Name="FK_Shift_Item" Member="Items"  ThisKey="ID" OtherKey="ShiftID"/>
     </Type>
@@ -94,7 +94,7 @@
   </Table>
   <Table Name="TASheet" Member="LJH.Attendance.Model.TASheet">
     <Type Name="LJH.Attendance.Model.TASheet">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true"/>
+      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="SheetID" Member="SheetID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="SheetType" Member="SheetType"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="CreateDate" Member="CreateDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
@@ -141,11 +141,11 @@
   </Table>
   <Table Name="TAAttendanceLog" Member="LJH.Attendance.Model.AttendanceLog">
     <Type Name="LJH.Attendance.Model.AttendanceLog">
-      <Column Name="ID" Member="ID"  DbType="bigint NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
       <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null" UpdateCheck="Never"/>
-      <Column Name="ReaderID" Member="ReaderID"  DbType="nvarchar(20) NOT NULL" UpdateCheck="Never"/>
+      <Column Name="ReaderID" Member="ReaderID"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
       <Column Name="ReaderName" Member="ReaderName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
       <Column Name="IsManual" Member="IsManual"  DbType="bit NOT NULL" UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
@@ -182,7 +182,7 @@
   </Table>
   <Table Name="TAAbsentItem" Member="LJH.Attendance.Model.AbsentItem">
     <Type Name="LJH.Attendance.Model.AbsentItem">
-      <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" AutoSync="OnInsert"/>
+      <Column Name="ID" Member="ID" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ResultID" Member="ResultID"  DbType="uniqueidentifier NOT NULL" UpdateCheck="Never"/>
       <Column Name="Category" Member="Category"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
       <Column Name="Duration" Member="Duration"  DbType="decimal(10,2) not null" UpdateCheck="Never"/>
@@ -201,7 +201,7 @@
     <Type Name="LJH.Attendance.Model.Role">
       <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null"  UpdateCheck="Never"/>
-      <Column Name="Permission" Member="Permission"  DbType="nvarchar(200)"  UpdateCheck="Never"/>
+      <Column Name="Permission" Member="Permission"  DbType="nvarchar(1000)"  UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
     </Type>
   </Table>
