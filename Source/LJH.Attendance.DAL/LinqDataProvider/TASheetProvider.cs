@@ -10,7 +10,7 @@ using LJH.Attendance.DAL.IDAL;
 
 namespace LJH.Attendance.DAL.LinqDataProvider
 {
-    public class TASheetProvider : ProviderBase<TASheet, Guid>, ITASheetProvider
+    public class TASheetProvider : ProviderBase<TASheet, string>, ITASheetProvider
     {
         #region 构造函数
         public TASheetProvider(string connStr)
@@ -20,14 +20,6 @@ namespace LJH.Attendance.DAL.LinqDataProvider
         #endregion
 
         #region 重写基类方法
-        protected override TASheet GetingItemByID(Guid id, AttendanceDataContext attendance)
-        {
-            DataLoadOptions opts = new DataLoadOptions();
-            opts.LoadWith<TASheet>(item => item.Items);
-            attendance.LoadOptions = opts;
-            return attendance.GetTable<TASheet>().SingleOrDefault(item => item.ID == id);
-        }
-
         protected override List<TASheet> GetingItems(AttendanceDataContext attendance, SearchCondition search)
         {
             DataLoadOptions opts = new DataLoadOptions();

@@ -54,7 +54,6 @@ namespace LJH.Attendance.BLL
             List<TASheet> sheets = TASheetGroup.UnGroup(info);
             foreach (TASheet sheet in sheets)
             {
-                sheet.ID = Guid.NewGuid();
                 provider.Insert(sheet, unitWork);
             }
             return unitWork.Commit();

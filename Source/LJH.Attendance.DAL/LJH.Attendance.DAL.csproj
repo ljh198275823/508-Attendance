@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LJH.Attendance.DAL</RootNamespace>
-    <AssemblyName>Ralid.Attendance.DAL</AssemblyName>
+    <AssemblyName>LJH.Attendance.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>

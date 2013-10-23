@@ -94,11 +94,10 @@
   </Table>
   <Table Name="TASheet" Member="LJH.Attendance.Model.TASheet">
     <Type Name="LJH.Attendance.Model.TASheet">
-      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="SheetID" Member="SheetID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="SheetID" Member="SheetID"  DbType="nvarchar(50) not null" IsPrimaryKey="true"/>
+      <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) not NULL" IsPrimaryKey="true"/>
       <Column Name="SheetType" Member="SheetType"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="CreateDate" Member="CreateDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
-      <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
       <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="Department" Member="Department"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="StartDate" Member="StartDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
@@ -141,10 +140,9 @@
   </Table>
   <Table Name="TAAttendanceLog" Member="LJH.Attendance.Model.AttendanceLog">
     <Type Name="LJH.Attendance.Model.AttendanceLog">
-      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
-      <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="StaffID" Member="StaffID"  DbType="nvarchar(50) not null" IsPrimaryKey="true"/>
+      <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null" IsPrimaryKey="true"/>
       <Column Name="StaffName" Member="StaffName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
-      <Column Name="ReadDateTime" Member="ReadDateTime" DbType="datetime not null" UpdateCheck="Never"/>
       <Column Name="ReaderID" Member="ReaderID"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
       <Column Name="ReaderName" Member="ReaderName"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
       <Column Name="IsManual" Member="IsManual"  DbType="bit NOT NULL" UpdateCheck="Never"/>

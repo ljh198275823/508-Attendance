@@ -72,11 +72,10 @@ namespace LJH.Attendance.UI
                                 int minute = (int)((this.Controls["txtMinute" + i.ToString()] as NumericUpDown).Value);
                                 AttendanceLog record = new AttendanceLog()
                                 {
-                                    ID = Guid.NewGuid(),
                                     StaffID = staff.ID,
+                                    ReadDateTime = dt1.AddHours(hour).AddMinutes(minute),
                                     StaffName = staff.Name,
                                     ReaderID = string.Empty,
-                                    ReadDateTime = dt1.AddHours(hour).AddMinutes(minute),
                                     IsManual = true,
                                     Memo = txtMemo.Text
                                 };

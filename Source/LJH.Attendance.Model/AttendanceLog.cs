@@ -14,19 +14,18 @@ namespace LJH.Attendance.Model
         #endregion
 
         #region 公共属性
-        public Guid  ID { get; set; }
         /// <summary>
         /// 获取或设置考勤记录的人员ID
         /// </summary>
         public string StaffID { get; set; }
         /// <summary>
-        /// 获取或设置考勤记录的人员姓名
-        /// </summary>
-        public string StaffName { get; set; }
-        /// <summary>
         /// 获取或设置考勤时间
         /// </summary>
         public DateTime ReadDateTime { get; set; }
+        /// <summary>
+        /// 获取或设置考勤记录的人员姓名
+        /// </summary>
+        public string StaffName { get; set; }
         /// <summary>
         /// 获取或设置考勤点
         /// </summary>

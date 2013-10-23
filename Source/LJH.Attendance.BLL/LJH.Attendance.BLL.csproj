@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LJH.Attendance.BLL</RootNamespace>
-    <AssemblyName>Ralid.Attendance.BLL</AssemblyName>
+    <AssemblyName>LJH.Attendance.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>

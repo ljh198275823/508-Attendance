@@ -17,7 +17,10 @@ namespace LJH.Attendance.Model
         #endregion
 
         #region 公共属性
-        public Guid  ID { get; set; }
+        /// <summary>
+        /// 获取或设置请假人员ID
+        /// </summary>
+        public string StaffID { get; set; }
         /// <summary>
         /// 获取或设置单据ID
         /// </summary>
@@ -30,10 +33,6 @@ namespace LJH.Attendance.Model
         /// 获取或设置创建日期
         /// </summary>
         public DateTime CreateDate { get; set; }
-        /// <summary>
-        /// 获取或设置请假人员ID
-        /// </summary>
-        public string StaffID { get; set; }
         /// <summary>
         /// 获取或设置申请人员
         /// </summary>

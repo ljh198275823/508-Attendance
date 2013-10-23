@@ -115,7 +115,7 @@ namespace LJH.Attendance.UI
 
         protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)
         {
-            IGrouping<int, AttendanceResult> group = item as IGrouping<int, AttendanceResult>;
+            IGrouping<string, AttendanceResult> group = item as IGrouping<string, AttendanceResult>;
             row.Tag = group;
             row.Cells["colStaff"].Value = group.First().StaffName;
             decimal shiftTime = group.Where(sar => !string.IsNullOrEmpty(sar.ShiftID)).Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value);
@@ -145,7 +145,7 @@ namespace LJH.Attendance.UI
             }
         }
 
-        private decimal SumOfAbsent(IGrouping<int, AttendanceResult> group, string id)
+        private decimal SumOfAbsent(IGrouping<string, AttendanceResult> group, string id)
         {
             List<AbsentItem> items = new List<AbsentItem>();
             foreach (AttendanceResult sar in group)
@@ -158,7 +158,7 @@ namespace LJH.Attendance.UI
             return items.Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Duration, true).Value);
         }
 
-        private decimal SumOfOT(IGrouping<int, AttendanceResult> group, string id)
+        private decimal SumOfOT(IGrouping<string, AttendanceResult> group, string id)
         {
             List<AttendanceResult> items = group.Where(sar => !string.IsNullOrEmpty(id) && id == sar.Category).ToList();
             if (items != null && items.Count > 0)

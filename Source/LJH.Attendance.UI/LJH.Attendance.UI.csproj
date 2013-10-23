@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LJH.Attendance.UI</RootNamespace>
-    <AssemblyName>Ralid.Attendance.UI</AssemblyName>
+    <AssemblyName>LJH.Attendance.UI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>

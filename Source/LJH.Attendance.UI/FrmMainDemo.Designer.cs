@@ -66,9 +66,6 @@
             this.mnu_ResultDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnu_AttendanceLogReport = new System.Windows.Forms.ToolStripMenuItem();
-            this.维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_BackupData = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_UpdateDB = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.用户手册ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Aboat = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,7 +102,6 @@
             this.考勤管理ToolStripMenuItem,
             this.安全管理ToolStripMenuItem,
             this.报表ToolStripMenuItem,
-            this.维护ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
@@ -344,26 +340,6 @@
             resources.ApplyResources(this.mnu_AttendanceLogReport, "mnu_AttendanceLogReport");
             this.mnu_AttendanceLogReport.Click += new System.EventHandler(this.mnu_AttendanceLogReport_Click);
             // 
-            // 维护ToolStripMenuItem
-            // 
-            this.维护ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnu_BackupData,
-            this.mnu_UpdateDB});
-            this.维护ToolStripMenuItem.Name = "维护ToolStripMenuItem";
-            resources.ApplyResources(this.维护ToolStripMenuItem, "维护ToolStripMenuItem");
-            // 
-            // mnu_BackupData
-            // 
-            this.mnu_BackupData.Name = "mnu_BackupData";
-            resources.ApplyResources(this.mnu_BackupData, "mnu_BackupData");
-            this.mnu_BackupData.Click += new System.EventHandler(this.mnu_BackupData_Click);
-            // 
-            // mnu_UpdateDB
-            // 
-            this.mnu_UpdateDB.Name = "mnu_UpdateDB";
-            resources.ApplyResources(this.mnu_UpdateDB, "mnu_UpdateDB");
-            this.mnu_UpdateDB.Click += new System.EventHandler(this.mnu_UpdateDB_Click);
-            // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -538,7 +514,7 @@
             this.ucFormViewMain.FormHeaderLength = 135;
             this.ucFormViewMain.Name = "ucFormViewMain";
             // 
-            // FrmMain
+            // FrmMainDemo
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -548,7 +524,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FrmMain";
+            this.Name = "FrmMainDemo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -623,9 +599,6 @@
         private System.Windows.Forms.ToolStripStatusLabel lblOperator;
         private GeneralLibrary.WinformControl.UCFormView ucFormViewMain;
         private System.Windows.Forms.ToolStripButton btnShiftTemplate;
-        private System.Windows.Forms.ToolStripMenuItem 维护ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mnu_BackupData;
-        private System.Windows.Forms.ToolStripMenuItem mnu_UpdateDB;
 
     }
 }

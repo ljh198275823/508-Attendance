@@ -320,26 +320,8 @@
   <data name="报表ToolStripMenuItem.Text" xml:space="preserve">
     <value>报表</value>
   </data>
-  <data name="mnu_BackupData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
-  </data>
-  <data name="mnu_BackupData.Text" xml:space="preserve">
-    <value>备份数据</value>
-  </data>
-  <data name="mnu_UpdateDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
-  </data>
-  <data name="mnu_UpdateDB.Text" xml:space="preserve">
-    <value>升级数据库</value>
-  </data>
-  <data name="维护ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="维护ToolStripMenuItem.Text" xml:space="preserve">
-    <value>维护</value>
-  </data>
   <data name="用户手册ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="用户手册ToolStripMenuItem.Text" xml:space="preserve">
     <value>用户手册</value>
@@ -348,7 +330,7 @@
     <value>False</value>
   </data>
   <data name="mnu_Aboat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_Aboat.Text" xml:space="preserve">
     <value>关于...</value>
@@ -3104,7 +3086,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>易考勤系统</value>
+    <value>易考勤系统 (演示版)</value>
   </data>
   <data name="&gt;&gt;系统ToolStripMenuItem.Name" xml:space="preserve">
     <value>系统ToolStripMenuItem</value>
@@ -3316,24 +3298,6 @@
   <data name="&gt;&gt;mnu_AttendanceLogReport.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;维护ToolStripMenuItem.Name" xml:space="preserve">
-    <value>维护ToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;维护ToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnu_BackupData.Name" xml:space="preserve">
-    <value>mnu_BackupData</value>
-  </data>
-  <data name="&gt;&gt;mnu_BackupData.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnu_UpdateDB.Name" xml:space="preserve">
-    <value>mnu_UpdateDB</value>
-  </data>
-  <data name="&gt;&gt;mnu_UpdateDB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;帮助ToolStripMenuItem.Name" xml:space="preserve">
     <value>帮助ToolStripMenuItem</value>
   </data>
@@ -3455,7 +3419,7 @@
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmMain</value>
+    <value>FrmMainDemo</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
