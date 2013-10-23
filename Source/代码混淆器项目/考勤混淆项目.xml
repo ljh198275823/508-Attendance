@@ -8,25 +8,31 @@
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
-        <file dir="E:\Git\508 Attendance\Source\Debug" name="LJH.Attendance.Model.dll" />
+        <file dir="E:\git\508 Attendance\Source\Debug" name="LJH.Attendance.BLL.dll" />
       </inputassembly>
       <inputassembly>
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
-        <file dir="E:\Git\508 Attendance\Source\Debug" name="LJH.Attendance.BLL.dll" />
+        <file dir="E:\git\508 Attendance\Source\Debug" name="LJH.Attendance.DAL.dll" />
       </inputassembly>
       <inputassembly>
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
-        <file dir="E:\Git\508 Attendance\Source\Debug" name="LJH.Attendance.UI.dll" />
+        <file dir="E:\git\508 Attendance\Source\Debug" name="LJH.Attendance.Model.dll" />
       </inputassembly>
       <inputassembly>
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
-        <file dir="E:\Git\508 Attendance\Source\Debug" name="LJH.GeneralLibrary.dll" />
+        <file dir="E:\git\508 Attendance\Source\Debug" name="LJH.Attendance.UI.dll" />
+      </inputassembly>
+      <inputassembly>
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <file dir="E:\git\508 Attendance\Source\Debug" name="LJH.GeneralLibrary.dll" />
       </inputassembly>
     </asmlist>
   </input>
@@ -36,14 +42,8 @@
   <renaming>
     <option>xmlserialization</option>
     <excludelist>
-      <module name="Attendance.exe" assemblyname="Attendance" />
-      <module name="AttendanceDemo.exe" assemblyname="AttendanceDemo" />
-      <namespace name="LJH.Attendance.UI.Properties" />
-      <namespace name="LJH.Attendance.DAL.Properties" />
       <namespace name="LJH.Attendance.BLL.Properties" />
-      <type name="Attendance.Program" excludetype="false">
-        <method name="Main" signature="void()" />
-      </type>
+      <namespace name="LJH.Attendance.DAL.Properties" />
       <type name="LJH.Attendance.DAL.LinqDataProvider.AttendanceDataContextFactory" />
     </excludelist>
     <mapping>
@@ -52,11 +52,11 @@
       </mapoutput>
     </mapping>
     <referencerulelist>
-      <referencerule rulekey="{AB89403F-5E08-4adf-8386-6D34AF0ADBD3}" />
       <referencerule rulekey="{229FD6F8-5BCC-427b-8F72-A7A413ECDF1A}" />
       <referencerule rulekey="{89769974-93E9-4e71-8D92-BE70E855ACFC}" />
       <referencerule rulekey="{7D9C8B02-2383-420f-8740-A9760394C2C1}" />
       <referencerule rulekey="{2B7E7C8C-A39A-4db8-9DFC-6AFD38509061}" />
+      <referencerule rulekey="{AB89403F-5E08-4adf-8386-6D34AF0ADBD3}" />
       <referencerule rulekey="{6655B10A-FD58-462d-8D4F-5B1316DFF0FF}" />
     </referencerulelist>
   </renaming>
