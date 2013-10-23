@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE dotfuscator SYSTEM "http://www.preemptive.com/dotfuscator/dtd/dotfuscator_v2.2.dtd">
+<dotfuscator version="2.2">
+  <!--这是应用程序生成的代码。不要手动编辑。-->
+  <input>
+    <asmlist>
+      <inputassembly>
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <file dir="E:\Git\508 Attendance\Source\Debug" name="LJH.Attendance.Model.dll" />
+      </inputassembly>
+      <inputassembly>
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <file dir="E:\Git\508 Attendance\Source\Debug" name="LJH.Attendance.BLL.dll" />
+      </inputassembly>
+      <inputassembly>
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <file dir="E:\Git\508 Attendance\Source\Debug" name="LJH.Attendance.UI.dll" />
+      </inputassembly>
+      <inputassembly>
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <file dir="E:\Git\508 Attendance\Source\Debug" name="LJH.GeneralLibrary.dll" />
+      </inputassembly>
+    </asmlist>
+  </input>
+  <output>
+    <file dir="E:\Git\508 Attendance\Source\Reference\SecurityDLL" />
+  </output>
+  <renaming>
+    <option>xmlserialization</option>
+    <excludelist>
+      <module name="Attendance.exe" assemblyname="Attendance" />
+      <module name="AttendanceDemo.exe" assemblyname="AttendanceDemo" />
+      <namespace name="LJH.Attendance.UI.Properties" />
+      <namespace name="LJH.Attendance.DAL.Properties" />
+      <namespace name="LJH.Attendance.BLL.Properties" />
+      <type name="Attendance.Program" excludetype="false">
+        <method name="Main" signature="void()" />
+      </type>
+      <type name="LJH.Attendance.DAL.LinqDataProvider.AttendanceDataContextFactory" />
+    </excludelist>
+    <mapping>
+      <mapoutput overwrite="false">
+        <file dir="${configdir}\Dotfuscated" name="Map.xml" />
+      </mapoutput>
+    </mapping>
+    <referencerulelist>
+      <referencerule rulekey="{AB89403F-5E08-4adf-8386-6D34AF0ADBD3}" />
+      <referencerule rulekey="{229FD6F8-5BCC-427b-8F72-A7A413ECDF1A}" />
+      <referencerule rulekey="{89769974-93E9-4e71-8D92-BE70E855ACFC}" />
+      <referencerule rulekey="{7D9C8B02-2383-420f-8740-A9760394C2C1}" />
+      <referencerule rulekey="{2B7E7C8C-A39A-4db8-9DFC-6AFD38509061}" />
+      <referencerule rulekey="{6655B10A-FD58-462d-8D4F-5B1316DFF0FF}" />
+    </referencerulelist>
+  </renaming>
+  <sos mergeruntime="true">
+    <option>disable</option>
+    <option>dontsendtamper</option>
+  </sos>
+  <smartobfuscation>
+    <smartobfuscationreport verbosity="all" overwrite="false" />
+  </smartobfuscation>
+</dotfuscator>
