@@ -55,19 +55,16 @@
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
-            this.label1.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label1.Name = "label1";
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
-            this.label2.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label2.Name = "label2";
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
-            this.label4.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label4.Name = "label4";
             // 
             // txtOperatorID
@@ -89,7 +86,6 @@
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
-            this.label3.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label3.Name = "label3";
             // 
             // txtOperatorName
@@ -99,7 +95,6 @@
             // 
             // btnChangePwd
             // 
-            this.btnChangePwd.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             resources.ApplyResources(this.btnChangePwd, "btnChangePwd");
             this.btnChangePwd.Name = "btnChangePwd";
             this.btnChangePwd.UseVisualStyleBackColor = true;

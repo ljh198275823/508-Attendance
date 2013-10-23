@@ -142,13 +142,13 @@ namespace LJH.Attendance.UI
 
             if (string.IsNullOrEmpty(logName))
             {
-                MessageBox.Show(Resource1.FrmLogin_InvalidUserName);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmLogin_InvalidUserName);
                 return;
             }
 
             if (string.IsNullOrEmpty(pwd))
             {
-                MessageBox.Show(Resource1.FrmLogin_InvalidPwd);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmLogin_InvalidPwd);
                 return;
             }
             SaveConnectString();
@@ -162,7 +162,7 @@ namespace LJH.Attendance.UI
             }
             else
             {
-                MessageBox.Show(Resource1.FrmLogin_AuthenFail);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmLogin_AuthenFail);
             }
         }
 

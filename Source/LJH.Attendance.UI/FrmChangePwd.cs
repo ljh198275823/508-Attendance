@@ -54,19 +54,19 @@ namespace LJH.Attendance.UI
         {
             if (Operator.Password != txtOldPwd.Text)
             {
-                MessageBox.Show(Resource1.FrmChangePwd_InvalidOldPwd);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmChangePwd_InvalidOldPwd);
                 txtOldPwd.SelectAll();
                 return false;
             }
             if (string.IsNullOrEmpty(txtNewPwd.Text.Trim()))
             {
-                MessageBox.Show(Resource1.FrmChangePwd_InvalidNewPwd);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmChangePwd_InvalidNewPwd);
                 txtNewPwd.SelectAll();
                 return false;
             }
             if (txtNewPwd.Text != txtConfirmPwd.Text)
             {
-                MessageBox.Show(Resource1.FrmChangePwd_InvalidConfirmPwd);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmChangePwd_InvalidConfirmPwd);
                 txtConfirmPwd.SelectAll();
                 return false;
             }

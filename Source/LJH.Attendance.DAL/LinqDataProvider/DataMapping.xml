@@ -102,9 +102,6 @@
       <Column Name="Department" Member="Department"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="StartDate" Member="StartDate"  DbType="datetime NOT NULL" UpdateCheck="Never"/>
       <Column Name="EndDate" Member="EndDate"  DbType="datetime not NULL" UpdateCheck="Never"/>
-      <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(50) NOT NULL" UpdateCheck="Never"/>
-      <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
-      <Column Name="Duration" Member="Duration"  DbType="int not NULL" UpdateCheck="Never"/>
       <Column Name="Category" Member="CategoryID"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
       <Column Name="Header" Member="Header"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="Manager" Member="Manager"  DbType="nvarchar(50)" UpdateCheck="Never"/>

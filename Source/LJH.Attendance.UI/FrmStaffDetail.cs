@@ -46,12 +46,12 @@ namespace LJH.Attendance.UI
         {
             if (string.IsNullOrEmpty (txtName .Text ))
             {
-                MessageBox.Show("没有设置用户名称", Resource1.Form_Alert,MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("没有设置用户名称",LJH.Attendance.UI.Properties.Resources.Form_Alert,MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (departmentComboBox1.SelectecDepartment == null)
             {
-                MessageBox.Show("没有设置用户部门", Resource1.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("没有设置用户部门",LJH.Attendance.UI.Properties.Resources.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;

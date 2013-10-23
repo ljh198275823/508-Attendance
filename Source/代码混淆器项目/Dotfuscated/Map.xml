@@ -2,8 +2,8 @@
 <!DOCTYPE dotfuscatorMap SYSTEM "http://www.preemptive.com/dotfuscator/dtd/dotfuscatorMap_v1.1.dtd">
 <dotfuscatorMap version="1.1">
     <header>
-        <timestamp>2013-10-23T21:45:45</timestamp>
-        <product version="5.0.2300.0" user="建华 李" serial="162950-391">Dotfuscator Community Edition</product>
+        <timestamp>2013-10-23T23:31:55</timestamp>
+        <product version="5.0.2300.0" user="未注册 " serial="000-00-000-391">Dotfuscator Community Edition</product>
     </header>
     <mapping>
         <module>
@@ -503,7 +503,7 @@
             </type>
             <type>
                 <name>LJH.Attendance.BLL.Resource1</name>
-                <newname>i</newname>
+                <newname>g</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -1175,6 +1175,7 @@
             </type>
             <type>
                 <name>LJH.Attendance.DAL.LinqDataProvider.AttendanceDataContextFactory</name>
+                <newname>b</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -1395,7 +1396,6 @@
             </type>
             <type>
                 <name>LJH.Attendance.DAL.LinqDataProvider.IntegerID</name>
-                <newname>d</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -1932,7 +1932,7 @@
             </type>
             <type>
                 <name>LJH.Attendance.DAL.LinqDataProvider.ResultCodeResolver</name>
-                <newname>o</newname>
+                <newname>k</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -2259,7 +2259,6 @@
             </type>
             <type>
                 <name>LJH.Attendance.DAL.LinqDataProvider.StringID</name>
-                <newname>l</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -2340,7 +2339,7 @@
             </type>
             <type>
                 <name>LJH.Attendance.DAL.LinqDataProvider.StringIDCreater/&lt;&gt;c__DisplayClass1</name>
-                <newname>LJH.Attendance.DAL.LinqDataProvider.StringIDCreater/c</newname>
+                <newname>LJH.Attendance.DAL.LinqDataProvider.StringIDCreater/a</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -2357,7 +2356,7 @@
             </type>
             <type>
                 <name>LJH.Attendance.DAL.LinqDataProvider.StringIDCreater/&lt;&gt;c__DisplayClass3</name>
-                <newname>LJH.Attendance.DAL.LinqDataProvider.StringIDCreater/b</newname>
+                <newname>LJH.Attendance.DAL.LinqDataProvider.StringIDCreater/c</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -2379,7 +2378,7 @@
             </type>
             <type>
                 <name>LJH.Attendance.DAL.LinqDataProvider.StringIDCreater/&lt;&gt;c__DisplayClass6</name>
-                <newname>LJH.Attendance.DAL.LinqDataProvider.StringIDCreater/a</newname>
+                <newname>LJH.Attendance.DAL.LinqDataProvider.StringIDCreater/b</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -2401,7 +2400,6 @@
             </type>
             <type>
                 <name>LJH.Attendance.DAL.LinqDataProvider.T_OperatorDept</name>
-                <newname>k</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -2443,7 +2441,6 @@
             </type>
             <type>
                 <name>LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate</name>
-                <newname>c</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -3909,7 +3906,7 @@
             </type>
             <type>
                 <name>LJH.Attendance.Model.AttendanceResultGroup</name>
-                <newname>m</newname>
+                <newname>i</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -5184,7 +5181,7 @@
             </type>
             <type>
                 <name>LJH.Attendance.Model.Resource.Resource1</name>
-                <newname>n</newname>
+                <newname>j</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -7320,52 +7317,50 @@
                     <field>
                         <signature>string</signature>
                         <name>_EndTime</name>
-                        <newname>b</newname>
                     </field>
                     <field>
                         <signature>string</signature>
                         <name>_StartTime</name>
-                        <newname>a</newname>
                     </field>
                     <field>
                         <signature>System.Decimal</signature>
                         <name>&lt;AfterEndTime&gt;k__BackingField</name>
-                        <newname>i</newname>
+                        <newname>g</newname>
                     </field>
                     <field>
                         <signature>System.Decimal</signature>
                         <name>&lt;AllowLateTime&gt;k__BackingField</name>
-                        <newname>e</newname>
+                        <newname>c</newname>
                     </field>
                     <field>
                         <signature>System.Decimal</signature>
                         <name>&lt;AllowLeaveEarlyTime&gt;k__BackingField</name>
-                        <newname>h</newname>
-                    </field>
-                    <field>
-                        <signature>System.Decimal</signature>
-                        <name>&lt;BeforeStartTime&gt;k__BackingField</name>
                         <newname>f</newname>
                     </field>
                     <field>
                         <signature>System.Decimal</signature>
+                        <name>&lt;BeforeStartTime&gt;k__BackingField</name>
+                        <newname>d</newname>
+                    </field>
+                    <field>
+                        <signature>System.Decimal</signature>
                         <name>&lt;Duration&gt;k__BackingField</name>
-                        <newname>j</newname>
+                        <newname>h</newname>
                     </field>
                     <field>
                         <signature>System.Guid</signature>
                         <name>&lt;ID&gt;k__BackingField</name>
-                        <newname>c</newname>
+                        <newname>a</newname>
                     </field>
                     <field>
                         <signature>bool</signature>
                         <name>&lt;NextDay&gt;k__BackingField</name>
-                        <newname>g</newname>
+                        <newname>e</newname>
                     </field>
                     <field>
                         <signature>string</signature>
                         <name>&lt;ShiftID&gt;k__BackingField</name>
-                        <newname>d</newname>
+                        <newname>b</newname>
                     </field>
                 </fieldlist>
             </type>
@@ -7456,276 +7451,6 @@
                         <signature>System.Predicate`1&lt;LJH.Attendance.Model.TemplateItem&gt;</signature>
                         <name>CS$&lt;&gt;9__CachedAnonymousMethodDelegate1</name>
                         <newname>f</newname>
-                    </field>
-                </fieldlist>
-            </type>
-            <type>
-                <name>LJH.Attendance.Model.ShiftTimezone1</name>
-                <methodlist>
-                    <method>
-                        <signature>void()</signature>
-                        <name>.ctor</name>
-                    </method>
-                    <method>
-                        <signature>LJH.Attendance.Model.ShiftTimezone1()</signature>
-                        <name>Clone</name>
-                    </method>
-                    <method>
-                        <signature>System.Decimal()</signature>
-                        <name>get_AfterEndTime</name>
-                    </method>
-                    <method>
-                        <signature>System.Decimal()</signature>
-                        <name>get_BeforeStartTime</name>
-                    </method>
-                    <method>
-                        <signature>string()</signature>
-                        <name>get_Category</name>
-                    </method>
-                    <method>
-                        <signature>System.DateTime()</signature>
-                        <name>get_EarlyestTime</name>
-                    </method>
-                    <method>
-                        <signature>bool()</signature>
-                        <name>get_EnableAbsent</name>
-                    </method>
-                    <method>
-                        <signature>bool()</signature>
-                        <name>get_EnableLate</name>
-                    </method>
-                    <method>
-                        <signature>bool()</signature>
-                        <name>get_EnableLeaveEarly</name>
-                    </method>
-                    <method>
-                        <signature>System.DateTime()</signature>
-                        <name>get_EndTime</name>
-                    </method>
-                    <method>
-                        <signature>System.DateTime()</signature>
-                        <name>get_LatestTime</name>
-                    </method>
-                    <method>
-                        <signature>bool()</signature>
-                        <name>get_LogWhenArrive</name>
-                    </method>
-                    <method>
-                        <signature>bool()</signature>
-                        <name>get_LogWhenLeave</name>
-                    </method>
-                    <method>
-                        <signature>System.Nullable`1&lt;System.DateTime&gt;()</signature>
-                        <name>get_OffDutyTime</name>
-                    </method>
-                    <method>
-                        <signature>System.Nullable`1&lt;System.DateTime&gt;()</signature>
-                        <name>get_OnDutyTime</name>
-                    </method>
-                    <method>
-                        <signature>string()</signature>
-                        <name>get_SheetType</name>
-                    </method>
-                    <method>
-                        <signature>System.DateTime()</signature>
-                        <name>get_ShiftDate</name>
-                    </method>
-                    <method>
-                        <signature>string()</signature>
-                        <name>get_ShiftID</name>
-                    </method>
-                    <method>
-                        <signature>string()</signature>
-                        <name>get_ShiftName</name>
-                    </method>
-                    <method>
-                        <signature>System.Decimal()</signature>
-                        <name>get_ShiftTime</name>
-                    </method>
-                    <method>
-                        <signature>int32()</signature>
-                        <name>get_StaffID</name>
-                    </method>
-                    <method>
-                        <signature>string()</signature>
-                        <name>get_StaffName</name>
-                    </method>
-                    <method>
-                        <signature>System.DateTime()</signature>
-                        <name>get_StartTime</name>
-                    </method>
-                    <method>
-                        <signature>void(System.Decimal)</signature>
-                        <name>set_AfterEndTime</name>
-                    </method>
-                    <method>
-                        <signature>void(System.Decimal)</signature>
-                        <name>set_BeforeStartTime</name>
-                    </method>
-                    <method>
-                        <signature>void(string)</signature>
-                        <name>set_Category</name>
-                    </method>
-                    <method>
-                        <signature>void(bool)</signature>
-                        <name>set_EnableAbsent</name>
-                    </method>
-                    <method>
-                        <signature>void(bool)</signature>
-                        <name>set_EnableLate</name>
-                    </method>
-                    <method>
-                        <signature>void(bool)</signature>
-                        <name>set_EnableLeaveEarly</name>
-                    </method>
-                    <method>
-                        <signature>void(System.DateTime)</signature>
-                        <name>set_EndTime</name>
-                    </method>
-                    <method>
-                        <signature>void(bool)</signature>
-                        <name>set_LogWhenArrive</name>
-                    </method>
-                    <method>
-                        <signature>void(bool)</signature>
-                        <name>set_LogWhenLeave</name>
-                    </method>
-                    <method>
-                        <signature>void(System.Nullable`1&lt;System.DateTime&gt;)</signature>
-                        <name>set_OffDutyTime</name>
-                    </method>
-                    <method>
-                        <signature>void(System.Nullable`1&lt;System.DateTime&gt;)</signature>
-                        <name>set_OnDutyTime</name>
-                    </method>
-                    <method>
-                        <signature>void(string)</signature>
-                        <name>set_SheetType</name>
-                    </method>
-                    <method>
-                        <signature>void(System.DateTime)</signature>
-                        <name>set_ShiftDate</name>
-                    </method>
-                    <method>
-                        <signature>void(string)</signature>
-                        <name>set_ShiftID</name>
-                    </method>
-                    <method>
-                        <signature>void(string)</signature>
-                        <name>set_ShiftName</name>
-                    </method>
-                    <method>
-                        <signature>void(System.Decimal)</signature>
-                        <name>set_ShiftTime</name>
-                    </method>
-                    <method>
-                        <signature>void(int32)</signature>
-                        <name>set_StaffID</name>
-                    </method>
-                    <method>
-                        <signature>void(string)</signature>
-                        <name>set_StaffName</name>
-                    </method>
-                    <method>
-                        <signature>void(System.DateTime)</signature>
-                        <name>set_StartTime</name>
-                    </method>
-                </methodlist>
-                <fieldlist>
-                    <field>
-                        <signature>System.Decimal</signature>
-                        <name>&lt;AfterEndTime&gt;k__BackingField</name>
-                        <newname>n</newname>
-                    </field>
-                    <field>
-                        <signature>System.Decimal</signature>
-                        <name>&lt;BeforeStartTime&gt;k__BackingField</name>
-                        <newname>j</newname>
-                    </field>
-                    <field>
-                        <signature>string</signature>
-                        <name>&lt;Category&gt;k__BackingField</name>
-                        <newname>g</newname>
-                    </field>
-                    <field>
-                        <signature>bool</signature>
-                        <name>&lt;EnableAbsent&gt;k__BackingField</name>
-                        <newname>q</newname>
-                    </field>
-                    <field>
-                        <signature>bool</signature>
-                        <name>&lt;EnableLate&gt;k__BackingField</name>
-                        <newname>o</newname>
-                    </field>
-                    <field>
-                        <signature>bool</signature>
-                        <name>&lt;EnableLeaveEarly&gt;k__BackingField</name>
-                        <newname>p</newname>
-                    </field>
-                    <field>
-                        <signature>System.DateTime</signature>
-                        <name>&lt;EndTime&gt;k__BackingField</name>
-                        <newname>k</newname>
-                    </field>
-                    <field>
-                        <signature>bool</signature>
-                        <name>&lt;LogWhenArrive&gt;k__BackingField</name>
-                        <newname>i</newname>
-                    </field>
-                    <field>
-                        <signature>bool</signature>
-                        <name>&lt;LogWhenLeave&gt;k__BackingField</name>
-                        <newname>m</newname>
-                    </field>
-                    <field>
-                        <signature>System.Nullable`1&lt;System.DateTime&gt;</signature>
-                        <name>&lt;OffDutyTime&gt;k__BackingField</name>
-                        <newname>s</newname>
-                    </field>
-                    <field>
-                        <signature>System.Nullable`1&lt;System.DateTime&gt;</signature>
-                        <name>&lt;OnDutyTime&gt;k__BackingField</name>
-                        <newname>r</newname>
-                    </field>
-                    <field>
-                        <signature>string</signature>
-                        <name>&lt;SheetType&gt;k__BackingField</name>
-                        <newname>f</newname>
-                    </field>
-                    <field>
-                        <signature>System.DateTime</signature>
-                        <name>&lt;ShiftDate&gt;k__BackingField</name>
-                        <newname>c</newname>
-                    </field>
-                    <field>
-                        <signature>string</signature>
-                        <name>&lt;ShiftID&gt;k__BackingField</name>
-                        <newname>d</newname>
-                    </field>
-                    <field>
-                        <signature>string</signature>
-                        <name>&lt;ShiftName&gt;k__BackingField</name>
-                        <newname>e</newname>
-                    </field>
-                    <field>
-                        <signature>System.Decimal</signature>
-                        <name>&lt;ShiftTime&gt;k__BackingField</name>
-                        <newname>l</newname>
-                    </field>
-                    <field>
-                        <signature>int32</signature>
-                        <name>&lt;StaffID&gt;k__BackingField</name>
-                        <newname>a</newname>
-                    </field>
-                    <field>
-                        <signature>string</signature>
-                        <name>&lt;StaffName&gt;k__BackingField</name>
-                        <newname>b</newname>
-                    </field>
-                    <field>
-                        <signature>System.DateTime</signature>
-                        <name>&lt;StartTime&gt;k__BackingField</name>
-                        <newname>h</newname>
                     </field>
                 </fieldlist>
             </type>
@@ -8415,32 +8140,30 @@
                     <field>
                         <signature>string</signature>
                         <name>_EndTime</name>
-                        <newname>b</newname>
                     </field>
                     <field>
                         <signature>string</signature>
                         <name>_StartTime</name>
-                        <newname>a</newname>
                     </field>
                     <field>
                         <signature>System.Decimal</signature>
                         <name>&lt;Duration&gt;k__BackingField</name>
-                        <newname>f</newname>
+                        <newname>d</newname>
                     </field>
                     <field>
                         <signature>System.Guid</signature>
                         <name>&lt;ID&gt;k__BackingField</name>
-                        <newname>c</newname>
+                        <newname>a</newname>
                     </field>
                     <field>
                         <signature>bool</signature>
                         <name>&lt;NextDay&gt;k__BackingField</name>
-                        <newname>e</newname>
+                        <newname>c</newname>
                     </field>
                     <field>
                         <signature>string</signature>
                         <name>&lt;SheetID&gt;k__BackingField</name>
-                        <newname>d</newname>
+                        <newname>b</newname>
                     </field>
                 </fieldlist>
             </type>
@@ -8633,20 +8356,20 @@
         <module>
             <name>LJH.Attendance.UI.dll</name>
             <type>
-                <name>&lt;PrivateImplementationDetails&gt;{7F3DCD90-89FB-4D3E-9E56-C0AFCFD34516}</name>
-                <newname>b</newname>
+                <name>&lt;PrivateImplementationDetails&gt;{39F57F17-4CC8-44C6-AE3E-E411055CC6C9}</name>
+                <newname>h</newname>
                 <methodlist />
                 <fieldlist>
                     <field>
-                        <signature>&lt;PrivateImplementationDetails&gt;{7F3DCD90-89FB-4D3E-9E56-C0AFCFD34516}/__StaticArrayInitTypeSize=16</signature>
+                        <signature>&lt;PrivateImplementationDetails&gt;{39F57F17-4CC8-44C6-AE3E-E411055CC6C9}/__StaticArrayInitTypeSize=16</signature>
                         <name>$$method0x6000225-1</name>
                         <newname>a</newname>
                     </field>
                 </fieldlist>
             </type>
             <type>
-                <name>&lt;PrivateImplementationDetails&gt;{7F3DCD90-89FB-4D3E-9E56-C0AFCFD34516}/__StaticArrayInitTypeSize=16</name>
-                <newname>b/a</newname>
+                <name>&lt;PrivateImplementationDetails&gt;{39F57F17-4CC8-44C6-AE3E-E411055CC6C9}/__StaticArrayInitTypeSize=16</name>
+                <newname>h/a</newname>
                 <methodlist />
                 <fieldlist />
             </type>
@@ -17614,1624 +17337,1562 @@
                     <method>
                         <signature>System.Drawing.Bitmap()</signature>
                         <name>get_add</name>
-                        <newname>y</newname>
+                        <newname>ie</newname>
                     </method>
                     <method>
                         <signature>System.Drawing.Bitmap()</signature>
                         <name>get_add_group</name>
-                        <newname>x</newname>
+                        <newname>id</newname>
                     </method>
                     <method>
                         <signature>System.Drawing.Bitmap()</signature>
                         <name>get_analysis</name>
-                        <newname>w</newname>
+                        <newname>ic</newname>
                     </method>
                     <method>
                         <signature>System.Drawing.Bitmap()</signature>
                         <name>get_arrow_down</name>
-                        <newname>v</newname>
+                        <newname>ib</newname>
                     </method>
                     <method>
                         <signature>System.Drawing.Bitmap()</signature>
                         <name>get_arrow_up</name>
-                        <newname>u</newname>
+                        <newname>ia</newname>
                     </method>
                     <method>
                         <signature>System.Drawing.Bitmap()</signature>
                         <name>get_blocks_mm_device_wired</name>
-                        <newname>t</newname>
+                        <newname>h9</newname>
                     </method>
                     <method>
                         <signature>System.Drawing.Bitmap()</signature>
                         <name>get_Cards</name>
-                        <newname>s</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_clear</name>
-                        <newname>r</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_columns</name>
-                        <newname>q</newname>
-                    </method>
-                    <method>
-                        <signature>System.Globalization.CultureInfo()</signature>
-                        <name>get_Culture</name>
-                        <newname>z</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_delete</name>
-                        <newname>p</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_department</name>
-                        <newname>o</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_door</name>
-                        <newname>n</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_drive_work</name>
-                        <newname>m</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_export</name>
-                        <newname>l</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_fingerprint_reader</name>
-                        <newname>k</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_holiday</name>
-                        <newname>j</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_img15</name>
-                        <newname>i</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_refresh</name>
-                        <newname>h</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_reportDetail</name>
-                        <newname>g</newname>
-                    </method>
-                    <method>
-                        <signature>System.Resources.ResourceManager()</signature>
-                        <name>get_ResourceManager</name>
-                        <newname>aa</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_search</name>
-                        <newname>f</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_shift</name>
-                        <newname>e</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_shiftArrange</name>
-                        <newname>d</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_stats</name>
-                        <newname>c</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_table</name>
-                        <newname>b</newname>
-                    </method>
-                    <method>
-                        <signature>System.Drawing.Bitmap()</signature>
-                        <name>get_template</name>
-                        <newname>a</newname>
-                    </method>
-                    <method>
-                        <signature>void(System.Globalization.CultureInfo)</signature>
-                        <name>set_Culture</name>
-                        <newname>a</newname>
-                    </method>
-                </methodlist>
-                <fieldlist>
-                    <field>
-                        <signature>System.Globalization.CultureInfo</signature>
-                        <name>resourceCulture</name>
-                        <newname>b</newname>
-                    </field>
-                    <field>
-                        <signature>System.Resources.ResourceManager</signature>
-                        <name>resourceMan</name>
-                        <newname>a</newname>
-                    </field>
-                </fieldlist>
-            </type>
-            <type>
-                <name>LJH.Attendance.UI.Properties.Settings</name>
-                <methodlist>
-                    <method>
-                        <signature>void()</signature>
-                        <name>.cctor</name>
-                    </method>
-                    <method>
-                        <signature>void()</signature>
-                        <name>.ctor</name>
-                    </method>
-                    <method>
-                        <signature>LJH.Attendance.UI.Properties.Settings()</signature>
-                        <name>get_Default</name>
-                        <newname>a</newname>
-                    </method>
-                </methodlist>
-                <fieldlist>
-                    <field>
-                        <signature>LJH.Attendance.UI.Properties.Settings</signature>
-                        <name>defaultInstance</name>
-                        <newname>a</newname>
-                    </field>
-                </fieldlist>
-            </type>
-            <type>
-                <name>LJH.Attendance.UI.Resource1</name>
-                <newname>j</newname>
-                <methodlist>
-                    <method>
-                        <signature>void()</signature>
-                        <name>.ctor</name>
+                        <newname>h8</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_BlackOnWhite</name>
-                        <newname>hp</newname>
+                        <newname>h7</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_BlackOnYellow</name>
-                        <newname>ho</newname>
+                        <newname>h6</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_Fail</name>
-                        <newname>hn</newname>
+                        <newname>h5</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_RedOnBlack</name>
-                        <newname>hm</newname>
+                        <newname>h4</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_RedOnWhite</name>
-                        <newname>hl</newname>
+                        <newname>h3</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_SavePara</name>
-                        <newname>hk</newname>
+                        <newname>h2</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_UnknowColor</name>
-                        <newname>hj</newname>
+                        <newname>h1</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_WhiteOnBlack</name>
-                        <newname>hi</newname>
+                        <newname>h0</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_WhiteOnBlue</name>
-                        <newname>hh</newname>
+                        <newname>hz</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_WhiteOnGreen</name>
-                        <newname>hg</newname>
+                        <newname>hy</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CarPlate_WhiteOnRed</name>
-                        <newname>hf</newname>
+                        <newname>hx</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_clear</name>
+                        <newname>hw</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_columns</name>
+                        <newname>hv</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_CompanyName</name>
-                        <newname>he</newname>
+                        <newname>hu</newname>
                     </method>
                     <method>
                         <signature>System.Globalization.CultureInfo()</signature>
                         <name>get_Culture</name>
+                        <newname>if</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_delete</name>
+                        <newname>ht</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_department</name>
+                        <newname>hs</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_door</name>
+                        <newname>hr</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_drive_work</name>
                         <newname>hq</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_EnableWriteCard</name>
-                        <newname>hd</newname>
+                        <newname>hp</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_export</name>
+                        <newname>ho</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_fingerprint_reader</name>
+                        <newname>hn</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_Add</name>
-                        <newname>hc</newname>
+                        <newname>hm</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_Alert</name>
-                        <newname>hb</newname>
+                        <newname>hl</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_Cancel</name>
-                        <newname>ha</newname>
+                        <newname>hk</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_ExcelFilter</name>
-                        <newname>g9</newname>
+                        <newname>hj</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_ExitQuery</name>
-                        <newname>g8</newname>
+                        <newname>hi</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_ExitSystemQuery</name>
-                        <newname>g7</newname>
+                        <newname>hh</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_Fail</name>
-                        <newname>g6</newname>
+                        <newname>hg</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_Query</name>
-                        <newname>g5</newname>
+                        <newname>hf</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_SaveExcelFail</name>
-                        <newname>g4</newname>
+                        <newname>he</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_Stop</name>
-                        <newname>g3</newname>
+                        <newname>hd</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_Form_Success</name>
-                        <newname>g2</newname>
+                        <newname>hc</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAccessGroup_AccessMax</name>
-                        <newname>g1</newname>
+                        <newname>hb</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAccessGroup_IntervalMax</name>
-                        <newname>g0</newname>
+                        <newname>ha</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAccessLevelDetail_InvalidAccessName</name>
-                        <newname>gz</newname>
+                        <newname>g9</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAddCards_CardCount</name>
-                        <newname>gy</newname>
+                        <newname>g8</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAddCards_CardExists</name>
-                        <newname>gx</newname>
+                        <newname>g7</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAddCards_Continue</name>
-                        <newname>gw</newname>
+                        <newname>g6</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAddCards_InvalidCardType</name>
-                        <newname>gv</newname>
+                        <newname>g5</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAddCards_InvalidOwnerName</name>
-                        <newname>gu</newname>
+                        <newname>g4</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAddCards_Next</name>
-                        <newname>gt</newname>
+                        <newname>g3</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAddCards_Processing</name>
-                        <newname>gs</newname>
+                        <newname>g2</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAddCards_WriteCardFail</name>
-                        <newname>gr</newname>
+                        <newname>g1</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAddCards_WritingCard</name>
-                        <newname>gq</newname>
+                        <newname>g0</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAPMDetail_InvalidSerialNum</name>
-                        <newname>gp</newname>
+                        <newname>gz</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAreaDetail_EmptyCardType</name>
-                        <newname>go</newname>
+                        <newname>gy</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAreaDetail_EmptyCarport</name>
-                        <newname>gn</newname>
+                        <newname>gx</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAreaDetail_EmptyFullColor</name>
-                        <newname>gm</newname>
+                        <newname>gw</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAreaDetail_EmptyVacantColor</name>
-                        <newname>gl</newname>
+                        <newname>gv</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmAreaDetail_InvalidCarport</name>
-                        <newname>gk</newname>
+                        <newname>gu</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_CloseQuery</name>
-                        <newname>gj</newname>
+                        <newname>gt</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_HadWrite</name>
-                        <newname>gi</newname>
+                        <newname>gs</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_NoReadData</name>
-                        <newname>gh</newname>
+                        <newname>gr</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_OK</name>
-                        <newname>gg</newname>
+                        <newname>gq</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_PleaseReadCard</name>
-                        <newname>gf</newname>
+                        <newname>gp</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_ReadCard</name>
-                        <newname>ge</newname>
+                        <newname>go</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_SaveQuery</name>
-                        <newname>gd</newname>
+                        <newname>gn</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_UnneedWrite</name>
-                        <newname>gc</newname>
+                        <newname>gm</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_WriteFail</name>
-                        <newname>gb</newname>
+                        <newname>gl</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_WriteSuccess</name>
-                        <newname>ga</newname>
+                        <newname>gk</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardBulkChange_WritingCard</name>
-                        <newname>f9</newname>
+                        <newname>gj</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_CardDataErr</name>
-                        <newname>f8</newname>
+                        <newname>gi</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_CardDisabled</name>
-                        <newname>f7</newname>
+                        <newname>gh</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_CardExpired</name>
-                        <newname>f6</newname>
+                        <newname>gg</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_CardLoss</name>
-                        <newname>f5</newname>
+                        <newname>gf</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_CardRecycled</name>
-                        <newname>f4</newname>
+                        <newname>ge</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_CardUnActivate</name>
-                        <newname>f3</newname>
+                        <newname>gd</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_DeletePayment</name>
-                        <newname>f2</newname>
+                        <newname>gc</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_FreeRemain</name>
-                        <newname>f1</newname>
+                        <newname>gb</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_NotCard</name>
-                        <newname>f0</newname>
+                        <newname>ga</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCenterCharge_NotPaymentCard</name>
-                        <newname>fz</newname>
+                        <newname>f9</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardChangeKey_InputOldKey</name>
-                        <newname>fy</newname>
+                        <newname>f8</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardChangeKey_Start</name>
-                        <newname>fx</newname>
+                        <newname>f7</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardChangeKey_Stop</name>
-                        <newname>fw</newname>
+                        <newname>f6</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCharge_InvalidAmounts</name>
-                        <newname>fv</newname>
+                        <newname>f5</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardCharge_ReadCard</name>
-                        <newname>fu</newname>
+                        <newname>f4</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardDataConvert_StartConvert</name>
-                        <newname>ft</newname>
+                        <newname>f3</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardDataConvert_StopConvert</name>
-                        <newname>fs</newname>
+                        <newname>f2</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardDefer_ReadCard</name>
-                        <newname>fr</newname>
+                        <newname>f1</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardDetail_ReadCard</name>
-                        <newname>fq</newname>
+                        <newname>f0</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardDisableEnable_Disable</name>
-                        <newname>fp</newname>
+                        <newname>fz</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardDisableEnable_Enable</name>
-                        <newname>fo</newname>
+                        <newname>fy</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardDisableEnable_ReadCard</name>
-                        <newname>fn</newname>
+                        <newname>fx</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardEventReport_In</name>
-                        <newname>fm</newname>
+                        <newname>fw</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardEventReport_Out</name>
-                        <newname>fl</newname>
+                        <newname>fv</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardLostRestore_Lost</name>
-                        <newname>fk</newname>
+                        <newname>fu</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardLostRestore_ReadCard</name>
-                        <newname>fj</newname>
+                        <newname>ft</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardLostRestore_Restore</name>
-                        <newname>fi</newname>
+                        <newname>fs</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_CancelPaymentAlarm</name>
-                        <newname>fh</newname>
+                        <newname>fr</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_CancelPaymentQuey</name>
-                        <newname>fg</newname>
+                        <newname>fq</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_CardWaitEnterSpeech</name>
-                        <newname>ff</newname>
+                        <newname>fp</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_CardWaitExitSpeech</name>
-                        <newname>fe</newname>
+                        <newname>fo</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_CentralCharge</name>
-                        <newname>fd</newname>
+                        <newname>fn</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_MoneyLittleQuery</name>
-                        <newname>fc</newname>
+                        <newname>fm</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_MoneyMuchQuery</name>
-                        <newname>fb</newname>
+                        <newname>fl</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_NotTempCard</name>
-                        <newname>fa</newname>
+                        <newname>fk</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_Paying</name>
-                        <newname>e9</newname>
+                        <newname>fj</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaying_PayingSpeech</name>
-                        <newname>e8</newname>
+                        <newname>fi</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardPaymentRecordDetail_ModifyPayment</name>
-                        <newname>e7</newname>
+                        <newname>fh</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardRecycle_ReadCard</name>
-                        <newname>e6</newname>
+                        <newname>fg</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCardRelease_ReadCard</name>
-                        <newname>e5</newname>
+                        <newname>ff</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCards_CannotCharge</name>
-                        <newname>e4</newname>
+                        <newname>fe</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCards_Card</name>
-                        <newname>e3</newname>
+                        <newname>fd</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCards_SyncCardToStandby</name>
-                        <newname>e2</newname>
+                        <newname>fc</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCarFlow_DateTime</name>
-                        <newname>e1</newname>
+                        <newname>fb</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCarFlow_In</name>
-                        <newname>e0</newname>
+                        <newname>fa</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCarFlow_Out</name>
-                        <newname>ez</newname>
+                        <newname>e9</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCarFlow_Total</name>
-                        <newname>ey</newname>
+                        <newname>e8</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmCenterCharge_RecordHandled</name>
-                        <newname>ex</newname>
+                        <newname>e7</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmChangePwd_InvalidConfirmPwd</name>
-                        <newname>ew</newname>
+                        <newname>e6</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmChangePwd_InvalidNewPwd</name>
-                        <newname>ev</newname>
+                        <newname>e5</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmChangePwd_InvalidOldPwd</name>
-                        <newname>eu</newname>
+                        <newname>e4</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmClose_EmptyPwd</name>
-                        <newname>et</newname>
+                        <newname>e3</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAccessSetting_Download</name>
-                        <newname>es</newname>
+                        <newname>e2</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAccessSetting_Text</name>
-                        <newname>er</newname>
+                        <newname>e1</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownloadAllCards_CardProcessing</name>
-                        <newname>eq</newname>
+                        <newname>e0</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownloadAllCards_Clear</name>
-                        <newname>ep</newname>
+                        <newname>ez</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownloadAllCards_Complete</name>
-                        <newname>eo</newname>
+                        <newname>ey</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAllCards_Delete</name>
-                        <newname>en</newname>
+                        <newname>ex</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAllCards_DeleteCard</name>
-                        <newname>em</newname>
+                        <newname>ew</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAllCards_DeleteCards</name>
-                        <newname>el</newname>
+                        <newname>ev</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAllCards_DeleteFinish</name>
-                        <newname>ek</newname>
+                        <newname>eu</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAllCards_DownloadCard</name>
-                        <newname>ej</newname>
+                        <newname>et</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAllCards_DownloadCards</name>
-                        <newname>ei</newname>
+                        <newname>es</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAllCards_Entrance</name>
-                        <newname>eh</newname>
+                        <newname>er</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownloadAllCards_Label2</name>
-                        <newname>eg</newname>
+                        <newname>eq</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAllCards_NotDeleteAll</name>
-                        <newname>ef</newname>
+                        <newname>ep</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadAllCards_NotDownloadAll</name>
-                        <newname>ee</newname>
+                        <newname>eo</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownloadAllCards_Seconds</name>
-                        <newname>ed</newname>
+                        <newname>en</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadBase_Finish</name>
-                        <newname>ec</newname>
+                        <newname>em</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadBase_NotDownloadAll</name>
-                        <newname>eb</newname>
+                        <newname>el</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadBase_StopDownload</name>
-                        <newname>ea</newname>
+                        <newname>ek</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadHolidaySetting_Download</name>
-                        <newname>d9</newname>
+                        <newname>ej</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadHolidaySetting_Text</name>
-                        <newname>d8</newname>
+                        <newname>ei</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadKeySetting_Download</name>
-                        <newname>d7</newname>
+                        <newname>eh</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadKeySetting_Text</name>
-                        <newname>d6</newname>
+                        <newname>eg</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadTariffSetting_Download</name>
-                        <newname>d5</newname>
+                        <newname>ef</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmDownLoadTariffSetting_Text</name>
-                        <newname>d4</newname>
+                        <newname>ee</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmEntranceDetail_InvalidName</name>
-                        <newname>d3</newname>
+                        <newname>ed</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmHolidayDetail_InvalidHoliday</name>
-                        <newname>d2</newname>
+                        <newname>ec</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmLogin_AuthenFail</name>
-                        <newname>d1</newname>
+                        <newname>eb</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmLogin_InvalidDataBase</name>
-                        <newname>d0</newname>
+                        <newname>ea</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmLogin_InvalidPwd</name>
-                        <newname>dz</newname>
+                        <newname>d9</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmLogin_InvalidServer</name>
-                        <newname>dy</newname>
+                        <newname>d8</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmLogin_InvalidUserName</name>
-                        <newname>dx</newname>
+                        <newname>d7</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmLogin_MasterStandbySame</name>
-                        <newname>dw</newname>
+                        <newname>d6</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmLogin_StandbyInvalid</name>
-                        <newname>dv</newname>
+                        <newname>d5</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_AlterStationIDQuery</name>
-                        <newname>du</newname>
+                        <newname>d4</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_CommunicationFailure</name>
-                        <newname>dt</newname>
+                        <newname>d3</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_ConfirmIP</name>
-                        <newname>ds</newname>
+                        <newname>d2</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_DeleteEntranceQuery</name>
-                        <newname>dr</newname>
+                        <newname>d1</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_DeleteParkQuery</name>
-                        <newname>dq</newname>
+                        <newname>d0</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_DeleteVideoQuery</name>
-                        <newname>dp</newname>
+                        <newname>dz</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_DownloadVacantFail</name>
-                        <newname>do</newname>
+                        <newname>dy</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_lblOperator</name>
-                        <newname>dn</newname>
+                        <newname>dx</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_lblStartFrom</name>
-                        <newname>dm</newname>
+                        <newname>dw</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_lblStation</name>
-                        <newname>dl</newname>
+                        <newname>dv</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_ManualFile</name>
-                        <newname>dk</newname>
+                        <newname>du</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_MasterConnected</name>
-                        <newname>dj</newname>
+                        <newname>dt</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_MasterDisconnect</name>
-                        <newname>di</newname>
+                        <newname>ds</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_OperatorNotShift</name>
-                        <newname>dh</newname>
+                        <newname>dr</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_Setting</name>
-                        <newname>dg</newname>
+                        <newname>dq</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_ShiftAlert</name>
-                        <newname>df</newname>
+                        <newname>dp</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_ShitNow</name>
-                        <newname>de</newname>
+                        <newname>do</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_SoftDogError</name>
-                        <newname>dd</newname>
+                        <newname>dn</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_SoftDogExpired</name>
-                        <newname>dc</newname>
+                        <newname>dm</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_SoftDogExpiredAlert</name>
-                        <newname>db</newname>
+                        <newname>dl</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_SoftDogNoRights</name>
-                        <newname>da</newname>
+                        <newname>dk</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_StandbyConnected</name>
-                        <newname>c9</newname>
+                        <newname>dj</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMain_StandbyDisconnect</name>
-                        <newname>c8</newname>
+                        <newname>di</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmManageCardDetail_AddCard</name>
-                        <newname>c7</newname>
+                        <newname>dh</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmManageCardDetail_InvalidCardID</name>
-                        <newname>c6</newname>
+                        <newname>dg</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmManageCardDetail_InvalidCardType</name>
-                        <newname>c5</newname>
+                        <newname>df</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmManageCardDetail_InvalidOwner</name>
-                        <newname>c4</newname>
+                        <newname>de</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmManageCardDetail_NotManagement</name>
-                        <newname>c3</newname>
+                        <newname>dd</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMasterBase_DeleteQuery</name>
-                        <newname>c2</newname>
+                        <newname>dc</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmMasterBase_StatusBar</name>
-                        <newname>c1</newname>
+                        <newname>db</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmNetEntrance_EmptyName</name>
-                        <newname>c0</newname>
+                        <newname>da</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmNetEntrance_InvalidControlPort</name>
-                        <newname>cz</newname>
+                        <newname>c9</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmNetEntrance_InvalidEventPort</name>
-                        <newname>cy</newname>
+                        <newname>c8</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmNetEntrance_InvalidIP</name>
-                        <newname>cx</newname>
+                        <newname>c7</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmNetEntrance_InvalidReadInterval</name>
-                        <newname>cw</newname>
+                        <newname>c6</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmNetEntrance_MastExists</name>
-                        <newname>cv</newname>
+                        <newname>c5</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorCardCashComfirm_InvalidCard</name>
-                        <newname>cu</newname>
+                        <newname>c4</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorCardCashComfirm_NotCurrentOperatorCard</name>
-                        <newname>ct</newname>
+                        <newname>c3</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorCardCashComfirm_NotOperatorCard</name>
-                        <newname>cs</newname>
+                        <newname>c2</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorDetail_InvalidOperatorNum</name>
-                        <newname>cr</newname>
+                        <newname>c1</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorDetail_InvalidPwd</name>
-                        <newname>cq</newname>
+                        <newname>c0</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorDetail_InvalidUserID</name>
-                        <newname>cp</newname>
+                        <newname>cz</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorDetail_InvalidUserName</name>
-                        <newname>co</newname>
+                        <newname>cy</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorLogReport_Fail</name>
-                        <newname>cn</newname>
+                        <newname>cx</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorLogReport_NotFind</name>
-                        <newname>cm</newname>
+                        <newname>cw</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorSettle_OK</name>
-                        <newname>cl</newname>
+                        <newname>cv</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorSettle_Tail</name>
-                        <newname>ck</newname>
+                        <newname>cu</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorShift_InvalidCash</name>
-                        <newname>cj</newname>
+                        <newname>ct</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmOperatorShift_InvalidTempCard</name>
-                        <newname>ci</newname>
+                        <newname>cs</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDetail_InvalidFullText</name>
-                        <newname>ch</newname>
+                        <newname>cr</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDetail_InvalidMinPort</name>
-                        <newname>cg</newname>
+                        <newname>cq</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDetail_InvalidName</name>
-                        <newname>cf</newname>
+                        <newname>cp</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDetail_InvalidTotalPort</name>
-                        <newname>ce</newname>
+                        <newname>co</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDetail_InvalidVacant</name>
-                        <newname>cd</newname>
+                        <newname>cn</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDetail_InvalidVacantText</name>
-                        <newname>cc</newname>
+                        <newname>cm</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDetail_NoDeviceType</name>
-                        <newname>cb</newname>
+                        <newname>cl</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDetail_NoWorkMode</name>
-                        <newname>ca</newname>
+                        <newname>ck</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDetail_WorkModeChangedAlert</name>
-                        <newname>b9</newname>
+                        <newname>cj</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDeviceDetail_GetLanFail</name>
-                        <newname>b8</newname>
+                        <newname>ci</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDeviceDetail_GetLanSuccess</name>
-                        <newname>b7</newname>
+                        <newname>ch</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDeviceDetail_SetLanFail</name>
-                        <newname>b6</newname>
+                        <newname>cg</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmParkDeviceDetail_SetLanSuccess</name>
-                        <newname>b5</newname>
+                        <newname>cf</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmReportBase_SaveSuccess</name>
-                        <newname>b4</newname>
+                        <newname>ce</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmRoleDetail_InvalidRoleID</name>
-                        <newname>b3</newname>
+                        <newname>cd</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSearchDevice_DeviceExists</name>
-                        <newname>b2</newname>
+                        <newname>cc</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSnapshotExport_NoFolder</name>
-                        <newname>b1</newname>
+                        <newname>cb</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSnapshotExport_Processing</name>
-                        <newname>b0</newname>
+                        <newname>ca</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSnapshotViewer_ToFolderQuery</name>
-                        <newname>bz</newname>
+                        <newname>b9</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_AccessSetting</name>
-                        <newname>by</newname>
+                        <newname>b8</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_BaseCardTypeSetting</name>
-                        <newname>bx</newname>
+                        <newname>b7</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_Card</name>
-                        <newname>bw</newname>
+                        <newname>b6</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_CarTypeSetting</name>
-                        <newname>bv</newname>
+                        <newname>b5</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_CloseAlarm1</name>
-                        <newname>bu</newname>
+                        <newname>b4</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_CloseAlarm2</name>
-                        <newname>bt</newname>
+                        <newname>b3</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_Cover</name>
-                        <newname>bs</newname>
+                        <newname>b2</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_CustomCardTypeSetting</name>
-                        <newname>br</newname>
+                        <newname>b1</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_DataFinish</name>
-                        <newname>bq</newname>
+                        <newname>b0</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_Entrance</name>
-                        <newname>bp</newname>
+                        <newname>bz</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_HolidaySetting</name>
-                        <newname>bo</newname>
+                        <newname>by</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_KeySetting</name>
-                        <newname>bn</newname>
+                        <newname>bx</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_Operator</name>
-                        <newname>bm</newname>
+                        <newname>bw</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_OptionsFinish</name>
-                        <newname>bl</newname>
+                        <newname>bv</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_Park</name>
-                        <newname>bk</newname>
+                        <newname>bu</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_Role</name>
-                        <newname>bj</newname>
+                        <newname>bt</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_Synchronizing</name>
-                        <newname>bi</newname>
+                        <newname>bs</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_SynchronizingOptions</name>
-                        <newname>bh</newname>
+                        <newname>br</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_TariffSetting</name>
-                        <newname>bg</newname>
+                        <newname>bq</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_Time</name>
-                        <newname>bf</newname>
+                        <newname>bp</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_UserSetting</name>
-                        <newname>be</newname>
+                        <newname>bo</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_Video</name>
-                        <newname>bd</newname>
+                        <newname>bn</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSyncDataToStandby_WorkStation</name>
-                        <newname>bc</newname>
+                        <newname>bm</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_ChangeKeySuccess</name>
-                        <newname>bb</newname>
+                        <newname>bl</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_CustomCardOnly</name>
-                        <newname>ba</newname>
+                        <newname>bk</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_DeafultCarType</name>
-                        <newname>a9</newname>
+                        <newname>bj</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_DeleteMonthCardTariffQuery</name>
-                        <newname>a8</newname>
+                        <newname>bi</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_InputConfirmNewKey</name>
-                        <newname>a7</newname>
+                        <newname>bh</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_InputNewKey</name>
-                        <newname>a6</newname>
+                        <newname>bg</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_InputOldKey</name>
-                        <newname>a5</newname>
+                        <newname>bf</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_InvalidCompanyName</name>
-                        <newname>a4</newname>
+                        <newname>be</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_InvalidFreeTimeAfterPay</name>
-                        <newname>a3</newname>
+                        <newname>bd</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_InvalidMaxCarplateErrorChar</name>
-                        <newname>a2</newname>
+                        <newname>bc</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_InvalidMonth</name>
-                        <newname>a1</newname>
+                        <newname>bb</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_InvalidOldKey</name>
-                        <newname>a0</newname>
+                        <newname>ba</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_MostCustomCard</name>
-                        <newname>az</newname>
+                        <newname>a9</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_MostHoliday</name>
-                        <newname>ay</newname>
+                        <newname>a8</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_NewKeyInconformity</name>
-                        <newname>ax</newname>
+                        <newname>a7</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_NoCarType</name>
-                        <newname>aw</newname>
+                        <newname>a6</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_NonCustomCardOnly</name>
-                        <newname>av</newname>
+                        <newname>a5</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_ParkingCommunicationIPChangedAlert</name>
-                        <newname>au</newname>
+                        <newname>a4</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_SameAccessName</name>
-                        <newname>at</newname>
+                        <newname>a3</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmSystemOption_SameTariff</name>
-                        <newname>as</newname>
+                        <newname>a2</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvaidFirstFee</name>
-                        <newname>ar</newname>
+                        <newname>a1</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidDayFee</name>
-                        <newname>aq</newname>
+                        <newname>a0</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidDayLimitFee</name>
-                        <newname>ap</newname>
+                        <newname>az</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidDayMinutes</name>
-                        <newname>ao</newname>
+                        <newname>ay</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidFirstMinutes</name>
-                        <newname>an</newname>
+                        <newname>ax</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidFreeMinutes</name>
-                        <newname>am</newname>
+                        <newname>aw</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidMidNightFee</name>
-                        <newname>al</newname>
+                        <newname>av</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidMoney</name>
-                        <newname>ak</newname>
+                        <newname>au</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidNightFee</name>
-                        <newname>aj</newname>
+                        <newname>at</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidNightLimitation</name>
-                        <newname>ai</newname>
+                        <newname>as</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidNightMinutes</name>
-                        <newname>ah</newname>
+                        <newname>ar</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidRegularFee</name>
-                        <newname>ag</newname>
+                        <newname>aq</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidRegularMinutes</name>
-                        <newname>af</newname>
+                        <newname>ap</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelection_InvalidTimezone</name>
-                        <newname>ae</newname>
+                        <newname>ao</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTariffSelectlion_InvalidDayFee</name>
-                        <newname>ad</newname>
+                        <newname>an</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmTempCardSetting_InvalidTempCard</name>
-                        <newname>ac</newname>
+                        <newname>am</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmVideosourceDetail_InvalidChannel</name>
-                        <newname>ab</newname>
+                        <newname>al</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmVideosourceDetail_InvalidConnectTimeout</name>
-                        <newname>aa</newname>
+                        <newname>ak</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmVideosourceDetail_InvalidControlPort</name>
-                        <newname>z</newname>
+                        <newname>aj</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmVideosourceDetail_InvalidIP</name>
-                        <newname>y</newname>
+                        <newname>ai</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmVideosourceDetail_InvalidName</name>
-                        <newname>x</newname>
+                        <newname>ah</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmVideosourceDetail_InvalidPwd</name>
-                        <newname>w</newname>
+                        <newname>ag</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmVideosourceDetail_InvalidStreamPort</name>
-                        <newname>v</newname>
+                        <newname>af</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmVideosourceDetail_InvalidUserName</name>
-                        <newname>u</newname>
+                        <newname>ae</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmWorkstationDetail_InvalidID</name>
-                        <newname>t</newname>
+                        <newname>ad</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmWorkstationDetail_SameName</name>
-                        <newname>s</newname>
+                        <newname>ac</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmYCTPayment_BalanceNotEnough</name>
-                        <newname>r</newname>
+                        <newname>ab</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmYCTPayment_Fail</name>
-                        <newname>q</newname>
+                        <newname>aa</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmYCTPayment_PleaseRead</name>
-                        <newname>p</newname>
+                        <newname>z</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_FrmYCTPayment_Success</name>
-                        <newname>o</newname>
+                        <newname>y</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_holiday</name>
+                        <newname>x</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_img15</name>
+                        <newname>w</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_LEDType_YanSe</name>
-                        <newname>n</newname>
+                        <newname>v</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_LEDType_YanSe1</name>
-                        <newname>m</newname>
+                        <newname>u</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_LEDType_Zhongkuang</name>
-                        <newname>l</newname>
+                        <newname>t</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_LEDType_Zhongkuang1</name>
-                        <newname>k</newname>
+                        <newname>s</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
                         <name>get_OperatorLogInAlarm</name>
-                        <newname>j</newname>
+                        <newname>r</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_refresh</name>
+                        <newname>q</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_reportDetail</name>
+                        <newname>p</newname>
                     </method>
                     <method>
                         <signature>System.Resources.ResourceManager()</signature>
                         <name>get_ResourceManager</name>
-                        <newname>hr</newname>
+                        <newname>ig</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_search</name>
+                        <newname>o</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_shift</name>
+                        <newname>n</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_shiftArrange</name>
+                        <newname>m</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_stats</name>
+                        <newname>l</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_table</name>
+                        <newname>k</newname>
+                    </method>
+                    <method>
+                        <signature>System.Drawing.Bitmap()</signature>
+                        <name>get_template</name>
+                        <newname>j</newname>
                     </method>
                     <method>
                         <signature>string()</signature>
@@ -19293,6 +18954,31 @@
                     <field>
                         <signature>System.Resources.ResourceManager</signature>
                         <name>resourceMan</name>
+                        <newname>a</newname>
+                    </field>
+                </fieldlist>
+            </type>
+            <type>
+                <name>LJH.Attendance.UI.Properties.Settings</name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.cctor</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>LJH.Attendance.UI.Properties.Settings()</signature>
+                        <name>get_Default</name>
+                        <newname>a</newname>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>LJH.Attendance.UI.Properties.Settings</signature>
+                        <name>defaultInstance</name>
                         <newname>a</newname>
                     </field>
                 </fieldlist>
@@ -19462,7 +19148,7 @@
             <name>LJH.GeneralLibrary.dll</name>
             <type>
                 <name>&lt;PrivateImplementationDetails&gt;{4D7F3D07-94CF-47CC-B69B-98F2DEDA1C39}</name>
-                <newname>e</newname>
+                <newname>c</newname>
                 <methodlist />
                 <fieldlist>
                     <field>
@@ -19594,37 +19280,37 @@
             </type>
             <type>
                 <name>&lt;PrivateImplementationDetails&gt;{4D7F3D07-94CF-47CC-B69B-98F2DEDA1C39}/__StaticArrayInitTypeSize=16</name>
-                <newname>e/a</newname>
+                <newname>c/a</newname>
                 <methodlist />
                 <fieldlist />
             </type>
             <type>
                 <name>&lt;PrivateImplementationDetails&gt;{4D7F3D07-94CF-47CC-B69B-98F2DEDA1C39}/__StaticArrayInitTypeSize=3</name>
-                <newname>e/f</newname>
+                <newname>c/f</newname>
                 <methodlist />
                 <fieldlist />
             </type>
             <type>
                 <name>&lt;PrivateImplementationDetails&gt;{4D7F3D07-94CF-47CC-B69B-98F2DEDA1C39}/__StaticArrayInitTypeSize=5</name>
-                <newname>e/b</newname>
+                <newname>c/b</newname>
                 <methodlist />
                 <fieldlist />
             </type>
             <type>
                 <name>&lt;PrivateImplementationDetails&gt;{4D7F3D07-94CF-47CC-B69B-98F2DEDA1C39}/__StaticArrayInitTypeSize=512</name>
-                <newname>e/c</newname>
+                <newname>c/c</newname>
                 <methodlist />
                 <fieldlist />
             </type>
             <type>
                 <name>&lt;PrivateImplementationDetails&gt;{4D7F3D07-94CF-47CC-B69B-98F2DEDA1C39}/__StaticArrayInitTypeSize=6</name>
-                <newname>e/e</newname>
+                <newname>c/e</newname>
                 <methodlist />
                 <fieldlist />
             </type>
             <type>
                 <name>&lt;PrivateImplementationDetails&gt;{4D7F3D07-94CF-47CC-B69B-98F2DEDA1C39}/__StaticArrayInitTypeSize=7</name>
-                <newname>e/d</newname>
+                <newname>c/d</newname>
                 <methodlist />
                 <fieldlist />
             </type>
@@ -19740,7 +19426,7 @@
             </type>
             <type>
                 <name>LJH.GeneralLibrary.CardReader.Card_Info</name>
-                <newname>g</newname>
+                <newname>e</newname>
                 <methodlist />
                 <fieldlist>
                     <field>
@@ -23846,7 +23532,7 @@
             </type>
             <type>
                 <name>LJH.GeneralLibrary.Resources.Resource1</name>
-                <newname>f</newname>
+                <newname>d</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -25333,7 +25019,7 @@
             </type>
             <type>
                 <name>LJH.GeneralLibrary.WinformControl.NativeConstants</name>
-                <newname>h</newname>
+                <newname>f</newname>
                 <methodlist>
                     <method>
                         <signature>void()</signature>
@@ -26364,65 +26050,65 @@
     <statistics>
         <statisticline>
             <description>Total Classes</description>
-            <statistic>421</statistic>
+            <statistic>419</statistic>
         </statisticline>
         <statisticline>
             <description>Total Methods</description>
-            <statistic>3250</statistic>
+            <statistic>3204</statistic>
         </statisticline>
         <statisticline>
             <description>Total Fields</description>
-            <statistic>1896</statistic>
+            <statistic>1875</statistic>
         </statisticline>
         <statisticline>
             <description>Total Classes Renamed</description>
-            <statistic>114</statistic>
-            <statistic>27.08%</statistic>
+            <statistic>110</statistic>
+            <statistic>26.25%</statistic>
         </statisticline>
         <statisticline>
             <description>Total Methods Renamed</description>
-            <statistic>1199</statistic>
-            <statistic>36.89%</statistic>
+            <statistic>1196</statistic>
+            <statistic>37.33%</statistic>
         </statisticline>
         <statisticline>
             <description>Total Fields Renamed</description>
-            <statistic>1651</statistic>
-            <statistic>87.08%</statistic>
+            <statistic>1626</statistic>
+            <statistic>86.72%</statistic>
         </statisticline>
         <statisticline>
             <description>Methods Renamed to 'a'</description>
-            <statistic>265</statistic>
-            <statistic>8.15%</statistic>
+            <statistic>263</statistic>
+            <statistic>8.21%</statistic>
         </statisticline>
         <statisticline>
             <description>Methods Renamed to 'b'</description>
-            <statistic>129</statistic>
-            <statistic>3.97%</statistic>
+            <statistic>128</statistic>
+            <statistic>4.00%</statistic>
         </statisticline>
         <statisticline>
             <description>Methods Renamed to 'c'</description>
-            <statistic>75</statistic>
+            <statistic>74</statistic>
             <statistic>2.31%</statistic>
         </statisticline>
         <statisticline>
             <description>Methods Renamed to 'd'</description>
-            <statistic>36</statistic>
-            <statistic>1.11%</statistic>
+            <statistic>35</statistic>
+            <statistic>1.09%</statistic>
         </statisticline>
         <statisticline>
             <description>Methods Renamed to 'e'</description>
-            <statistic>20</statistic>
-            <statistic>0.62%</statistic>
+            <statistic>19</statistic>
+            <statistic>0.59%</statistic>
         </statisticline>
         <statisticline>
             <description>Methods Renamed to 'f'</description>
-            <statistic>15</statistic>
-            <statistic>0.46%</statistic>
+            <statistic>14</statistic>
+            <statistic>0.44%</statistic>
         </statisticline>
         <statisticline>
             <description>Methods Renamed to 'g'</description>
-            <statistic>12</statistic>
-            <statistic>0.37%</statistic>
+            <statistic>11</statistic>
+            <statistic>0.34%</statistic>
         </statisticline>
     </statistics>
 </dotfuscatorMap>

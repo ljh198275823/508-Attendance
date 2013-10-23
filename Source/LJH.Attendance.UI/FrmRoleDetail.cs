@@ -26,7 +26,7 @@ namespace LJH.Attendance.UI
         {
             if (string.IsNullOrEmpty(this.txtName.Text.Trim()))
             {
-                MessageBox.Show(Resource1.FrmRoleDetail_InvalidRoleID);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmRoleDetail_InvalidRoleID);
                 return false;
             }
             return true;
@@ -37,7 +37,7 @@ namespace LJH.Attendance.UI
             this.funcTree.Init();
             if (IsAdding)
             {
-                this.Text = Resource1.Form_Add;
+                this.Text =LJH.Attendance.UI.Properties.Resources.Form_Add;
             }
             Role role = Operator.CurrentOperator.Role;
             this.btnOk.Enabled = role.Permit(Permission.EditRole);

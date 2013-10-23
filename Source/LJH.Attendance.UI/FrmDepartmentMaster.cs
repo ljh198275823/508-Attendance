@@ -80,7 +80,7 @@ namespace LJH.Attendance.UI
         {
             if (departmentTreeview1.SelectedNode != null && departmentTreeview1.SelectedNode.Tag != null)
             {
-                DialogResult ret = MessageBox.Show(Resource1.FrmMasterBase_DeleteQuery, Resource1.Form_Query, MessageBoxButtons.YesNo);
+                DialogResult ret = MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMasterBase_DeleteQuery,LJH.Attendance.UI.Properties.Resources.Form_Query, MessageBoxButtons.YesNo);
                 if (ret == DialogResult.Yes)
                 {
                     Department dept = departmentTreeview1.SelectedNode.Tag as Department;

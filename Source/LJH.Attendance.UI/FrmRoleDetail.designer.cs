@@ -50,7 +50,6 @@
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
-            this.label2.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label2.Name = "label2";
             // 
             // groupBox1
@@ -63,9 +62,7 @@
             // funcTree
             // 
             resources.ApplyResources(this.funcTree, "funcTree");
-            this.funcTree.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.funcTree.Name = "funcTree";
-            this.funcTree.SelectedImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             // 
             // txtName
             // 
@@ -75,7 +72,6 @@
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
-            this.label1.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label1.Name = "label1";
             // 
             // txtDescription

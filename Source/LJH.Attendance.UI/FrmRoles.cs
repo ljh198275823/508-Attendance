@@ -33,7 +33,7 @@ namespace LJH.Attendance.UI
             CommandResult result = bll.Delete(info);
             if (result.Result != ResultCode.Successful)
             {
-                MessageBox.Show(result.Message, Resource1.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(result.Message,LJH.Attendance.UI.Properties.Resources.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return result.Result == ResultCode.Successful;
         }

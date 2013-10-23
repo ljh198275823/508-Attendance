@@ -55,11 +55,11 @@ namespace LJH.Attendance.UI
                 DataGridView view = this.GridView;
                 if (view != null)
                 {
-                    saveFileDialog1.Filter = Resource1.Form_ExcelFilter;
+                    saveFileDialog1.Filter =LJH.Attendance.UI.Properties.Resources.Form_ExcelFilter;
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         string path = saveFileDialog1.FileName;
-                        if (LJH.GeneralLibrary.WinformControl.DataGridViewExporter.Export(view, path)) MessageBox.Show(Resource1.FrmReportBase_SaveSuccess);
+                        if (LJH.GeneralLibrary.WinformControl.DataGridViewExporter.Export(view, path)) MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmReportBase_SaveSuccess);
                     }
                 }
             }
@@ -72,7 +72,7 @@ namespace LJH.Attendance.UI
         private void btnSearch_Click(object sender, EventArgs e)
         {
             OnItemSearching(EventArgs.Empty);
-            this.searchInfo.Text = string.Format(Resource1.FrmMasterBase_StatusBar, this.GridView.Rows.Count);
+            this.searchInfo.Text = string.Format(LJH.Attendance.UI.Properties.Resources.FrmMasterBase_StatusBar, this.GridView.Rows.Count);
         }
 
         private void FrmReportBase_Load(object sender, EventArgs e)

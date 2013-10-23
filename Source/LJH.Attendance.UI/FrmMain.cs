@@ -35,23 +35,23 @@ namespace LJH.Attendance.UI
                 info = reader.ReadDog();
                 if (info == null)
                 {
-                    MessageBox.Show(Resource1.FrmMain_SoftDogError, Resource1.Form_Alert);
+                    MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogError,LJH.Attendance.UI.Properties.Resources.Form_Alert);
                     ret = false;
                 }
                 else if ((info.SoftwareList & SoftwareType.TYPE_TA) == 0)  //没有写考勤软件权限
                 {
-                    MessageBox.Show(Resource1.FrmMain_SoftDogNoRights, Resource1.Form_Alert);
+                    MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogNoRights,LJH.Attendance.UI.Properties.Resources.Form_Alert);
                     ret = false;
                 }
                 else if (info.ExpiredDate < DateTime.Today && info.ExpiredDate.AddDays(15) >= DateTime.Today) //已经过期
                 {
                     DateTime expire = info.ExpiredDate.AddDays(15);
                     TimeSpan ts = new TimeSpan(expire.Ticks - DateTime.Today.Ticks);
-                    MessageBox.Show(string.Format(Resource1.FrmMain_SoftDogExpiredAlert, (int)(ts.TotalDays + 1)), Resource1.Form_Alert);
+                    MessageBox.Show(string.Format(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogExpiredAlert, (int)(ts.TotalDays + 1)),LJH.Attendance.UI.Properties.Resources.Form_Alert);
                 }
                 else if (info.ExpiredDate.AddDays(15) < DateTime.Today)
                 {
-                    MessageBox.Show(Resource1.FrmMain_SoftDogExpired, Resource1.Form_Alert);
+                    MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogExpired,LJH.Attendance.UI.Properties.Resources.Form_Alert);
                     ret = false;
                 }
             }
@@ -173,7 +173,7 @@ namespace LJH.Attendance.UI
             HolidaySetting.Current.Holidays = holidays;
             AttendanceRules.Current = (new ParameterBLL(AppSettings.CurrentSetting.ConnectString)).GetOrDefaultParameter<AttendanceRules>();
 
-            if (Operator.CurrentOperator != null) this.lblOperator.Text = string.Format(Resource1.FrmMain_lblOperator, Operator.CurrentOperator.Name);
+            if (Operator.CurrentOperator != null) this.lblOperator.Text = string.Format(LJH.Attendance.UI.Properties.Resources.FrmMain_lblOperator, Operator.CurrentOperator.Name);
         }
 
         private void mnu_Exit_Click(object sender, EventArgs e)

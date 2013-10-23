@@ -54,7 +54,7 @@ namespace LJH.Attendance.UI
             CommandResult ret = bll.Delete(info);
             if (ret.Result != ResultCode.Successful)
             {
-                MessageBox.Show(ret.Message, Resource1.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ret.Message,LJH.Attendance.UI.Properties.Resources.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return ret.Result == ResultCode.Successful;
         }

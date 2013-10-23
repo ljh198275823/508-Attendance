@@ -72,7 +72,6 @@
     <Compile Include="ShiftArrangeID.cs" />
     <Compile Include="ShiftItem.cs" />
     <Compile Include="ShiftTemplate.cs" />
-    <Compile Include="ShiftTimezone.cs" />
     <Compile Include="AttendanceResult.cs" />
     <Compile Include="PermissionDescription.cs" />
     <Compile Include="Resource\Resource1.Designer.cs">

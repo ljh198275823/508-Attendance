@@ -29,7 +29,7 @@ namespace LJH.Attendance.UI
             departmentTreeview1.Init();
             if (IsAdding)
             {
-                this.Text = Resource1.Form_Add;
+                this.Text =LJH.Attendance.UI.Properties.Resources.Form_Add;
                 this.btnChangePwd.Visible = false;
                 this.txtPassword.Size = this.txtOperatorName.Size;
             }
@@ -104,19 +104,19 @@ namespace LJH.Attendance.UI
         {
             if (txtOperatorID.Text.Trim().Length == 0)
             {
-                MessageBox.Show(Resource1.FrmOperatorDetail_InvalidUserID);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmOperatorDetail_InvalidUserID);
                 return false;
             }
 
             if (txtOperatorName.Text.Trim().Length == 0)
             {
-                MessageBox.Show(Resource1.FrmOperatorDetail_InvalidUserName);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmOperatorDetail_InvalidUserName);
                 return false;
             }
 
             if (txtPassword.Text.Trim().Length == 0)
             {
-                MessageBox.Show(Resource1.FrmOperatorDetail_InvalidPwd);
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmOperatorDetail_InvalidPwd);
                 return false;
             }
             return true;

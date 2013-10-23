@@ -64,7 +64,6 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(24, 48);
             this.label3.Name = "label3";
@@ -84,7 +83,6 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(24, 20);
             this.label1.Name = "label1";
@@ -104,7 +102,6 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(24, 169);
             this.label2.Name = "label2";
@@ -124,7 +121,6 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label4.Location = new System.Drawing.Point(24, 114);
             this.label4.Name = "label4";
@@ -135,7 +131,6 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label5.Location = new System.Drawing.Point(24, 80);
             this.label5.Name = "label5";
@@ -154,7 +149,6 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.ImageKey = global::LJH.Attendance.UI.Resource1.FrmTariffSelection_InvalidTimezone;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label6.Location = new System.Drawing.Point(24, 143);
             this.label6.Name = "label6";

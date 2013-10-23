@@ -44,7 +44,22 @@
     <excludelist>
       <namespace name="LJH.Attendance.BLL.Properties" />
       <namespace name="LJH.Attendance.DAL.Properties" />
-      <type name="LJH.Attendance.DAL.LinqDataProvider.AttendanceDataContextFactory" />
+      <type name="LJH.Attendance.DAL.LinqDataProvider.StringID" />
+      <type name="LJH.Attendance.DAL.LinqDataProvider.T_OperatorDept" />
+      <type name="LJH.Attendance.DAL.LinqDataProvider.T_ShiftArrangeTemplate" />
+      <type name="LJH.Attendance.DAL.LinqDataProvider.IntegerID" />
+      <type name="LJH.Attendance.Model.TASheetItem" excludetype="false">
+        <field name="_EndTime" signature="string" />
+      </type>
+      <type name="LJH.Attendance.Model.TASheetItem" excludetype="false">
+        <field name="_StartTime" signature="string" />
+      </type>
+      <type name="LJH.Attendance.Model.ShiftItem" excludetype="false">
+        <field name="_EndTime" signature="string" />
+      </type>
+      <type name="LJH.Attendance.Model.ShiftItem" excludetype="false">
+        <field name="_StartTime" signature="string" />
+      </type>
     </excludelist>
     <mapping>
       <mapoutput overwrite="false">

@@ -109,6 +109,105 @@ namespace LJH.Attendance.UI.Properties {
             }
         }
         
+        /// <summary>
+        ///   查找类似 白底黑字 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_BlackOnWhite {
+            get {
+                return ResourceManager.GetString("CarPlate_BlackOnWhite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 黄底黑字 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_BlackOnYellow {
+            get {
+                return ResourceManager.GetString("CarPlate_BlackOnYellow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 车牌识别初始化失败 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_Fail {
+            get {
+                return ResourceManager.GetString("CarPlate_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 黑底红字 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_RedOnBlack {
+            get {
+                return ResourceManager.GetString("CarPlate_RedOnBlack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 白底红字 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_RedOnWhite {
+            get {
+                return ResourceManager.GetString("CarPlate_RedOnWhite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数修改成功 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_SavePara {
+            get {
+                return ResourceManager.GetString("CarPlate_SavePara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未知 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_UnknowColor {
+            get {
+                return ResourceManager.GetString("CarPlate_UnknowColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 黑底白字 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_WhiteOnBlack {
+            get {
+                return ResourceManager.GetString("CarPlate_WhiteOnBlack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 蓝底白字 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_WhiteOnBlue {
+            get {
+                return ResourceManager.GetString("CarPlate_WhiteOnBlue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 绿底白字 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_WhiteOnGreen {
+            get {
+                return ResourceManager.GetString("CarPlate_WhiteOnGreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 红底白字 的本地化字符串。
+        /// </summary>
+        internal static string CarPlate_WhiteOnRed {
+            get {
+                return ResourceManager.GetString("CarPlate_WhiteOnRed", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap clear {
             get {
                 object obj = ResourceManager.GetObject("clear", resourceCulture);
@@ -120,6 +219,15 @@ namespace LJH.Attendance.UI.Properties {
             get {
                 object obj = ResourceManager.GetObject("columns", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 广州瑞立德停车场系统 的本地化字符串。
+        /// </summary>
+        internal static string CompanyName {
+            get {
+                return ResourceManager.GetString("CompanyName", resourceCulture);
             }
         }
         
@@ -151,6 +259,15 @@ namespace LJH.Attendance.UI.Properties {
             }
         }
         
+        /// <summary>
+        ///   查找类似 启用脱机模式 的本地化字符串。
+        /// </summary>
+        internal static string EnableWriteCard {
+            get {
+                return ResourceManager.GetString("EnableWriteCard", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap export {
             get {
                 object obj = ResourceManager.GetObject("export", resourceCulture);
@@ -165,6 +282,2409 @@ namespace LJH.Attendance.UI.Properties {
             }
         }
         
+        /// <summary>
+        ///   查找类似 增加 的本地化字符串。
+        /// </summary>
+        internal static string Form_Add {
+            get {
+                return ResourceManager.GetString("Form_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 注意 的本地化字符串。
+        /// </summary>
+        internal static string Form_Alert {
+            get {
+                return ResourceManager.GetString("Form_Alert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 取消 的本地化字符串。
+        /// </summary>
+        internal static string Form_Cancel {
+            get {
+                return ResourceManager.GetString("Form_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Excel文档|*.xls|所有文件(*.*)|*.* 的本地化字符串。
+        /// </summary>
+        internal static string Form_ExcelFilter {
+            get {
+                return ResourceManager.GetString("Form_ExcelFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 确定要关闭此窗口吗？ 的本地化字符串。
+        /// </summary>
+        internal static string Form_ExitQuery {
+            get {
+                return ResourceManager.GetString("Form_ExitQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 确定要“退出系统”吗？点击 &quot;确定&quot; 将关闭停车场系统，点击 &quot;取消&quot; 返回。 的本地化字符串。
+        /// </summary>
+        internal static string Form_ExitSystemQuery {
+            get {
+                return ResourceManager.GetString("Form_ExitSystemQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 失败 的本地化字符串。
+        /// </summary>
+        internal static string Form_Fail {
+            get {
+                return ResourceManager.GetString("Form_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 询问 的本地化字符串。
+        /// </summary>
+        internal static string Form_Query {
+            get {
+                return ResourceManager.GetString("Form_Query", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 保存到电子表格时出现错误！ 的本地化字符串。
+        /// </summary>
+        internal static string Form_SaveExcelFail {
+            get {
+                return ResourceManager.GetString("Form_SaveExcelFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 停止 的本地化字符串。
+        /// </summary>
+        internal static string Form_Stop {
+            get {
+                return ResourceManager.GetString("Form_Stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 成功 的本地化字符串。
+        /// </summary>
+        internal static string Form_Success {
+            get {
+                return ResourceManager.GetString("Form_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 通道 {0} 设置的权限组已达最大值8个！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmAccessGroup_AccessMax {
+            get {
+                return ResourceManager.GetString("FrmAccessGroup_AccessMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 通道 {0} 设置的时间段已达最大值4个！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmAccessGroup_IntervalMax {
+            get {
+                return ResourceManager.GetString("FrmAccessGroup_IntervalMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 通道权限名称不能为空 的本地化字符串。
+        /// </summary>
+        internal static string FrmAccessLevelDetail_InvalidAccessName {
+            get {
+                return ResourceManager.GetString("FrmAccessLevelDetail_InvalidAccessName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片数量:{0} 的本地化字符串。
+        /// </summary>
+        internal static string FrmAddCards_CardCount {
+            get {
+                return ResourceManager.GetString("FrmAddCards_CardCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 已经在系统中存在 的本地化字符串。
+        /// </summary>
+        internal static string FrmAddCards_CardExists {
+            get {
+                return ResourceManager.GetString("FrmAddCards_CardExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 继续操作 的本地化字符串。
+        /// </summary>
+        internal static string FrmAddCards_Continue {
+            get {
+                return ResourceManager.GetString("FrmAddCards_Continue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请选择一种卡片类型 的本地化字符串。
+        /// </summary>
+        internal static string FrmAddCards_InvalidCardType {
+            get {
+                return ResourceManager.GetString("FrmAddCards_InvalidCardType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 默认名称不能为空 的本地化字符串。
+        /// </summary>
+        internal static string FrmAddCards_InvalidOwnerName {
+            get {
+                return ResourceManager.GetString("FrmAddCards_InvalidOwnerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下一步 的本地化字符串。
+        /// </summary>
+        internal static string FrmAddCards_Next {
+            get {
+                return ResourceManager.GetString("FrmAddCards_Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 完成{0}/共{1} 的本地化字符串。
+        /// </summary>
+        internal static string FrmAddCards_Processing {
+            get {
+                return ResourceManager.GetString("FrmAddCards_Processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 写入数据失败 的本地化字符串。
+        /// </summary>
+        internal static string FrmAddCards_WriteCardFail {
+            get {
+                return ResourceManager.GetString("FrmAddCards_WriteCardFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 正在写入数据，请稍候... 的本地化字符串。
+        /// </summary>
+        internal static string FrmAddCards_WritingCard {
+            get {
+                return ResourceManager.GetString("FrmAddCards_WritingCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 自助缴费机编号不能为空 的本地化字符串。
+        /// </summary>
+        internal static string FrmAPMDetail_InvalidSerialNum {
+            get {
+                return ResourceManager.GetString("FrmAPMDetail_InvalidSerialNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请设置卡片类型 的本地化字符串。
+        /// </summary>
+        internal static string FrmAreaDetail_EmptyCardType {
+            get {
+                return ResourceManager.GetString("FrmAreaDetail_EmptyCardType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请设置车位数 的本地化字符串。
+        /// </summary>
+        internal static string FrmAreaDetail_EmptyCarport {
+            get {
+                return ResourceManager.GetString("FrmAreaDetail_EmptyCarport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请设置满位颜色 的本地化字符串。
+        /// </summary>
+        internal static string FrmAreaDetail_EmptyFullColor {
+            get {
+                return ResourceManager.GetString("FrmAreaDetail_EmptyFullColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请选择余位颜色 的本地化字符串。
+        /// </summary>
+        internal static string FrmAreaDetail_EmptyVacantColor {
+            get {
+                return ResourceManager.GetString("FrmAreaDetail_EmptyVacantColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 车位数不能小于余位数 的本地化字符串。
+        /// </summary>
+        internal static string FrmAreaDetail_InvalidCarport {
+            get {
+                return ResourceManager.GetString("FrmAreaDetail_InvalidCarport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 还有写入修改后信息的卡片未保存，是否关闭？ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_CloseQuery {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_CloseQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 已写入修改后信息！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_HadWrite {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_HadWrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未能获取到卡片数据！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_NoReadData {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_NoReadData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 确定 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_OK {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 修改后信息写入卡片，请读卡！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_PleaseReadCard {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_PleaseReadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 读卡 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_ReadCard {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_ReadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 还有卡片未写入修改后的信息，是否确定保存卡片？ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_SaveQuery {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_SaveQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 不是需要修改的卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_UnneedWrite {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_UnneedWrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 写入修改后信息失败！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_WriteFail {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_WriteFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 写入修改后信息成功！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_WriteSuccess {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_WriteSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 正在写入修改后数据，请稍候... 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardBulkChange_WritingCard {
+            get {
+                return ResourceManager.GetString("FrmCardBulkChange_WritingCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片数据无效！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_CardDataErr {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_CardDataErr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片已锁定 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_CardDisabled {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_CardDisabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片已过期 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_CardExpired {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_CardExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片已挂失 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_CardLoss {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_CardLoss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片已注销 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_CardRecycled {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_CardRecycled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片未到生效期 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_CardUnActivate {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_CardUnActivate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 此操作会把卡片的缴费信息清除，是否继续？ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_DeletePayment {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_DeletePayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 已缴费，请在{0}分钟内离场！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_FreeRemain {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_FreeRemain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 读卡器没有找到缴费卡片，是否继续？ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_NotCard {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_NotCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 非收费卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCenterCharge_NotPaymentCard {
+            get {
+                return ResourceManager.GetString("FrmCardCenterCharge_NotPaymentCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入12位旧密钥! 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardChangeKey_InputOldKey {
+            get {
+                return ResourceManager.GetString("FrmCardChangeKey_InputOldKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 开始修改 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardChangeKey_Start {
+            get {
+                return ResourceManager.GetString("FrmCardChangeKey_Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 停止修改 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardChangeKey_Stop {
+            get {
+                return ResourceManager.GetString("FrmCardChangeKey_Stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 充值金额不正确,充值后卡片余额不能小于零！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCharge_InvalidAmounts {
+            get {
+                return ResourceManager.GetString("FrmCardCharge_InvalidAmounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请读取需要充值的卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardCharge_ReadCard {
+            get {
+                return ResourceManager.GetString("FrmCardCharge_ReadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 开始转换 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardDataConvert_StartConvert {
+            get {
+                return ResourceManager.GetString("FrmCardDataConvert_StartConvert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 停止转换 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardDataConvert_StopConvert {
+            get {
+                return ResourceManager.GetString("FrmCardDataConvert_StopConvert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请读取需要延期的卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardDefer_ReadCard {
+            get {
+                return ResourceManager.GetString("FrmCardDefer_ReadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请读取卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardDetail_ReadCard {
+            get {
+                return ResourceManager.GetString("FrmCardDetail_ReadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片禁用 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardDisableEnable_Disable {
+            get {
+                return ResourceManager.GetString("FrmCardDisableEnable_Disable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片启用 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardDisableEnable_Enable {
+            get {
+                return ResourceManager.GetString("FrmCardDisableEnable_Enable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请读取需要操作的卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardDisableEnable_ReadCard {
+            get {
+                return ResourceManager.GetString("FrmCardDisableEnable_ReadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 入场 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardEventReport_In {
+            get {
+                return ResourceManager.GetString("FrmCardEventReport_In", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 出场 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardEventReport_Out {
+            get {
+                return ResourceManager.GetString("FrmCardEventReport_Out", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片挂失 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardLostRestore_Lost {
+            get {
+                return ResourceManager.GetString("FrmCardLostRestore_Lost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请读取需要操作的卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardLostRestore_ReadCard {
+            get {
+                return ResourceManager.GetString("FrmCardLostRestore_ReadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片恢复 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardLostRestore_Restore {
+            get {
+                return ResourceManager.GetString("FrmCardLostRestore_Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 取消的收费信息:卡号{0} 收费时间{1} 入场时间{2} 收费金额{3} 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_CancelPaymentAlarm {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_CancelPaymentAlarm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 此操作会把卡片上次收费记录删除,是否继续? 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_CancelPaymentQuey {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_CancelPaymentQuey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {0}有车等待入场 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_CardWaitEnterSpeech {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_CardWaitEnterSpeech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {0}车牌对比失败 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_CardWaitExitSpeech {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_CardWaitExitSpeech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 中央收费处 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_CentralCharge {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_CentralCharge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 实收金额不大于零，是否继续? 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_MoneyLittleQuery {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_MoneyLittleQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 实收金额大于应收金额，是否继续？ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_MoneyMuchQuery {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_MoneyMuchQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 非临时卡片 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_NotTempCard {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_NotTempCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 正在收费请稍候 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_Paying {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_Paying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 应收{0}元 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaying_PayingSpeech {
+            get {
+                return ResourceManager.GetString("FrmCardPaying_PayingSpeech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 修改收费信息:&quot;卡号{{{0}}} 收费时间{{{1}}} 入场时间{{{2}}} 应收金额{{{3}}} 实收金额{{{4}}} 说明{{{5}}}&quot; 为 实收金额{{{6}}} 说明{{{7}}} 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardPaymentRecordDetail_ModifyPayment {
+            get {
+                return ResourceManager.GetString("FrmCardPaymentRecordDetail_ModifyPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请读取需要回收的卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardRecycle_ReadCard {
+            get {
+                return ResourceManager.GetString("FrmCardRecycle_ReadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请读取需要发行的卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmCardRelease_ReadCard {
+            get {
+                return ResourceManager.GetString("FrmCardRelease_ReadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 不支持充值操作,卡片不是充值类卡,或者卡片还没有发行! 的本地化字符串。
+        /// </summary>
+        internal static string FrmCards_CannotCharge {
+            get {
+                return ResourceManager.GetString("FrmCards_CannotCharge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 的本地化字符串。
+        /// </summary>
+        internal static string FrmCards_Card {
+            get {
+                return ResourceManager.GetString("FrmCards_Card", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步 {0} 张卡片，共成功 {1} 张。 的本地化字符串。
+        /// </summary>
+        internal static string FrmCards_SyncCardToStandby {
+            get {
+                return ResourceManager.GetString("FrmCards_SyncCardToStandby", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 统计时间 的本地化字符串。
+        /// </summary>
+        internal static string FrmCarFlow_DateTime {
+            get {
+                return ResourceManager.GetString("FrmCarFlow_DateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 入场 的本地化字符串。
+        /// </summary>
+        internal static string FrmCarFlow_In {
+            get {
+                return ResourceManager.GetString("FrmCarFlow_In", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 出场 的本地化字符串。
+        /// </summary>
+        internal static string FrmCarFlow_Out {
+            get {
+                return ResourceManager.GetString("FrmCarFlow_Out", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 合计 的本地化字符串。
+        /// </summary>
+        internal static string FrmCarFlow_Total {
+            get {
+                return ResourceManager.GetString("FrmCarFlow_Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片的上一收费记录已经结算，不能再取消 的本地化字符串。
+        /// </summary>
+        internal static string FrmCenterCharge_RecordHandled {
+            get {
+                return ResourceManager.GetString("FrmCenterCharge_RecordHandled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 新密码与确认密码不一致! 的本地化字符串。
+        /// </summary>
+        internal static string FrmChangePwd_InvalidConfirmPwd {
+            get {
+                return ResourceManager.GetString("FrmChangePwd_InvalidConfirmPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 新密码不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmChangePwd_InvalidNewPwd {
+            get {
+                return ResourceManager.GetString("FrmChangePwd_InvalidNewPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 旧密码输入不正确! 的本地化字符串。
+        /// </summary>
+        internal static string FrmChangePwd_InvalidOldPwd {
+            get {
+                return ResourceManager.GetString("FrmChangePwd_InvalidOldPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 密码不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmClose_EmptyPwd {
+            get {
+                return ResourceManager.GetString("FrmClose_EmptyPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制器 {0} 正在下载通道权限 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAccessSetting_Download {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAccessSetting_Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下发通道权限 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAccessSetting_Text {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAccessSetting_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下载卡片{0} 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownloadAllCards_CardProcessing {
+            get {
+                return ResourceManager.GetString("FrmDownloadAllCards_CardProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 正在清空卡片信息... 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownloadAllCards_Clear {
+            get {
+                return ResourceManager.GetString("FrmDownloadAllCards_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下载完成! 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownloadAllCards_Complete {
+            get {
+                return ResourceManager.GetString("FrmDownloadAllCards_Complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 删除卡片{0} 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAllCards_Delete {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAllCards_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 删除卡片名单 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAllCards_DeleteCard {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAllCards_DeleteCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 删除全部卡片名单 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAllCards_DeleteCards {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAllCards_DeleteCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 删除卡片完成！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAllCards_DeleteFinish {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAllCards_DeleteFinish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下载卡片 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAllCards_DownloadCard {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAllCards_DownloadCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下载全部卡片 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAllCards_DownloadCards {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAllCards_DownloadCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制器 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAllCards_Entrance {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAllCards_Entrance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片下载可能要花几分钟,具体由系统中卡片数量决定,请耐心等待... 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownloadAllCards_Label2 {
+            get {
+                return ResourceManager.GetString("FrmDownloadAllCards_Label2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未能删除所有控制器的卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAllCards_NotDeleteAll {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAllCards_NotDeleteAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片未能下载到所有控制器！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadAllCards_NotDownloadAll {
+            get {
+                return ResourceManager.GetString("FrmDownLoadAllCards_NotDownloadAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用时 {0} 秒 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownloadAllCards_Seconds {
+            get {
+                return ResourceManager.GetString("FrmDownloadAllCards_Seconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下载完成！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadBase_Finish {
+            get {
+                return ResourceManager.GetString("FrmDownLoadBase_Finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未能下载到所有控制器！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadBase_NotDownloadAll {
+            get {
+                return ResourceManager.GetString("FrmDownLoadBase_NotDownloadAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 正在停止，请稍候…… 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadBase_StopDownload {
+            get {
+                return ResourceManager.GetString("FrmDownLoadBase_StopDownload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制器 {0} 正在下载节假日 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadHolidaySetting_Download {
+            get {
+                return ResourceManager.GetString("FrmDownLoadHolidaySetting_Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下发节假日设置 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadHolidaySetting_Text {
+            get {
+                return ResourceManager.GetString("FrmDownLoadHolidaySetting_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制器 {0} 正在下载密钥 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadKeySetting_Download {
+            get {
+                return ResourceManager.GetString("FrmDownLoadKeySetting_Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下发密钥 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadKeySetting_Text {
+            get {
+                return ResourceManager.GetString("FrmDownLoadKeySetting_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制器 {0} 正在下载费率 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadTariffSetting_Download {
+            get {
+                return ResourceManager.GetString("FrmDownLoadTariffSetting_Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下发费率设置 的本地化字符串。
+        /// </summary>
+        internal static string FrmDownLoadTariffSetting_Text {
+            get {
+                return ResourceManager.GetString("FrmDownLoadTariffSetting_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 通道名称不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmEntranceDetail_InvalidName {
+            get {
+                return ResourceManager.GetString("FrmEntranceDetail_InvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 节假日开始时间不能大于结束时间！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmHolidayDetail_InvalidHoliday {
+            get {
+                return ResourceManager.GetString("FrmHolidayDetail_InvalidHoliday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用户名或者密码输入不正确! 的本地化字符串。
+        /// </summary>
+        internal static string FrmLogin_AuthenFail {
+            get {
+                return ResourceManager.GetString("FrmLogin_AuthenFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 数据库不能为空 的本地化字符串。
+        /// </summary>
+        internal static string FrmLogin_InvalidDataBase {
+            get {
+                return ResourceManager.GetString("FrmLogin_InvalidDataBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 密码不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmLogin_InvalidPwd {
+            get {
+                return ResourceManager.GetString("FrmLogin_InvalidPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 数据库服务器不能为空 的本地化字符串。
+        /// </summary>
+        internal static string FrmLogin_InvalidServer {
+            get {
+                return ResourceManager.GetString("FrmLogin_InvalidServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用户名不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmLogin_InvalidUserName {
+            get {
+                return ResourceManager.GetString("FrmLogin_InvalidUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 主数据库与备用数据库不能为同一数据库！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmLogin_MasterStandbySame {
+            get {
+                return ResourceManager.GetString("FrmLogin_MasterStandbySame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入正确的备用数据库！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmLogin_StandbyInvalid {
+            get {
+                return ResourceManager.GetString("FrmLogin_StandbyInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 当前工作站已经更改，需要重新启动软件才能生效，软件现在关闭。 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_AlterStationIDQuery {
+            get {
+                return ResourceManager.GetString("FrmMain_AlterStationIDQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 初始化通讯失败 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_CommunicationFailure {
+            get {
+                return ResourceManager.GetString("FrmMain_CommunicationFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 初始化通讯失败，请确定通讯IP是否正确！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_ConfirmIP {
+            get {
+                return ResourceManager.GetString("FrmMain_ConfirmIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 是否要删除控制器及其下面所有节点? 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_DeleteEntranceQuery {
+            get {
+                return ResourceManager.GetString("FrmMain_DeleteEntranceQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 是否要删除停车场及其下面的所有节点? 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_DeleteParkQuery {
+            get {
+                return ResourceManager.GetString("FrmMain_DeleteParkQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 是否要删除摄像机? 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_DeleteVideoQuery {
+            get {
+                return ResourceManager.GetString("FrmMain_DeleteVideoQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下发车位信息失败 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_DownloadVacantFail {
+            get {
+                return ResourceManager.GetString("FrmMain_DownloadVacantFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 操作员:{0} 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_lblOperator {
+            get {
+                return ResourceManager.GetString("FrmMain_lblOperator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启动时间:{0} 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_lblStartFrom {
+            get {
+                return ResourceManager.GetString("FrmMain_lblStartFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 当前工作站:{0} 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_lblStation {
+            get {
+                return ResourceManager.GetString("FrmMain_lblStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Ralid Park User Manual.doc 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_ManualFile {
+            get {
+                return ResourceManager.GetString("FrmMain_ManualFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 主数据库连接 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_MasterConnected {
+            get {
+                return ResourceManager.GetString("FrmMain_MasterConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 主数据库断开 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_MasterDisconnect {
+            get {
+                return ResourceManager.GetString("FrmMain_MasterDisconnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 操作员 {0} 在本工作站接班后还未交班,请先进行交接班操作,其它收费操作员才可登录! 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_OperatorNotShift {
+            get {
+                return ResourceManager.GetString("FrmMain_OperatorNotShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 设置 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_Setting {
+            get {
+                return ResourceManager.GetString("FrmMain_Setting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 离交班还有{0}分钟 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_ShiftAlert {
+            get {
+                return ResourceManager.GetString("FrmMain_ShiftAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 交班时间到 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_ShitNow {
+            get {
+                return ResourceManager.GetString("FrmMain_ShitNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加密狗访问错误：没有找到加密狗。如果加密狗已经插上，则可能是加密狗还没有加密，请先联系厂家进行加密! 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_SoftDogError {
+            get {
+                return ResourceManager.GetString("FrmMain_SoftDogError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 软件已经过期，请联系厂家延长期限! 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_SoftDogExpired {
+            get {
+                return ResourceManager.GetString("FrmMain_SoftDogExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 软件已经过期，还可以再试用 {0} 天，请尽快与供应商联系延长您的软件使用期! 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_SoftDogExpiredAlert {
+            get {
+                return ResourceManager.GetString("FrmMain_SoftDogExpiredAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加密狗权限不足：原因可能是加密狗中没有开放停车场权限,请联系厂家开放相应的权限! 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_SoftDogNoRights {
+            get {
+                return ResourceManager.GetString("FrmMain_SoftDogNoRights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 备用数据库连接 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_StandbyConnected {
+            get {
+                return ResourceManager.GetString("FrmMain_StandbyConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 备用数据库断开 的本地化字符串。
+        /// </summary>
+        internal static string FrmMain_StandbyDisconnect {
+            get {
+                return ResourceManager.GetString("FrmMain_StandbyDisconnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 增加管理类卡片 的本地化字符串。
+        /// </summary>
+        internal static string FrmManageCardDetail_AddCard {
+            get {
+                return ResourceManager.GetString("FrmManageCardDetail_AddCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡号不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmManageCardDetail_InvalidCardID {
+            get {
+                return ResourceManager.GetString("FrmManageCardDetail_InvalidCardID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请选择一种卡片类型! 的本地化字符串。
+        /// </summary>
+        internal static string FrmManageCardDetail_InvalidCardType {
+            get {
+                return ResourceManager.GetString("FrmManageCardDetail_InvalidCardType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请选择持卡人! 的本地化字符串。
+        /// </summary>
+        internal static string FrmManageCardDetail_InvalidOwner {
+            get {
+                return ResourceManager.GetString("FrmManageCardDetail_InvalidOwner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 不是管理类卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmManageCardDetail_NotManagement {
+            get {
+                return ResourceManager.GetString("FrmManageCardDetail_NotManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 确实要删除所选项吗? 的本地化字符串。
+        /// </summary>
+        internal static string FrmMasterBase_DeleteQuery {
+            get {
+                return ResourceManager.GetString("FrmMasterBase_DeleteQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 总共 {0} 项 的本地化字符串。
+        /// </summary>
+        internal static string FrmMasterBase_StatusBar {
+            get {
+                return ResourceManager.GetString("FrmMasterBase_StatusBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制器名不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmNetEntrance_EmptyName {
+            get {
+                return ResourceManager.GetString("FrmNetEntrance_EmptyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制端口号不正确，请重新输入! 的本地化字符串。
+        /// </summary>
+        internal static string FrmNetEntrance_InvalidControlPort {
+            get {
+                return ResourceManager.GetString("FrmNetEntrance_InvalidControlPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 事件端口号不正确，请重新输入! 的本地化字符串。
+        /// </summary>
+        internal static string FrmNetEntrance_InvalidEventPort {
+            get {
+                return ResourceManager.GetString("FrmNetEntrance_InvalidEventPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 IP地址不正确，请重新输入! 的本地化字符串。
+        /// </summary>
+        internal static string FrmNetEntrance_InvalidIP {
+            get {
+                return ResourceManager.GetString("FrmNetEntrance_InvalidIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 读卡间隔时间不正确，请重新输入! 的本地化字符串。
+        /// </summary>
+        internal static string FrmNetEntrance_InvalidReadInterval {
+            get {
+                return ResourceManager.GetString("FrmNetEntrance_InvalidReadInterval", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 停车场已经存在一个主控制器，不能再增加一个主控制器，如果要把这个控制器设置成主控制器，应先将停车场其它的主控制器改成非主控制器 的本地化字符串。
+        /// </summary>
+        internal static string FrmNetEntrance_MastExists {
+            get {
+                return ResourceManager.GetString("FrmNetEntrance_MastExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 无效卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorCardCashComfirm_InvalidCard {
+            get {
+                return ResourceManager.GetString("FrmOperatorCardCashComfirm_InvalidCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 不是结算操作员的操作员卡！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorCardCashComfirm_NotCurrentOperatorCard {
+            get {
+                return ResourceManager.GetString("FrmOperatorCardCashComfirm_NotCurrentOperatorCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 不是操作员卡！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorCardCashComfirm_NotOperatorCard {
+            get {
+                return ResourceManager.GetString("FrmOperatorCardCashComfirm_NotOperatorCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 操作员编号不能大于255或者小于1! 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorDetail_InvalidOperatorNum {
+            get {
+                return ResourceManager.GetString("FrmOperatorDetail_InvalidOperatorNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 操作员密码不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorDetail_InvalidPwd {
+            get {
+                return ResourceManager.GetString("FrmOperatorDetail_InvalidPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 操作员登录ID不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorDetail_InvalidUserID {
+            get {
+                return ResourceManager.GetString("FrmOperatorDetail_InvalidUserID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 操作员姓名不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorDetail_InvalidUserName {
+            get {
+                return ResourceManager.GetString("FrmOperatorDetail_InvalidUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 导出失败 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorLogReport_Fail {
+            get {
+                return ResourceManager.GetString("FrmOperatorLogReport_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未找到报表导出模板 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorLogReport_NotFind {
+            get {
+                return ResourceManager.GetString("FrmOperatorLogReport_NotFind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 确定(&amp;O) 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorSettle_OK {
+            get {
+                return ResourceManager.GetString("FrmOperatorSettle_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 操作员:                                      审核: 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorSettle_Tail {
+            get {
+                return ResourceManager.GetString("FrmOperatorSettle_Tail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 上交的现金数量不正确，请重新输入！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorShift_InvalidCash {
+            get {
+                return ResourceManager.GetString("FrmOperatorShift_InvalidCash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 上交的临时卡数量不正确,请重新输入! 的本地化字符串。
+        /// </summary>
+        internal static string FrmOperatorShift_InvalidTempCard {
+            get {
+                return ResourceManager.GetString("FrmOperatorShift_InvalidTempCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 满位字符最多只能输入31个汉字或63个字母数字！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDetail_InvalidFullText {
+            get {
+                return ResourceManager.GetString("FrmParkDetail_InvalidFullText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 最低车位数不能大于最高车位数! 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDetail_InvalidMinPort {
+            get {
+                return ResourceManager.GetString("FrmParkDetail_InvalidMinPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 停车场名不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDetail_InvalidName {
+            get {
+                return ResourceManager.GetString("FrmParkDetail_InvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 总车位数不能小于0或者大于32767! 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDetail_InvalidTotalPort {
+            get {
+                return ResourceManager.GetString("FrmParkDetail_InvalidTotalPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 余位数必须在总车位数与车位下限之间! 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDetail_InvalidVacant {
+            get {
+                return ResourceManager.GetString("FrmParkDetail_InvalidVacant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 车位余字符最多只能输入31个汉字或63个字母数字！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDetail_InvalidVacantText {
+            get {
+                return ResourceManager.GetString("FrmParkDetail_InvalidVacantText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 没有为停车场指定控制器类型 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDetail_NoDeviceType {
+            get {
+                return ResourceManager.GetString("FrmParkDetail_NoDeviceType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 没有指定停车场的工作模式 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDetail_NoWorkMode {
+            get {
+                return ResourceManager.GetString("FrmParkDetail_NoWorkMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 停车场的工作模式已经改变，如果要使改变生效，需要重启软件 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDetail_WorkModeChangedAlert {
+            get {
+                return ResourceManager.GetString("FrmParkDetail_WorkModeChangedAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 获取LAN参数失败 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDeviceDetail_GetLanFail {
+            get {
+                return ResourceManager.GetString("FrmParkDeviceDetail_GetLanFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 获取LAN参数成功 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDeviceDetail_GetLanSuccess {
+            get {
+                return ResourceManager.GetString("FrmParkDeviceDetail_GetLanSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 LAN参数设置失败 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDeviceDetail_SetLanFail {
+            get {
+                return ResourceManager.GetString("FrmParkDeviceDetail_SetLanFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 LAN参数设置成功 的本地化字符串。
+        /// </summary>
+        internal static string FrmParkDeviceDetail_SetLanSuccess {
+            get {
+                return ResourceManager.GetString("FrmParkDeviceDetail_SetLanSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 保存成功! 的本地化字符串。
+        /// </summary>
+        internal static string FrmReportBase_SaveSuccess {
+            get {
+                return ResourceManager.GetString("FrmReportBase_SaveSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 角色ID不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmRoleDetail_InvalidRoleID {
+            get {
+                return ResourceManager.GetString("FrmRoleDetail_InvalidRoleID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 设备 {0} 在系统中已经存在 的本地化字符串。
+        /// </summary>
+        internal static string FrmSearchDevice_DeviceExists {
+            get {
+                return ResourceManager.GetString("FrmSearchDevice_DeviceExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 没有指定导出目录 的本地化字符串。
+        /// </summary>
+        internal static string FrmSnapshotExport_NoFolder {
+            get {
+                return ResourceManager.GetString("FrmSnapshotExport_NoFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 已经导入 {0} 条记录，共有 {1} 条记录 的本地化字符串。
+        /// </summary>
+        internal static string FrmSnapshotExport_Processing {
+            get {
+                return ResourceManager.GetString("FrmSnapshotExport_Processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 图片导出成功，是否转到图片保存目录? 的本地化字符串。
+        /// </summary>
+        internal static string FrmSnapshotViewer_ToFolderQuery {
+            get {
+                return ResourceManager.GetString("FrmSnapshotViewer_ToFolderQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步通道权限设置 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_AccessSetting {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_AccessSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步基本卡类 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_BaseCardTypeSetting {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_BaseCardTypeSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步卡片信息 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_Card {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_Card", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步车型设置 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_CarTypeSetting {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_CarTypeSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步数据未完成，是否强制关闭窗口？ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_CloseAlarm1 {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_CloseAlarm1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 注意：强制关闭可能会导致备用数据库数据错误！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_CloseAlarm2 {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_CloseAlarm2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步数据将覆盖备用数据库的数据，是否继续？ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_Cover {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_Cover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步自定义卡类 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_CustomCardTypeSetting {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_CustomCardTypeSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步数据完成！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_DataFinish {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_DataFinish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步控制板信息 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_Entrance {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_Entrance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步节假日设置 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_HolidaySetting {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_HolidaySetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步密钥设置 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_KeySetting {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_KeySetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步操作员信息 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_Operator {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_Operator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步系统设置完成！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_OptionsFinish {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_OptionsFinish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步停车场信息 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_Park {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_Park", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步角色信息 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_Role {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 正在 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_Synchronizing {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_Synchronizing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 正在同步系统设置...... 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_SynchronizingOptions {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_SynchronizingOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步费率设置 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_TariffSetting {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_TariffSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用时 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_Time {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步用户设置 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_UserSetting {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_UserSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步视频信息 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_Video {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_Video", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同步工作站信息 的本地化字符串。
+        /// </summary>
+        internal static string FrmSyncDataToStandby_WorkStation {
+            get {
+                return ResourceManager.GetString("FrmSyncDataToStandby_WorkStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 修改密钥成功！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_ChangeKeySuccess {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_ChangeKeySuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 每种原型卡类型为自定义卡片的只能设置一种自定义卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_CustomCardOnly {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_CustomCardOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 默认车型不能删除！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_DeafultCarType {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_DeafultCarType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 清除操作会删除月卡收费规则，使月卡出场时不用再计费，是否继续? 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_DeleteMonthCardTariffQuery {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_DeleteMonthCardTariffQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入12位确认新密钥! 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_InputConfirmNewKey {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_InputConfirmNewKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入12位新密钥! 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_InputNewKey {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_InputNewKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入12位旧密钥! 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_InputOldKey {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_InputOldKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 公司名称最多只能输入22个汉字或45个字母数字！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_InvalidCompanyName {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_InvalidCompanyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 收费后停留时间不正确! 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_InvalidFreeTimeAfterPay {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_InvalidFreeTimeAfterPay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 允许车牌识别误码差位数不正确! 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_InvalidMaxCarplateErrorChar {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_InvalidMaxCarplateErrorChar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 数据库优化时设置的保存抓拍图片月数不能小于零 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_InvalidMonth {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_InvalidMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 旧密钥不正确! 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_InvalidOldKey {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_InvalidOldKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 最多只能设置六十二种自定义卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_MostCustomCard {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_MostCustomCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 系统最大支持设置8个节假日！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_MostHoliday {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_MostHoliday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 新密钥与确认新密钥不一致! 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_NewKeyInconformity {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_NewKeyInconformity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 至少要设置一种车型! 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_NoCarType {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_NoCarType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 每种原型卡类型为非自定义卡片的只能设置十五种自定义卡片！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_NonCustomCardOnly {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_NonCustomCardOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 停车场通讯IP已经改变，如果要使改变生效，需要重启软件 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_ParkingCommunicationIPChangedAlert {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_ParkingCommunicationIPChangedAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 系统中已经存在 权限组:{0}  的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_SameAccessName {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_SameAccessName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 同一种卡片类型同一种车型的各种费率必须为同一种费率类型！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmSystemOption_SameTariff {
+            get {
+                return ResourceManager.GetString("FrmSystemOption_SameTariff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 入场收费不能小于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvaidFirstFee {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvaidFirstFee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 白天时段收费金额不能小于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidDayFee {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidDayFee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 选择了白天最高收费,但收费金额不能小于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidDayLimitFee {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidDayLimitFee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 白天时间收费时间不能小于或等于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidDayMinutes {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidDayMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 入场分钟数不能小于零！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidFirstMinutes {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidFirstMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 免费时间必须设置于0-255之间! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidFreeMinutes {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidFreeMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 过零点改收金额不能小于零！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidMidNightFee {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidMidNightFee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 收费金额不能小于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidMoney {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 夜间收费金额不能小于零！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidNightFee {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidNightFee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 选择了夜间最高收费,但收费金额不能小于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidNightLimitation {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidNightLimitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 夜间收费分钟不能小于或等于零！ 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidNightMinutes {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidNightMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 累计收费金额不能小于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidRegularFee {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidRegularFee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 累计分钟不能小于或等于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidRegularMinutes {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidRegularMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 时间段设置不正确，应设置成白天时段的开始时间等于夜晚时段的结束时间，白天时段的结束时间等于夜晚时段的开始时间 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelection_InvalidTimezone {
+            get {
+                return ResourceManager.GetString("FrmTariffSelection_InvalidTimezone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 每天最高限额不能小于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTariffSelectlion_InvalidDayFee {
+            get {
+                return ResourceManager.GetString("FrmTariffSelectlion_InvalidDayFee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 设置的临时卡数量不正确,不能小于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmTempCardSetting_InvalidTempCard {
+            get {
+                return ResourceManager.GetString("FrmTempCardSetting_InvalidTempCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 视频服务器通道号不正确,通道号不能小于零! 的本地化字符串。
+        /// </summary>
+        internal static string FrmVideosourceDetail_InvalidChannel {
+            get {
+                return ResourceManager.GetString("FrmVideosourceDetail_InvalidChannel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 连接超时时间不能小于0! 的本地化字符串。
+        /// </summary>
+        internal static string FrmVideosourceDetail_InvalidConnectTimeout {
+            get {
+                return ResourceManager.GetString("FrmVideosourceDetail_InvalidConnectTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制端口号不在1024与65535之间! 的本地化字符串。
+        /// </summary>
+        internal static string FrmVideosourceDetail_InvalidControlPort {
+            get {
+                return ResourceManager.GetString("FrmVideosourceDetail_InvalidControlPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 视频服务器地址不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmVideosourceDetail_InvalidIP {
+            get {
+                return ResourceManager.GetString("FrmVideosourceDetail_InvalidIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 名称不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmVideosourceDetail_InvalidName {
+            get {
+                return ResourceManager.GetString("FrmVideosourceDetail_InvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 密码不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmVideosourceDetail_InvalidPwd {
+            get {
+                return ResourceManager.GetString("FrmVideosourceDetail_InvalidPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 视频流端口号不在1024与65535之间! 的本地化字符串。
+        /// </summary>
+        internal static string FrmVideosourceDetail_InvalidStreamPort {
+            get {
+                return ResourceManager.GetString("FrmVideosourceDetail_InvalidStreamPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用户名不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmVideosourceDetail_InvalidUserName {
+            get {
+                return ResourceManager.GetString("FrmVideosourceDetail_InvalidUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 工作站ID不能为空! 的本地化字符串。
+        /// </summary>
+        internal static string FrmWorkstationDetail_InvalidID {
+            get {
+                return ResourceManager.GetString("FrmWorkstationDetail_InvalidID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 系统中已经存在一个同名工作站,请输入其它名称 的本地化字符串。
+        /// </summary>
+        internal static string FrmWorkstationDetail_SameName {
+            get {
+                return ResourceManager.GetString("FrmWorkstationDetail_SameName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片余额不足 的本地化字符串。
+        /// </summary>
+        internal static string FrmYCTPayment_BalanceNotEnough {
+            get {
+                return ResourceManager.GetString("FrmYCTPayment_BalanceNotEnough", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 扣款失败 的本地化字符串。
+        /// </summary>
+        internal static string FrmYCTPayment_Fail {
+            get {
+                return ResourceManager.GetString("FrmYCTPayment_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请读羊城通卡 的本地化字符串。
+        /// </summary>
+        internal static string FrmYCTPayment_PleaseRead {
+            get {
+                return ResourceManager.GetString("FrmYCTPayment_PleaseRead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 扣款成功 的本地化字符串。
+        /// </summary>
+        internal static string FrmYCTPayment_Success {
+            get {
+                return ResourceManager.GetString("FrmYCTPayment_Success", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap holiday {
             get {
                 object obj = ResourceManager.GetObject("holiday", resourceCulture);
@@ -176,6 +2696,51 @@ namespace LJH.Attendance.UI.Properties {
             get {
                 object obj = ResourceManager.GetObject("img15", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 LED桌面屏（A） 的本地化字符串。
+        /// </summary>
+        internal static string LEDType_YanSe {
+            get {
+                return ResourceManager.GetString("LEDType_YanSe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 LED桌面屏（A） 的本地化字符串。
+        /// </summary>
+        internal static string LEDType_YanSe1 {
+            get {
+                return ResourceManager.GetString("LEDType_YanSe1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 LED屏（A） 的本地化字符串。
+        /// </summary>
+        internal static string LEDType_Zhongkuang {
+            get {
+                return ResourceManager.GetString("LEDType_Zhongkuang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 LED屏（A） 的本地化字符串。
+        /// </summary>
+        internal static string LEDType_Zhongkuang1 {
+            get {
+                return ResourceManager.GetString("LEDType_Zhongkuang1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 登录工作站:[{0}]  主机名:[{1}]  主机IP:[{2}]  MAC:[{3}] 的本地化字符串。
+        /// </summary>
+        internal static string OperatorLogInAlarm {
+            get {
+                return ResourceManager.GetString("OperatorLogInAlarm", resourceCulture);
             }
         }
         
@@ -232,6 +2797,87 @@ namespace LJH.Attendance.UI.Properties {
             get {
                 object obj = ResourceManager.GetObject("template", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 不支持延期操作,卡片不是延期类卡或者卡片没有发行! 的本地化字符串。
+        /// </summary>
+        internal static string UcCard_CannotDefer {
+            get {
+                return ResourceManager.GetString("UcCard_CannotDefer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 不支持回收操作,请确定卡片已经发行且不是临时类卡! 的本地化字符串。
+        /// </summary>
+        internal static string UcCard_CannotRecycle {
+            get {
+                return ResourceManager.GetString("UcCard_CannotRecycle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡片 {0} 不能再发行,请确保卡片是临时卡或是已经回收的卡片! 的本地化字符串。
+        /// </summary>
+        internal static string UcCard_CannotRelease {
+            get {
+                return ResourceManager.GetString("UcCard_CannotRelease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 确实要删除所选项吗? 的本地化字符串。
+        /// </summary>
+        internal static string UcCard_DeleteCardQuery {
+            get {
+                return ResourceManager.GetString("UcCard_DeleteCardQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 卡号不是整型或者卡号超出最大位数 的本地化字符串。
+        /// </summary>
+        internal static string UcCard_InvalidCardID {
+            get {
+                return ResourceManager.GetString("UcCard_InvalidCardID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请选择一种卡片类型 的本地化字符串。
+        /// </summary>
+        internal static string UcCard_InvalidCardType {
+            get {
+                return ResourceManager.GetString("UcCard_InvalidCardType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请选择一种车型 的本地化字符串。
+        /// </summary>
+        internal static string UcCard_InvalidCarType {
+            get {
+                return ResourceManager.GetString("UcCard_InvalidCarType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 车主姓名不能为空 的本地化字符串。
+        /// </summary>
+        internal static string UcCard_InvalidOwnerName {
+            get {
+                return ResourceManager.GetString("UcCard_InvalidOwnerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 纸票不支持发行操作 的本地化字符串。
+        /// </summary>
+        internal static string UcCard_TicketNotSupport {
+            get {
+                return ResourceManager.GetString("UcCard_TicketNotSupport", resourceCulture);
             }
         }
     }

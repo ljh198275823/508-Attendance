@@ -78,7 +78,7 @@ namespace LJH.Attendance.UI
         {
             if (this.dtStartDate.Value.Date > this.dtEndDate.Value.Date)
             {
-                MessageBox.Show(Resource1.FrmHolidayDetail_InvalidHoliday, Resource1.Form_Alert,
+                MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmHolidayDetail_InvalidHoliday,LJH.Attendance.UI.Properties.Resources.Form_Alert,
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
