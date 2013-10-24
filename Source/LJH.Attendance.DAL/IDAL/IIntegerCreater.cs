@@ -16,7 +16,12 @@ namespace LJH.Attendance.DAL.IDAL
         /// <param name="entity"></param>
         /// <returns></returns>
         long? CreateID(string entity);
-
+        /// <summary>
+        /// 获取当前可用的ID,获取操作不会改变当前可用ID
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        long? GetCurID(string entity);
         /// <summary>
         /// 重置ID，即ID号从指定的整数开始自增
         /// </summary>

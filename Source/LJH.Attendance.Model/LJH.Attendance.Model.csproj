@@ -80,7 +80,6 @@
     <Compile Include="AbsentItem.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="AttendanceDuration.cs" />
-    <Compile Include="AttendanceResultGroup.cs" />
     <Compile Include="AttendanceRules.cs" />
     <Compile Include="AttendanceUnit.cs" />
     <Compile Include="HolidaySetting.cs" />

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LJH.Attendance.DAL.IDAL
 {
-    public interface IAttendanceLogProvider : IProvider<LJH.Attendance.Model.AttendanceLog, string>
+    public interface IAttendanceLogProvider : IProvider<LJH.Attendance.Model.AttendanceLog, int>
     {
     }
 }

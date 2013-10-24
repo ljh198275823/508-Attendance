@@ -41,6 +41,18 @@ namespace LJH.Attendance.DAL.LinqDataProvider
             return id;
         }
 
+        public long? GetCurID(string entity)
+        {
+            long? id = null;
+            AttendanceDataContext dc = AttendanceDataContextFactory.Createattendance(_ConnStr);
+            IntegerID ii = dc.GetTable<IntegerID>().SingleOrDefault(item => item.Entity == entity);
+            if (ii != null)
+            {
+                id = ii.Value;
+            }
+            return id;
+        }
+
         public void ResetID(string entity, long id)
         {
             try

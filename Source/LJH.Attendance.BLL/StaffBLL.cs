@@ -30,10 +30,10 @@ namespace LJH.Attendance.BLL
 
         public CommandResult Add(Staff info)
         {
-            string id = ProviderFactory.Create<IStringIDCreater>(_RepoUri).CreateID("U", 5, "Staff");
-            if (!string.IsNullOrEmpty(id))
+            long? id = ProviderFactory.Create<IIntegerCreater>(_RepoUri).CreateID("Staff");
+            if (id != null)
             {
-                info.ID = id;
+                info.ID = (int)id.Value;
                 return ProviderFactory.Create<IStaffProvider>(_RepoUri).Insert(info);
             }
             else

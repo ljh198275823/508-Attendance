@@ -40,7 +40,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
                 StaffAttendanceResultSearchCondition con = search as StaffAttendanceResultSearchCondition;
                 if (con.ShiftDate != null)
                     ret = ret.Where(item => item.ShiftDate >= con.ShiftDate.Begin && item.ShiftDate <= con.ShiftDate.End);
-                if (con.Staff != null) ret = ret.Where(item => con.Staff.Contains(item.StaffID));
+                if (con.Staff != null && con.Staff.Count > 0) ret = ret.Where(item => con.Staff.Contains(item.StaffID));
                 if (con.ShiftID != null) ret = ret.Where(item => item.ShiftID == con.ShiftID);
             }
             return ret.ToList();

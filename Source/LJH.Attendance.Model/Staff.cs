@@ -17,7 +17,7 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置ID
         /// </summary>
-        public string  ID { get; set; }
+        public int  ID { get; set; }
         /// <summary>
         /// 获取或设置姓名
         /// </summary>

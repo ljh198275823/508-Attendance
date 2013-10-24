@@ -9,7 +9,7 @@ namespace LJH.Attendance.Model.SearchCondition
     {
         public string SheetID { get; set; }
 
-        public string  StaffID { get; set; }
+        public int?  StaffID { get; set; }
 
         public string SheetType { get; set; }
 

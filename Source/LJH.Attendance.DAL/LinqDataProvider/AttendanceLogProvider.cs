@@ -10,7 +10,7 @@ using LJH.GeneralLibrary.ExceptionHandling;
 
 namespace LJH.Attendance.DAL.LinqDataProvider
 {
-    public class AttendanceLogProvider : ProviderBase<AttendanceLog, string>, IAttendanceLogProvider
+    public class AttendanceLogProvider : ProviderBase<AttendanceLog, int>, IAttendanceLogProvider
     {
         public AttendanceLogProvider()
         {

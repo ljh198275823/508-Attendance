@@ -51,7 +51,7 @@ namespace LJH.Attendance.UI
             List<Staff> users = departmentTreeview1.SelectedStaff;
             if (users != null && users.Count > 0)
             {
-                List<string> staff = users.Select(item => item.ID).ToList();
+                List<int> staff = users.Select(item => item.ID).ToList();
                 AttendanceLogSearchCondition con = new AttendanceLogSearchCondition();
                 con.Staff = staff;
                 con.ContainManualLogs = true;

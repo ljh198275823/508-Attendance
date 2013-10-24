@@ -24,7 +24,7 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置人员ID
         /// </summary>
-        public string StaffID { get; set; }
+        public int StaffID { get; set; }
         /// <summary>
         /// 获取或设置人员姓名
         /// </summary>

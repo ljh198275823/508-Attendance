@@ -76,7 +76,7 @@ namespace LJH.Attendance.UI
             List<Staff> users = departmentTreeview1.SelectedStaff;
             if (users != null && users.Count > 0)
             {
-                List<string> staff = users.Select(item => item.ID).ToList();
+                List<int> staff = users.Select(item => item.ID).ToList();
                 StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
                 con.Staff = staff;
                 con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);

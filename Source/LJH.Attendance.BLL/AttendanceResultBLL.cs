@@ -34,11 +34,11 @@ namespace LJH.Attendance.BLL
         /// <param name="range"></param>
         /// <param name="arranges"></param>
         /// <returns></returns>
-        public CommandResult Add(string staffID, DatetimeRange range, List<AttendanceResult> arranges)
+        public CommandResult Add(int staffID, DatetimeRange range, List<AttendanceResult> arranges)
         {
             IAttendanceResultProvider provider = ProviderFactory.Create<IAttendanceResultProvider>(_RepoUri);
             StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
-            con.Staff = new List<string>();
+            con.Staff = new List<int>();
             con.Staff.Add(staffID);
             con.ShiftDate = range;
             List<AttendanceResult> items = provider.GetItems(con).QueryObjects;

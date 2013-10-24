@@ -34,7 +34,7 @@ namespace LJH.Attendance.UI
             List<TASheet> sheets = (new TASheetBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con2).QueryObjects;
 
             AttendanceLogSearchCondition con3 = new AttendanceLogSearchCondition();
-            con3.Staff = new List<string>();
+            con3.Staff = new List<int>();
             con3.Staff.Add(staff.ID);
             con3.Readers = readers;
             con3.ReadDateTime = dr;

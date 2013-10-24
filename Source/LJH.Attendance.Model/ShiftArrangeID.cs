@@ -12,7 +12,7 @@ namespace LJH.Attendance.Model
         {
         }
 
-        public ShiftArrangeID(string staffID, string shiftID, DateTime shiftDate)
+        public ShiftArrangeID(int staffID, string shiftID, DateTime shiftDate)
         {
             this.StaffID = staffID;
             this.ShiftID = shiftID;
@@ -24,7 +24,7 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置人员ID
         /// </summary>
-        public string StaffID { get; set; }
+        public int StaffID { get; set; }
         /// <summary>
         /// 获取或设置班次ID
         /// </summary>

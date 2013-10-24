@@ -7,7 +7,7 @@ namespace LJH.Attendance.Model.SearchCondition
 {
     public class AttendanceLogSearchCondition:SearchCondition 
     {
-        public List<string> Staff { get; set; }
+        public List<int> Staff { get; set; }
 
         public List<string> Cards { get; set; }
 

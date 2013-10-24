@@ -7,7 +7,7 @@ namespace LJH.Attendance.Model.SearchCondition
 {
     public class ShiftArrangeSearchCondition : SearchCondition
     {
-        public string StaffID { get; set; }
+        public int? StaffID { get; set; }
 
         public string ShiftID { get; set; }
 

@@ -9,7 +9,7 @@ using LJH.Attendance.DAL.IDAL;
 
 namespace LJH.Attendance.DAL.LinqDataProvider
 {
-    public class StaffProvider : ProviderBase<Staff, string>, IStaffProvider
+    public class StaffProvider : ProviderBase<Staff, int>, IStaffProvider
     {
         #region 构造函数
         public StaffProvider(string connStr)
@@ -19,7 +19,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
         #endregion
 
         #region 重写基类方法
-        protected override Staff GetingItemByID(string id, AttendanceDataContext attendance)
+        protected override Staff GetingItemByID(int id, AttendanceDataContext attendance)
         {
             Staff staff = attendance.GetTable<Staff>().SingleOrDefault(item => item.ID == id);
             if (staff != null && !string.IsNullOrEmpty(staff.DepartmentID))

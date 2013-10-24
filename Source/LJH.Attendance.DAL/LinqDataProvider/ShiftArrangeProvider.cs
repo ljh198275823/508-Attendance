@@ -37,7 +37,7 @@ namespace LJH.Attendance.DAL.LinqDataProvider
                 ShiftArrangeSearchCondition con = search as ShiftArrangeSearchCondition;
                 if (con.ShiftDate != null)
                     ret = ret.Where(item => item.ShiftDate >= con.ShiftDate.Begin && item.ShiftDate <= con.ShiftDate.End);
-                if (!string.IsNullOrEmpty(con.StaffID)) ret = ret.Where(item => item.StaffID == con.StaffID);
+                if (con.StaffID!=null) ret = ret.Where(item => item.StaffID == con.StaffID);
                 if (con.ShiftID != null) ret = ret.Where(item => item.ShiftID == con.ShiftID);
             }
             List<ShiftArrange> items = ret.ToList();

@@ -33,7 +33,7 @@ namespace LJH.Attendance.BLL
             IShiftArrangeProvider provider = ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri);
             ShiftArrangeID id = new ShiftArrangeID(info.StaffID, info.ShiftID, info.ShiftDate);
             ShiftArrange item = provider.GetByID(id).QueryObject;
-            if (item == null) 
+            if (item == null)
             {
                 IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);
                 provider.Insert(info, unitWork);
@@ -45,11 +45,11 @@ namespace LJH.Attendance.BLL
             }
         }
 
-        public CommandResult ShiftArrange(string userID, DatetimeRange range, List<ShiftArrange> arranges)
+        public CommandResult ShiftArrange(int staffID, DatetimeRange range, List<ShiftArrange> arranges)
         {
             IShiftArrangeProvider provider = ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri);
             ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
-            con.StaffID = userID;
+            con.StaffID = staffID;
             con.ShiftDate = range;
             List<ShiftArrange> items = provider.GetItems(con).QueryObjects;
             IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);
@@ -67,11 +67,11 @@ namespace LJH.Attendance.BLL
             return unitWork.Commit();
         }
 
-        public CommandResult ShiftArrange(string userID, DateTime dt, List<Shift> shifts)
+        public CommandResult ShiftArrange(int staffID, DateTime dt, List<Shift> shifts)
         {
             IShiftArrangeProvider provider = ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri);
             ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
-            con.StaffID = userID;
+            con.StaffID = staffID;
             con.ShiftDate = new DatetimeRange(dt, dt);
             List<ShiftArrange> items = provider.GetItems(con).QueryObjects;
             IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);
@@ -85,7 +85,7 @@ namespace LJH.Attendance.BLL
                 {
                     ShiftArrange sa = new Model.ShiftArrange()
                     {
-                        StaffID = userID,
+                        StaffID = staffID,
                         ShiftID = item.ID,
                         ShiftDate = dt
                     };
@@ -115,11 +115,11 @@ namespace LJH.Attendance.BLL
             return new CommandResult(ResultCode.NoRecord, "没有记录");
         }
 
-        public CommandResult ClearShiftArrange(string userID, DateTime dt)
+        public CommandResult ClearShiftArrange(int staffID, DateTime dt)
         {
             IShiftArrangeProvider provider = ProviderFactory.Create<IShiftArrangeProvider>(_RepoUri);
             ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
-            con.StaffID = userID;
+            con.StaffID = staffID;
             con.ShiftDate = new DatetimeRange(dt, dt);
             List<ShiftArrange> items = provider.GetItems(con).QueryObjects;
             IUnitWork unitWork = ProviderFactory.Create<IUnitWork>(_RepoUri);
