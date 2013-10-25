@@ -220,7 +220,7 @@ namespace LJH.Attendance.UI
 
         private void mnu_AttendanceDoorSelection_Click(object sender, EventArgs e)
         {
-            ShowSingleForm(typeof(FrmAttendanceReaderSelection));
+            ShowSingleForm(typeof(FrmReaderMaster));
         }
 
         private void mnu_Shifts_Click(object sender, EventArgs e)

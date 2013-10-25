@@ -41,7 +41,16 @@ namespace LJH.Attendance.BLL
 
         public CommandResult Add(Reader info)
         {
-            return ProviderFactory.Create<IReaderProvider>(_RepoUri).Insert(info);
+            string id = ProviderFactory.Create<IStringIDCreater>(_RepoUri).CreateID("0", 4, "Reader");
+            if (!string.IsNullOrEmpty(id))
+            {
+                info.ID = id;
+                return ProviderFactory.Create<IReaderProvider>(_RepoUri).Insert(info);
+            }
+            else
+            {
+                return new CommandResult(ResultCode.Fail, "创建ID失败");
+            }
         }
 
         public CommandResult Update(Reader info)

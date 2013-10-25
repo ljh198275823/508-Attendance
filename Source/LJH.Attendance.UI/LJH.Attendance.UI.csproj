@@ -109,11 +109,11 @@
     <Compile Include="FrmAttendanceLogReport.Designer.cs">
       <DependentUpon>FrmAttendanceLogReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAttendanceReaderSelection.cs">
+    <Compile Include="FrmReaderMaster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAttendanceReaderSelection.Designer.cs">
-      <DependentUpon>FrmAttendanceReaderSelection.cs</DependentUpon>
+    <Compile Include="FrmReaderMaster.Designer.cs">
+      <DependentUpon>FrmReaderMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAttendanceRules.cs">
       <SubType>Form</SubType>
@@ -228,6 +228,12 @@
     </Compile>
     <Compile Include="FrmOperators.designer.cs">
       <DependentUpon>FrmOperators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReaderDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReaderDetail.Designer.cs">
+      <DependentUpon>FrmReaderDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShiftItemDetail.cs">
       <SubType>Form</SubType>
@@ -415,8 +421,8 @@
     <EmbeddedResource Include="FrmAttendanceLogReport.resx">
       <DependentUpon>FrmAttendanceLogReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAttendanceReaderSelection.resx">
-      <DependentUpon>FrmAttendanceReaderSelection.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReaderMaster.resx">
+      <DependentUpon>FrmReaderMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAttendanceRules.resx">
       <DependentUpon>FrmAttendanceRules.cs</DependentUpon>
