@@ -225,10 +225,6 @@ namespace LJH.Attendance.UI
         /// 获取或设置窗体在选择模式下的选择项
         /// </summary>
         public object SelectedItem { get; set; }
-        /// <summary>
-        /// 获取或设置查询条件
-        /// </summary>
-        public SearchCondition SearchCondition { get; set; }
         #endregion
 
         #region 子类要重写的方法
@@ -261,7 +257,7 @@ namespace LJH.Attendance.UI
         #endregion
 
         #region 公共方法
-        public void ShowItemsOnGrid(List<object> items)
+        protected void ShowItemsOnGrid(List<object> items)
         {
             GridView.Rows.Clear();
 
@@ -280,7 +276,7 @@ namespace LJH.Attendance.UI
             }
         }
 
-        public void ShowRowBackColor()
+        protected void ShowRowBackColor()
         {
             int count = 0;
             foreach (DataGridViewRow row in this.GridView.Rows)
@@ -291,6 +287,11 @@ namespace LJH.Attendance.UI
                     row.DefaultCellStyle.BackColor = (count % 2 == 1) ? Color.FromArgb(230, 230, 230) : Color.White;
                 }
             }
+        }
+
+        public virtual void Fresh(SearchCondition search)
+        {
+            btnFresh_Click(null, EventArgs.Empty);
         }
         #endregion
 

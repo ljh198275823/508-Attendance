@@ -47,6 +47,12 @@ namespace LJH.Attendance.UI
         }
         #endregion
 
+        #region 公共属性
+        public List<int> Staffs { get; set; }
+
+        public DatetimeRange DateRange { get; set; }
+        #endregion
+
         #region 事件处理程序
         private void FrmAttendanceAnalyst_Load(object sender, EventArgs e)
         {
@@ -60,6 +66,11 @@ namespace LJH.Attendance.UI
         private void btnOk_Click(object sender, EventArgs e)
         {
             List<Staff> staffs = departmentTreeview1.SelectedStaff;
+            if (staffs == null || staffs.Count == 0)
+            {
+                MessageBox.Show("请至少选择一个人员用于生成考勤结果");
+                return;
+            }
             FrmProcessing frm = new FrmProcessing();
             DatetimeRange dr = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime.AddDays(1).AddSeconds(-1));
             List<Reader> attendanceReaders = (new ReaderBLL(AppSettings.CurrentSetting.ConnectString)).GetAttendanceReaders().QueryObjects;
@@ -109,6 +120,8 @@ namespace LJH.Attendance.UI
             {
                 t.Abort();
             }
+            this.Staffs = staffs.Select(item => item.ID).ToList();
+            this.DateRange = dr;
             this.DialogResult = DialogResult.OK;
         }
         #endregion

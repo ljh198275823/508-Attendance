@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using LJH.Attendance.BLL;
 using LJH.Attendance.Model;
@@ -56,38 +57,68 @@ namespace LJH.Attendance.UI
         {
             if (CheckInput())
             {
-                AttendanceLogBLL bll = new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString);
-                List<Staff> items = departmentTreeview1.SelectedStaff;
-                foreach (Staff staff in items)
+                List<AttendanceLog> logs = GetLogs();
+                if (logs != null && logs.Count > 0)
                 {
-                    DateTime dt1 = dtStart.Value;
-                    DateTime dt2 = dtEnd.Value;
-                    while (dt1 <= dt2)
+                    FrmProcessing frm = new FrmProcessing();
+                    Action action = delegate()
                     {
-                        for (int i = 1; i <= 6; i++)
+                        AttendanceLogBLL bll = new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString);
+                        int count = logs.Count;
+                        int added = 0;
+                        foreach (AttendanceLog log in logs)
                         {
-                            if ((this.Controls["chkTime" + i.ToString()] as CheckBox).Checked)
-                            {
-                                int hour = (int)((this.Controls["txtHour" + i.ToString()] as NumericUpDown).Value);
-                                int minute = (int)((this.Controls["txtMinute" + i.ToString()] as NumericUpDown).Value);
-                                AttendanceLog record = new AttendanceLog()
-                                {
-                                    StaffID = staff.ID,
-                                    ReadDateTime = dt1.AddHours(hour).AddMinutes(minute),
-                                    StaffName = staff.Name,
-                                    ReaderID = string.Empty,
-                                    IsManual = true,
-                                    Memo = txtMemo.Text
-                                };
-                                bll.Add(record);
-                            }
+                            bll.Add(log);
+                            added++;
+                            frm.ShowProgress(string.Empty, (decimal)added / count);
                         }
-                        dt1 = dt1.AddDays(1);
+                    };
+                    Thread t = new Thread(new ThreadStart(action));
+                    t.IsBackground = true;
+                    t.Start();
+                    if (frm.ShowDialog() != DialogResult.OK)
+                    {
+                        t.Abort();
                     }
                 }
+                this.departmentTreeview1.SelectedStaff = null;
                 MessageBox.Show("补签完成，可以继续补签");
             }
-            this.departmentTreeview1.SelectedStaff = null;
+        }
+
+        private List<AttendanceLog> GetLogs()
+        {
+            List<AttendanceLog> logs = new List<AttendanceLog>();
+
+            List<Staff> items = departmentTreeview1.SelectedStaff;
+            foreach (Staff staff in items)
+            {
+                DateTime dt1 = dtStart.Value;
+                DateTime dt2 = dtEnd.Value;
+                while (dt1 <= dt2)
+                {
+                    for (int i = 1; i <= 6; i++)
+                    {
+                        if ((this.Controls["chkTime" + i.ToString()] as CheckBox).Checked)
+                        {
+                            int hour = (int)((this.Controls["txtHour" + i.ToString()] as NumericUpDown).Value);
+                            int minute = (int)((this.Controls["txtMinute" + i.ToString()] as NumericUpDown).Value);
+                            AttendanceLog log = new AttendanceLog()
+                            {
+                                StaffID = staff.ID,
+                                ReadDateTime = dt1.AddHours(hour).AddMinutes(minute),
+                                StaffName = staff.Name,
+                                ReaderID = string.Empty,
+                                IsManual = true,
+                                Memo = txtMemo.Text
+                            };
+                            logs.Add(log);
+                        }
+                    }
+                    dt1 = dt1.AddDays(1);
+                }
+            }
+            return logs;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

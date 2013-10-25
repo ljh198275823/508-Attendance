@@ -10,6 +10,7 @@ using LJH.GeneralLibrary.SoftDog;
 using LJH.Attendance.BLL;
 using LJH.Attendance.Model;
 using SqlClientHelper;
+using LJH.Attendance.Model.SearchCondition;
 
 namespace LJH.Attendance.UI
 {
@@ -135,7 +136,7 @@ namespace LJH.Attendance.UI
         /// </summary>
         /// <param name="formType">要打开的窗体类型</param>
         /// <param name="mainPanel">是否在主面板中打开,否则在从面板中打开</param>
-        public void ShowSingleForm(Type formType)
+        public Form ShowSingleForm(Type formType)
         {
             Form instance = null;
             foreach (Form frm in _openedForms)
@@ -157,6 +158,37 @@ namespace LJH.Attendance.UI
                     _openedForms.Remove(instance);
                 };
             }
+            return instance;
+        }
+
+        /// <summary>
+        /// 显示窗口的单个实例，如果之前已经打开过，则只是激活打开过的窗体
+        /// </summary>
+        /// <param name="formType">要打开的窗体类型</param>
+        /// <param name="mainPanel">是否在主面板中打开,否则在从面板中打开</param>
+        public T ShowSingleForm<T>() where T : Form
+        {
+            T instance = null;
+            foreach (Form frm in _openedForms)
+            {
+                if (frm.GetType() == typeof(T))
+                {
+                    ucFormViewMain.ActiveForm(frm);
+                    instance = frm as T;
+                    break;
+                }
+            }
+            if (instance == null)
+            {
+                instance = Activator.CreateInstance(typeof(T)) as T;
+                _openedForms.Add(instance);
+                this.ucFormViewMain.AddAForm(instance);
+                instance.FormClosed += delegate(object sender, FormClosedEventArgs e)
+                {
+                    _openedForms.Remove(instance);
+                };
+            }
+            return instance;
         }
         #endregion
 
@@ -278,7 +310,17 @@ namespace LJH.Attendance.UI
         private void mnu_AttendanceAnalyst_Click(object sender, EventArgs e)
         {
             FrmAttendanceAnalyst frm = new FrmAttendanceAnalyst();
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
+                con.ShiftDate = frm.DateRange;
+                con.Staff = frm.Staffs;
+                FrmShiftResultDetail form = ShowSingleForm<FrmShiftResultDetail>();
+                if (form != null)
+                {
+                    form.Fresh(con);
+                }
+            }
         }
 
         private void mnu_ManualLog_Click(object sender, EventArgs e)

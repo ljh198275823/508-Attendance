@@ -176,6 +176,41 @@ namespace LJH.Attendance.UI
                 this.AfterCheck += Node_Checked;
             }
         }
+
+        /// <summary>
+        /// 获取或设置选择的人员
+        /// </summary>
+        [Browsable(false)]
+        [Localizable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<int> SelectedStaffIDs
+        {
+            get
+            {
+                List<int> items = new List<int>();
+                foreach (TreeNode node in _AllUserNodes)
+                {
+                    if (node.Checked)
+                    {
+                        items.Add((node.Tag as Staff).ID);
+                    }
+                }
+                return items;
+            }
+            set
+            {
+                this.AfterCheck -= Node_Checked;
+                foreach (TreeNode node in _AllUserNodes)
+                {
+                    bool check = false;
+                    check = value != null && value.Count > 0 && value.Exists(item => (node.Tag as Staff).ID == item);
+                    node.Checked = check;
+                    CheckChildren(node);
+                    CheckParent(node);
+                }
+                this.AfterCheck += Node_Checked;
+            }
+        }
         /// <summary>
         /// 获取或设置选择的部门
         /// </summary>
