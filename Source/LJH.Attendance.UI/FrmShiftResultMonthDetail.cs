@@ -13,7 +13,7 @@ using LJH.Attendance.BLL;
 
 namespace LJH.Attendance.UI
 {
-    public partial class FrmShiftResultMonthDetail : Form
+    public partial class FrmShiftResultMonthDetail : FrmMasterBase
     {
         public FrmShiftResultMonthDetail()
         {
@@ -22,7 +22,6 @@ namespace LJH.Attendance.UI
 
         #region 私有变量
         private List<DataGridViewColumn> _DateColumns = new List<DataGridViewColumn>();
-        private List<DataGridViewColumn> _ShiftColumns = new List<DataGridViewColumn>();
         #endregion
 
         #region 私有方法
@@ -62,20 +61,6 @@ namespace LJH.Attendance.UI
             }
         }
 
-        private void ShowUserStaffAttendanceResultsOnRow(Staff user, List<AttendanceResult> arranges, DataGridViewRow row)
-        {
-            row.Cells["colUser"].Value = user.Name;
-            row.Cells["colUser"].Tag = user;
-            foreach (DataGridViewColumn col in _DateColumns)
-            {
-                DateTime dt = Convert.ToDateTime(col.Tag);
-                List<AttendanceResult> shifts = arranges.Where(item => item.ShiftDate == dt).ToList();
-                row.Cells[col.Index].Value = GetShiftString(shifts);
-                row.Cells[col.Index].Tag = shifts;
-                row.Cells[col.Index].Style.ForeColor = shifts.Exists(it => it.Result != AttendanceResultCode.OK) ? Color.Red : Color.Blue;
-            }
-        }
-
         private string GetShiftString(List<AttendanceResult> items)
         {
             if (items == null || items.Count == 0) return string.Empty;
@@ -91,110 +76,94 @@ namespace LJH.Attendance.UI
         }
         #endregion
 
-        #region 事件处理程序
-        private void FrmShiftResultStatistics_Load(object sender, EventArgs e)
+        #region 重写基类方法
+        protected override void Init()
         {
+            base.Init();
             this.ucDateTimeInterval1.Init();
             this.ucDateTimeInterval1.SelectThisMonth();
+            InitGridColumns(this.ucDateTimeInterval1.StartDateTime, this.ucDateTimeInterval1.EndDateTime);
 
             this.departmentTreeview1.LoadUser = true;
             this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             this.departmentTreeview1.Init();
-
-            InitGridColumns(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
         }
 
-        private void btnFresh_Click(object sender, EventArgs e)
+        protected override FrmDetailBase GetDetailForm()
         {
-            GridView.Rows.Clear();
-            InitGridColumns(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
+            return null;
+        }
 
+        protected override List<object> GetDataSource()
+        {
             List<Staff> users = departmentTreeview1.SelectedStaff;
             if (users != null && users.Count > 0)
             {
+                List<int> staff = users.Select(item => item.ID).ToList();
                 StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
+                con.Staff = staff;
                 con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
                 List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
-                foreach (Staff user in users)
-                {
-                    List<AttendanceResult> items = arranges.Where(item => item.StaffID == user.ID).ToList();
-                    if (items != null && items.Count > 0)
-                    {
-                        int row = GridView.Rows.Add();
-                        ShowUserStaffAttendanceResultsOnRow(user, items, GridView.Rows[row]);
-                        arranges.RemoveAll(item => item.StaffID == user.ID);
-                    }
-                }
+                List<IGrouping<int, AttendanceResult>> groups = arranges.GroupBy(item => item.StaffID).ToList();
+                return (from g in groups
+                        select (object)g).ToList();
             }
-            this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);
+            return null;
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)
         {
-            if (e.RowIndex < 0) return;
-            if (!_DateColumns.Contains(GridView.Columns[e.ColumnIndex])) return;
-            Staff staff = GridView.Rows[e.RowIndex].Cells[0].Tag as Staff;
-            DateTime dt = Convert.ToDateTime(GridView.Columns[e.ColumnIndex].Tag);
-        }
-
-        private void btn_Export_Click(object sender, EventArgs e)
-        {
-            try
+            IGrouping<int, AttendanceResult> group = item as IGrouping<int, AttendanceResult>;
+            row.Tag = group;
+            row.Cells["colStaff"].Value = group.First().StaffName;
+            foreach (DataGridViewColumn col in _DateColumns)
             {
-                DataGridView view = this.GridView;
-                if (view != null)
-                {
-                    SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                    saveFileDialog1.Filter = "Excel文档|*.xls|所有文件(*.*)|*.*";
-                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                    {
-                        string path = saveFileDialog1.FileName;
-                        if (LJH.GeneralLibrary.WinformControl.DataGridViewExporter.Export(view, path, false))
-                        {
-                            MessageBox.Show("导出成功");
-                        }
-                        else
-                        {
-                            MessageBox.Show("保存到电子表格时出现错误!");
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("保存到电子表格时出现错误!");
+                DateTime dt = Convert.ToDateTime(col.Tag);
+                List<AttendanceResult> shifts = group.Where(it => it.ShiftDate == dt).ToList();
+                row.Cells[col.Index].Value = GetShiftString(shifts);
+                row.Cells[col.Index].Tag = shifts;
+                row.Cells[col.Index].Style.ForeColor = shifts.Exists(it => it.Result != AttendanceResultCode.OK) ? Color.Red : Color.Blue;
             }
         }
 
-        private void txtKeyword_TextChanged(object sender, EventArgs e)
+        protected override bool DeletingItem(object item)
         {
-            if (GridView == null) return;
-            string keyword = string.Empty;
-            if (sender is ToolStripTextBox)
+            return false;
+        }
+
+        protected override void ShowRowBackColor()
+        {
+            //重写这个方法，主要是因为想让节假日和周末的列与其它的列显示不同的颜色
+            //如果不重写这个方法，则上面这种效果就会被行的背景覆盖
+        }
+
+        public override void Fresh(SearchCondition search)
+        {
+            if (search != null && search is StaffAttendanceResultSearchCondition)
             {
-                keyword = (sender as ToolStripTextBox).Text;
-            }
-            int count = 0;
-            DataGridView grid = this.GridView;
-            foreach (DataGridViewRow row in grid.Rows)
-            {
-                bool visible = false;
-                foreach (DataGridViewColumn col in grid.Columns)
+                StaffAttendanceResultSearchCondition con = search as StaffAttendanceResultSearchCondition;
+                if (con.ShiftDate != null)
                 {
-                    if (
-                        string.IsNullOrEmpty(keyword) ||
-                        ((row.Cells[col.Index] is DataGridViewTextBoxCell) && row.Cells[col.Index].Value != null && row.Cells[col.Index].Value.ToString().Contains(keyword))
-                        )
-                    {
-                        visible = true;
-                        count++;
-                        break;
-                    }
+                    this.ucDateTimeInterval1.StartDateTime = con.ShiftDate.Begin;
+                    this.ucDateTimeInterval1.EndDateTime = con.ShiftDate.End;
                 }
-                row.Visible = visible;
+                if (con.Staff != null && con.Staff.Count > 0)
+                {
+                    this.departmentTreeview1.SelectedStaffIDs = con.Staff;
+                }
             }
-            this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", count);
+            base.Fresh(search);
+        }
+        #endregion
+
+        #region 事件处理程序
+        private void btnFresh_Click(object sender, EventArgs e)
+        {
+            GridView.Rows.Clear();
+            InitGridColumns(this.ucDateTimeInterval1.StartDateTime, this.ucDateTimeInterval1.EndDateTime);
+            List<object> items = GetDataSource();
+            ShowItemsOnGrid(items);
         }
         #endregion
     }

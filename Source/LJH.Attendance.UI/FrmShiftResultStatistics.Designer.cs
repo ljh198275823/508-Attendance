@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.查看所有刷卡记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentTreeview1 = new LJH.Attendance.UI.DepartmentTreeview(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
@@ -178,7 +178,7 @@
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
-            this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridView.Size = new System.Drawing.Size(635, 315);
             this.GridView.TabIndex = 60;
             // 
@@ -206,8 +206,8 @@
             // 
             // colAbsent
             // 
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
-            this.colAbsent.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            this.colAbsent.DefaultCellStyle = dataGridViewCellStyle1;
             this.colAbsent.HeaderText = "缺勤";
             this.colAbsent.Name = "colAbsent";
             this.colAbsent.ReadOnly = true;
@@ -216,8 +216,8 @@
             // 
             // colBelateCount
             // 
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
-            this.colBelateCount.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            this.colBelateCount.DefaultCellStyle = dataGridViewCellStyle2;
             this.colBelateCount.HeaderText = "迟到次数";
             this.colBelateCount.Name = "colBelateCount";
             this.colBelateCount.ReadOnly = true;
@@ -226,8 +226,8 @@
             // 
             // colLeaveEarlyCount
             // 
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            this.colLeaveEarlyCount.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            this.colLeaveEarlyCount.DefaultCellStyle = dataGridViewCellStyle3;
             this.colLeaveEarlyCount.HeaderText = "早退次数";
             this.colLeaveEarlyCount.Name = "colLeaveEarlyCount";
             this.colLeaveEarlyCount.ReadOnly = true;

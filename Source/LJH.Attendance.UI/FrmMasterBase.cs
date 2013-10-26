@@ -91,8 +91,6 @@ namespace LJH.Attendance.UI
         {
             if (GridView != null)
             {
-                GridView.BorderStyle = BorderStyle.FixedSingle;
-                GridView.BackgroundColor = Color.White;
                 if (ForSelect)
                 {
                     GridView.CellDoubleClick += GridView_DoubleClick1;
@@ -106,7 +104,7 @@ namespace LJH.Attendance.UI
             }
         }
 
-        private void InitGridViewColumns()
+        private void ShowVisableColumns()
         {
             DataGridView grid = this.GridView;
             if (grid == null) return;
@@ -232,7 +230,7 @@ namespace LJH.Attendance.UI
         {
             InitToolbar();
             InitGridView();
-            InitGridViewColumns();
+            ShowVisableColumns();
         }
 
         protected virtual FrmDetailBase GetDetailForm()
@@ -276,7 +274,7 @@ namespace LJH.Attendance.UI
             }
         }
 
-        protected void ShowRowBackColor()
+        protected virtual void ShowRowBackColor()
         {
             int count = 0;
             foreach (DataGridViewRow row in this.GridView.Rows)
@@ -442,7 +440,7 @@ namespace LJH.Attendance.UI
                 {
                     string temp = string.Join(",", cols);
                     AppSettings.CurrentSetting.SaveConfig(string.Format("{0}_Columns", this.GetType().Name), temp);
-                    InitGridViewColumns();
+                    ShowVisableColumns();
                 }
             }
         }
