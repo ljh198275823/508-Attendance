@@ -102,8 +102,8 @@ namespace LJH.Attendance.UI
             btnTASheet.Enabled = opt.Permit(Permission.ReadTASheet) || opt.Permit(Permission.EditTASheet);
             mnu_Holiday.Enabled = opt.Permit(Permission.ReadHoliday) || opt.Permit(Permission.EditHoliday);
             btnHoliday.Enabled = opt.Permit(Permission.ReadHoliday) || opt.Permit(Permission.EditHoliday);
-            mnu_AttendanceDoorSelection.Enabled = opt.Permit(Permission.SelectAttendanceReader);
-            btnAttendanceReader.Enabled = opt.Permit(Permission.SelectAttendanceReader);
+            mnu_AttendanceDevice.Enabled = opt.Permit(Permission.SelectAttendanceReader);
+            btnAttendanceDevice.Enabled = opt.Permit(Permission.SelectAttendanceReader);
             mnu_Options.Enabled = opt.Permit(Permission.ReadOptions) || opt.Permit(Permission.EditOptions);
             //考勤管理
             mnu_Shifts.Enabled = opt.Permit(Permission.ReadShift) || opt.Permit(Permission.EditShift);

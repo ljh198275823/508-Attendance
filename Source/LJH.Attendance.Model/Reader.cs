@@ -28,7 +28,15 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置设备类型
         /// </summary>
-        public byte DeviceType { get; set; }
+        public string DeviceType { get; set; }
+        /// <summary>
+        /// 获取或设置机器序列号
+        /// </summary>
+        public string Serial { get; set; }
+        /// <summary>
+        /// 获取或设置通讯方式 目前支持三种方式 TCP/IP RS232/485 USB
+        /// </summary>
+        public string Communication { get; set; }
         /// <summary>
         /// 获取或设置IP
         /// </summary>
@@ -44,11 +52,11 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置控制端口号
         /// </summary>
-        public int ControlPort { get; set; }
+        public int? ControlPort { get; set; }
         /// <summary>
         /// 获取或设置事件端口号
         /// </summary>
-        public int EventPort { get; set; }
+        public int? EventPort { get; set; }
         /// <summary>
         /// 获取或设置MAC地址
         /// </summary>
@@ -56,11 +64,15 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置串口号
         /// </summary>
-        public byte Commport { get; set; }
+        public int? Commport { get; set; }
+        /// <summary>
+        /// 获取或设置波特率
+        /// </summary>
+        public int? Baud { get; set; }
         /// <summary>
         /// 获取或设置地址
         /// </summary>
-        public int Address { get; set; }
+        public int? Address { get; set; }
         /// <summary>
         /// 获取或设置是否用于考勤
         /// </summary>

@@ -46,6 +46,14 @@ namespace LJH.Attendance.UI
             row.Cells["colCheck"].Value = reader.ForAttendance;
             row.Cells["colID"].Value = reader.ID;
             row.Cells["colName"].Value = reader.Name;
+            row.Cells["colDeviceType"].Value = reader.DeviceType;
+            row.Cells["colSerial"].Value = reader.Serial;
+            row.Cells["colCommunication"].Value = reader.Communication;
+            row.Cells["colIP"].Value = reader.IP;
+            row.Cells["colPort"].Value = reader.ControlPort;
+            row.Cells["colCommport"].Value = reader.Commport;
+            row.Cells["colBaud"].Value = reader.Baud;
+            row.Cells["colAddress"].Value = reader.Address;
         }
 
         protected override bool DeletingItem(object item)

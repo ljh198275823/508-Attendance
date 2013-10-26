@@ -17,6 +17,17 @@
     <Type Name="LJH.Attendance.Model.Reader">
       <Column Name="ID" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="DeviceType" Member="DeviceType"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Serial" Member="Serial"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Communication" Member="Communication"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="IP" Member="IP"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="IPMask" Member="IPMask"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Gateway" Member="Gateway"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="ControlPort" Member="ControlPort"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="EventPort" Member="EventPort"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="Commport" Member="Commport"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="Baud" Member="Baud"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="Address" Member="Address"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="ForAttendance" Member="ForAttendance"  DbType="bit null" UpdateCheck="Never"/>
     </Type>
   </Table>

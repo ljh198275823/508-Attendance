@@ -44,7 +44,7 @@
             this.mnu_TASheet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.mnu_Holiday = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_AttendanceDoorSelection = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_AttendanceDevice = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.mnu_Options = new System.Windows.Forms.ToolStripMenuItem();
             this.考勤管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +75,7 @@
             this.toolStrip1 = new LJH.GeneralLibrary.WinformControl.MyToolStrip(this.components);
             this.btnDepartment = new System.Windows.Forms.ToolStripButton();
             this.btnStaff = new System.Windows.Forms.ToolStripButton();
-            this.btnAttendanceReader = new System.Windows.Forms.ToolStripButton();
+            this.btnAttendanceDevice = new System.Windows.Forms.ToolStripButton();
             this.btnTASheet = new System.Windows.Forms.ToolStripButton();
             this.btnHoliday = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -142,7 +142,7 @@
             this.mnu_TASheet,
             this.toolStripSeparator5,
             this.mnu_Holiday,
-            this.mnu_AttendanceDoorSelection,
+            this.mnu_AttendanceDevice,
             this.toolStripSeparator8,
             this.mnu_Options});
             this.mnu_基本资料.Name = "mnu_基本资料";
@@ -200,11 +200,11 @@
             resources.ApplyResources(this.mnu_Holiday, "mnu_Holiday");
             this.mnu_Holiday.Click += new System.EventHandler(this.mnu_Holiday_Click);
             // 
-            // mnu_AttendanceDoorSelection
+            // mnu_AttendanceDevice
             // 
-            this.mnu_AttendanceDoorSelection.Name = "mnu_AttendanceDoorSelection";
-            resources.ApplyResources(this.mnu_AttendanceDoorSelection, "mnu_AttendanceDoorSelection");
-            this.mnu_AttendanceDoorSelection.Click += new System.EventHandler(this.mnu_AttendanceDoorSelection_Click);
+            this.mnu_AttendanceDevice.Name = "mnu_AttendanceDevice";
+            resources.ApplyResources(this.mnu_AttendanceDevice, "mnu_AttendanceDevice");
+            this.mnu_AttendanceDevice.Click += new System.EventHandler(this.mnu_AttendanceDoorSelection_Click);
             // 
             // toolStripSeparator8
             // 
@@ -390,7 +390,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnDepartment,
             this.btnStaff,
-            this.btnAttendanceReader,
+            this.btnAttendanceDevice,
             this.btnTASheet,
             this.btnHoliday,
             this.toolStripSeparator4,
@@ -421,12 +421,12 @@
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Click += new System.EventHandler(this.mnu_Staff_Click);
             // 
-            // btnAttendanceReader
+            // btnAttendanceDevice
             // 
-            this.btnAttendanceReader.Image = global::LJH.Attendance.UI.Properties.Resources.door;
-            resources.ApplyResources(this.btnAttendanceReader, "btnAttendanceReader");
-            this.btnAttendanceReader.Name = "btnAttendanceReader";
-            this.btnAttendanceReader.Click += new System.EventHandler(this.mnu_AttendanceDoorSelection_Click);
+            this.btnAttendanceDevice.Image = global::LJH.Attendance.UI.Properties.Resources.door;
+            resources.ApplyResources(this.btnAttendanceDevice, "btnAttendanceDevice");
+            this.btnAttendanceDevice.Name = "btnAttendanceDevice";
+            this.btnAttendanceDevice.Click += new System.EventHandler(this.mnu_AttendanceDoorSelection_Click);
             // 
             // btnTASheet
             // 
@@ -531,6 +531,7 @@
             this.lblOperator.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             resources.ApplyResources(this.lblOperator, "lblOperator");
             this.lblOperator.Name = "lblOperator";
+            this.lblOperator.Spring = true;
             // 
             // ucFormViewMain
             // 
@@ -571,7 +572,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnu_基本资料;
         private System.Windows.Forms.ToolStripMenuItem mnu_Departments;
         private System.Windows.Forms.ToolStripMenuItem mnu_Staff;
-        private System.Windows.Forms.ToolStripMenuItem mnu_AttendanceDoorSelection;
+        private System.Windows.Forms.ToolStripMenuItem mnu_AttendanceDevice;
         private System.Windows.Forms.ToolStripMenuItem 考勤管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnu_Shifts;
         private System.Windows.Forms.ToolStripMenuItem mnu_ShiftTemplate;
@@ -596,7 +597,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem mnu_Logout;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripButton btnAttendanceReader;
+        private System.Windows.Forms.ToolStripButton btnAttendanceDevice;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnShiftResultStatistics;
         private System.Windows.Forms.ToolStripMenuItem mnu_ShiftResultStatistics2;
