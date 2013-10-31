@@ -44,7 +44,6 @@
     <Reference Include="LJH.GeneralLibrary">
       <HintPath>..\Reference\LJH.GeneralLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Ralid.GeneralLibrary, Version=2.0.2013.923, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="SqlClientHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Reference\SqlClientHelper.dll</HintPath>
