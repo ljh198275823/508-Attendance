@@ -29,7 +29,6 @@ namespace LJH.Attendance.UI
             txtUserPosition.Text = staff.UserPosition;
             rdUnResign.Checked = !staff.Resigned;
             rdResign.Checked = staff.Resigned;
-            txtMemo.Text = staff.Memo;
         }
 
         protected override CommandResult AddItem(object addingItem)
@@ -78,7 +77,6 @@ namespace LJH.Attendance.UI
             }
             info.UserPosition = txtUserPosition.Text;
             info.Resigned = rdResign.Checked;
-            info.Memo = txtMemo.Text;
             return info;
         }
 
@@ -89,5 +87,11 @@ namespace LJH.Attendance.UI
             this.btnOk.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
         }
         #endregion
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmFingerResgister frm = new FrmFingerResgister();
+            frm.ShowDialog();
+        }
     }
 }
