@@ -337,6 +337,31 @@ namespace LJH.Attendance.UI
             }
             this.AfterCheck += Node_Checked;
         }
+        /// <summary>
+        /// 通过员工ID获取部门名称
+        /// </summary>
+        /// <param name="staffID"></param>
+        /// <returns></returns>
+        public string GetDepartmentName(int staffID)
+        {
+            if (_AllUserNodes != null && _AllUserNodes.Count > 0)
+            {
+                foreach (TreeNode node in _AllUserNodes)
+                {
+                    Staff s = node.Tag as Staff;
+                    if (s.ID == staffID)
+                    {
+                        TreeNode dept = node.Parent;
+                        if (dept != null && dept.Tag != null)
+                        {
+                            Department d = dept.Tag as Department;
+                            if (d != null) return d.Name;
+                        }
+                    }
+                }
+            }
+            return string.Empty;
+        }
         #endregion
     }
 }

@@ -55,9 +55,9 @@ namespace LJH.Attendance.UI
                 _DateColumns.Add(col);
                 begin = begin.AddDays(1);
             }
-            for (int i = 0; i < _DateColumns.Count; i++)
+            foreach(DataGridViewColumn col in _DateColumns )
             {
-                GridView.Columns.Insert(i + 1, _DateColumns[i]);
+                GridView.Columns.Add(col);
             }
         }
 
@@ -116,6 +116,7 @@ namespace LJH.Attendance.UI
         {
             IGrouping<int, AttendanceResult> group = item as IGrouping<int, AttendanceResult>;
             row.Tag = group;
+            row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(group.First().StaffID);
             row.Cells["colStaff"].Value = group.First().StaffName;
             foreach (DataGridViewColumn col in _DateColumns)
             {
@@ -164,6 +165,7 @@ namespace LJH.Attendance.UI
             InitGridColumns(this.ucDateTimeInterval1.StartDateTime, this.ucDateTimeInterval1.EndDateTime);
             List<object> items = GetDataSource();
             ShowItemsOnGrid(items);
+            this.GridView.Sort(this.GridView.Columns["colDept"], ListSortDirection.Ascending);
         }
         #endregion
     }

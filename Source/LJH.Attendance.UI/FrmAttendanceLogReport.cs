@@ -69,6 +69,7 @@ namespace LJH.Attendance.UI
         {
             AttendanceLog record = item as AttendanceLog;
             row.Tag = record;
+            row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(record.StaffID);
             row.Cells["colStaff"].Value = record.StaffName;
             row.Cells["colReadDateTime"].Value = record.ReadDateTime.ToString("yyyy-MM-dd HH:mm:ss");
             row.Cells["colReaderName"].Value = record.ReaderName;
@@ -90,6 +91,7 @@ namespace LJH.Attendance.UI
             GridView.Rows.Clear();
             List<object> items = GetDataSource();
             ShowItemsOnGrid(items);
+            this.GridView.Sort(this.GridView.Columns["colDept"], ListSortDirection.Ascending);
         }
         #endregion
     }

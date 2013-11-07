@@ -45,6 +45,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.GridView = new System.Windows.Forms.DataGridView();
+            this.colDept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plnLeft.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -190,6 +191,7 @@
             this.GridView.AllowUserToResizeRows = false;
             this.GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDept,
             this.colStaff});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(330, 45);
@@ -200,9 +202,14 @@
             this.GridView.Size = new System.Drawing.Size(562, 263);
             this.GridView.TabIndex = 61;
             // 
+            // colDept
+            // 
+            this.colDept.HeaderText = "部门";
+            this.colDept.Name = "colDept";
+            this.colDept.ReadOnly = true;
+            // 
             // colStaff
             // 
-            this.colStaff.Frozen = true;
             this.colStaff.HeaderText = "人员";
             this.colStaff.Name = "colStaff";
             this.colStaff.ReadOnly = true;
@@ -252,6 +259,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox txtKeyword;
         private System.Windows.Forms.DataGridView GridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDept;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
     }
 }

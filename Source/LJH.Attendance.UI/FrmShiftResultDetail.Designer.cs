@@ -47,6 +47,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.GridView = new System.Windows.Forms.DataGridView();
+            this.colDept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShiftDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -212,6 +213,7 @@
             this.GridView.AllowUserToResizeRows = false;
             this.GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDept,
             this.colStaff,
             this.colShiftDate,
             this.colShift,
@@ -231,6 +233,12 @@
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridView.Size = new System.Drawing.Size(856, 278);
             this.GridView.TabIndex = 58;
+            // 
+            // colDept
+            // 
+            this.colDept.HeaderText = "部门";
+            this.colDept.Name = "colDept";
+            this.colDept.ReadOnly = true;
             // 
             // colStaff
             // 
@@ -366,6 +374,7 @@
         private System.Windows.Forms.DataGridView GridView;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox txtKeyword;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDept;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShiftDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShift;

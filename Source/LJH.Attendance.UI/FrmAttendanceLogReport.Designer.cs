@@ -43,6 +43,7 @@
             this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.colDept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReadDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReaderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,6 +124,7 @@
             this.GridView.AllowUserToResizeRows = false;
             this.GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDept,
             this.colStaff,
             this.colReadDateTime,
             this.colReaderName,
@@ -134,7 +136,7 @@
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridView.Size = new System.Drawing.Size(556, 276);
+            this.GridView.Size = new System.Drawing.Size(637, 276);
             this.GridView.TabIndex = 61;
             // 
             // menu
@@ -149,7 +151,7 @@
             this.toolStripSeparator2});
             this.menu.Location = new System.Drawing.Point(330, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(556, 45);
+            this.menu.Size = new System.Drawing.Size(637, 45);
             this.menu.TabIndex = 60;
             // 
             // btn_Export
@@ -194,6 +196,12 @@
             this.splitter1.TabIndex = 59;
             this.splitter1.TabStop = false;
             // 
+            // colDept
+            // 
+            this.colDept.HeaderText = "部门";
+            this.colDept.Name = "colDept";
+            this.colDept.ReadOnly = true;
+            // 
             // colStaff
             // 
             this.colStaff.HeaderText = "人员";
@@ -233,7 +241,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 343);
+            this.ClientSize = new System.Drawing.Size(967, 343);
             this.Controls.Add(this.GridView);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.splitter1);
@@ -271,6 +279,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Splitter splitter1;
         private UCDateTimeInterval ucDateTimeInterval1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDept;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReadDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReaderName;

@@ -92,6 +92,7 @@ namespace LJH.Attendance.UI
         {
             AttendanceResult sar = item as AttendanceResult;
             row.Tag = sar;
+            row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(sar.StaffID);
             row.Cells["colStaff"].Value = sar.StaffName;
             row.Cells["colShift"].Value = sar.ShiftName;
             row.Cells["colShiftDate"].Value = sar.ShiftDate.ToString("yyyy-MM-dd");
@@ -139,6 +140,7 @@ namespace LJH.Attendance.UI
             GridView.Rows.Clear();
             List<object> items = GetDataSource();
             ShowItemsOnGrid(items);
+            this.GridView.Sort(this.GridView.Columns["colDept"], ListSortDirection.Ascending);
         }
         #endregion
     }

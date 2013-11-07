@@ -117,6 +117,7 @@ namespace LJH.Attendance.UI
         {
             IGrouping<int, AttendanceResult> group = item as IGrouping<int, AttendanceResult>;
             row.Tag = group;
+            row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(group.First().StaffID);
             row.Cells["colStaff"].Value = group.First().StaffName;
             decimal shiftTime = group.Where(sar => !string.IsNullOrEmpty(sar.ShiftID)).Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value);
             decimal present = group.Where(sar => !string.IsNullOrEmpty(sar.ShiftID)).Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value);
@@ -198,6 +199,7 @@ namespace LJH.Attendance.UI
             GridView.Rows.Clear();
             List<object> items = GetDataSource();
             ShowItemsOnGrid(items);
+            this.GridView.Sort(this.GridView.Columns["colDept"], ListSortDirection.Ascending);
         }
         #endregion
     }
