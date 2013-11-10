@@ -1,6 +1,6 @@
 ﻿namespace LJH.Attendance.UI
 {
-    partial class FrmShiftResultDetail
+    partial class FrmShiftResultDetail_Old
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.重新生成结果ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看所有刷卡记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,17 +51,14 @@
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShiftDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftDuty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOnduty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftDuty2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOnduty2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftDuty3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOnduty3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colShiftOnDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colShiftOffDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOnduty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOffDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShiftTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPresent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBelate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLeaveEarly = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colForget = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.plnLeft.SuspendLayout();
@@ -219,23 +217,20 @@
             this.colStaff,
             this.colShiftDate,
             this.colShift,
-            this.colShiftDuty1,
-            this.colOnduty1,
-            this.colShiftDuty2,
-            this.colOnduty2,
-            this.colShiftDuty3,
-            this.colOnduty3,
+            this.colShiftOnDuty,
+            this.colShiftOffDuty,
+            this.colOnduty,
+            this.colOffDuty,
             this.colShiftTime,
             this.colPresent,
-            this.colBelate,
-            this.colLeaveEarly,
-            this.colForget});
+            this.colResult,
+            this.colMemo});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(330, 45);
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
-            this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridView.Size = new System.Drawing.Size(856, 278);
             this.GridView.TabIndex = 58;
             // 
@@ -267,53 +262,37 @@
             this.colShift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colShift.Width = 60;
             // 
-            // colShiftDuty1
+            // colShiftOnDuty
             // 
-            this.colShiftDuty1.HeaderText = "应上下班1";
-            this.colShiftDuty1.Name = "colShiftDuty1";
-            this.colShiftDuty1.ReadOnly = true;
-            this.colShiftDuty1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftDuty1.Width = 80;
+            this.colShiftOnDuty.HeaderText = "应上班";
+            this.colShiftOnDuty.Name = "colShiftOnDuty";
+            this.colShiftOnDuty.ReadOnly = true;
+            this.colShiftOnDuty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colShiftOnDuty.Width = 60;
             // 
-            // colOnduty1
+            // colShiftOffDuty
             // 
-            this.colOnduty1.HeaderText = "实上下班1";
-            this.colOnduty1.Name = "colOnduty1";
-            this.colOnduty1.ReadOnly = true;
-            this.colOnduty1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colOnduty1.Width = 80;
+            this.colShiftOffDuty.HeaderText = "应下班";
+            this.colShiftOffDuty.Name = "colShiftOffDuty";
+            this.colShiftOffDuty.ReadOnly = true;
+            this.colShiftOffDuty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colShiftOffDuty.Width = 60;
             // 
-            // colShiftDuty2
+            // colOnduty
             // 
-            this.colShiftDuty2.HeaderText = "应上下班2";
-            this.colShiftDuty2.Name = "colShiftDuty2";
-            this.colShiftDuty2.ReadOnly = true;
-            this.colShiftDuty2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftDuty2.Width = 80;
+            this.colOnduty.HeaderText = "实上班";
+            this.colOnduty.Name = "colOnduty";
+            this.colOnduty.ReadOnly = true;
+            this.colOnduty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colOnduty.Width = 60;
             // 
-            // colOnduty2
+            // colOffDuty
             // 
-            this.colOnduty2.HeaderText = "实上下班2";
-            this.colOnduty2.Name = "colOnduty2";
-            this.colOnduty2.ReadOnly = true;
-            this.colOnduty2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colOnduty2.Width = 80;
-            // 
-            // colShiftDuty3
-            // 
-            this.colShiftDuty3.HeaderText = "应上下班3";
-            this.colShiftDuty3.Name = "colShiftDuty3";
-            this.colShiftDuty3.ReadOnly = true;
-            this.colShiftDuty3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftDuty3.Width = 80;
-            // 
-            // colOnduty3
-            // 
-            this.colOnduty3.HeaderText = "实上下班3";
-            this.colOnduty3.Name = "colOnduty3";
-            this.colOnduty3.ReadOnly = true;
-            this.colOnduty3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colOnduty3.Width = 80;
+            this.colOffDuty.HeaderText = "实下班";
+            this.colOffDuty.Name = "colOffDuty";
+            this.colOffDuty.ReadOnly = true;
+            this.colOffDuty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colOffDuty.Width = 60;
             // 
             // colShiftTime
             // 
@@ -331,29 +310,23 @@
             this.colPresent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colPresent.Width = 60;
             // 
-            // colBelate
+            // colResult
             // 
-            this.colBelate.HeaderText = "迟到(次)";
-            this.colBelate.Name = "colBelate";
-            this.colBelate.ReadOnly = true;
-            this.colBelate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colBelate.Width = 40;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.colResult.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colResult.HeaderText = "考勤结果";
+            this.colResult.Name = "colResult";
+            this.colResult.ReadOnly = true;
+            this.colResult.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colLeaveEarly
+            // colMemo
             // 
-            this.colLeaveEarly.HeaderText = "早退(次)";
-            this.colLeaveEarly.Name = "colLeaveEarly";
-            this.colLeaveEarly.ReadOnly = true;
-            this.colLeaveEarly.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colLeaveEarly.Width = 40;
-            // 
-            // colForget
-            // 
-            this.colForget.HeaderText = "漏打卡(次)";
-            this.colForget.Name = "colForget";
-            this.colForget.ReadOnly = true;
-            this.colForget.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colForget.Width = 50;
+            this.colMemo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMemo.HeaderText = "备注";
+            this.colMemo.MinimumWidth = 100;
+            this.colMemo.Name = "colMemo";
+            this.colMemo.ReadOnly = true;
+            this.colMemo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // FrmShiftResultDetail
             // 
@@ -405,16 +378,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShiftDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShift;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftDuty1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOnduty1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftDuty2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOnduty2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftDuty3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOnduty3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftOnDuty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftOffDuty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOnduty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOffDuty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShiftTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPresent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBelate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarly;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colForget;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colResult;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
     }
 }

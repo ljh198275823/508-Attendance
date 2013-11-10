@@ -20,6 +20,96 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
+        #region 私有变量
+        private List<DataGridViewColumn> _OTCols = new List<DataGridViewColumn>();
+        private List<DataGridViewColumn> _VacationCols = new List<DataGridViewColumn>();
+        private List<DataGridViewColumn> _TripCols = new List<DataGridViewColumn>();
+        #endregion
+
+        #region 私有方法
+        private void InitGridViewColumns()
+        {
+            _OTCols.Clear();
+            _TripCols.Clear();
+            _VacationCols.Clear();
+            List<OTType> ots = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (ots != null && ots.Count > 0)
+            {
+                foreach (OTType ot in ots)
+                {
+                    DataGridViewColumn col = AddAColumn(ot.ID, ot.Name, "O");
+                    _OTCols.Add(col);
+                }
+            }
+            List<VacationType> vts = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (vts != null && vts.Count > 0)
+            {
+                foreach (VacationType vt in vts)
+                {
+                    DataGridViewColumn col = AddAColumn(vt.ID, vt.Name, "V");
+                    _VacationCols.Add(col);
+                }
+            }
+            List<TripType> tts = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (tts != null && tts.Count > 0)
+            {
+                foreach (TripType tt in tts)
+                {
+                    DataGridViewColumn col = AddAColumn(tt.ID, tt.Name, "T");
+                    _TripCols.Add(col);
+                }
+            }
+        }
+
+        private DataGridViewColumn AddAColumn(string id, string name, string type)
+        {
+            DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
+            col.Name = string.Format("col{0}_{1}", id, type);
+            col.Tag = id;
+            col.MinimumWidth = 60;
+            col.ReadOnly = true;
+            col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            col.HeaderText = name;
+            GridView.Columns.Add(col);
+            return col;
+        }
+
+        private decimal SumOfAbsent(List<AttendanceResult> group, string id)
+        {
+            List<AbsentItem> items = new List<AbsentItem>();
+            foreach (AttendanceResult sar in group)
+            {
+                if (sar.AbsentItems != null && sar.AbsentItems.Count > 0)
+                {
+                    items.AddRange(sar.AbsentItems.Where(it => it.Category == id));
+                }
+            }
+            return items.Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Duration, true).Value);
+        }
+
+        private decimal SumOfOT(List<AttendanceResult> group, string id)
+        {
+            List<AttendanceResult> items = group.Where(sar => !string.IsNullOrEmpty(id) && id == sar.Category).ToList();
+            if (items != null && items.Count > 0)
+            {
+                return items.Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Present, true).Value);
+            }
+            return 0;
+        }
+
+        private int SumOfForget(List<AttendanceResult> group)
+        {
+            int count = 0;
+            foreach (AttendanceResult sar in group)
+            {
+                if (sar.LogWhenArrive && sar.OnDutyTime == null) count++;
+                if (sar.LogWhenLeave && sar.OffDutyTime == null) count++;
+            }
+            return count;
+        }
+        #endregion
+
         #region 私有方法
         private string GetShiftString(List<AttendanceResult> items)
         {
@@ -34,7 +124,6 @@ namespace LJH.Attendance.UI
             }
             return ret;
         }
-
 
         private string AbsentItemsDescr(AttendanceResult sar)
         {
@@ -64,6 +153,7 @@ namespace LJH.Attendance.UI
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.Init();
+            InitGridViewColumns();
         }
 
         protected override FrmDetailBase GetDetailForm()
@@ -81,56 +171,82 @@ namespace LJH.Attendance.UI
                 con.Staff = staff;
                 con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
                 List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
-                return (from item in arranges
-                        orderby item.StaffName ascending, item.ShiftDate ascending
-                        select (object)item).ToList();
+                List<object> items = new List<object>();
+                foreach (Staff s in users)
+                {
+                    List<AttendanceResult> rets = (from it in arranges where it.StaffID == s.ID orderby it.StartTime ascending select it).ToList();
+                    if (rets != null && rets.Count > 0)
+                    {
+                        List<IGrouping<DateTime, AttendanceResult>> groups = rets.GroupBy(item => item.ShiftDate).ToList();
+                        List<object> sas = (from g in groups select (object)g).ToList();
+                        items.AddRange(sas);
+                    }
+                }
+                return items;
             }
             return null;
         }
 
         protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)
         {
-            AttendanceResult sar = item as AttendanceResult;
+            IGrouping<DateTime, AttendanceResult> g = item as IGrouping<DateTime, AttendanceResult>;
+            List<AttendanceResult> sar = (from it in g orderby it.StartTime ascending select it).ToList();
             row.Tag = sar;
-            row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(sar.StaffID);
-            row.Cells["colStaff"].Value = sar.StaffName;
-            row.Cells["colShift"].Value = sar.ShiftName;
-            row.Cells["colShiftDate"].Value = sar.ShiftDate.ToString("yyyy-MM-dd");
-            row.Cells["colShiftOnDuty"].Value = sar.StartTime.ToString("HH:mm:ss");
-            row.Cells["colShiftOffDuty"].Value = sar.EndTime.ToString("HH:mm:ss");
-            row.Cells["colOnduty"].Value = sar.OnDutyTime == null ? string.Empty : sar.OnDutyTime.Value.ToString("HH:mm:ss");
-            row.Cells["colOnduty"].Style.ForeColor = (sar.Result == AttendanceResultCode.Late || sar.Result == AttendanceResultCode.LateEarly) ? Color.Red : Color.Black;
-            row.Cells["colOffDuty"].Value = sar.OffDutyTime == null ? string.Empty : sar.OffDutyTime.Value.ToString("HH:mm:ss");
-            row.Cells["colOffDuty"].Style.ForeColor = (sar.Result == AttendanceResultCode.LeaveEarly || sar.Result == AttendanceResultCode.LateEarly) ? Color.Red : Color.Black;
-            row.Cells["colShiftTime"].Value = AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value;
-            row.Cells["colPresent"].Value = AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value;
-            row.Cells["colResult"].Value = sar.ResultDescr;
-            row.Cells["colResult"].Style.ForeColor = sar.Result == AttendanceResultCode.OK ? Color.Blue : Color.Red;
-            row.Cells["colMemo"].Value = (!string.IsNullOrEmpty(sar.ShiftID)) ? AbsentItemsDescr(sar) : sar.Category;
+            row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(sar[0].StaffID);
+            row.Cells["colStaff"].Value = sar[0].StaffName;
+            row.Cells["colShift"].Value = sar[0].ShiftName;
+            row.Cells["colShiftDate"].Value = sar[0].ShiftDate.ToString("yyyy-MM-dd");
+            if (sar.Count >= 1)
+            {
+                row.Cells["colShiftDuty1"].Value = sar[0].StartTime.ToString("HH:mm") + "--" + sar[0].EndTime.ToString("HH:mm");
+                row.Cells["colOnduty1"].Value = (sar[0].OnDutyTime != null ? sar[0].OnDutyTime.Value.ToString("HH:mm") : new string(' ', 5)) + "--" +
+                                                   (sar[0].OffDutyTime != null ? sar[0].OffDutyTime.Value.ToString("HH:mm") : new string(' ', 5));
+                row.Cells["colOnduty1"].Style.ForeColor = sar[0].Result == AttendanceResultCode.OK ? Color.Black : Color.Red;
+            }
+            if (sar.Count >= 2)
+            {
+                row.Cells["colShiftDuty2"].Value = sar[1].StartTime.ToString("HH:mm") + "--" + sar[1].EndTime.ToString("HH:mm");
+                row.Cells["colOnduty2"].Value = (sar[1].OnDutyTime != null ? sar[1].OnDutyTime.Value.ToString("HH:mm") : new string(' ', 5)) + "--" +
+                                                   (sar[1].OffDutyTime != null ? sar[1].OffDutyTime.Value.ToString("HH:mm") : new string(' ', 5));
+                row.Cells["colOnduty2"].Style.ForeColor = sar[1].Result == AttendanceResultCode.OK ? Color.Black : Color.Red;
+            }
+            if (sar.Count >= 3)
+            {
+                row.Cells["colShiftDuty3"].Value = sar[2].StartTime.ToString("HH:mm") + "--" + sar[2].EndTime.ToString("HH:mm");
+                row.Cells["colOnduty3"].Value = (sar[2].OnDutyTime != null ? sar[2].OnDutyTime.Value.ToString("HH:mm") : new string(' ', 5)) + "--" +
+                                                   (sar[2].OffDutyTime != null ? sar[2].OffDutyTime.Value.ToString("HH:mm") : new string(' ', 5));
+                row.Cells["colOnduty3"].Style.ForeColor = sar[2].Result == AttendanceResultCode.OK ? Color.Black : Color.Red;
+            }
+            row.Cells["colShiftTime"].Value = sar.Where(it => !string.IsNullOrEmpty(it.ShiftID)).Sum(it => AttendanceRules.Current.GetDuarationFrom(it.ShiftTime, false).Value);
+            row.Cells["colPresent"].Value = sar.Where(it => !string.IsNullOrEmpty(it.ShiftID)).Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Present, false).Value);
+            int belate = sar.Count(it => it.Belate > 0);
+            int leaveEarly = sar.Count(it => it.LeaveEarly > 0);
+            int forget = sar.Count(it => (it.LogWhenArrive && it.OnDutyTime == null) || (it.LogWhenLeave && it.OffDutyTime == null));
+            row.Cells["colBelate"].Value = belate > 0 ? belate.ToString() : null;
+            row.Cells["colLeaveEarly"].Value = leaveEarly > 0 ? leaveEarly.ToString() : null;
+            row.Cells["colForget"].Value = forget > 0 ? forget.ToString() : null;
+
+            foreach (DataGridViewColumn col in _OTCols)
+            {
+                decimal sum = SumOfOT(sar, col.Tag.ToString()); //加班
+                row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
+            }
+            foreach (DataGridViewColumn col in _VacationCols)
+            {
+                decimal sum = SumOfAbsent(sar, col.Tag.ToString());
+                row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
+            }
+            foreach (DataGridViewColumn col in _TripCols)
+            {
+                decimal sum = SumOfAbsent(sar, col.Tag.ToString());
+                row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
+            }
         }
 
         protected override bool DeletingItem(object item)
         {
             CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as OTType);
             return ret.Result == ResultCode.Successful;
-        }
-
-        public override void Fresh(SearchCondition search)
-        {
-            if (search != null && search is StaffAttendanceResultSearchCondition)
-            {
-                StaffAttendanceResultSearchCondition con = search as StaffAttendanceResultSearchCondition;
-                if (con.ShiftDate != null)
-                {
-                    this.ucDateTimeInterval1.StartDateTime = con.ShiftDate.Begin;
-                    this.ucDateTimeInterval1.EndDateTime = con.ShiftDate.End;
-                }
-                if (con.Staff != null && con.Staff.Count > 0)
-                {
-                    this.departmentTreeview1.SelectedStaffIDs = con.Staff;
-                }
-            }
-            base.Fresh(search);
         }
         #endregion
 
@@ -140,7 +256,6 @@ namespace LJH.Attendance.UI
             GridView.Rows.Clear();
             List<object> items = GetDataSource();
             ShowItemsOnGrid(items);
-            this.GridView.Sort(this.GridView.Columns["colDept"], ListSortDirection.Ascending);
         }
         #endregion
     }

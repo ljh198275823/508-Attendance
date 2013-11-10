@@ -45,10 +45,8 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.colDept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReadDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReaderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIsManual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReadDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReadTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plnLeft.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -126,10 +124,8 @@
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDept,
             this.colStaff,
-            this.colReadDateTime,
-            this.colReaderName,
-            this.colIsManual,
-            this.colMemo});
+            this.colReadDate,
+            this.colReadTime});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(330, 45);
             this.GridView.Name = "GridView";
@@ -208,34 +204,19 @@
             this.colStaff.Name = "colStaff";
             this.colStaff.ReadOnly = true;
             // 
-            // colReadDateTime
+            // colReadDate
             // 
-            this.colReadDateTime.HeaderText = "考勤时间";
-            this.colReadDateTime.Name = "colReadDateTime";
-            this.colReadDateTime.ReadOnly = true;
-            this.colReadDateTime.Width = 130;
+            this.colReadDate.HeaderText = "考勤日期";
+            this.colReadDate.Name = "colReadDate";
+            this.colReadDate.ReadOnly = true;
             // 
-            // colReaderName
+            // colReadTime
             // 
-            this.colReaderName.HeaderText = "考勤点";
-            this.colReaderName.Name = "colReaderName";
-            this.colReaderName.ReadOnly = true;
-            this.colReaderName.Width = 150;
-            // 
-            // colIsManual
-            // 
-            this.colIsManual.HeaderText = "其它";
-            this.colIsManual.Name = "colIsManual";
-            this.colIsManual.ReadOnly = true;
-            this.colIsManual.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colIsManual.Width = 80;
-            // 
-            // colMemo
-            // 
-            this.colMemo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMemo.HeaderText = "备注";
-            this.colMemo.Name = "colMemo";
-            this.colMemo.ReadOnly = true;
+            this.colReadTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colReadTime.HeaderText = "考勤时间";
+            this.colReadTime.MinimumWidth = 150;
+            this.colReadTime.Name = "colReadTime";
+            this.colReadTime.ReadOnly = true;
             // 
             // FrmAttendanceLogReport
             // 
@@ -281,9 +262,7 @@
         private UCDateTimeInterval ucDateTimeInterval1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDept;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colReadDateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colReaderName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIsManual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReadDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReadTime;
     }
 }

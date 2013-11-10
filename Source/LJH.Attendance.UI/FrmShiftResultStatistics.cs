@@ -107,8 +107,13 @@ namespace LJH.Attendance.UI
                 con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
                 List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
                 List<IGrouping<int, AttendanceResult>> groups = arranges.GroupBy(item => item.StaffID).ToList();
-                return (from g in groups
-                        select (object)g).ToList();
+                List<object> items = new List<object>();
+                foreach (Staff s in users)
+                {
+                    IGrouping<int, AttendanceResult> group = groups.SingleOrDefault(item => item.Key == s.ID);
+                    if (group != null) items.Add(group);
+                }
+                return items;
             }
             return null;
         }
@@ -199,7 +204,6 @@ namespace LJH.Attendance.UI
             GridView.Rows.Clear();
             List<object> items = GetDataSource();
             ShowItemsOnGrid(items);
-            this.GridView.Sort(this.GridView.Columns["colDept"], ListSortDirection.Ascending);
         }
         #endregion
     }

@@ -252,6 +252,12 @@
     <Compile Include="FrmShiftItemDetail.Designer.cs">
       <DependentUpon>FrmShiftItemDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmShiftResultDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftResultDetail.designer.cs">
+      <DependentUpon>FrmShiftResultDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmShiftTemplateApply.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,11 +348,11 @@
     <Compile Include="FrmShiftMaster.Designer.cs">
       <DependentUpon>FrmShiftMaster.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmShiftResultDetail.cs">
+    <Compile Include="FrmShiftResultDetail_Old.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmShiftResultDetail.Designer.cs">
-      <DependentUpon>FrmShiftResultDetail.cs</DependentUpon>
+    <Compile Include="FrmShiftResultDetail_Old.Designer.cs">
+      <DependentUpon>FrmShiftResultDetail_Old.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShiftResultMonthDetail.cs">
       <SubType>Form</SubType>
@@ -549,6 +555,9 @@
     <EmbeddedResource Include="FrmShiftItemDetail.resx">
       <DependentUpon>FrmShiftItemDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftResultDetail.resx">
+      <DependentUpon>FrmShiftResultDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmShiftTemplateApply.resx">
       <DependentUpon>FrmShiftTemplateApply.cs</DependentUpon>
     </EmbeddedResource>
@@ -612,8 +621,8 @@
     <EmbeddedResource Include="FrmShiftResultMonthDetail.resx">
       <DependentUpon>FrmShiftResultMonthDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmShiftResultDetail.resx">
-      <DependentUpon>FrmShiftResultDetail.cs</DependentUpon>
+    <EmbeddedResource Include="FrmShiftResultDetail_Old.resx">
+      <DependentUpon>FrmShiftResultDetail_Old.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShiftResultStatistics.resx">
       <DependentUpon>FrmShiftResultStatistics.cs</DependentUpon>

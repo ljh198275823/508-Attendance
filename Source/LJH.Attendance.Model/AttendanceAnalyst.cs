@@ -321,6 +321,10 @@ namespace LJH.Attendance.Model
                         ars.RemoveAll(it => it.ReadDateTime <= dtTemp); //去掉所有前面的读卡记录，下面计算时会越来越快
                     }
                 }
+                else
+                {
+                    item.OnDutyTime = item.NewStartTime; //如果上班不需要刷卡，则上班时间设置成应上班时间
+                }
 
                 if (item.LogWhenLeave)
                 {
@@ -361,6 +365,10 @@ namespace LJH.Attendance.Model
                         }
                     }
                 }
+                else
+                {
+                    item.OffDutyTime = item.NewEndTime; //如果下班不需要刷卡，则下班时间为应下班时间
+                }
             }
         }
         #endregion
@@ -383,7 +391,6 @@ namespace LJH.Attendance.Model
             AddTASheetsToTimezones(staff, results, sheets, range);
             //为那些所有需要记录上下班时间的时间段附加签到和签退
             List<AttendanceResult> items = (from item in results
-                                            where item.LogWhenArrive || item.LogWhenLeave
                                             orderby item.NewStartTime ascending
                                             select item).ToList();
             //对每个时间段附加上实际的打卡时间

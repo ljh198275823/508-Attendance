@@ -20,6 +20,30 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
+        #region 私有方法
+        private string GetAttendanceTime(List<AttendanceLog> items)
+        {
+            string temp = string.Empty;
+            string lastTime = string.Empty;
+            if (items != null && items.Count > 0)
+            {
+                for (int i = 0; i < items.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        temp += items[i].ReadDateTime.ToString("HH:mm") + (items[i].IsManual ? "[补签]" : string.Empty);
+                    }
+                    else if (!string.IsNullOrEmpty(lastTime) && lastTime != items[i].ReadDateTime.ToString("HH:mm"))
+                    {
+                        temp += " ," + items[i].ReadDateTime.ToString("HH:mm") + (items[i].IsManual ? "[补签]" : string.Empty);
+                    }
+                    lastTime = items[i].ReadDateTime.ToString("HH:mm");
+                }
+            }
+            return temp;
+        }
+        #endregion
+
         #region 重写基类方法
         protected override void Init()
         {
@@ -47,7 +71,6 @@ namespace LJH.Attendance.UI
                 return null;
             }
             List<string> readers = attendanceReaders.Select(it => it.ID).ToList();
-
             List<Staff> users = departmentTreeview1.SelectedStaff;
             if (users != null && users.Count > 0)
             {
@@ -58,24 +81,32 @@ namespace LJH.Attendance.UI
                 con.Readers = readers;
                 con.ReadDateTime = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime.Date.AddDays(1).AddSeconds(-1));
                 List<AttendanceLog> arranges = (new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
-                return (from item in arranges
-                        orderby item.StaffName ascending, item.ReadDateTime ascending
-                        select (object)item).Distinct().ToList();
+                List<object> items = new List<object>();
+                foreach (Staff s in users)
+                {
+                    List<AttendanceLog> rets = (from it in arranges where it.StaffID == s.ID orderby it.ReadDateTime ascending select it).ToList();
+                    if (rets != null && rets.Count > 0)
+                    {
+                        List<IGrouping<string, AttendanceLog>> groups = rets.GroupBy(item => item.ReadDateTime.ToString("yyyy-MM-dd")).ToList();
+                        List<object> sas = (from g in groups select (object)g).ToList();
+                        items.AddRange(sas);
+                    }
+                }
+                return items;
             }
             return null;
         }
 
         protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)
         {
-            AttendanceLog record = item as AttendanceLog;
-            row.Tag = record;
-            row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(record.StaffID);
-            row.Cells["colStaff"].Value = record.StaffName;
-            row.Cells["colReadDateTime"].Value = record.ReadDateTime.ToString("yyyy-MM-dd HH:mm:ss");
-            row.Cells["colReaderName"].Value = record.ReaderName;
-            row.Cells["colIsManual"].Value = record.IsManual ? "补签" : string.Empty;
-            row.Cells["colMemo"].Value = record.Memo;
-            row.DefaultCellStyle.ForeColor = !record.IsManual ? Color.Black : Color.Red;
+            IGrouping<string, AttendanceLog> g = item as IGrouping<string, AttendanceLog>;
+            List<AttendanceLog> records = g.ToList();
+            row.Tag = records;
+            row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(records[0].StaffID);
+            row.Cells["colStaff"].Value = records[0].StaffName;
+            row.Cells["colReadDate"].Value = records[0].ReadDateTime.ToString("yyyy-MM-dd");
+            row.Cells["colReadTime"].Value = GetAttendanceTime(records);
+            row.DefaultCellStyle.ForeColor = records.Exists(it => it.IsManual) ? Color.Red : Color.Black;
         }
 
         protected override bool DeletingItem(object item)
@@ -91,7 +122,6 @@ namespace LJH.Attendance.UI
             GridView.Rows.Clear();
             List<object> items = GetDataSource();
             ShowItemsOnGrid(items);
-            this.GridView.Sort(this.GridView.Columns["colDept"], ListSortDirection.Ascending);
         }
         #endregion
     }

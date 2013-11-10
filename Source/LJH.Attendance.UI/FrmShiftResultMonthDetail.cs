@@ -22,6 +22,9 @@ namespace LJH.Attendance.UI
 
         #region 私有变量
         private List<DataGridViewColumn> _DateColumns = new List<DataGridViewColumn>();
+        private List<DataGridViewColumn> _OTCols = new List<DataGridViewColumn>();
+        private List<DataGridViewColumn> _VacationCols = new List<DataGridViewColumn>();
+        private List<DataGridViewColumn> _TripCols = new List<DataGridViewColumn>();
         #endregion
 
         #region 私有方法
@@ -55,7 +58,7 @@ namespace LJH.Attendance.UI
                 _DateColumns.Add(col);
                 begin = begin.AddDays(1);
             }
-            foreach(DataGridViewColumn col in _DateColumns )
+            foreach (DataGridViewColumn col in _DateColumns)
             {
                 GridView.Columns.Add(col);
             }
@@ -74,6 +77,66 @@ namespace LJH.Attendance.UI
             }
             return ret;
         }
+
+        private void InitGridViewColumns()
+        {
+            foreach (DataGridViewColumn col in _OTCols)
+            {
+                this.GridView.Columns.Remove(col);
+            }
+            _OTCols.Clear();
+            foreach (DataGridViewColumn col in _TripCols)
+            {
+                this.GridView.Columns.Remove(col);
+            }
+            _TripCols.Clear();
+            foreach (DataGridViewColumn col in _VacationCols)
+            {
+                this.GridView.Columns.Remove(col);
+            }
+            _VacationCols.Clear();
+            List<OTType> ots = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (ots != null && ots.Count > 0)
+            {
+                foreach (OTType ot in ots)
+                {
+                    DataGridViewColumn col = AddAColumn(ot.ID, ot.Name, "O");
+                    _OTCols.Add(col);
+                }
+            }
+            List<VacationType> vts = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (vts != null && vts.Count > 0)
+            {
+                foreach (VacationType vt in vts)
+                {
+                    DataGridViewColumn col = AddAColumn(vt.ID, vt.Name, "V");
+                    _VacationCols.Add(col);
+                }
+            }
+            List<TripType> tts = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (tts != null && tts.Count > 0)
+            {
+                foreach (TripType tt in tts)
+                {
+                    DataGridViewColumn col = AddAColumn(tt.ID, tt.Name, "T");
+                    _TripCols.Add(col);
+                }
+            }
+        }
+
+        private DataGridViewColumn AddAColumn(string id, string name, string type)
+        {
+            DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
+            col.Name = string.Format("col{0}_{1}", id, type);
+            col.Tag = id;
+            col.MinimumWidth = 60;
+            col.ReadOnly = true;
+            col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            col.HeaderText = name;
+            GridView.Columns.Add(col);
+            return col;
+        }
         #endregion
 
         #region 重写基类方法
@@ -83,7 +146,7 @@ namespace LJH.Attendance.UI
             this.ucDateTimeInterval1.Init();
             this.ucDateTimeInterval1.SelectThisMonth();
             InitGridColumns(this.ucDateTimeInterval1.StartDateTime, this.ucDateTimeInterval1.EndDateTime);
-
+            InitGridViewColumns();
             this.departmentTreeview1.LoadUser = true;
             this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
@@ -106,8 +169,13 @@ namespace LJH.Attendance.UI
                 con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
                 List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
                 List<IGrouping<int, AttendanceResult>> groups = arranges.GroupBy(item => item.StaffID).ToList();
-                return (from g in groups
-                        select (object)g).ToList();
+                List<object> items = new List<object>();
+                foreach (Staff s in users)
+                {
+                    IGrouping<int, AttendanceResult> group = groups.SingleOrDefault(item => item.Key == s.ID);
+                    if (group != null) items.Add(group);
+                }
+                return items;
             }
             return null;
         }
@@ -163,9 +231,9 @@ namespace LJH.Attendance.UI
         {
             GridView.Rows.Clear();
             InitGridColumns(this.ucDateTimeInterval1.StartDateTime, this.ucDateTimeInterval1.EndDateTime);
+            InitGridViewColumns();
             List<object> items = GetDataSource();
             ShowItemsOnGrid(items);
-            this.GridView.Sort(this.GridView.Columns["colDept"], ListSortDirection.Ascending);
         }
         #endregion
     }

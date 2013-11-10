@@ -256,10 +256,14 @@ namespace LJH.Attendance.UI
             _AllUserNodes.Clear();
             _AllDeptNodes.Clear();
             _Depts = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            if (_Depts != null && _Depts.Count > 0)
+            {
+                _Depts = (from dept in _Depts orderby dept.ID ascending select dept).ToList();
+            }
             if (LoadUser)
             {
                 _Users = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
-                _Users = (from staff in _Users orderby staff.Name ascending select staff).ToList();
+                if(_Users !=null && _Users .Count >0) _Users = (from staff in _Users orderby staff.Name ascending select staff).ToList();
             }
 
             this.Nodes.Clear();
