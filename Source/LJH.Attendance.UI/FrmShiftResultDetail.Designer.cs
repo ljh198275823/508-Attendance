@@ -58,9 +58,9 @@
             this.colOnduty3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShiftTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPresent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBelate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLeaveEarly = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colForget = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBelateCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLeaveEarlyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colForgetCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.plnLeft.SuspendLayout();
@@ -227,9 +227,9 @@
             this.colOnduty3,
             this.colShiftTime,
             this.colPresent,
-            this.colBelate,
-            this.colLeaveEarly,
-            this.colForget});
+            this.colBelateCount,
+            this.colLeaveEarlyCount,
+            this.colForgetCount});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(330, 45);
             this.GridView.Name = "GridView";
@@ -331,29 +331,29 @@
             this.colPresent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colPresent.Width = 60;
             // 
-            // colBelate
+            // colBelateCount
             // 
-            this.colBelate.HeaderText = "迟到(次)";
-            this.colBelate.Name = "colBelate";
-            this.colBelate.ReadOnly = true;
-            this.colBelate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colBelate.Width = 40;
+            this.colBelateCount.HeaderText = "迟到(次)";
+            this.colBelateCount.Name = "colBelateCount";
+            this.colBelateCount.ReadOnly = true;
+            this.colBelateCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colBelateCount.Width = 40;
             // 
-            // colLeaveEarly
+            // colLeaveEarlyCount
             // 
-            this.colLeaveEarly.HeaderText = "早退(次)";
-            this.colLeaveEarly.Name = "colLeaveEarly";
-            this.colLeaveEarly.ReadOnly = true;
-            this.colLeaveEarly.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colLeaveEarly.Width = 40;
+            this.colLeaveEarlyCount.HeaderText = "早退(次)";
+            this.colLeaveEarlyCount.Name = "colLeaveEarlyCount";
+            this.colLeaveEarlyCount.ReadOnly = true;
+            this.colLeaveEarlyCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colLeaveEarlyCount.Width = 40;
             // 
-            // colForget
+            // colForgetCount
             // 
-            this.colForget.HeaderText = "漏打卡(次)";
-            this.colForget.Name = "colForget";
-            this.colForget.ReadOnly = true;
-            this.colForget.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colForget.Width = 50;
+            this.colForgetCount.HeaderText = "漏打卡(次)";
+            this.colForgetCount.Name = "colForgetCount";
+            this.colForgetCount.ReadOnly = true;
+            this.colForgetCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colForgetCount.Width = 50;
             // 
             // FrmShiftResultDetail
             // 
@@ -413,8 +413,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colOnduty3;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShiftTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPresent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBelate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarly;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colForget;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBelateCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarlyCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colForgetCount;
     }
 }

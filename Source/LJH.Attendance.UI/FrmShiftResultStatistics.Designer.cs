@@ -56,6 +56,7 @@
             this.colAbsent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBelateCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLeaveEarlyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colForgetCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -174,7 +175,8 @@
             this.colPresent,
             this.colAbsent,
             this.colBelateCount,
-            this.colLeaveEarlyCount});
+            this.colLeaveEarlyCount,
+            this.colForgetCount});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(330, 45);
             this.GridView.Name = "GridView";
@@ -244,7 +246,7 @@
             this.colShiftTime.Name = "colShiftTime";
             this.colShiftTime.ReadOnly = true;
             this.colShiftTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftTime.Width = 80;
+            this.colShiftTime.Width = 60;
             // 
             // colPresent
             // 
@@ -252,7 +254,7 @@
             this.colPresent.Name = "colPresent";
             this.colPresent.ReadOnly = true;
             this.colPresent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colPresent.Width = 80;
+            this.colPresent.Width = 60;
             // 
             // colAbsent
             // 
@@ -262,7 +264,7 @@
             this.colAbsent.Name = "colAbsent";
             this.colAbsent.ReadOnly = true;
             this.colAbsent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colAbsent.Width = 80;
+            this.colAbsent.Width = 60;
             // 
             // colBelateCount
             // 
@@ -272,7 +274,7 @@
             this.colBelateCount.Name = "colBelateCount";
             this.colBelateCount.ReadOnly = true;
             this.colBelateCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colBelateCount.Width = 80;
+            this.colBelateCount.Width = 40;
             // 
             // colLeaveEarlyCount
             // 
@@ -282,7 +284,15 @@
             this.colLeaveEarlyCount.Name = "colLeaveEarlyCount";
             this.colLeaveEarlyCount.ReadOnly = true;
             this.colLeaveEarlyCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colLeaveEarlyCount.Width = 80;
+            this.colLeaveEarlyCount.Width = 40;
+            // 
+            // colForgetCount
+            // 
+            this.colForgetCount.HeaderText = "漏打卡(次)";
+            this.colForgetCount.Name = "colForgetCount";
+            this.colForgetCount.ReadOnly = true;
+            this.colForgetCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colForgetCount.Width = 50;
             // 
             // FrmShiftResultStatistics
             // 
@@ -337,5 +347,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colAbsent;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBelateCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarlyCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colForgetCount;
     }
 }

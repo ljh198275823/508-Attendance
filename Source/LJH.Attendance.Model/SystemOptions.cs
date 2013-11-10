@@ -16,6 +16,5 @@ namespace LJH.Attendance.Model
         {
         }
         #endregion
-
     }
 }

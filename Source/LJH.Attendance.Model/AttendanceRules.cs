@@ -30,6 +30,13 @@ namespace LJH.Attendance.Model
             MinOTTime = 0.1m;
             MinWaichuTime = 0.1m;
             MinLateLeaveEarlyTime = 0.1m;
+
+            SNofOk = "√";
+            SNofLate = "△";
+            SNofLeaveEarly = "▽";
+            SNofLateLeaveEarly = "◇";
+            SNofAbsent = "×";
+            SNofRest = "☆";
         }
         #endregion
 
@@ -94,6 +101,33 @@ namespace LJH.Attendance.Model
         /// 获取或设置考勤结果的最小值
         /// </summary>
         public decimal MinAttendanceTime { get; set; }
+
+        #region 考勤结果的简称
+        /// <summary>
+        /// 获取或设置正常考勤的简称
+        /// </summary>
+        public string SNofOk { get; set; }
+        /// <summary>
+        /// 获取或设置缺勤的简称
+        /// </summary>
+        public string SNofAbsent { get; set; }
+        /// <summary>
+        /// 获取或设置迟到的简称
+        /// </summary>
+        public string SNofLate { get; set; }
+        /// <summary>
+        /// 获取或设置早退的简称
+        /// </summary>
+        public string SNofLeaveEarly { get; set; }
+        /// <summary>
+        /// 获取或设置迟到早退的简称
+        /// </summary>
+        public string SNofLateLeaveEarly { get; set; }
+        /// <summary>
+        /// 获取或设置休息的简称
+        /// </summary>
+        public string SNofRest { get; set; }
+        #endregion
 
         #region 暂时不用
         /// <summary>

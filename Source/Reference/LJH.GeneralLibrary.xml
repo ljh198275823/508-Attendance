@@ -2337,6 +2337,55 @@
             向下移动
             </summary>
         </member>
+        <member name="T:LJH.GeneralLibrary.WinformControl.PercentageProgressBar">
+            <summary>
+            表示一个显示百分比的进度条
+            </summary>
+        </member>
+        <member name="F:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.#ctor">
+            <summary>
+            表示一个显示百分比的进度条
+            </summary>
+        </member>
+        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            表示一个显示百分比的进度条
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            处理Windows消息
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="P:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.TextColor">
+            <summary>
+            获取或设置百分比颜色
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.TextFont">
+            <summary>
+            获取或设置百分比字体
+            </summary>
+        </member>
         <member name="P:LJH.GeneralLibrary.Printer.TicketInfo.CardID">
             <summary>
             获取和设置纸票的卡号
@@ -3064,54 +3113,12 @@
             初始化密钥失败
             </summary>
         </member>
-        <member name="T:LJH.GeneralLibrary.WinformControl.PercentageProgressBar">
+        <member name="M:LJH.GeneralLibrary.DecimalHelper.Trim(System.Decimal)">
             <summary>
-            表示一个显示百分比的进度条
+            去掉实数小数点后不必要的0,比如12.500 会变成12.5,12.00会变成12等
             </summary>
-        </member>
-        <member name="F:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.components">
-            <summary>
-            必需的设计器变量。
-            </summary>
-        </member>
-        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.Dispose(System.Boolean)">
-            <summary> 
-            清理所有正在使用的资源。
-            </summary>
-            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
-        </member>
-        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.InitializeComponent">
-            <summary>
-            设计器支持所需的方法 - 不要
-            使用代码编辑器修改此方法的内容。
-            </summary>
-        </member>
-        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.#ctor">
-            <summary>
-            表示一个显示百分比的进度条
-            </summary>
-        </member>
-        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.#ctor(System.ComponentModel.IContainer)">
-            <summary>
-            表示一个显示百分比的进度条
-            </summary>
-            <param name="container"></param>
-        </member>
-        <member name="M:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.WndProc(System.Windows.Forms.Message@)">
-            <summary>
-            处理Windows消息
-            </summary>
-            <param name="m"></param>
-        </member>
-        <member name="P:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.TextColor">
-            <summary>
-            获取或设置百分比颜色
-            </summary>
-        </member>
-        <member name="P:LJH.GeneralLibrary.WinformControl.PercentageProgressBar.TextFont">
-            <summary>
-            获取或设置百分比字体
-            </summary>
+            <param name="d"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

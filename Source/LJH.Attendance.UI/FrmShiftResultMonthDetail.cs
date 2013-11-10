@@ -10,6 +10,7 @@ using LJH.Attendance.Model;
 using LJH.Attendance.Model.Result;
 using LJH.Attendance.Model.SearchCondition;
 using LJH.Attendance.BLL;
+using LJH.GeneralLibrary;
 
 namespace LJH.Attendance.UI
 {
@@ -21,49 +22,13 @@ namespace LJH.Attendance.UI
         }
 
         #region 私有变量
-        private List<DataGridViewColumn> _DateColumns = new List<DataGridViewColumn>();
+        //private List<DataGridViewColumn> _DateColumns = new List<DataGridViewColumn>();
         private List<DataGridViewColumn> _OTCols = new List<DataGridViewColumn>();
         private List<DataGridViewColumn> _VacationCols = new List<DataGridViewColumn>();
         private List<DataGridViewColumn> _TripCols = new List<DataGridViewColumn>();
         #endregion
 
         #region 私有方法
-        private void InitGridColumns(DateTime begin, DateTime end)
-        {
-            if (_DateColumns != null && _DateColumns.Count > 0)
-            {
-                foreach (DataGridViewColumn col in _DateColumns)
-                {
-                    this.GridView.Columns.Remove(col);
-                }
-                _DateColumns.Clear();
-            }
-            while (end >= begin)
-            {
-                DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
-                col.Tag = begin;
-                col.Width = 40;
-                col.ReadOnly = true;
-                col.SortMode = DataGridViewColumnSortMode.NotSortable;
-                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
-                col.HeaderText = begin.Day.ToString("D2");
-                if (HolidaySetting.Current != null && (HolidaySetting.Current.IsHoliday(begin) || HolidaySetting.Current.IsWeekend(begin)))
-                {
-                    col.DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    col.DefaultCellStyle.BackColor = Color.White;
-                }
-                _DateColumns.Add(col);
-                begin = begin.AddDays(1);
-            }
-            foreach (DataGridViewColumn col in _DateColumns)
-            {
-                GridView.Columns.Add(col);
-            }
-        }
-
         private string GetShiftString(List<AttendanceResult> items)
         {
             if (items == null || items.Count == 0) return string.Empty;
@@ -129,28 +94,51 @@ namespace LJH.Attendance.UI
             DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
             col.Name = string.Format("col{0}_{1}", id, type);
             col.Tag = id;
-            col.MinimumWidth = 60;
+            col.MinimumWidth = 40;
+            col.Width = 40;
             col.ReadOnly = true;
             col.SortMode = DataGridViewColumnSortMode.NotSortable;
-            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None ;
             col.HeaderText = name;
             GridView.Columns.Add(col);
             return col;
+        }
+
+        private decimal SumOfAbsent(IGrouping<int, AttendanceResult> group, string id)
+        {
+            List<AbsentItem> items = new List<AbsentItem>();
+            foreach (AttendanceResult sar in group)
+            {
+                if (sar.AbsentItems != null && sar.AbsentItems.Count > 0)
+                {
+                    items.AddRange(sar.AbsentItems.Where(it => it.Category == id));
+                }
+            }
+            return items.Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Duration, true).Value);
+        }
+
+        private decimal SumOfOT(IGrouping<int, AttendanceResult> group, string id)
+        {
+            List<AttendanceResult> items = group.Where(sar => !string.IsNullOrEmpty(id) && id == sar.Category).ToList();
+            if (items != null && items.Count > 0)
+            {
+                return items.Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Present, true).Value);
+            }
+            return 0;
         }
         #endregion
 
         #region 重写基类方法
         protected override void Init()
         {
-            base.Init();
             this.ucDateTimeInterval1.Init();
             this.ucDateTimeInterval1.SelectThisMonth();
-            InitGridColumns(this.ucDateTimeInterval1.StartDateTime, this.ucDateTimeInterval1.EndDateTime);
             InitGridViewColumns();
             this.departmentTreeview1.LoadUser = true;
             this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             this.departmentTreeview1.Init();
+            base.Init();
         }
 
         protected override FrmDetailBase GetDetailForm()
@@ -186,13 +174,37 @@ namespace LJH.Attendance.UI
             row.Tag = group;
             row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(group.First().StaffID);
             row.Cells["colStaff"].Value = group.First().StaffName;
-            foreach (DataGridViewColumn col in _DateColumns)
+            for (int i = 1; i <= 31; i++)
             {
-                DateTime dt = Convert.ToDateTime(col.Tag);
-                List<AttendanceResult> shifts = group.Where(it => it.ShiftDate == dt).ToList();
-                row.Cells[col.Index].Value = GetShiftString(shifts);
-                row.Cells[col.Index].Tag = shifts;
-                row.Cells[col.Index].Style.ForeColor = shifts.Exists(it => it.Result != AttendanceResultCode.OK) ? Color.Red : Color.Blue;
+                List<AttendanceResult> shifts = group.Where(it => it.ShiftDate.Day == i).ToList();
+                row.Cells["colDay" + i.ToString("D2")].Value = GetShiftString(shifts);
+                row.Cells["colDay" + i.ToString("D2")].Style.ForeColor = shifts.Exists(it => it.Result != AttendanceResultCode.OK) ? Color.Red : Color.Blue;
+            }
+            decimal shiftTime = group.Where(sar => !string.IsNullOrEmpty(sar.ShiftID)).Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value).Trim();
+            decimal present = group.Where(sar => !string.IsNullOrEmpty(sar.ShiftID)).Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value).Trim();
+            row.Cells["colShiftTime"].Value = shiftTime;
+            row.Cells["colPresent"].Value = present;
+
+            int belate = group.Count(it => it.Belate > 0);
+            int leaveEarly = group.Count(it => it.LeaveEarly > 0);
+            int forget = group.Count(it => (it.LogWhenArrive && it.OnDutyTime == null) || (it.LogWhenLeave && it.OffDutyTime == null));
+            row.Cells["colBelateCount"].Value = belate > 0 ? belate.ToString() : null;
+            row.Cells["colLeaveEarlyCount"].Value = leaveEarly > 0 ? leaveEarly.ToString() : null;
+            row.Cells["colForgetCount"].Value = forget > 0 ? forget.ToString() : null;
+            foreach (DataGridViewColumn col in _OTCols)
+            {
+                decimal sum = SumOfOT(group, col.Tag.ToString()).Trim(); //加班
+                row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
+            }
+            foreach (DataGridViewColumn col in _VacationCols)
+            {
+                decimal sum = SumOfAbsent(group, col.Tag.ToString()).Trim();
+                row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
+            }
+            foreach (DataGridViewColumn col in _TripCols)
+            {
+                decimal sum = SumOfAbsent(group, col.Tag.ToString()).Trim();
+                row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
             }
         }
 
@@ -230,7 +242,6 @@ namespace LJH.Attendance.UI
         private void btnFresh_Click(object sender, EventArgs e)
         {
             GridView.Rows.Clear();
-            InitGridColumns(this.ucDateTimeInterval1.StartDateTime, this.ucDateTimeInterval1.EndDateTime);
             InitGridViewColumns();
             List<object> items = GetDataSource();
             ShowItemsOnGrid(items);

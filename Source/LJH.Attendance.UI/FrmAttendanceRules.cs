@@ -45,6 +45,15 @@ namespace LJH.Attendance.UI
             txtMinutesOfWorkDay.Value = item.MinutesOfWorkDay;
             comAttendanceUnit.SelectedUnit = item.AttendanceUnit;
             txtMinAttendanceTime.DecimalValue = item.MinAttendanceTime;
+
+            #region 其它
+            txtSNofAbsent.Text  = item.SNofAbsent;
+            txtSNofLate.Text  = item.SNofLate;
+            txtSNofLateLeaveEarly.Text  = item.SNofLateLeaveEarly;
+            txtSNofLeaveEarly.Text  = item.SNofLeaveEarly;
+            txtSNofOk.Text = item.SNofOk;
+            txtSNofRest.Text = item.SNofRest;
+            #endregion
         }
 
         private AttendanceRules GetFromInput()
@@ -52,7 +61,7 @@ namespace LJH.Attendance.UI
             AttendanceRules item = new AttendanceRules();
             if (chkMinLate.Checked)
             {
-                item.MinLate =txtMinLate.IntergerValue;
+                item.MinLate = txtMinLate.IntergerValue;
                 item.MinLateAsAbsentMinute = txtMinLateAsAbsentMinute.IntergerValue;
 
             }
@@ -66,11 +75,20 @@ namespace LJH.Attendance.UI
             item.ShiftTimeIncludeWaiChu = chkShiftTimeIncludeWaiChu.Checked;
             item.MinShiftMinute = txtMinShiftMinute.IntergerValue;
             item.MinOTMinute = txtMinOTMinute.IntergerValue;
-            item.BeforeOTStartTime =(int) txtOTBeforeStartTime.Value;
+            item.BeforeOTStartTime = (int)txtOTBeforeStartTime.Value;
             item.AfterOTEndTime = (int)txtOTAfterEndTime.Value;
             item.MinutesOfWorkDay = (int)txtMinutesOfWorkDay.Value;
             item.AttendanceUnit = comAttendanceUnit.SelectedUnit;
             item.MinAttendanceTime = txtMinAttendanceTime.DecimalValue;
+
+            #region 其它
+            item.SNofAbsent = txtSNofAbsent.Text;
+            item.SNofLate = txtSNofLate.Text;
+            item.SNofLateLeaveEarly = txtSNofLateLeaveEarly.Text;
+            item.SNofLeaveEarly = txtSNofLeaveEarly.Text;
+            item.SNofOk = txtSNofOk.Text;
+            item.SNofRest = txtSNofRest.Text;
+            #endregion
             return item;
         }
 

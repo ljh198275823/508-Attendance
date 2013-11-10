@@ -67,6 +67,20 @@
             this.txtLateAsAbsent = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.chkLeaveEarlyAsAbsent = new System.Windows.Forms.CheckBox();
             this.chkLateAsAbsent = new System.Windows.Forms.CheckBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSNofRest = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtSNofAbsent = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtSNofLateLeaveEarly = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtSNofLeaveEarly = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtSNofLate = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtSNofOk = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
@@ -74,6 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMinutesOfWorkDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOTAfterEndTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOTBeforeStartTime)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -82,6 +98,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tab基本);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(5, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -519,6 +536,146 @@
             this.chkLateAsAbsent.Text = "一次迟到时间大于";
             this.chkLateAsAbsent.UseVisualStyleBackColor = true;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(555, 342);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "其它";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtSNofRest);
+            this.groupBox1.Controls.Add(this.txtSNofAbsent);
+            this.groupBox1.Controls.Add(this.txtSNofLateLeaveEarly);
+            this.groupBox1.Controls.Add(this.txtSNofLeaveEarly);
+            this.groupBox1.Controls.Add(this.txtSNofLate);
+            this.groupBox1.Controls.Add(this.txtSNofOk);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Location = new System.Drawing.Point(6, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(526, 84);
+            this.groupBox1.TabIndex = 70;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "考勤结果符号";
+            // 
+            // txtSNofRest
+            // 
+            this.txtSNofRest.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtSNofRest.Location = new System.Drawing.Point(197, 22);
+            this.txtSNofRest.Name = "txtSNofRest";
+            this.txtSNofRest.Size = new System.Drawing.Size(49, 21);
+            this.txtSNofRest.TabIndex = 81;
+            this.txtSNofRest.Text = "☆";
+            // 
+            // txtSNofAbsent
+            // 
+            this.txtSNofAbsent.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtSNofAbsent.Location = new System.Drawing.Point(343, 20);
+            this.txtSNofAbsent.Name = "txtSNofAbsent";
+            this.txtSNofAbsent.Size = new System.Drawing.Size(49, 21);
+            this.txtSNofAbsent.TabIndex = 80;
+            this.txtSNofAbsent.Text = "×";
+            // 
+            // txtSNofLateLeaveEarly
+            // 
+            this.txtSNofLateLeaveEarly.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtSNofLateLeaveEarly.Location = new System.Drawing.Point(343, 49);
+            this.txtSNofLateLeaveEarly.Name = "txtSNofLateLeaveEarly";
+            this.txtSNofLateLeaveEarly.Size = new System.Drawing.Size(49, 21);
+            this.txtSNofLateLeaveEarly.TabIndex = 79;
+            this.txtSNofLateLeaveEarly.Text = "◇";
+            // 
+            // txtSNofLeaveEarly
+            // 
+            this.txtSNofLeaveEarly.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtSNofLeaveEarly.Location = new System.Drawing.Point(197, 50);
+            this.txtSNofLeaveEarly.Name = "txtSNofLeaveEarly";
+            this.txtSNofLeaveEarly.Size = new System.Drawing.Size(49, 21);
+            this.txtSNofLeaveEarly.TabIndex = 78;
+            this.txtSNofLeaveEarly.Text = "▽";
+            // 
+            // txtSNofLate
+            // 
+            this.txtSNofLate.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtSNofLate.Location = new System.Drawing.Point(50, 50);
+            this.txtSNofLate.Name = "txtSNofLate";
+            this.txtSNofLate.Size = new System.Drawing.Size(49, 21);
+            this.txtSNofLate.TabIndex = 77;
+            this.txtSNofLate.Text = "△";
+            // 
+            // txtSNofOk
+            // 
+            this.txtSNofOk.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtSNofOk.Location = new System.Drawing.Point(50, 22);
+            this.txtSNofOk.Name = "txtSNofOk";
+            this.txtSNofOk.Size = new System.Drawing.Size(49, 21);
+            this.txtSNofOk.TabIndex = 76;
+            this.txtSNofOk.Text = "√";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(138, 26);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.TabIndex = 75;
+            this.label12.Text = "休息公休";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(284, 54);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 74;
+            this.label11.Text = "迟到早退";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(162, 54);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 12);
+            this.label10.TabIndex = 73;
+            this.label10.Text = "早退";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 72;
+            this.label9.Text = "迟到";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(308, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.TabIndex = 71;
+            this.label8.Text = "缺勤";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.TabIndex = 70;
+            this.label7.Text = "正常";
+            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -564,6 +721,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMinutesOfWorkDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOTAfterEndTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOTBeforeStartTime)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -610,5 +770,19 @@
         private GeneralLibrary.WinformControl.DecimalTextBox txtMinAttendanceTime;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtSNofRest;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtSNofAbsent;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtSNofLateLeaveEarly;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtSNofLeaveEarly;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtSNofLate;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtSNofOk;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }

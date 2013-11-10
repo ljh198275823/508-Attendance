@@ -10,6 +10,7 @@ using LJH.Attendance.Model;
 using LJH.Attendance.Model.Result;
 using LJH.Attendance.Model.SearchCondition;
 using LJH.Attendance.BLL;
+using LJH.GeneralLibrary;
 
 namespace LJH.Attendance.UI
 {
@@ -66,10 +67,11 @@ namespace LJH.Attendance.UI
             DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
             col.Name = string.Format("col{0}_{1}", id, type);
             col.Tag = id;
-            col.MinimumWidth = 60;
+            col.MinimumWidth = 40;
+            col.Width = 40;
             col.ReadOnly = true;
             col.SortMode = DataGridViewColumnSortMode.NotSortable;
-            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             col.HeaderText = name;
             GridView.Columns.Add(col);
             return col;
@@ -145,7 +147,6 @@ namespace LJH.Attendance.UI
         #region 重写基类方法
         protected override void Init()
         {
-            base.Init();
             this.ucDateTimeInterval1.Init();
             this.ucDateTimeInterval1.SelectThisMonth();
 
@@ -154,6 +155,7 @@ namespace LJH.Attendance.UI
             this.departmentTreeview1.ShowResigedStaff = true;
             this.departmentTreeview1.Init();
             InitGridViewColumns();
+            base.Init(); //放在后面是想让某些不想显示的列生效
         }
 
         protected override FrmDetailBase GetDetailForm()
@@ -217,28 +219,29 @@ namespace LJH.Attendance.UI
                                                    (sar[2].OffDutyTime != null ? sar[2].OffDutyTime.Value.ToString("HH:mm") : new string(' ', 5));
                 row.Cells["colOnduty3"].Style.ForeColor = sar[2].Result == AttendanceResultCode.OK ? Color.Black : Color.Red;
             }
-            row.Cells["colShiftTime"].Value = sar.Where(it => !string.IsNullOrEmpty(it.ShiftID)).Sum(it => AttendanceRules.Current.GetDuarationFrom(it.ShiftTime, false).Value);
-            row.Cells["colPresent"].Value = sar.Where(it => !string.IsNullOrEmpty(it.ShiftID)).Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Present, false).Value);
+
+            row.Cells["colShiftTime"].Value = sar.Where(it => !string.IsNullOrEmpty(it.ShiftID)).Sum(it => AttendanceRules.Current.GetDuarationFrom(it.ShiftTime, false).Value).Trim();
+            row.Cells["colPresent"].Value = sar.Where(it => !string.IsNullOrEmpty(it.ShiftID)).Sum(it => AttendanceRules.Current.GetDuarationFrom(it.Present, false).Value).Trim();
             int belate = sar.Count(it => it.Belate > 0);
             int leaveEarly = sar.Count(it => it.LeaveEarly > 0);
             int forget = sar.Count(it => (it.LogWhenArrive && it.OnDutyTime == null) || (it.LogWhenLeave && it.OffDutyTime == null));
-            row.Cells["colBelate"].Value = belate > 0 ? belate.ToString() : null;
-            row.Cells["colLeaveEarly"].Value = leaveEarly > 0 ? leaveEarly.ToString() : null;
-            row.Cells["colForget"].Value = forget > 0 ? forget.ToString() : null;
+            row.Cells["colBelateCount"].Value = belate > 0 ? belate.ToString() : null;
+            row.Cells["colLeaveEarlyCount"].Value = leaveEarly > 0 ? leaveEarly.ToString() : null;
+            row.Cells["colForgetCount"].Value = forget > 0 ? forget.ToString() : null;
 
             foreach (DataGridViewColumn col in _OTCols)
             {
-                decimal sum = SumOfOT(sar, col.Tag.ToString()); //加班
+                decimal sum = SumOfOT(sar, col.Tag.ToString()).Trim(); //加班
                 row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
             }
             foreach (DataGridViewColumn col in _VacationCols)
             {
-                decimal sum = SumOfAbsent(sar, col.Tag.ToString());
+                decimal sum = SumOfAbsent(sar, col.Tag.ToString()).Trim();
                 row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
             }
             foreach (DataGridViewColumn col in _TripCols)
             {
-                decimal sum = SumOfAbsent(sar, col.Tag.ToString());
+                decimal sum = SumOfAbsent(sar, col.Tag.ToString()).Trim();
                 row.Cells[col.Index].Value = sum > 0 ? sum.ToString() : null;
             }
         }

@@ -170,6 +170,24 @@ namespace LJH.Attendance.Model
         {
             get
             {
+                switch (Result)
+                {
+                    case AttendanceResultCode.Absent:
+                        if (AttendanceRules.Current != null && !string.IsNullOrEmpty(AttendanceRules.Current.SNofAbsent)) return AttendanceRules.Current.SNofAbsent;
+                        break;
+                    case AttendanceResultCode.Late:
+                        if (AttendanceRules.Current != null && !string.IsNullOrEmpty(AttendanceRules.Current.SNofLate)) return AttendanceRules.Current.SNofLate;
+                        break;
+                    case AttendanceResultCode.LateEarly:
+                        if (AttendanceRules.Current != null && !string.IsNullOrEmpty(AttendanceRules.Current.SNofLateLeaveEarly)) return AttendanceRules.Current.SNofLateLeaveEarly;
+                        break;
+                    case AttendanceResultCode.LeaveEarly:
+                        if (AttendanceRules.Current != null && !string.IsNullOrEmpty(AttendanceRules.Current.SNofLeaveEarly)) return AttendanceRules.Current.SNofLeaveEarly;
+                        break;
+                    case AttendanceResultCode.OK:
+                        if (AttendanceRules.Current != null && !string.IsNullOrEmpty(AttendanceRules.Current.SNofOk)) return AttendanceRules.Current.SNofOk;
+                        break;
+                }
                 return AttendanceResultDescription.GetDescription(Result);
             }
         }
