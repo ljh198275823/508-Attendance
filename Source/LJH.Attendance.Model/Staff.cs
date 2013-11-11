@@ -31,13 +31,9 @@ namespace LJH.Attendance.Model
         /// </summary>
         public Department Department { get; set; }
         /// <summary>
-        /// 获取或设置员工是否已经离职
-        /// </summary>
-        public bool Resigned { get; set; }
-        /// <summary>
         /// 获取或设置员工姓别 1表示男，2表示女
         /// </summary>
-        public byte Sex { get; set; }
+        public string Sex { get; set; }
         /// <summary>
         /// 获取或设置员工的生日
         /// </summary>
@@ -53,7 +49,11 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置入职日期
         /// </summary>
-        public DateTime? HireDate { get; set; }
+        public DateTime HireDate { get; set; }
+        /// <summary>
+        /// 获取或设置员工是否已经离职
+        /// </summary>
+        public bool Resigned { get; set; }
         /// <summary>
         /// 或取或设置离职日期
         /// </summary>

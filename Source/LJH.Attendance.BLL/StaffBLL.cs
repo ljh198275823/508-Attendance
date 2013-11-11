@@ -59,6 +59,32 @@ namespace LJH.Attendance.BLL
         {
             return ProviderFactory.Create<IStaffProvider>(_RepoUri).Delete(info);
         }
+
+        public QueryResult<StaffPhoto> GetPhoto(int staffID)
+        {
+            return ProviderFactory.Create<IStaffPhotoProvider>(_RepoUri).GetByID(staffID);
+        }
+
+        public CommandResult SavePhoto(int staffID, string path)
+        {
+            StaffPhoto sp = new StaffPhoto(staffID, path);
+            return ProviderFactory.Create<IStaffPhotoProvider>(_RepoUri).Insert(sp);
+        }
+
+        public CommandResult SavePhoto(int staffID, System.Drawing.Image photo)
+        {
+            StaffPhoto sp = new StaffPhoto();
+            sp.StaffID = staffID;
+            sp.Photo = photo;
+            return ProviderFactory.Create<IStaffPhotoProvider>(_RepoUri).Insert(sp);
+        }
+
+        public CommandResult DeletePhoto(int staffID)
+        {
+            StaffPhoto sp = new StaffPhoto();
+            sp.StaffID = staffID;
+            return ProviderFactory.Create<IStaffPhotoProvider>(_RepoUri).Delete(sp);
+        }
         #endregion
     }
 }

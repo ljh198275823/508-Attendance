@@ -42,6 +42,8 @@
             this.colDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUserPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHireDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colResigned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menu.SuspendLayout();
@@ -63,7 +65,7 @@
             this.toolStripSeparator2});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(926, 50);
+            this.menu.Size = new System.Drawing.Size(1128, 50);
             this.menu.TabIndex = 58;
             // 
             // btn_Add
@@ -137,6 +139,8 @@
             this.colDepartment,
             this.colCertificate,
             this.colUserPosition,
+            this.colSex,
+            this.colHireDate,
             this.colResigned,
             this.colMemo});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -145,7 +149,7 @@
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridView.Size = new System.Drawing.Size(926, 328);
+            this.GridView.Size = new System.Drawing.Size(1128, 328);
             this.GridView.TabIndex = 59;
             // 
             // colName
@@ -175,13 +179,26 @@
             this.colUserPosition.MinimumWidth = 100;
             this.colUserPosition.Name = "colUserPosition";
             this.colUserPosition.ReadOnly = true;
-            this.colUserPosition.Width = 200;
+            // 
+            // colSex
+            // 
+            this.colSex.HeaderText = "性别";
+            this.colSex.Name = "colSex";
+            this.colSex.ReadOnly = true;
+            this.colSex.Width = 60;
+            // 
+            // colHireDate
+            // 
+            this.colHireDate.HeaderText = "入职日期";
+            this.colHireDate.Name = "colHireDate";
+            this.colHireDate.ReadOnly = true;
             // 
             // colResigned
             // 
             this.colResigned.HeaderText = "离职";
             this.colResigned.Name = "colResigned";
             this.colResigned.ReadOnly = true;
+            this.colResigned.Width = 60;
             // 
             // colMemo
             // 
@@ -195,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 400);
+            this.ClientSize = new System.Drawing.Size(1128, 400);
             this.Controls.Add(this.GridView);
             this.Controls.Add(this.menu);
             this.Name = "FrmStaffMaster";
@@ -226,6 +243,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCertificate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUserPosition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHireDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResigned;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
 

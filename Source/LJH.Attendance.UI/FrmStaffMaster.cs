@@ -42,6 +42,8 @@ namespace LJH.Attendance.UI
             row.Cells["colDepartment"].Value = info.Department != null ? info.Department.Name : string.Empty;
             row.Cells["colCertificate"].Value = info.Certificate;
             row.Cells["colUserPosition"].Value = info.UserPosition;
+            row.Cells["colSex"].Value = info.Sex;
+            row.Cells["colHireDate"].Value = info.HireDate.ToString("yyyy-MM-dd");
             row.Cells["colResigned"].Value = info.Resigned ? "离职" : string.Empty;
             row.DefaultCellStyle.ForeColor = info.Resigned ? Color.Red : Color.Black;
             row.Cells["colMemo"].Value = info.Memo;
