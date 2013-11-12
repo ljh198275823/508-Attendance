@@ -60,6 +60,7 @@ namespace LJH.Attendance.BLL
             return ProviderFactory.Create<IStaffProvider>(_RepoUri).Delete(info);
         }
 
+        #region 人员照片相关
         public QueryResult<StaffPhoto> GetPhoto(int staffID)
         {
             return ProviderFactory.Create<IStaffPhotoProvider>(_RepoUri).GetByID(staffID);
@@ -85,6 +86,47 @@ namespace LJH.Attendance.BLL
             sp.StaffID = staffID;
             return ProviderFactory.Create<IStaffPhotoProvider>(_RepoUri).Delete(sp);
         }
+        #endregion
+
+        #region 人员生物识别相关
+        /// <summary>
+        /// 获取某个人员的所有生物识别模板
+        /// </summary>
+        /// <param name="staffID"></param>
+        /// <returns></returns>
+        public QueryResultList<StaffBioTemplate> GetBioTemplates(int staffID)
+        {
+            StaffBioTemplateSearchCondition con = new StaffBioTemplateSearchCondition();
+            con.StaffID = staffID;
+            return ProviderFactory.Create<IStaffBioTemplateProvider>(_RepoUri).GetItems(con);
+        }
+        /// <summary>
+        /// 保存生物识别模板，如果有系统中已经存在此模板，则替换
+        /// </summary>
+        /// <param name="template"></param>
+        /// <returns></returns>
+        public CommandResult SaveTemplate(StaffBioTemplate template)
+        {
+            StaffBioTemplate original = ProviderFactory.Create<IStaffBioTemplateProvider>(_RepoUri).GetByID(template.ID).QueryObject;
+            if (original == null)
+            {
+                return ProviderFactory.Create<IStaffBioTemplateProvider>(_RepoUri).Insert(template);
+            }
+            else
+            {
+                return ProviderFactory.Create<IStaffBioTemplateProvider>(_RepoUri).Update(template, original);
+            }
+        }
+        /// <summary>
+        /// 删除生物识别模板
+        /// </summary>
+        /// <param name="template"></param>
+        /// <returns></returns>
+        public CommandResult DeleteTemplate(StaffBioTemplate template)
+        {
+            return ProviderFactory.Create<IStaffBioTemplateProvider>(_RepoUri).Delete(template);
+        }
+        #endregion
         #endregion
     }
 }

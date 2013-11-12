@@ -388,14 +388,17 @@ namespace LJH.Attendance.UI
         private void btnFresh_Click(object sender, EventArgs e)
         {
             List<object> datasource = GetDataSource();
-            Button b = GetActiveButtonOnLeftPanel();
-            if (b != null)
+            ShowItemsOnGrid(datasource);
+            foreach (Control ctrl in this.Controls)
             {
-                b.PerformClick();
-            }
-            else
-            {
-                ShowItemsOnGrid(datasource);
+                MenuStrip menu = ctrl as MenuStrip;
+                if (ctrl is ToolStrip && ctrl.Name == "menu")  //初始化子窗体的菜单，如果有的话
+                {
+                    if (menu.Items["txtKeyword"] != null && menu.Items["txtKeyword"] is ToolStripTextBox)
+                    {
+                        txtKeyword_TextChanged(menu.Items["txtKeyword"], EventArgs.Empty);
+                    }
+                }
             }
         }
 

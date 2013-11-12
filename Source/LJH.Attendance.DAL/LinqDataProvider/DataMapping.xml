@@ -54,6 +54,16 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(50)" UpdateCheck="Never"/>
     </Type>
   </Table>
+  <Table Name="TAStaffBioTemplate" Member="LJH.Attendance.Model.StaffBioTemplate">
+    <Type Name="LJH.Attendance.Model.StaffBioTemplate">
+      <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="StaffID" Member="StaffID"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="BioSource" Member="BioSource"  DbType="int not null" UpdateCheck="Never"/>
+      <Column Name="Version" Member="Version"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Template" Member="Template"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
+    </Type>
+  </Table>
   <Table Name="TAStaffPhoto" Member="LJH.Attendance.Model.StaffPhoto">
     <Type Name="LJH.Attendance.Model.StaffPhoto">
       <Column Name="StaffID" Member="StaffID"  DbType="int NOT NULL" IsPrimaryKey="true"/>

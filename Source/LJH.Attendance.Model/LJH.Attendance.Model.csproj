@@ -97,8 +97,10 @@
     <Compile Include="SearchCondition\AttendanceLogSearchCondition.cs" />
     <Compile Include="SearchCondition\ShiftArrangeSearchCondition.cs" />
     <Compile Include="SearchCondition\StaffAttendanceResultSearchCondition.cs" />
+    <Compile Include="SearchCondition\StaffBioTemplateSearchCondition.cs" />
     <Compile Include="SearchCondition\StaffDepartmentPairSearchCondition.cs" />
     <Compile Include="SearchCondition\TASheetSearchCondition.cs" />
+    <Compile Include="StaffBioTemplate.cs" />
     <Compile Include="StaffPhoto.cs" />
     <Compile Include="TASheetItem.cs" />
     <Compile Include="ShiftArrange.cs" />
