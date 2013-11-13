@@ -48,7 +48,39 @@ namespace LJH.Attendance.Model
         #endregion
 
         #region 只读属性
-
+        public string StrBioSource
+        {
+            get
+            {
+                switch (BioSource)
+                {
+                    case Model.BioSource.Left1:
+                        return "左手拇指";
+                    case Model.BioSource.Left2:
+                        return "左手食指";
+                    case Model.BioSource.Left3:
+                        return "左手中指";
+                    case Model.BioSource.Left4:
+                        return "左手无名指";
+                    case Model.BioSource.Left5:
+                        return "左手小指";
+                    case Model.BioSource.Right1:
+                        return "右手拇指";
+                    case Model.BioSource.Right2:
+                        return "右手食指";
+                    case Model.BioSource.Right3:
+                        return "右手中指";
+                    case Model.BioSource.Right4:
+                        return "右手无名指";
+                    case Model.BioSource.Right5:
+                        return "右手小指";
+                    case Model.BioSource.Face:
+                        return "人脸";
+                    default:
+                        return "未知";
+                }
+            }
+        }
         #endregion
     }
 

@@ -60,7 +60,7 @@
       <Column Name="StaffID" Member="StaffID"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="BioSource" Member="BioSource"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="Version" Member="Version"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
-      <Column Name="Template" Member="Template"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
+      <Column Name="Template" Member="Template"  DbType="nvarchar(4000) not null" UpdateCheck="Never"/>
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>

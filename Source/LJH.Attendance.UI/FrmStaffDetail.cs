@@ -19,6 +19,19 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
+        #region 私有变量
+        private List<StaffBioTemplate> _BioTemplates;
+
+        private void AddTemplateToGrid(StaffBioTemplate sbt)
+        {
+            int row = templateGrid.Rows.Add();
+            templateGrid.Rows[row].Tag = sbt;
+            templateGrid.Rows[row].Cells["colBiosource"].Value = sbt.StrBioSource;
+            templateGrid.Rows[row].Cells["colVersion"].Value = sbt.Version;
+            templateGrid.Rows[row].Cells["colMemo"].Value = sbt.Memo;
+        }
+        #endregion
+
         #region 重写基类方法
         protected override void ItemShowing()
         {
@@ -31,10 +44,21 @@ namespace LJH.Attendance.UI
             dtHireDate.Value = staff.HireDate;
             rdUnResign.Checked = !staff.Resigned;
             rdResign.Checked = staff.Resigned;
+
             StaffPhoto sp = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetPhoto(staff.ID).QueryObject;
             if (sp != null)
             {
                 picPhoto.Image = sp.Photo;
+            }
+
+            _BioTemplates = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetBioTemplates(staff.ID).QueryObjects;
+            if (_BioTemplates != null && _BioTemplates.Count > 0)
+            {
+                templateGrid.Rows.Clear();
+                foreach (StaffBioTemplate sbt in _BioTemplates)
+                {
+                    AddTemplateToGrid(sbt);
+                }
             }
         }
 
@@ -48,6 +72,15 @@ namespace LJH.Attendance.UI
                 if (ret1.Result != ResultCode.Successful)
                 {
                     MessageBox.Show("人员信息增加成功，但人员照片保存失败，失败原因:" + ret1.Message);
+                }
+            }
+            if (templateGrid.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in templateGrid.Rows)
+                {
+                    StaffBioTemplate sbt = row.Tag as StaffBioTemplate;
+                    sbt.StaffID = staff.ID;
+                    CommandResult ret1 = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).SaveTemplate(sbt);
                 }
             }
             return ret;
@@ -117,12 +150,6 @@ namespace LJH.Attendance.UI
         }
         #endregion
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            FrmFingerResgister frm = new FrmFingerResgister();
-            frm.ShowDialog();
-        }
-
         private void btnDelPhoto_Click(object sender, EventArgs e)
         {
             if (UpdatingItem != null)
@@ -165,6 +192,65 @@ namespace LJH.Attendance.UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void mnu_AddTemplate_Click(object sender, EventArgs e)
+        {
+            FrmFingerResgister frm = new FrmFingerResgister();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                StaffBioTemplate sbt = new StaffBioTemplate();
+                sbt.ID = Guid.NewGuid();
+                sbt.BioSource = (BioSource)frm.BioSource;
+                sbt.Version = frm.Version;
+                sbt.Template = frm.Template;
+                if (UpdatingItem != null)
+                {
+                    Staff staff = UpdatingItem as Staff;
+                    sbt.StaffID = staff.ID;
+                    CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).SaveTemplate(sbt);
+                    if (ret.Result != ResultCode.Successful)
+                    {
+                        MessageBox.Show(ret.Message);
+                    }
+                    else
+                    {
+                        AddTemplateToGrid(sbt);
+                    }
+                }
+                else
+                {
+                    AddTemplateToGrid(sbt);
+                }
+            }
+        }
+
+        private void mnu_DelTemplate_Click(object sender, EventArgs e)
+        {
+            if (UpdatingItem != null)
+            {
+                foreach (DataGridViewRow row in templateGrid.SelectedRows)
+                {
+                    StaffBioTemplate sbt = row.Tag as StaffBioTemplate;
+                    CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).DeleteTemplate(sbt);
+                    if (ret.Result != ResultCode.Successful)
+                    {
+                        MessageBox.Show(ret.Message);
+                    }
+                    else
+                    {
+                        templateGrid.Rows.Remove(row);
+                    }
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in templateGrid.SelectedRows)
+                {
+                    templateGrid.Rows.Remove(row);
+                }
+
             }
         }
     }

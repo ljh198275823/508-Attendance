@@ -18,8 +18,50 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
+        #region 私有变量
         ZKFPEngXControl.ZKFPEngX _ZKEngine = new ZKFPEngX();
+        #endregion
 
+        #region 公共属性
+        public string Template { get; set; }
+
+        public int BioSource
+        {
+            get
+            {
+                if (comBiosource.SelectedIndex >= 0)
+                {
+                    return comBiosource.SelectedIndex;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            set
+            {
+                if (value >= 0 && value <= 9) comBiosource.SelectedIndex = value;
+                else comBiosource.SelectedIndex = 0;
+            }
+        }
+
+        public string Version
+        {
+            get
+            {
+                if (rdVer10.Checked) return "10.0";
+                if (rdVer9.Checked) return "9.0";
+                return string.Empty;
+            }
+            set
+            {
+                if (value == "9.0") rdVer9.Checked = true;
+                else rdVer10.Checked = true;
+            }
+        }
+        #endregion
+
+        #region 事件处理程序
         private void _ZKEngine_OnImageReceived(ref bool AImageValid)
         {
             string dir = LJH.GeneralLibrary.TempFolderManager.GetCurrentFolder();
@@ -40,14 +82,14 @@ namespace LJH.Attendance.UI
         {
             if (ActionResult)
             {
-                label1.Text = "登记指纹成功";
-                string template = _ZKEngine.GetTemplateAsString();
+                Template = _ZKEngine.GetTemplateAsString();
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
                 _ZKEngine.CancelEnroll();
                 _ZKEngine.BeginEnroll();
-                label1.Text = string.Format("开始登记指纹 用户需要按 {0} 次指纹", _ZKEngine.EnrollCount);
+                label1.Text = string.Format("重新登记指纹 用户需要按 {0} 次指纹", _ZKEngine.EnrollCount);
             }
         }
 
@@ -56,7 +98,7 @@ namespace LJH.Attendance.UI
             int ret = _ZKEngine.InitEngine();
             if (ret == 0)
             {
-                _ZKEngine.FPEngineVersion = "10";
+                _ZKEngine.FPEngineVersion = rdVer10.Checked ? "10" : "9";
                 _ZKEngine.EnrollCount = 3;
                 _ZKEngine.OnEnroll += new IZKFPEngXEvents_OnEnrollEventHandler(_ZKEngine_OnEnroll);
                 _ZKEngine.OnFeatureInfo += new IZKFPEngXEvents_OnFeatureInfoEventHandler(_ZKEngine_OnFeatureInfo);
@@ -69,7 +111,7 @@ namespace LJH.Attendance.UI
             else
             {
                 _ZKEngine.EndEngine();
-                label1.Text = "初始化失败";
+                label1.Text = "指纹仪初始化失败";
             }
         }
 
@@ -77,5 +119,6 @@ namespace LJH.Attendance.UI
         {
             _ZKEngine.EndEngine();
         }
+        #endregion
     }
 }
