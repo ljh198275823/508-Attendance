@@ -34,15 +34,7 @@
             this.gpTCPIP = new System.Windows.Forms.GroupBox();
             this.txtPort = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.txtGateway = new LJH.GeneralLibrary.WinformControl.UCIPTextBox();
-            this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
-            this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8 = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
-            this.object_83c78f0a_86b3_4413_9586_d43775195cdb = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
-            this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.txtIPMask = new LJH.GeneralLibrary.WinformControl.UCIPTextBox();
-            this.ip2 = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
-            this.ip4 = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
-            this.ip3 = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
-            this.ip1 = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.txtIP = new LJH.GeneralLibrary.WinformControl.UCIPTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,8 +54,6 @@
             this.comDeviceType = new System.Windows.Forms.ComboBox();
             this.txtSerial = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.gpTCPIP.SuspendLayout();
-            this.txtGateway.SuspendLayout();
-            this.txtIPMask.SuspendLayout();
             this.gpRS232.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,113 +113,17 @@
             // 
             // txtGateway
             // 
-            this.txtGateway.Controls.Add(this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d);
-            this.txtGateway.Controls.Add(this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8);
-            this.txtGateway.Controls.Add(this.object_83c78f0a_86b3_4413_9586_d43775195cdb);
-            this.txtGateway.Controls.Add(this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e);
-            this.txtGateway.Location = new System.Drawing.Point(317, 50);
+            this.txtGateway.Location = new System.Drawing.Point(320, 50);
             this.txtGateway.Name = "txtGateway";
             this.txtGateway.Size = new System.Drawing.Size(219, 28);
             this.txtGateway.TabIndex = 14;
             // 
-            // object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d
-            // 
-            this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d.Location = new System.Drawing.Point(61, 3);
-            this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d.MaxValue = 255;
-            this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d.MinValue = 0;
-            this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d.Name = "object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d";
-            this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d.Size = new System.Drawing.Size(39, 21);
-            this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d.TabIndex = 147;
-            this.object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d.Text = "0";
-            // 
-            // object_82e4903b_d361_40ff_afdb_9f9561c5f5b8
-            // 
-            this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8.Location = new System.Drawing.Point(177, 3);
-            this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8.MaxValue = 255;
-            this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8.MinValue = 0;
-            this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8.Name = "object_82e4903b_d361_40ff_afdb_9f9561c5f5b8";
-            this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8.Size = new System.Drawing.Size(39, 21);
-            this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8.TabIndex = 149;
-            this.object_82e4903b_d361_40ff_afdb_9f9561c5f5b8.Text = "0";
-            // 
-            // object_83c78f0a_86b3_4413_9586_d43775195cdb
-            // 
-            this.object_83c78f0a_86b3_4413_9586_d43775195cdb.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.object_83c78f0a_86b3_4413_9586_d43775195cdb.Location = new System.Drawing.Point(119, 3);
-            this.object_83c78f0a_86b3_4413_9586_d43775195cdb.MaxValue = 255;
-            this.object_83c78f0a_86b3_4413_9586_d43775195cdb.MinValue = 0;
-            this.object_83c78f0a_86b3_4413_9586_d43775195cdb.Name = "object_83c78f0a_86b3_4413_9586_d43775195cdb";
-            this.object_83c78f0a_86b3_4413_9586_d43775195cdb.Size = new System.Drawing.Size(39, 21);
-            this.object_83c78f0a_86b3_4413_9586_d43775195cdb.TabIndex = 148;
-            this.object_83c78f0a_86b3_4413_9586_d43775195cdb.Text = "0";
-            // 
-            // object_c21d500a_1ee3_47e6_ac54_2fdb488a334e
-            // 
-            this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e.Location = new System.Drawing.Point(3, 3);
-            this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e.MaxValue = 255;
-            this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e.MinValue = 0;
-            this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e.Name = "object_c21d500a_1ee3_47e6_ac54_2fdb488a334e";
-            this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e.Size = new System.Drawing.Size(39, 21);
-            this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e.TabIndex = 146;
-            this.object_c21d500a_1ee3_47e6_ac54_2fdb488a334e.Text = "0";
-            // 
             // txtIPMask
             // 
-            this.txtIPMask.Controls.Add(this.ip2);
-            this.txtIPMask.Controls.Add(this.ip4);
-            this.txtIPMask.Controls.Add(this.ip3);
-            this.txtIPMask.Controls.Add(this.ip1);
             this.txtIPMask.Location = new System.Drawing.Point(40, 50);
             this.txtIPMask.Name = "txtIPMask";
             this.txtIPMask.Size = new System.Drawing.Size(219, 28);
             this.txtIPMask.TabIndex = 13;
-            // 
-            // ip2
-            // 
-            this.ip2.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.ip2.Location = new System.Drawing.Point(61, 3);
-            this.ip2.MaxValue = 255;
-            this.ip2.MinValue = 0;
-            this.ip2.Name = "ip2";
-            this.ip2.Size = new System.Drawing.Size(39, 21);
-            this.ip2.TabIndex = 147;
-            this.ip2.Text = "0";
-            // 
-            // ip4
-            // 
-            this.ip4.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.ip4.Location = new System.Drawing.Point(177, 3);
-            this.ip4.MaxValue = 255;
-            this.ip4.MinValue = 0;
-            this.ip4.Name = "ip4";
-            this.ip4.Size = new System.Drawing.Size(39, 21);
-            this.ip4.TabIndex = 149;
-            this.ip4.Text = "0";
-            // 
-            // ip3
-            // 
-            this.ip3.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.ip3.Location = new System.Drawing.Point(119, 3);
-            this.ip3.MaxValue = 255;
-            this.ip3.MinValue = 0;
-            this.ip3.Name = "ip3";
-            this.ip3.Size = new System.Drawing.Size(39, 21);
-            this.ip3.TabIndex = 148;
-            this.ip3.Text = "0";
-            // 
-            // ip1
-            // 
-            this.ip1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.ip1.Location = new System.Drawing.Point(3, 3);
-            this.ip1.MaxValue = 255;
-            this.ip1.MinValue = 0;
-            this.ip1.Name = "ip1";
-            this.ip1.Size = new System.Drawing.Size(39, 21);
-            this.ip1.TabIndex = 146;
-            this.ip1.Text = "0";
             // 
             // txtIP
             // 
@@ -381,7 +275,7 @@
             this.comCommunication.FormattingEnabled = true;
             this.comCommunication.Items.AddRange(new object[] {
             "TCP/IP",
-            "RS232/RS485"});
+            "RS232/485"});
             this.comCommunication.Location = new System.Drawing.Point(79, 46);
             this.comCommunication.Name = "comCommunication";
             this.comCommunication.Size = new System.Drawing.Size(161, 20);
@@ -439,10 +333,6 @@
             this.Controls.SetChildIndex(this.txtSerial, 0);
             this.gpTCPIP.ResumeLayout(false);
             this.gpTCPIP.PerformLayout();
-            this.txtGateway.ResumeLayout(false);
-            this.txtGateway.PerformLayout();
-            this.txtIPMask.ResumeLayout(false);
-            this.txtIPMask.PerformLayout();
             this.gpRS232.ResumeLayout(false);
             this.gpRS232.PerformLayout();
             this.ResumeLayout(false);
@@ -467,15 +357,7 @@
         private System.Windows.Forms.Label label9;
         private LJH.GeneralLibrary.WinformControl.IntergerTextBox txtPort;
         private LJH.GeneralLibrary.WinformControl.UCIPTextBox txtGateway;
-        private LJH.GeneralLibrary.WinformControl.IntergerTextBox object_0d1c2c12_b1a0_4b4f_a8fd_8838be05dd5d;
-        private LJH.GeneralLibrary.WinformControl.IntergerTextBox object_82e4903b_d361_40ff_afdb_9f9561c5f5b8;
-        private LJH.GeneralLibrary.WinformControl.IntergerTextBox object_83c78f0a_86b3_4413_9586_d43775195cdb;
-        private LJH.GeneralLibrary.WinformControl.IntergerTextBox object_c21d500a_1ee3_47e6_ac54_2fdb488a334e;
         private LJH.GeneralLibrary.WinformControl.UCIPTextBox txtIPMask;
-        private LJH.GeneralLibrary.WinformControl.IntergerTextBox ip2;
-        private LJH.GeneralLibrary.WinformControl.IntergerTextBox ip4;
-        private LJH.GeneralLibrary.WinformControl.IntergerTextBox ip3;
-        private LJH.GeneralLibrary.WinformControl.IntergerTextBox ip1;
         private LJH.GeneralLibrary.WinformControl.UCIPTextBox txtIP;
         private LJH.GeneralLibrary.WinformControl.IntergerTextBox txtAddress;
         private LJH.GeneralLibrary.WinformControl.IntergerTextBox txtBaud;

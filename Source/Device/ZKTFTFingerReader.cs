@@ -10,10 +10,33 @@ namespace LJH.Attendance.Device
     /// </summary>
     public class ZKTFTFingerReader : IReader
     {
+        #region 构造函数
+        public ZKTFTFingerReader()
+        {
+        }
+
+        public ZKTFTFingerReader(LJH.Attendance.Model.Reader para)
+        {
+            Parameter = para;
+        }
+        #endregion
+
+        #region 公共属性
+        public LJH.Attendance.Model.Reader Parameter { get; set; }
+        #endregion
+
         #region 实现接口
         public void Connect()
         {
-            throw new NotImplementedException();
+            if (Parameter != null)
+            {
+                if (Parameter.Communication.ToLower() == "tcp/ip")
+                {
+                }
+                else if (Parameter.Communication.ToLower() == "rs232/485")
+                {
+                }
+            }
         }
 
         public void Disconnect()
