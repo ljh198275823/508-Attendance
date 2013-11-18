@@ -209,10 +209,12 @@ namespace LJH.Attendance.Model
                     MyTime mt = si.StartTime;
                     st.StartTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
                     st.NewStartTime = st.StartTime;
+                    st.LogWhenArrive = si.LogAtStart;
                     mt = si.EndTime;
                     st.EndTime = item.ShiftDate.AddHours(mt.Hour).AddMinutes(mt.Minute).AddSeconds(mt.Second);
                     if (si.NextDay) st.EndTime = st.EndTime.AddDays(1);
                     st.NewEndTime = st.EndTime;
+                    st.LogWhenLeave = si.LogAtEnd;
                     st.ShiftTime = si.Duration; //设置班次时段的上班时间
                     st.Present = si.Duration;
                     st.EarlyestTime = st.NewStartTime.AddMinutes((int)-si.BeforeStartTime);

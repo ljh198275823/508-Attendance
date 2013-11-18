@@ -92,8 +92,10 @@
       <Column Name="ID" Member="ID"  DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true"/>
       <Column Name="ShiftID" Member="ShiftID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="StartTime" Member="_StartTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
+      <Column Name="LogAtStart" Member="LogAtStart"  DbType="bit not null" UpdateCheck="Never"/>
       <Column Name="NextDay" Member="NextDay"  DbType="bit not null" UpdateCheck="Never"/>
       <Column Name="EndTime" Member="_EndTime"  DbType="nvarchar(6) not null" UpdateCheck="Never"/>
+      <Column Name="LogAtEnd" Member="LogAtEnd"  DbType="bit not null" UpdateCheck="Never"/>
       <Column Name="AllowLateTime" Member="AllowLateTime"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
       <Column Name="AllowLeaveEarlyTime" Member="AllowLeaveEarlyTime"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>
       <Column Name="BeforeStartTime" Member="BeforeStartTime"  DbType="decimal(10,4) not null" UpdateCheck="Never"/>

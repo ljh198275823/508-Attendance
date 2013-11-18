@@ -41,6 +41,8 @@ namespace LJH.Attendance.UI
             chkNextDay.Checked = shift.NextDay;
             txtEndHour.Value = shift.EndTime.Hour;
             txtEndMinute.Value = shift.EndTime.Minute;
+            chkLogAtStart.Checked = shift.LogAtStart;
+            chkLogAtEnd.Checked = shift.LogAtEnd;
             txtAllowLateTime.Value = shift.AllowLateTime;
             txtAllowLeaveEarlyTime.Value = shift.AllowLeaveEarlyTime;
             txtBeforeStartTime.Value = shift.BeforeStartTime;
@@ -55,6 +57,8 @@ namespace LJH.Attendance.UI
             shift.StartTime = new MyTime((int)txtStartHour.Value, (int)txtStartMinute.Value, 0);
             shift.NextDay = chkNextDay.Checked;
             shift.EndTime = new MyTime((int)txtEndHour.Value, (int)txtEndMinute.Value, 0);
+            shift.LogAtStart = chkLogAtStart.Checked;
+            shift.LogAtEnd = chkLogAtEnd.Checked;
             shift.AllowLateTime = txtAllowLateTime.Value;
             shift.AllowLeaveEarlyTime = txtAllowLeaveEarlyTime.Value;
             shift.BeforeStartTime = txtBeforeStartTime.Value;
@@ -91,7 +95,6 @@ namespace LJH.Attendance.UI
         {
             this.Close();
         }
-        #endregion
 
         private void txtEndMinute_ValueChanged(object sender, EventArgs e)
         {
@@ -132,5 +135,6 @@ namespace LJH.Attendance.UI
             TimeSpan ts = new TimeSpan(dt2.Ticks - dt1.Ticks);
             txtShiftTime.Value = ts.TotalMinutes > 0 ? (int)ts.TotalMinutes : 0;
         }
+        #endregion
     }
 }

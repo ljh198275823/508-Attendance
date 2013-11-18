@@ -34,23 +34,25 @@
             this.txtShortName = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnu_Add = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.colStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLogAtStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLogAtEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAllowLateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAllowLeaveEarlyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBeforeStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAfterEndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnu_Add = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(568, 261);
+            this.btnOk.Location = new System.Drawing.Point(575, 261);
             // 
             // btnClose
             // 
@@ -102,6 +104,8 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colStartTime,
             this.colEndTime,
+            this.colLogAtStart,
+            this.colLogAtEnd,
             this.colAllowLateTime,
             this.colAllowLeaveEarlyTime,
             this.colBeforeStartTime,
@@ -113,56 +117,10 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(747, 196);
+            this.dataGridView1.Size = new System.Drawing.Size(749, 196);
             this.dataGridView1.TabIndex = 57;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
-            // 
-            // colStartTime
-            // 
-            this.colStartTime.HeaderText = "上班时间";
-            this.colStartTime.Name = "colStartTime";
-            this.colStartTime.ReadOnly = true;
-            this.colStartTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colStartTime.Width = 120;
-            // 
-            // colEndTime
-            // 
-            this.colEndTime.HeaderText = "下班时间";
-            this.colEndTime.Name = "colEndTime";
-            this.colEndTime.ReadOnly = true;
-            this.colEndTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colEndTime.Width = 120;
-            // 
-            // colAllowLateTime
-            // 
-            this.colAllowLateTime.HeaderText = "允许迟到";
-            this.colAllowLateTime.Name = "colAllowLateTime";
-            this.colAllowLateTime.ReadOnly = true;
-            // 
-            // colAllowLeaveEarlyTime
-            // 
-            this.colAllowLeaveEarlyTime.HeaderText = "允许早退";
-            this.colAllowLeaveEarlyTime.Name = "colAllowLeaveEarlyTime";
-            this.colAllowLeaveEarlyTime.ReadOnly = true;
-            // 
-            // colBeforeStartTime
-            // 
-            this.colBeforeStartTime.HeaderText = "提前刷卡";
-            this.colBeforeStartTime.Name = "colBeforeStartTime";
-            this.colBeforeStartTime.ReadOnly = true;
-            // 
-            // colAfterEndTime
-            // 
-            this.colAfterEndTime.HeaderText = "延后刷卡";
-            this.colAfterEndTime.Name = "colAfterEndTime";
-            this.colAfterEndTime.ReadOnly = true;
-            // 
-            // colDuration
-            // 
-            this.colDuration.HeaderText = "出勤计时(分)";
-            this.colDuration.Name = "colDuration";
-            this.colDuration.ReadOnly = true;
             // 
             // contextMenuStrip1
             // 
@@ -175,22 +133,92 @@
             // mnu_Add
             // 
             this.mnu_Add.Name = "mnu_Add";
-            this.mnu_Add.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Add.Size = new System.Drawing.Size(100, 22);
             this.mnu_Add.Text = "增加";
             this.mnu_Add.Click += new System.EventHandler(this.mnu_Add_Click);
             // 
             // mnu_Delete
             // 
             this.mnu_Delete.Name = "mnu_Delete";
-            this.mnu_Delete.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Delete.Size = new System.Drawing.Size(100, 22);
             this.mnu_Delete.Text = "删除";
             this.mnu_Delete.Click += new System.EventHandler(this.mnu_Delete_Click);
+            // 
+            // colStartTime
+            // 
+            this.colStartTime.HeaderText = "上班时间";
+            this.colStartTime.Name = "colStartTime";
+            this.colStartTime.ReadOnly = true;
+            this.colStartTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colStartTime.Width = 80;
+            // 
+            // colEndTime
+            // 
+            this.colEndTime.HeaderText = "下班时间";
+            this.colEndTime.Name = "colEndTime";
+            this.colEndTime.ReadOnly = true;
+            this.colEndTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colEndTime.Width = 80;
+            // 
+            // colLogAtStart
+            // 
+            this.colLogAtStart.HeaderText = "上班打卡";
+            this.colLogAtStart.Name = "colLogAtStart";
+            this.colLogAtStart.ReadOnly = true;
+            this.colLogAtStart.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colLogAtStart.Width = 80;
+            // 
+            // colLogAtEnd
+            // 
+            this.colLogAtEnd.HeaderText = "下班打卡";
+            this.colLogAtEnd.Name = "colLogAtEnd";
+            this.colLogAtEnd.ReadOnly = true;
+            this.colLogAtEnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colLogAtEnd.Width = 80;
+            // 
+            // colAllowLateTime
+            // 
+            this.colAllowLateTime.HeaderText = "允许迟到";
+            this.colAllowLateTime.Name = "colAllowLateTime";
+            this.colAllowLateTime.ReadOnly = true;
+            this.colAllowLateTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colAllowLateTime.Width = 80;
+            // 
+            // colAllowLeaveEarlyTime
+            // 
+            this.colAllowLeaveEarlyTime.HeaderText = "允许早退";
+            this.colAllowLeaveEarlyTime.Name = "colAllowLeaveEarlyTime";
+            this.colAllowLeaveEarlyTime.ReadOnly = true;
+            this.colAllowLeaveEarlyTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colAllowLeaveEarlyTime.Width = 80;
+            // 
+            // colBeforeStartTime
+            // 
+            this.colBeforeStartTime.HeaderText = "提前刷卡";
+            this.colBeforeStartTime.Name = "colBeforeStartTime";
+            this.colBeforeStartTime.ReadOnly = true;
+            this.colBeforeStartTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colBeforeStartTime.Width = 80;
+            // 
+            // colAfterEndTime
+            // 
+            this.colAfterEndTime.HeaderText = "延后刷卡";
+            this.colAfterEndTime.Name = "colAfterEndTime";
+            this.colAfterEndTime.ReadOnly = true;
+            this.colAfterEndTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colAfterEndTime.Width = 80;
+            // 
+            // colDuration
+            // 
+            this.colDuration.HeaderText = "出勤计时(分)";
+            this.colDuration.Name = "colDuration";
+            this.colDuration.ReadOnly = true;
             // 
             // FrmShiftDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 296);
+            this.ClientSize = new System.Drawing.Size(766, 296);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtShortName);
             this.Controls.Add(this.label16);
@@ -219,15 +247,17 @@
         private GeneralLibrary.WinformControl.DBCTextBox txtShortName;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Add;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStartTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEndTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLogAtStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLogAtEnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAllowLateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAllowLeaveEarlyTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBeforeStartTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAfterEndTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDuration;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem mnu_Add;
-        private System.Windows.Forms.ToolStripMenuItem mnu_Delete;
     }
 }

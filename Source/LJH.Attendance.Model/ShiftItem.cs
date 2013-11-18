@@ -72,6 +72,10 @@ namespace LJH.Attendance.Model
         /// </summary>
         public decimal BeforeStartTime { get; set; }
         /// <summary>
+        /// 获取或设置上班时是否需要打卡
+        /// </summary>
+        public bool LogAtStart { get; set; }
+        /// <summary>
         /// 获取或设置下班时间
         /// </summary>
         public MyTime EndTime
@@ -116,6 +120,10 @@ namespace LJH.Attendance.Model
         /// 获取或设置最大的延长刷卡分钟，即下班时间过了多少分钟后打卡仍算正常下班
         /// </summary>
         public decimal AfterEndTime { get; set; }
+        /// <summary>
+        /// 获取或设置下班时是否需要打卡
+        /// </summary>
+        public bool LogAtEnd { get; set; }
         /// <summary>
         /// 获取或设置班次的出勤分钟数
         /// </summary>

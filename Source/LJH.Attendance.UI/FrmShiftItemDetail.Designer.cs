@@ -54,6 +54,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.chkLogAtStart = new System.Windows.Forms.CheckBox();
+            this.chkLogAtEnd = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtAfterEndTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBeforeStartTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndMinute)).BeginInit();
@@ -68,7 +70,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(299, 92);
+            this.label3.Location = new System.Drawing.Point(299, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 88;
@@ -76,7 +78,7 @@
             // 
             // txtAfterEndTime
             // 
-            this.txtAfterEndTime.Location = new System.Drawing.Point(236, 88);
+            this.txtAfterEndTime.Location = new System.Drawing.Point(236, 112);
             this.txtAfterEndTime.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -95,7 +97,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(182, 92);
+            this.label31.Location = new System.Drawing.Point(182, 116);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(53, 12);
             this.label31.TabIndex = 86;
@@ -104,7 +106,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(131, 92);
+            this.label29.Location = new System.Drawing.Point(131, 116);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(29, 12);
             this.label29.TabIndex = 85;
@@ -112,7 +114,7 @@
             // 
             // txtBeforeStartTime
             // 
-            this.txtBeforeStartTime.Location = new System.Drawing.Point(67, 88);
+            this.txtBeforeStartTime.Location = new System.Drawing.Point(67, 112);
             this.txtBeforeStartTime.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -131,7 +133,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(11, 92);
+            this.label30.Location = new System.Drawing.Point(11, 116);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(53, 12);
             this.label30.TabIndex = 83;
@@ -238,7 +240,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(129, 127);
+            this.label8.Location = new System.Drawing.Point(129, 151);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 12);
             this.label8.TabIndex = 74;
@@ -246,7 +248,7 @@
             // 
             // txtShiftTime
             // 
-            this.txtShiftTime.Location = new System.Drawing.Point(67, 123);
+            this.txtShiftTime.Location = new System.Drawing.Point(67, 147);
             this.txtShiftTime.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -265,7 +267,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 127);
+            this.label9.Location = new System.Drawing.Point(12, 151);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 72;
@@ -284,7 +286,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(299, 55);
+            this.label1.Location = new System.Drawing.Point(299, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 94;
@@ -292,7 +294,7 @@
             // 
             // txtAllowLeaveEarlyTime
             // 
-            this.txtAllowLeaveEarlyTime.Location = new System.Drawing.Point(236, 51);
+            this.txtAllowLeaveEarlyTime.Location = new System.Drawing.Point(236, 75);
             this.txtAllowLeaveEarlyTime.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -306,7 +308,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(182, 55);
+            this.label7.Location = new System.Drawing.Point(182, 79);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 92;
@@ -315,7 +317,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(131, 55);
+            this.label10.Location = new System.Drawing.Point(131, 79);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(29, 12);
             this.label10.TabIndex = 91;
@@ -323,7 +325,7 @@
             // 
             // txtAllowLateTime
             // 
-            this.txtAllowLateTime.Location = new System.Drawing.Point(67, 51);
+            this.txtAllowLateTime.Location = new System.Drawing.Point(67, 75);
             this.txtAllowLateTime.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -337,7 +339,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(11, 55);
+            this.label11.Location = new System.Drawing.Point(11, 79);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 89;
@@ -348,7 +350,7 @@
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClose.Location = new System.Drawing.Point(242, 172);
+            this.btnClose.Location = new System.Drawing.Point(242, 192);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 96;
@@ -360,7 +362,7 @@
             // 
             this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOk.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnOk.Location = new System.Drawing.Point(150, 172);
+            this.btnOk.Location = new System.Drawing.Point(150, 192);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 95;
@@ -368,13 +370,39 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // chkLogAtStart
+            // 
+            this.chkLogAtStart.AutoSize = true;
+            this.chkLogAtStart.Checked = true;
+            this.chkLogAtStart.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLogAtStart.Location = new System.Drawing.Point(66, 48);
+            this.chkLogAtStart.Name = "chkLogAtStart";
+            this.chkLogAtStart.Size = new System.Drawing.Size(96, 16);
+            this.chkLogAtStart.TabIndex = 97;
+            this.chkLogAtStart.Text = "上班需要打卡";
+            this.chkLogAtStart.UseVisualStyleBackColor = true;
+            // 
+            // chkLogAtEnd
+            // 
+            this.chkLogAtEnd.AutoSize = true;
+            this.chkLogAtEnd.Checked = true;
+            this.chkLogAtEnd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLogAtEnd.Location = new System.Drawing.Point(236, 48);
+            this.chkLogAtEnd.Name = "chkLogAtEnd";
+            this.chkLogAtEnd.Size = new System.Drawing.Size(96, 16);
+            this.chkLogAtEnd.TabIndex = 98;
+            this.chkLogAtEnd.Text = "下班需要打卡";
+            this.chkLogAtEnd.UseVisualStyleBackColor = true;
+            // 
             // FrmShiftItemDetail
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(337, 207);
+            this.ClientSize = new System.Drawing.Size(337, 227);
+            this.Controls.Add(this.chkLogAtEnd);
+            this.Controls.Add(this.chkLogAtStart);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.label1);
@@ -447,5 +475,7 @@
         private System.Windows.Forms.Label label11;
         protected System.Windows.Forms.Button btnClose;
         protected System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.CheckBox chkLogAtStart;
+        private System.Windows.Forms.CheckBox chkLogAtEnd;
     }
 }

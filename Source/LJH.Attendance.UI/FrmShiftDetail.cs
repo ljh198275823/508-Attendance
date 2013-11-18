@@ -25,6 +25,8 @@ namespace LJH.Attendance.UI
             row.Tag = item;
             row.Cells["colStartTime"].Value = item.StartTime.ToString();
             row.Cells["colEndTime"].Value = item.NextDay ? "第二天 " + item.EndTime.ToString() : item.EndTime.ToString();
+            row.Cells["colLogAtStart"].Value = item.LogAtStart ? "是" : "否";
+            row.Cells["colLogAtEnd"].Value = item.LogAtEnd ? "是" : "否";
             row.Cells["colBeforeStartTime"].Value =(int) item.BeforeStartTime;
             row.Cells["colAfterEndTime"].Value = (int)item.AfterEndTime;
             row.Cells["colAllowLateTime"].Value = (int)item.AllowLateTime;

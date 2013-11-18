@@ -251,6 +251,24 @@ namespace LJH.Attendance.UI
             CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as OTType);
             return ret.Result == ResultCode.Successful;
         }
+
+        public override void Fresh(SearchCondition search)
+        {
+            if (search != null && search is StaffAttendanceResultSearchCondition)
+            {
+                StaffAttendanceResultSearchCondition con = search as StaffAttendanceResultSearchCondition;
+                if (con.ShiftDate != null)
+                {
+                    this.ucDateTimeInterval1.StartDateTime = con.ShiftDate.Begin;
+                    this.ucDateTimeInterval1.EndDateTime = con.ShiftDate.End;
+                }
+                if (con.Staff != null && con.Staff.Count > 0)
+                {
+                    this.departmentTreeview1.SelectedStaffIDs = con.Staff;
+                }
+            }
+            base.Fresh(search);
+        }
         #endregion
 
         #region 事件处理程序
