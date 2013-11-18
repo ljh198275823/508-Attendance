@@ -36,6 +36,7 @@
             this.mnu_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_基本资料 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Departments = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_StaffCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Staff = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.mnu_OTType = new System.Windows.Forms.ToolStripMenuItem();
@@ -130,6 +131,7 @@
             // 
             this.mnu_基本资料.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnu_Departments,
+            this.mnu_StaffCategory,
             this.mnu_Staff,
             this.toolStripSeparator6,
             this.mnu_OTType,
@@ -149,6 +151,12 @@
             this.mnu_Departments.Name = "mnu_Departments";
             resources.ApplyResources(this.mnu_Departments, "mnu_Departments");
             this.mnu_Departments.Click += new System.EventHandler(this.mnu_Departments_Click);
+            // 
+            // mnu_StaffCategory
+            // 
+            this.mnu_StaffCategory.Name = "mnu_StaffCategory";
+            resources.ApplyResources(this.mnu_StaffCategory, "mnu_StaffCategory");
+            this.mnu_StaffCategory.Click += new System.EventHandler(this.mnu_StaffCategory_Click);
             // 
             // mnu_Staff
             // 
@@ -527,6 +535,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMainDemo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMainDemo_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -600,6 +609,7 @@
         private System.Windows.Forms.ToolStripStatusLabel lblOperator;
         private GeneralLibrary.WinformControl.UCFormView ucFormViewMain;
         private System.Windows.Forms.ToolStripButton btnShiftTemplate;
+        private System.Windows.Forms.ToolStripMenuItem mnu_StaffCategory;
 
     }
 }

@@ -101,6 +101,7 @@
     <Compile Include="SearchCondition\StaffDepartmentPairSearchCondition.cs" />
     <Compile Include="SearchCondition\TASheetSearchCondition.cs" />
     <Compile Include="StaffBioTemplate.cs" />
+    <Compile Include="StaffCategory.cs" />
     <Compile Include="StaffPhoto.cs" />
     <Compile Include="TASheetItem.cs" />
     <Compile Include="ShiftArrange.cs" />

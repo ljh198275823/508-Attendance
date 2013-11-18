@@ -39,6 +39,13 @@
       <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
     </Type>
   </Table>
+  <Table Name="TAStaffCategory" Member="LJH.Attendance.Model.StaffCategory">
+    <Type Name="LJH.Attendance.Model.StaffCategory">
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) not null" IsPrimaryKey="true"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not NULL" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200) NULL" UpdateCheck="Never"/>
+    </Type>
+  </Table>
   <Table Name="TAStaff" Member="LJH.Attendance.Model.Staff">
     <Type Name="LJH.Attendance.Model.Staff">
       <Column Name="ID" Member="ID"  DbType="int NOT NULL" IsPrimaryKey="true"/>

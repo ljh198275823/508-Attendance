@@ -76,6 +76,7 @@
     <Compile Include="RoleBll.cs" />
     <Compile Include="ShiftBLL.cs" />
     <Compile Include="StaffBLL.cs" />
+    <Compile Include="StaffCategoryBLL.cs" />
     <Compile Include="TASheetBLL.cs" />
     <Compile Include="TripTypeBLL.cs" />
     <Compile Include="VacationTypeBLL.cs" />

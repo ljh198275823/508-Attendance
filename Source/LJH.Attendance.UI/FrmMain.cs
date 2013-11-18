@@ -36,23 +36,23 @@ namespace LJH.Attendance.UI
                 info = reader.ReadDog();
                 if (info == null)
                 {
-                    MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogError,LJH.Attendance.UI.Properties.Resources.Form_Alert);
+                    MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogError, LJH.Attendance.UI.Properties.Resources.Form_Alert);
                     ret = false;
                 }
                 else if ((info.SoftwareList & SoftwareType.TYPE_TA) == 0)  //没有写考勤软件权限
                 {
-                    MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogNoRights,LJH.Attendance.UI.Properties.Resources.Form_Alert);
+                    MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogNoRights, LJH.Attendance.UI.Properties.Resources.Form_Alert);
                     ret = false;
                 }
                 else if (info.ExpiredDate < DateTime.Today && info.ExpiredDate.AddDays(15) >= DateTime.Today) //已经过期
                 {
                     DateTime expire = info.ExpiredDate.AddDays(15);
                     TimeSpan ts = new TimeSpan(expire.Ticks - DateTime.Today.Ticks);
-                    MessageBox.Show(string.Format(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogExpiredAlert, (int)(ts.TotalDays + 1)),LJH.Attendance.UI.Properties.Resources.Form_Alert);
+                    MessageBox.Show(string.Format(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogExpiredAlert, (int)(ts.TotalDays + 1)), LJH.Attendance.UI.Properties.Resources.Form_Alert);
                 }
                 else if (info.ExpiredDate.AddDays(15) < DateTime.Today)
                 {
-                    MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogExpired,LJH.Attendance.UI.Properties.Resources.Form_Alert);
+                    MessageBox.Show(LJH.Attendance.UI.Properties.Resources.FrmMain_SoftDogExpired, LJH.Attendance.UI.Properties.Resources.Form_Alert);
                     ret = false;
                 }
             }
@@ -105,6 +105,7 @@ namespace LJH.Attendance.UI
             mnu_AttendanceDevice.Enabled = opt.Permit(Permission.SelectAttendanceReader);
             btnAttendanceDevice.Enabled = opt.Permit(Permission.SelectAttendanceReader);
             mnu_Options.Enabled = opt.Permit(Permission.ReadOptions) || opt.Permit(Permission.EditOptions);
+            mnu_StaffCategory.Enabled = opt.Permit(Permission.ReadStaffCategory) || opt.Permit(Permission.EditStaffCategory);
             //考勤管理
             mnu_Shifts.Enabled = opt.Permit(Permission.ReadShift) || opt.Permit(Permission.EditShift);
             btnShift.Enabled = opt.Permit(Permission.ReadShift) || opt.Permit(Permission.EditShift);
@@ -389,6 +390,21 @@ namespace LJH.Attendance.UI
                         LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
                     }
                 }
+            }
+        }
+
+        private void mnu_StaffCategory_Click(object sender, EventArgs e)
+        {
+            ShowSingleForm<FrmStaffCategoryMaster>();
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Operator.CurrentOperator != null)
+            {
+                DialogResult result;
+                result = MessageBox.Show("是否需要退出系统?", "询问", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result != DialogResult.OK) e.Cancel = true;
             }
         }
     }

@@ -121,37 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>901, 25</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="系统ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="系统ToolStripMenuItem.Text" xml:space="preserve">
-    <value>系统</value>
-  </data>
   <data name="mnu_Logout.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 22</value>
   </data>
@@ -164,74 +133,81 @@
   <data name="mnu_Exit.Text" xml:space="preserve">
     <value>退出系统</value>
   </data>
-  <data name="mnu_基本资料.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 21</value>
+  <data name="系统ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
   </data>
-  <data name="mnu_基本资料.Text" xml:space="preserve">
-    <value>基本资料</value>
+  <data name="系统ToolStripMenuItem.Text" xml:space="preserve">
+    <value>系统</value>
   </data>
   <data name="mnu_Departments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_Departments.Text" xml:space="preserve">
     <value>多级部门管理</value>
   </data>
+  <data name="mnu_StaffCategory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="mnu_StaffCategory.Text" xml:space="preserve">
+    <value>人员类别</value>
+  </data>
   <data name="mnu_Staff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_Staff.Text" xml:space="preserve">
     <value>人员管理</value>
   </data>
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>145, 6</value>
   </data>
   <data name="mnu_OTType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_OTType.Text" xml:space="preserve">
     <value>加班类别管理</value>
   </data>
   <data name="mnu_VacationType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_VacationType.Text" xml:space="preserve">
     <value>请假类别管理</value>
   </data>
   <data name="mnu_TripType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_TripType.Text" xml:space="preserve">
     <value>外出类别管理</value>
   </data>
   <data name="mnu_TASheet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_TASheet.Text" xml:space="preserve">
     <value>申请单登记</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>145, 6</value>
   </data>
   <data name="mnu_Holiday.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_Holiday.Text" xml:space="preserve">
     <value>节假日管理</value>
   </data>
   <data name="mnu_AttendanceDevice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_AttendanceDevice.Text" xml:space="preserve">
     <value>考勤设备</value>
   </data>
   <data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>145, 6</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="toolStripSeparator8.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="mnu_Options.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="mnu_Options.Text" xml:space="preserve">
     <value>选项</value>
@@ -239,11 +215,11 @@
   <data name="mnu_Options.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="考勤管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="mnu_基本资料.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 21</value>
   </data>
-  <data name="考勤管理ToolStripMenuItem.Text" xml:space="preserve">
-    <value>考勤管理</value>
+  <data name="mnu_基本资料.Text" xml:space="preserve">
+    <value>基本资料</value>
   </data>
   <data name="mnu_AttendanceRules.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 22</value>
@@ -284,11 +260,11 @@
   <data name="mnu_AttendanceAnalyst.Text" xml:space="preserve">
     <value>生成考勤结果</value>
   </data>
-  <data name="安全管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="考勤管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 21</value>
   </data>
-  <data name="安全管理ToolStripMenuItem.Text" xml:space="preserve">
-    <value>安全管理</value>
+  <data name="考勤管理ToolStripMenuItem.Text" xml:space="preserve">
+    <value>考勤管理</value>
   </data>
   <data name="mnu_Operator.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 22</value>
@@ -311,11 +287,11 @@
   <data name="mnu_ChangePWD.Text" xml:space="preserve">
     <value>修改密码</value>
   </data>
-  <data name="报表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
+  <data name="安全管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 21</value>
   </data>
-  <data name="报表ToolStripMenuItem.Text" xml:space="preserve">
-    <value>报表</value>
+  <data name="安全管理ToolStripMenuItem.Text" xml:space="preserve">
+    <value>安全管理</value>
   </data>
   <data name="mnu_ShiftResultStatistics.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 22</value>
@@ -344,11 +320,11 @@
   <data name="mnu_AttendanceLogReport.Text" xml:space="preserve">
     <value>原始考勤记录查询</value>
   </data>
-  <data name="维护ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="报表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 21</value>
   </data>
-  <data name="维护ToolStripMenuItem.Text" xml:space="preserve">
-    <value>维护</value>
+  <data name="报表ToolStripMenuItem.Text" xml:space="preserve">
+    <value>报表</value>
   </data>
   <data name="mnu_BackupData.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 22</value>
@@ -362,11 +338,11 @@
   <data name="mnu_UpdateDB.Text" xml:space="preserve">
     <value>升级数据库</value>
   </data>
-  <data name="帮助ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="维护ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 21</value>
   </data>
-  <data name="帮助ToolStripMenuItem.Text" xml:space="preserve">
-    <value>帮助</value>
+  <data name="维护ToolStripMenuItem.Text" xml:space="preserve">
+    <value>维护</value>
   </data>
   <data name="用户手册ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 22</value>
@@ -383,33 +359,39 @@
   <data name="mnu_Aboat.Text" xml:space="preserve">
     <value>关于...</value>
   </data>
+  <data name="帮助ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="帮助ToolStripMenuItem.Text" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>901, 25</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>137, 17</value>
   </metadata>
-  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 25</value>
-  </data>
-  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>901, 64</value>
-  </data>
-  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="toolStrip1.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
-    <value>LJH.GeneralLibrary.WinformControl.MyToolStrip, LJH.GeneralLibrary, Version=2.0.2013.1011, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="btnDepartment.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
@@ -585,6 +567,30 @@
   <data name="btnAttendanceLog.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
   </data>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 25</value>
+  </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>901, 64</value>
+  </data>
+  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>LJH.GeneralLibrary.WinformControl.MyToolStrip, LJH.GeneralLibrary, Version=2.0.2013.1110, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>247, 17</value>
   </metadata>
@@ -592,7 +598,7 @@
     <value>宋体, 9pt, style=Bold</value>
   </data>
   <data name="lblOperator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>855, 17</value>
+    <value>886, 17</value>
   </data>
   <data name="lblOperator.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -637,7 +643,7 @@
     <value>ucFormViewMain</value>
   </data>
   <data name="&gt;&gt;ucFormViewMain.Type" xml:space="preserve">
-    <value>LJH.GeneralLibrary.WinformControl.UCFormView, LJH.GeneralLibrary, Version=2.0.2013.1011, Culture=neutral, PublicKeyToken=null</value>
+    <value>LJH.GeneralLibrary.WinformControl.UCFormView, LJH.GeneralLibrary, Version=2.0.2013.1110, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ucFormViewMain.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3137,6 +3143,12 @@
     <value>mnu_Departments</value>
   </data>
   <data name="&gt;&gt;mnu_Departments.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnu_StaffCategory.Name" xml:space="preserve">
+    <value>mnu_StaffCategory</value>
+  </data>
+  <data name="&gt;&gt;mnu_StaffCategory.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mnu_Staff.Name" xml:space="preserve">

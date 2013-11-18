@@ -384,11 +384,23 @@
     <Compile Include="FrmStaffSelection.Designer.cs">
       <DependentUpon>FrmStaffSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmStaffCategoryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffCategoryDetail.designer.cs">
+      <DependentUpon>FrmStaffCategoryDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTripTypeDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTripTypeDetail.Designer.cs">
       <DependentUpon>FrmTripTypeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaffCategoryMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffCategoryMaster.designer.cs">
+      <DependentUpon>FrmStaffCategoryMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTripTypeMaster.cs">
       <SubType>Form</SubType>
@@ -636,8 +648,14 @@
     <EmbeddedResource Include="FrmStaffSelection.resx">
       <DependentUpon>FrmStaffSelection.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffCategoryDetail.resx">
+      <DependentUpon>FrmStaffCategoryDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTripTypeDetail.resx">
       <DependentUpon>FrmTripTypeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffCategoryMaster.resx">
+      <DependentUpon>FrmStaffCategoryMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTripTypeMaster.resx">
       <DependentUpon>FrmTripTypeMaster.cs</DependentUpon>
