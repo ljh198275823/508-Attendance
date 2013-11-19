@@ -12,9 +12,9 @@ using LJH.Attendance.BLL;
 
 namespace LJH.Attendance.UI
 {
-    public partial class FrmReaderDetail : FrmDetailBase
+    public partial class FrmDeviceInfoDetail : FrmDetailBase
     {
-        public FrmReaderDetail()
+        public FrmDeviceInfoDetail()
         {
             InitializeComponent();
         }
@@ -67,12 +67,12 @@ namespace LJH.Attendance.UI
 
         protected override void ItemShowing()
         {
-            Reader info = UpdatingItem as Reader;
+            DeviceInfo info = UpdatingItem as DeviceInfo;
             txtName.Text = info.Name;
-            comDeviceType.Text = info.DeviceType;
-            comCommunication.Text = info.Communication;
+            comDeviceType.SelectedIndex = (int)info.DeviceType;
+            comCommunication.SelectedIndex = (int)info.Communication;
             txtSerial.Text = info.Serial;
-            if (info.Communication == "TCP/IP")
+            if (info.Communication == CommunicationType.TCP_IP)
             {
                 gpTCPIP.Enabled = true;
                 gpRS232.Enabled = false;
@@ -81,7 +81,7 @@ namespace LJH.Attendance.UI
                 txtIPMask.IP = info.IPMask != null ? info.IPMask : "255.255.255.0";
                 txtGateway.IP = info.Gateway != null ? info.Gateway : "0.0.0.0";
             }
-            else if (info.Communication == "RS232/485")
+            else if (info.Communication == CommunicationType.RS232_485)
             {
                 gpTCPIP.Enabled = false;
                 gpRS232.Enabled = true;
@@ -93,19 +93,19 @@ namespace LJH.Attendance.UI
 
         protected override Object GetItemFromInput()
         {
-            Reader info;
+            DeviceInfo info;
             if (UpdatingItem == null)
             {
-                info = new Reader();
+                info = new DeviceInfo();
                 info.ForAttendance = true;
             }
             else
             {
-                info = UpdatingItem as Reader;
+                info = UpdatingItem as DeviceInfo;
             }
             info.Name = txtName.Text;
-            info.DeviceType = comDeviceType.Text;
-            info.Communication = comCommunication.Text;
+            info.DeviceType =(DeviceType ) comDeviceType.SelectedIndex ;
+            info.Communication = (CommunicationType)comCommunication.SelectedIndex;
             info.Serial = txtSerial.Text;
             if (gpTCPIP.Enabled)
             {
@@ -125,13 +125,13 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            CommandResult ret = (new ReaderBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as Reader);
+            CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as DeviceInfo);
             return ret;
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            CommandResult ret = (new ReaderBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as Reader);
+            CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as DeviceInfo);
             return ret;
         }
         #endregion

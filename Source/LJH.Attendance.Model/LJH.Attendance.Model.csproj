@@ -83,6 +83,8 @@
     <Compile Include="AttendanceDuration.cs" />
     <Compile Include="AttendanceRules.cs" />
     <Compile Include="AttendanceUnit.cs" />
+    <Compile Include="CommunicationType.cs" />
+    <Compile Include="DeviceType.cs" />
     <Compile Include="HolidaySetting.cs" />
     <Compile Include="MyTime.cs" />
     <Compile Include="AttendanceAnalyst.cs" />
@@ -93,7 +95,7 @@
     <Compile Include="Holiday.cs" />
     <Compile Include="OTType.cs" />
     <Compile Include="Parameter.cs" />
-    <Compile Include="Reader.cs" />
+    <Compile Include="DeviceInfo.cs" />
     <Compile Include="SearchCondition\AttendanceLogSearchCondition.cs" />
     <Compile Include="SearchCondition\ShiftArrangeSearchCondition.cs" />
     <Compile Include="SearchCondition\StaffAttendanceResultSearchCondition.cs" />

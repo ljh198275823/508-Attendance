@@ -1,6 +1,6 @@
 ﻿namespace LJH.Attendance.UI
 {
-    partial class FrmReaderMaster
+    partial class FrmDeviceInfoMaster
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,6 @@
             this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.colCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +50,7 @@
             this.colCommport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBaud = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +70,7 @@
             this.toolStripSeparator2});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1000, 50);
+            this.menu.Size = new System.Drawing.Size(1100, 50);
             this.menu.TabIndex = 58;
             // 
             // btn_Add
@@ -137,7 +137,6 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -158,13 +157,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1000, 295);
+            this.dataGridView1.Size = new System.Drawing.Size(1100, 295);
             this.dataGridView1.TabIndex = 59;
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
             // colCheck
             // 
@@ -237,17 +231,22 @@
             this.colAddress.Name = "colAddress";
             this.colAddress.ReadOnly = true;
             // 
-            // FrmReaderMaster
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // FrmDeviceInfoMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 367);
+            this.ClientSize = new System.Drawing.Size(1100, 367);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmReaderMaster";
+            this.Name = "FrmDeviceInfoMaster";
             this.Text = "考勤设备";
             this.Controls.SetChildIndex(this.menu, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);

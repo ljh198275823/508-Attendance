@@ -120,11 +120,11 @@
     <Compile Include="FrmFingerResgister.Designer.cs">
       <DependentUpon>FrmFingerResgister.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReaderMaster.cs">
+    <Compile Include="FrmDeviceInfoMaster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReaderMaster.Designer.cs">
-      <DependentUpon>FrmReaderMaster.cs</DependentUpon>
+    <Compile Include="FrmDeviceInfoMaster.Designer.cs">
+      <DependentUpon>FrmDeviceInfoMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAttendanceRules.cs">
       <SubType>Form</SubType>
@@ -240,11 +240,11 @@
     <Compile Include="FrmOperators.designer.cs">
       <DependentUpon>FrmOperators.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReaderDetail.cs">
+    <Compile Include="FrmDeviceInfoDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReaderDetail.Designer.cs">
-      <DependentUpon>FrmReaderDetail.cs</DependentUpon>
+    <Compile Include="FrmDeviceInfoDetail.Designer.cs">
+      <DependentUpon>FrmDeviceInfoDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShiftItemDetail.cs">
       <SubType>Form</SubType>
@@ -453,11 +453,11 @@
     <EmbeddedResource Include="FrmFingerResgister.resx">
       <DependentUpon>FrmFingerResgister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReaderDetail.resx">
-      <DependentUpon>FrmReaderDetail.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDeviceInfoDetail.resx">
+      <DependentUpon>FrmDeviceInfoDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReaderMaster.resx">
-      <DependentUpon>FrmReaderMaster.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDeviceInfoMaster.resx">
+      <DependentUpon>FrmDeviceInfoMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAttendanceRules.resx">
       <DependentUpon>FrmAttendanceRules.cs</DependentUpon>

@@ -9,19 +9,19 @@ using LJH.Attendance.DAL.IDAL;
 
 namespace LJH.Attendance.DAL.LinqDataProvider
 {
-    public class ReaderProvider : ProviderBase<Reader, string>, IReaderProvider
+    public class DeviceInfoProvider : ProviderBase<DeviceInfo, string>, IDeviceInfoProvider
     {
         #region 构造函数
-        public ReaderProvider(string connStr)
+        public DeviceInfoProvider(string connStr)
             : base(connStr)
         {
         }
         #endregion
 
         #region 重写基类方法
-        protected override Reader GetingItemByID(string id, AttendanceDataContext attendance)
+        protected override DeviceInfo GetingItemByID(string id, AttendanceDataContext attendance)
         {
-            return attendance.GetTable<Reader>().SingleOrDefault(item => item.ID == id);
+            return attendance.GetTable<DeviceInfo>().SingleOrDefault(item => item.ID == id);
         }
         #endregion
     }

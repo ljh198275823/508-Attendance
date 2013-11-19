@@ -15,14 +15,14 @@ namespace LJH.Attendance.Device
         {
         }
 
-        public ZKTFTFingerReader(LJH.Attendance.Model.Reader para)
+        public ZKTFTFingerReader(LJH.Attendance.Model.DeviceInfo para)
         {
             Parameter = para;
         }
         #endregion
 
         #region 公共属性
-        public LJH.Attendance.Model.Reader Parameter { get; set; }
+        public LJH.Attendance.Model.DeviceInfo Parameter { get; set; }
         #endregion
 
         #region 实现接口
@@ -30,12 +30,7 @@ namespace LJH.Attendance.Device
         {
             if (Parameter != null)
             {
-                if (Parameter.Communication.ToLower() == "tcp/ip")
-                {
-                }
-                else if (Parameter.Communication.ToLower() == "rs232/485")
-                {
-                }
+                
             }
         }
 

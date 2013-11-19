@@ -13,13 +13,13 @@
     <Column Name="Value" Member="Value"  DbType="int not null" UpdateCheck="Never"/>
   </Type>
   </Table>
-  <Table Name="TAReader" Member="LJH.Attendance.Model.Reader">
-    <Type Name="LJH.Attendance.Model.Reader">
+  <Table Name="TADeviceInfo" Member="LJH.Attendance.Model.DeviceInfo">
+    <Type Name="LJH.Attendance.Model.DeviceInfo">
       <Column Name="ID" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
-      <Column Name="DeviceType" Member="DeviceType"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="DeviceType" Member="DeviceType"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="Serial" Member="Serial"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
-      <Column Name="Communication" Member="Communication"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Communication" Member="Communication"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="IP" Member="IP"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="IPMask" Member="IPMask"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="Gateway" Member="Gateway"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>

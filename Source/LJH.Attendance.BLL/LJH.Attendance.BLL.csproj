@@ -60,7 +60,7 @@
     <Compile Include="HolidayBLL.cs" />
     <Compile Include="OTTypeBLL.cs" />
     <Compile Include="ParameterBLL.cs" />
-    <Compile Include="ReaderBLL.cs" />
+    <Compile Include="DeviceInfoBLL.cs" />
     <Compile Include="ShiftArrangeBLL.cs" />
     <Compile Include="ShiftTemplateBLL.cs" />
     <Compile Include="AttendanceResultBLL.cs" />

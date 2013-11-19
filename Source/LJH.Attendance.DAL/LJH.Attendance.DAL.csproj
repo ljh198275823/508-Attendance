@@ -69,7 +69,7 @@
     <Compile Include="IDAL\IOTTypeProvider.cs" />
     <Compile Include="IDAL\IParameterProvider.cs" />
     <Compile Include="IDAL\IProvider.cs" />
-    <Compile Include="IDAL\IReaderProvider.cs" />
+    <Compile Include="IDAL\IDeviceInfoProvider.cs" />
     <Compile Include="IDAL\IRoleProvider.cs" />
     <Compile Include="IDAL\IShiftArrangeProvider.cs" />
     <Compile Include="IDAL\IShiftTemplateProvider.cs" />
@@ -94,7 +94,7 @@
     <Compile Include="LinqDataProvider\OTTypeProvider.cs" />
     <Compile Include="LinqDataProvider\ParameterProvider.cs" />
     <Compile Include="LinqDataProvider\ProviderBase.cs" />
-    <Compile Include="LinqDataProvider\ReaderProvider.cs" />
+    <Compile Include="LinqDataProvider\DeviceInfoProvider.cs" />
     <Compile Include="LinqDataProvider\ResultCodeResolver.cs" />
     <Compile Include="LinqDataProvider\RoleProvider.cs" />
     <Compile Include="LinqDataProvider\ShiftArrangeProvider.cs" />

@@ -64,7 +64,7 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            List<Reader> attendanceReaders = (new ReaderBLL(AppSettings.CurrentSetting.ConnectString)).GetAttendanceReaders().QueryObjects;
+            List<DeviceInfo> attendanceReaders = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).GetAttendanceReaders().QueryObjects;
             if (attendanceReaders == null || attendanceReaders.Count == 0)
             {
                 MessageBox.Show("还没有指定考勤点，请先在 \"考勤点选择\" 上指定考勤点");

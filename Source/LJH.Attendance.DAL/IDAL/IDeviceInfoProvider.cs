@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LJH.Attendance.DAL.IDAL
 {
-    public interface IReaderProvider : IProvider<LJH.Attendance.Model.Reader, string>
+    public interface IDeviceInfoProvider : IProvider<LJH.Attendance.Model.DeviceInfo, string>
     {
     }
 }

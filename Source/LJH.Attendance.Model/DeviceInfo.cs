@@ -8,10 +8,10 @@ namespace LJH.Attendance.Model
     /// <summary>
     /// 表示门禁刷卡器
     /// </summary>
-    public class Reader
+    public class DeviceInfo
     {
         #region 构造函数
-        public Reader()
+        public DeviceInfo()
         {
         }
         #endregion
@@ -26,17 +26,17 @@ namespace LJH.Attendance.Model
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// 获取或设置设备类型
-        /// </summary>
-        public string DeviceType { get; set; }
-        /// <summary>
         /// 获取或设置机器序列号
         /// </summary>
         public string Serial { get; set; }
         /// <summary>
-        /// 获取或设置通讯方式 目前支持三种方式 TCP/IP RS232/485 USB
+        /// 获取或设置设备类型 0表示中控指纹门禁机 1表示IPC系统系列
         /// </summary>
-        public string Communication { get; set; }
+        public DeviceType DeviceType { get; set; }
+        /// <summary>
+        /// 获取或设置通讯方式 目前支持三种方式 0:TCP/IP 1:RS232/485 2:USB
+        /// </summary>
+        public CommunicationType Communication { get; set; }
         /// <summary>
         /// 获取或设置IP
         /// </summary>

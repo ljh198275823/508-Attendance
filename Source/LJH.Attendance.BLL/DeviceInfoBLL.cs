@@ -9,10 +9,10 @@ using LJH.Attendance.DAL.IDAL;
 
 namespace LJH.Attendance.BLL
 {
-    public class ReaderBLL
+    public class DeviceInfoBLL
     {
         #region 构造函数
-        public ReaderBLL(string repoUri)
+        public DeviceInfoBLL(string repoUri)
         {
             _RepoUri = repoUri;
         }
@@ -23,29 +23,29 @@ namespace LJH.Attendance.BLL
         #endregion
 
         #region 公共方法
-        public QueryResultList<Reader> GetItems(SearchCondition con)
+        public QueryResultList<DeviceInfo> GetItems(SearchCondition con)
         {
-            return ProviderFactory.Create<IReaderProvider>(_RepoUri).GetItems(con);
+            return ProviderFactory.Create<IDeviceInfoProvider>(_RepoUri).GetItems(con);
         }
 
-        public QueryResultList<Reader> GetAttendanceReaders()
+        public QueryResultList<DeviceInfo> GetAttendanceReaders()
         {
-            QueryResultList<Reader> ret = ProviderFactory.Create<IReaderProvider>(_RepoUri).GetItems(null);
-            List<Reader> items = ret.QueryObjects;
+            QueryResultList<DeviceInfo> ret = ProviderFactory.Create<IDeviceInfoProvider>(_RepoUri).GetItems(null);
+            List<DeviceInfo> items = ret.QueryObjects;
             if (items != null && items.Count > 0)
             {
                 items = items.Where(item => item.ForAttendance).ToList();
             }
-            return new QueryResultList<Reader>(ret.Result, items);
+            return new QueryResultList<DeviceInfo>(ret.Result, items);
         }
 
-        public CommandResult Add(Reader info)
+        public CommandResult Add(DeviceInfo info)
         {
             string id = ProviderFactory.Create<IStringIDCreater>(_RepoUri).CreateID("0", 4, "Reader");
             if (!string.IsNullOrEmpty(id))
             {
                 info.ID = id;
-                return ProviderFactory.Create<IReaderProvider>(_RepoUri).Insert(info);
+                return ProviderFactory.Create<IDeviceInfoProvider>(_RepoUri).Insert(info);
             }
             else
             {
@@ -53,13 +53,13 @@ namespace LJH.Attendance.BLL
             }
         }
 
-        public CommandResult Update(Reader info)
+        public CommandResult Update(DeviceInfo info)
         {
 
-            Reader original = ProviderFactory.Create<IReaderProvider>(_RepoUri).GetByID(info.ID).QueryObject;
+            DeviceInfo original = ProviderFactory.Create<IDeviceInfoProvider>(_RepoUri).GetByID(info.ID).QueryObject;
             if (original != null)
             {
-                return ProviderFactory.Create<IReaderProvider>(_RepoUri).Update(info, original);
+                return ProviderFactory.Create<IDeviceInfoProvider>(_RepoUri).Update(info, original);
             }
             else
             {
@@ -67,9 +67,9 @@ namespace LJH.Attendance.BLL
             }
         }
 
-        public CommandResult Delete(Reader info)
+        public CommandResult Delete(DeviceInfo info)
         {
-            return ProviderFactory.Create<IReaderProvider>(_RepoUri).Delete(info);
+            return ProviderFactory.Create<IDeviceInfoProvider>(_RepoUri).Delete(info);
         }
         #endregion
     }

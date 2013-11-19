@@ -1,6 +1,6 @@
 ﻿namespace LJH.Attendance.UI
 {
-    partial class FrmReaderDetail
+    partial class FrmDeviceInfoDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -287,8 +287,7 @@
             this.comDeviceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comDeviceType.FormattingEnabled = true;
             this.comDeviceType.Items.AddRange(new object[] {
-            "中控 黑白屏指纹机",
-            "中控 彩屏指纹机"});
+            "中控指纹门禁机"});
             this.comDeviceType.Location = new System.Drawing.Point(332, 10);
             this.comDeviceType.Name = "comDeviceType";
             this.comDeviceType.Size = new System.Drawing.Size(161, 20);
@@ -302,7 +301,7 @@
             this.txtSerial.Size = new System.Drawing.Size(162, 21);
             this.txtSerial.TabIndex = 11;
             // 
-            // FrmReaderDetail
+            // FrmDeviceInfoDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -317,7 +316,7 @@
             this.Controls.Add(this.gpTCPIP);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FrmReaderDetail";
+            this.Name = "FrmDeviceInfoDetail";
             this.Text = "考勤机";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);

@@ -12,9 +12,9 @@ using LJH.Attendance.BLL;
 
 namespace LJH.Attendance.UI
 {
-    public partial class FrmReaderMaster : FrmMasterBase 
+    public partial class FrmDeviceInfoMaster : FrmMasterBase 
     {
-        public FrmReaderMaster()
+        public FrmDeviceInfoMaster()
         {
             InitializeComponent();
         }
@@ -29,19 +29,19 @@ namespace LJH.Attendance.UI
 
         protected override FrmDetailBase GetDetailForm()
         {
-            return new FrmReaderDetail();
+            return new FrmDeviceInfoDetail();
         }
 
         protected override List<object> GetDataSource()
         {
-            List<Reader> items = (new ReaderBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<DeviceInfo> items = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
             return (from item in items
                     select (object)item).ToList();
         }
 
         protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)
         {
-            Reader reader = item as Reader;
+            DeviceInfo reader = item as DeviceInfo;
             row.Tag = item;
             row.Cells["colCheck"].Value = reader.ForAttendance;
             row.Cells["colID"].Value = reader.ID;
@@ -58,7 +58,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new ReaderBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as Reader);
+            CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as DeviceInfo);
             return ret.Result == ResultCode.Successful;
         }
         #endregion
