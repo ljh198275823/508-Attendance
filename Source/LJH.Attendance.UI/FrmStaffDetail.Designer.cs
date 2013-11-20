@@ -31,7 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtSex = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rdFemale = new System.Windows.Forms.RadioButton();
+            this.rdMale = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rdResign = new System.Windows.Forms.RadioButton();
+            this.rdUnResign = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.dtHireDate = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -40,8 +45,6 @@
             this.picPhoto = new System.Windows.Forms.PictureBox();
             this.dbcTextBox1 = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.rdResign = new System.Windows.Forms.RadioButton();
-            this.rdUnResign = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.departmentComboBox1 = new LJH.Attendance.UI.DepartmentComboBox(this.components);
             this.label5 = new System.Windows.Forms.Label();
@@ -61,6 +64,8 @@
             this.mnu_DelTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.templateGrid)).BeginInit();
@@ -90,7 +95,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.txtSex);
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.dtHireDate);
             this.tabPage1.Controls.Add(this.label7);
@@ -99,8 +105,6 @@
             this.tabPage1.Controls.Add(this.picPhoto);
             this.tabPage1.Controls.Add(this.dbcTextBox1);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.rdResign);
-            this.tabPage1.Controls.Add(this.rdUnResign);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.departmentComboBox1);
             this.tabPage1.Controls.Add(this.label5);
@@ -110,26 +114,75 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.txtName);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 21);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(509, 273);
+            this.tabPage1.Size = new System.Drawing.Size(509, 272);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本资料";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // txtSex
+            // panel2
             // 
-            this.txtSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtSex.FormattingEnabled = true;
-            this.txtSex.Items.AddRange(new object[] {
-            "",
-            "男",
-            "女"});
-            this.txtSex.Location = new System.Drawing.Point(48, 158);
-            this.txtSex.Name = "txtSex";
-            this.txtSex.Size = new System.Drawing.Size(215, 20);
-            this.txtSex.TabIndex = 53;
+            this.panel2.Controls.Add(this.rdFemale);
+            this.panel2.Controls.Add(this.rdMale);
+            this.panel2.Location = new System.Drawing.Point(48, 155);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 24);
+            this.panel2.TabIndex = 54;
+            // 
+            // rdFemale
+            // 
+            this.rdFemale.AutoSize = true;
+            this.rdFemale.Location = new System.Drawing.Point(55, 4);
+            this.rdFemale.Name = "rdFemale";
+            this.rdFemale.Size = new System.Drawing.Size(35, 16);
+            this.rdFemale.TabIndex = 42;
+            this.rdFemale.Text = "女";
+            this.rdFemale.UseVisualStyleBackColor = true;
+            // 
+            // rdMale
+            // 
+            this.rdMale.AutoSize = true;
+            this.rdMale.Checked = true;
+            this.rdMale.Location = new System.Drawing.Point(2, 4);
+            this.rdMale.Name = "rdMale";
+            this.rdMale.Size = new System.Drawing.Size(35, 16);
+            this.rdMale.TabIndex = 41;
+            this.rdMale.TabStop = true;
+            this.rdMale.Text = "男";
+            this.rdMale.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rdResign);
+            this.panel1.Controls.Add(this.rdUnResign);
+            this.panel1.Location = new System.Drawing.Point(48, 220);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 24);
+            this.panel1.TabIndex = 53;
+            // 
+            // rdResign
+            // 
+            this.rdResign.AutoSize = true;
+            this.rdResign.Location = new System.Drawing.Point(57, 4);
+            this.rdResign.Name = "rdResign";
+            this.rdResign.Size = new System.Drawing.Size(47, 16);
+            this.rdResign.TabIndex = 42;
+            this.rdResign.Text = "离职";
+            this.rdResign.UseVisualStyleBackColor = true;
+            // 
+            // rdUnResign
+            // 
+            this.rdUnResign.AutoSize = true;
+            this.rdUnResign.Checked = true;
+            this.rdUnResign.Location = new System.Drawing.Point(2, 4);
+            this.rdUnResign.Name = "rdUnResign";
+            this.rdUnResign.Size = new System.Drawing.Size(47, 16);
+            this.rdUnResign.TabIndex = 41;
+            this.rdUnResign.TabStop = true;
+            this.rdUnResign.Text = "在职";
+            this.rdUnResign.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -207,33 +260,11 @@
             this.label2.TabIndex = 44;
             this.label2.Text = "卡号";
             // 
-            // rdResign
-            // 
-            this.rdResign.AutoSize = true;
-            this.rdResign.Location = new System.Drawing.Point(103, 220);
-            this.rdResign.Name = "rdResign";
-            this.rdResign.Size = new System.Drawing.Size(47, 16);
-            this.rdResign.TabIndex = 42;
-            this.rdResign.Text = "离职";
-            this.rdResign.UseVisualStyleBackColor = true;
-            // 
-            // rdUnResign
-            // 
-            this.rdUnResign.AutoSize = true;
-            this.rdUnResign.Checked = true;
-            this.rdUnResign.Location = new System.Drawing.Point(48, 220);
-            this.rdUnResign.Name = "rdUnResign";
-            this.rdUnResign.Size = new System.Drawing.Size(47, 16);
-            this.rdUnResign.TabIndex = 41;
-            this.rdUnResign.TabStop = true;
-            this.rdUnResign.Text = "在职";
-            this.rdUnResign.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(9, 222);
+            this.label6.Location = new System.Drawing.Point(9, 226);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 40;
@@ -318,10 +349,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.templateGrid);
-            this.tabPage2.Location = new System.Drawing.Point(4, 21);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(509, 273);
+            this.tabPage2.Size = new System.Drawing.Size(509, 272);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "指纹";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -343,7 +374,7 @@
             this.templateGrid.RowHeadersVisible = false;
             this.templateGrid.RowTemplate.Height = 23;
             this.templateGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.templateGrid.Size = new System.Drawing.Size(503, 267);
+            this.templateGrid.Size = new System.Drawing.Size(503, 266);
             this.templateGrid.TabIndex = 59;
             // 
             // colBioSource
@@ -373,19 +404,19 @@
             this.mnu_AddTemplate,
             this.mnu_DelTemplate});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
             // 
             // mnu_AddTemplate
             // 
             this.mnu_AddTemplate.Name = "mnu_AddTemplate";
-            this.mnu_AddTemplate.Size = new System.Drawing.Size(152, 22);
+            this.mnu_AddTemplate.Size = new System.Drawing.Size(100, 22);
             this.mnu_AddTemplate.Text = "增加";
             this.mnu_AddTemplate.Click += new System.EventHandler(this.mnu_AddTemplate_Click);
             // 
             // mnu_DelTemplate
             // 
             this.mnu_DelTemplate.Name = "mnu_DelTemplate";
-            this.mnu_DelTemplate.Size = new System.Drawing.Size(152, 22);
+            this.mnu_DelTemplate.Size = new System.Drawing.Size(100, 22);
             this.mnu_DelTemplate.Text = "删除";
             this.mnu_DelTemplate.Click += new System.EventHandler(this.mnu_DelTemplate_Click);
             // 
@@ -403,6 +434,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.templateGrid)).EndInit();
@@ -434,7 +469,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtHireDate;
-        private System.Windows.Forms.ComboBox txtSex;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView templateGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBioSource;
@@ -443,5 +477,9 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnu_AddTemplate;
         private System.Windows.Forms.ToolStripMenuItem mnu_DelTemplate;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rdFemale;
+        private System.Windows.Forms.RadioButton rdMale;
+        private System.Windows.Forms.Panel panel1;
     }
 }

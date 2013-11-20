@@ -13,12 +13,17 @@ using LJH.Attendance.BLL;
 
 namespace LJH.Attendance.UI
 {
-    public partial class FrmStaffMaster : FrmMasterBase 
+    public partial class FrmStaffMaster : FrmMasterBase
     {
         public FrmStaffMaster()
         {
             InitializeComponent();
         }
+
+        #region 私有变量
+        private string _SelectedDept;
+        private List<Staff> _AllStaff;
+        #endregion
 
         #region 重写基类方法和处理事件
         protected override FrmDetailBase GetDetailForm()
@@ -28,10 +33,20 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            List<Staff> staffs = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects.ToList();
-            return (from staff in staffs
-                    orderby staff.Name ascending
-                    select (object)staff).ToList();
+            _AllStaff = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects.ToList();
+            if (!string.IsNullOrEmpty(_SelectedDept))
+            {
+                return (from staff in _AllStaff
+                        where staff.DepartmentID == _SelectedDept
+                        orderby staff.Name ascending
+                        select (object)staff).ToList();
+            }
+            else
+            {
+                return (from staff in _AllStaff
+                        orderby staff.Name ascending
+                        select (object)staff).ToList();
+            }
         }
 
         protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)
@@ -55,7 +70,7 @@ namespace LJH.Attendance.UI
             CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).Delete(info);
             if (ret.Result != ResultCode.Successful)
             {
-                MessageBox.Show(ret.Message,LJH.Attendance.UI.Properties.Resources.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ret.Message, LJH.Attendance.UI.Properties.Resources.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return ret.Result == ResultCode.Successful;
         }
@@ -63,9 +78,43 @@ namespace LJH.Attendance.UI
         protected override void Init()
         {
             base.Init();
+            departmentTreeview1.Init();
             btn_Add.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
             btn_Delete.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
         }
         #endregion
+
+        private void departmentTreeview1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (!object.ReferenceEquals(departmentTreeview1.SelectedNode, e.Node))
+            {
+                if (departmentTreeview1.SelectedNode != null)
+                {
+                    departmentTreeview1.SelectedNode.BackColor = Color.White;
+                    departmentTreeview1.SelectedNode.ForeColor = Color.Black;
+                }
+                departmentTreeview1.SelectedNode = e.Node;
+                departmentTreeview1.SelectedNode.BackColor = Color.Blue;  //Color.FromArgb(128, 128, 255);
+                departmentTreeview1.SelectedNode.ForeColor = Color.White;
+
+                Department dept = e.Node.Tag as Department;
+                _SelectedDept = dept != null ? dept.ID : null;
+                List<object> items = null;
+                if (!string.IsNullOrEmpty(_SelectedDept))
+                {
+                    items = (from staff in _AllStaff
+                             where staff.DepartmentID == _SelectedDept
+                             orderby staff.Name ascending
+                             select (object)staff).ToList();
+                }
+                else
+                {
+                    items = (from staff in _AllStaff
+                             orderby staff.Name ascending
+                             select (object)staff).ToList();
+                }
+                ShowItemsOnGrid(items);
+            }
+        }
     }
 }

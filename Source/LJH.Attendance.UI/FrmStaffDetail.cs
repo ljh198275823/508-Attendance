@@ -40,7 +40,8 @@ namespace LJH.Attendance.UI
             txtCertificate.Text = staff.Certificate;
             if (staff.Department != null) departmentComboBox1.DepartmentID = staff.Department.ID;
             txtUserPosition.Text = staff.UserPosition;
-            txtSex.Text = staff.Sex;
+            rdMale.Checked = staff.Sex == "男";
+            rdFemale.Checked = staff.Sex == "女";
             dtHireDate.Value = staff.HireDate;
             rdUnResign.Checked = !staff.Resigned;
             rdResign.Checked = staff.Resigned;
@@ -135,7 +136,7 @@ namespace LJH.Attendance.UI
                 info.DepartmentID = dept.ID;
                 info.Department = dept;
             }
-            info.Sex = txtSex.Text;
+            info.Sex = rdMale.Checked ? "男" : "女";
             info.UserPosition = txtUserPosition.Text;
             info.HireDate = dtHireDate.Value;
             info.Resigned = rdResign.Checked;
