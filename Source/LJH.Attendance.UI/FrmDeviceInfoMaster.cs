@@ -19,26 +19,83 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
+        #region 私有变量
+
+        #endregion
+
         #region 事件处理程序
         private void FrmDeviceInfoMaster_Load(object sender, EventArgs e)
         {
             deviceTree1.Init();
         }
 
-        private void deviceTree1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void deviceTree1_MouseDown(object sender, MouseEventArgs e)
         {
-            deviceTree1.SelectedNode = e.Node;
-            if (e.Node.Tag is DeviceInfo)
+            TreeNode node = deviceTree1.GetNodeAt(e.Location);
+            if (node != null) deviceTree1.SelectedNode = node;
+            if (e.Button == MouseButtons.Right)
             {
-                mnu_AddDevice.Enabled = false;
-                mnu_AddGroup.Enabled = false;
+                mnu_AddGroup.Enabled = (node != null && (node.Tag == null || node.Tag is DeviceGroup));
+                mnu_AddDevice.Enabled = (node != null && (node.Tag == null || node.Tag is DeviceGroup));
+                mnu_Property.Enabled = (node != null && node.Tag != null);
+                mnu_Rename.Enabled = (node != null && node.Tag != null);
+                mnu_Delete.Enabled = (node != null && node.Tag != null);
             }
-            else
+            else if (e.Button == MouseButtons.Left)
             {
-                mnu_AddDevice.Enabled = true;
-                mnu_AddGroup.Enabled = true;
+                if (node != null && node.Tag is DeviceInfo)
+                {
+                    deviceTree1.DoDragDrop(node, DragDropEffects.Copy | DragDropEffects.Move);
+                }
             }
-            mnu_Rename.Enabled = e.Node.Tag != null;
+        }
+
+        private void deviceTree1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.AllowedEffect != DragDropEffects.None) e.Effect = DragDropEffects.Copy;
+        }
+
+        private void deviceTree1_DragDrop(object sender, DragEventArgs e)
+        {
+            Point p = deviceTree1.PointToClient(new Point(e.X, e.Y));
+            TreeNode node = deviceTree1.GetNodeAt(p);
+            if (node != null && (node.Tag == null || node.Tag is DeviceGroup))
+            {
+                string[] s = e.Data.GetFormats();
+                if (s.Length > 0)
+                {
+                    object o = e.Data.GetData(s[0]);
+                    if (o is TreeNode)
+                    {
+                        TreeNode copy = o as TreeNode;
+                        if (object.ReferenceEquals(copy.Parent, node)) return; //如果只是拖到同一个父节点下，则不用做什么操作
+                        if (copy.Tag is DeviceInfo)
+                        {
+                            DeviceInfo device = copy.Tag as DeviceInfo;
+                            DeviceGroup group = node.Tag as DeviceGroup;
+                            device.GroupID = group != null ? group.ID : null;
+                            CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Update(device);
+                            if (ret.Result == ResultCode.Successful)
+                            {
+                                copy.Parent.Nodes.Remove(copy);
+                                node.Nodes.Add(copy);
+                            }
+                        }
+                        else if (copy.Tag is DeviceGroup)
+                        {
+                            DeviceGroup cg = copy.Tag as DeviceGroup;
+                            DeviceGroup group = node.Tag as DeviceGroup;
+                            cg.ParentID = group != null ? group.ID : null;
+                            CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectString)).Update(cg);
+                            if (ret.Result == ResultCode.Successful)
+                            {
+                                copy.Parent.Nodes.Remove(copy);
+                                node.Nodes.Add(copy);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private void mnu_AddGroup_Click(object sender, EventArgs e)

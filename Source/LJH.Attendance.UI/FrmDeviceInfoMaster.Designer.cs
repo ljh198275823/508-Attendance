@@ -70,47 +70,47 @@
             // mnu_AddGroup
             // 
             this.mnu_AddGroup.Name = "mnu_AddGroup";
-            this.mnu_AddGroup.Size = new System.Drawing.Size(152, 22);
+            this.mnu_AddGroup.Size = new System.Drawing.Size(136, 22);
             this.mnu_AddGroup.Text = "增加设备组";
             this.mnu_AddGroup.Click += new System.EventHandler(this.mnu_AddGroup_Click);
             // 
             // mnu_AddDevice
             // 
             this.mnu_AddDevice.Name = "mnu_AddDevice";
-            this.mnu_AddDevice.Size = new System.Drawing.Size(152, 22);
+            this.mnu_AddDevice.Size = new System.Drawing.Size(136, 22);
             this.mnu_AddDevice.Text = "增加设备";
             this.mnu_AddDevice.Click += new System.EventHandler(this.mnu_AddDevice_Click);
             // 
             // mnu_Fresh
             // 
             this.mnu_Fresh.Name = "mnu_Fresh";
-            this.mnu_Fresh.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Fresh.Size = new System.Drawing.Size(136, 22);
             this.mnu_Fresh.Text = "刷新";
             this.mnu_Fresh.Click += new System.EventHandler(this.mnu_Fresh_Click);
             // 
             // mnu_Rename
             // 
             this.mnu_Rename.Name = "mnu_Rename";
-            this.mnu_Rename.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Rename.Size = new System.Drawing.Size(136, 22);
             this.mnu_Rename.Text = "重命名";
             this.mnu_Rename.Click += new System.EventHandler(this.mnu_Rename_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(133, 6);
             // 
             // mnu_Delete
             // 
             this.mnu_Delete.Name = "mnu_Delete";
-            this.mnu_Delete.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Delete.Size = new System.Drawing.Size(136, 22);
             this.mnu_Delete.Text = "删除";
             this.mnu_Delete.Click += new System.EventHandler(this.mnu_Delete_Click);
             // 
             // mnu_Property
             // 
             this.mnu_Property.Name = "mnu_Property";
-            this.mnu_Property.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Property.Size = new System.Drawing.Size(136, 22);
             this.mnu_Property.Text = "属性";
             this.mnu_Property.Click += new System.EventHandler(this.mnu_Property_Click);
             // 
@@ -189,7 +189,7 @@
             this.toolStripSeparator2});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1100, 50);
+            this.menu.Size = new System.Drawing.Size(797, 50);
             this.menu.TabIndex = 58;
             // 
             // splitter1
@@ -212,6 +212,7 @@
             // 
             // deviceTree1
             // 
+            this.deviceTree1.AllowDrop = true;
             this.deviceTree1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -221,14 +222,16 @@
             this.deviceTree1.Size = new System.Drawing.Size(281, 310);
             this.deviceTree1.TabIndex = 0;
             this.deviceTree1.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.deviceTree1_AfterLabelEdit);
-            this.deviceTree1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.deviceTree1_NodeMouseClick);
+            this.deviceTree1.DragDrop += new System.Windows.Forms.DragEventHandler(this.deviceTree1_DragDrop);
+            this.deviceTree1.DragEnter += new System.Windows.Forms.DragEventHandler(this.deviceTree1_DragEnter);
+            this.deviceTree1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.deviceTree1_MouseDown);
             // 
             // FrmDeviceInfoMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1100, 367);
+            this.ClientSize = new System.Drawing.Size(797, 367);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menu);

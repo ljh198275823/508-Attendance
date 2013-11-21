@@ -8,6 +8,7 @@ namespace LJH.Attendance.Model
     /// <summary>
     /// 表示门禁刷卡器
     /// </summary>
+    [Serializable()]
     public class DeviceInfo
     {
         #region 构造函数

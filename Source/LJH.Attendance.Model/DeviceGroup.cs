@@ -8,6 +8,7 @@ namespace LJH.Attendance.Model
     /// <summary>
     /// 表示设备组
     /// </summary>
+    [Serializable ]
     public class DeviceGroup
     {
         #region 构造函数
