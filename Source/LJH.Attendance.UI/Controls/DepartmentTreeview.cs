@@ -27,7 +27,6 @@ namespace LJH.Attendance.UI
         #endregion
 
         #region 私有变量
-        private TreeNode _UngroupDept;
         List<Department> _Depts = null;
         List<Staff> _Users = null;
         List<TreeNode> _AllUserNodes = new List<TreeNode>();

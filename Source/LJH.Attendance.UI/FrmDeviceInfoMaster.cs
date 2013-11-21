@@ -114,7 +114,7 @@ namespace LJH.Attendance.UI
             {
                 DeviceGroup group = node.Tag as DeviceGroup;
                 FrmDeviceGroupDetail frm = new FrmDeviceGroupDetail();
-                frm.Parent = group;
+                frm.ParentGroup = group;
                 frm.IsAdding = true;
                 frm.ItemAdded += delegate(object o, ItemAddedEventArgs args)
                 {
@@ -136,7 +136,7 @@ namespace LJH.Attendance.UI
             {
                 DeviceGroup group = node.Tag as DeviceGroup;
                 FrmDeviceInfoDetail frm = new FrmDeviceInfoDetail();
-                frm.Parent = group;
+                frm.ParentGroup = group;
                 frm.IsAdding = true;
                 frm.ItemAdded += delegate(object o, ItemAddedEventArgs args)
                 {
@@ -284,6 +284,7 @@ namespace LJH.Attendance.UI
                 {
                     try
                     {
+                        keeper.EnableDevice(false);
                         //清空控制器
                         frm.ShowProgress("正在清空设备...", 0);
                         keeper.ClearData(ClearDataFlag.All);
@@ -306,6 +307,7 @@ namespace LJH.Attendance.UI
                             count++;
                             frm.ShowProgress(string.Format("上传人员 {0}", staff[i].Name), count / staff.Count);
                         }
+                        keeper.RefreshData();
                     }
                     catch (ThreadAbortException)
                     {
@@ -316,6 +318,7 @@ namespace LJH.Attendance.UI
                     }
                     finally
                     {
+                        keeper.EnableDevice(true);
                         keeper.Disconnect();
                     }
                 }

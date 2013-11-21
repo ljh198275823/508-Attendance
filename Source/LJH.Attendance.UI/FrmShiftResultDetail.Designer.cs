@@ -32,7 +32,7 @@
             this.重新生成结果ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看所有刷卡记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.btnFresh = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,7 +61,7 @@
             this.colBelateCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLeaveEarlyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colForgetCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.plnLeft.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -72,29 +72,29 @@
             // 重新生成结果ToolStripMenuItem
             // 
             this.重新生成结果ToolStripMenuItem.Name = "重新生成结果ToolStripMenuItem";
-            this.重新生成结果ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.重新生成结果ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.重新生成结果ToolStripMenuItem.Text = "重新生成结果";
             // 
             // 查看所有刷卡记录ToolStripMenuItem
             // 
             this.查看所有刷卡记录ToolStripMenuItem.Name = "查看所有刷卡记录ToolStripMenuItem";
-            this.查看所有刷卡记录ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.查看所有刷卡记录ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.查看所有刷卡记录ToolStripMenuItem.Text = "查看所有刷卡记录";
             // 
             // mnu_SelectColumns
             // 
             this.mnu_SelectColumns.Name = "mnu_SelectColumns";
-            this.mnu_SelectColumns.Size = new System.Drawing.Size(172, 22);
+            this.mnu_SelectColumns.Size = new System.Drawing.Size(166, 22);
             this.mnu_SelectColumns.Text = "选择列";
             // 
-            // contextMenuStrip1
+            // contextMenuStrip2
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnu_SelectColumns,
             this.查看所有刷卡记录ToolStripMenuItem,
             this.重新生成结果ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 70);
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(167, 70);
             // 
             // splitter1
             // 
@@ -177,7 +177,7 @@
             this.txtKeyword});
             this.menu.Location = new System.Drawing.Point(330, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(856, 45);
+            this.menu.Size = new System.Drawing.Size(856, 40);
             this.menu.TabIndex = 57;
             // 
             // btn_Export
@@ -185,7 +185,7 @@
             this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
             this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(59, 41);
+            this.btn_Export.Size = new System.Drawing.Size(59, 36);
             this.btn_Export.Text = "导出(&E)";
             this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -194,19 +194,19 @@
             this.btn_SelectColumns.Image = global::LJH.Attendance.UI.Properties.Resources.columns;
             this.btn_SelectColumns.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_SelectColumns.Name = "btn_SelectColumns";
-            this.btn_SelectColumns.Size = new System.Drawing.Size(70, 41);
+            this.btn_SelectColumns.Size = new System.Drawing.Size(71, 36);
             this.btn_SelectColumns.Text = "选择列(&L)";
             this.btn_SelectColumns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 36);
             // 
             // txtKeyword
             // 
             this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(200, 41);
+            this.txtKeyword.Size = new System.Drawing.Size(200, 36);
             // 
             // GridView
             // 
@@ -231,12 +231,12 @@
             this.colLeaveEarlyCount,
             this.colForgetCount});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridView.Location = new System.Drawing.Point(330, 45);
+            this.GridView.Location = new System.Drawing.Point(330, 40);
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.GridView.Size = new System.Drawing.Size(856, 278);
+            this.GridView.Size = new System.Drawing.Size(856, 283);
             this.GridView.TabIndex = 58;
             // 
             // colDept
@@ -370,7 +370,7 @@
             this.Controls.SetChildIndex(this.splitter1, 0);
             this.Controls.SetChildIndex(this.menu, 0);
             this.Controls.SetChildIndex(this.GridView, 0);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.plnLeft.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -387,7 +387,7 @@
         private System.Windows.Forms.ToolStripMenuItem 重新生成结果ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查看所有刷卡记录ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnu_SelectColumns;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button btnFresh;
         private System.Windows.Forms.GroupBox groupBox1;

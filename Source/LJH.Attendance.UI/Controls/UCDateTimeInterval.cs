@@ -16,8 +16,6 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
-        public event EventHandler DateRangeChanged;
-
         #region 公共方法
         /// <summary>
         /// 初始化

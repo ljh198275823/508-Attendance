@@ -36,7 +36,7 @@
             this.departmentTreeview1 = new LJH.Attendance.UI.DepartmentTreeview(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.查看考勤结果明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看所有刷卡记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重新生成结果ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +86,7 @@
             this.plnLeft.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
             this.SuspendLayout();
@@ -161,31 +161,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "排班日期";
             // 
-            // contextMenuStrip1
+            // contextMenuStrip2
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.查看考勤结果明细ToolStripMenuItem,
             this.查看所有刷卡记录ToolStripMenuItem,
             this.重新生成结果ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 70);
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(167, 70);
             // 
             // 查看考勤结果明细ToolStripMenuItem
             // 
             this.查看考勤结果明细ToolStripMenuItem.Name = "查看考勤结果明细ToolStripMenuItem";
-            this.查看考勤结果明细ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.查看考勤结果明细ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.查看考勤结果明细ToolStripMenuItem.Text = "查看考勤结果明细";
             // 
             // 查看所有刷卡记录ToolStripMenuItem
             // 
             this.查看所有刷卡记录ToolStripMenuItem.Name = "查看所有刷卡记录ToolStripMenuItem";
-            this.查看所有刷卡记录ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.查看所有刷卡记录ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.查看所有刷卡记录ToolStripMenuItem.Text = "查看所有刷卡记录";
             // 
             // 重新生成结果ToolStripMenuItem
             // 
             this.重新生成结果ToolStripMenuItem.Name = "重新生成结果ToolStripMenuItem";
-            this.重新生成结果ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.重新生成结果ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.重新生成结果ToolStripMenuItem.Text = "重新生成结果";
             // 
             // menu
@@ -198,7 +198,7 @@
             this.txtKeyword});
             this.menu.Location = new System.Drawing.Point(330, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(848, 45);
+            this.menu.Size = new System.Drawing.Size(848, 40);
             this.menu.TabIndex = 60;
             // 
             // btn_Export
@@ -206,19 +206,19 @@
             this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
             this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(59, 41);
+            this.btn_Export.Size = new System.Drawing.Size(59, 36);
             this.btn_Export.Text = "导出(&E)";
             this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 36);
             // 
             // txtKeyword
             // 
             this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(200, 41);
+            this.txtKeyword.Size = new System.Drawing.Size(200, 36);
             // 
             // GridView
             // 
@@ -266,12 +266,12 @@
             this.colLeaveEarlyCount,
             this.colForgetCount});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridView.Location = new System.Drawing.Point(330, 45);
+            this.GridView.Location = new System.Drawing.Point(330, 40);
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridView.Size = new System.Drawing.Size(848, 263);
+            this.GridView.Size = new System.Drawing.Size(848, 268);
             this.GridView.TabIndex = 61;
             // 
             // colDept
@@ -561,7 +561,7 @@
             this.plnLeft.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).EndInit();
@@ -579,7 +579,7 @@
         private DepartmentTreeview departmentTreeview1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem 查看考勤结果明细ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查看所有刷卡记录ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 重新生成结果ToolStripMenuItem;

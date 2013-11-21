@@ -20,7 +20,7 @@ namespace LJH.Attendance.UI
         }
 
         #region 公共属性
-        public DeviceGroup Parent { get; set; }
+        public DeviceGroup ParentGroup { get; set; }
         #endregion
 
         #region 重写基类方法
@@ -102,7 +102,7 @@ namespace LJH.Attendance.UI
             {
                 info = new DeviceInfo();
                 info.ForAttendance = true;
-                info.GroupID = Parent != null ? Parent.ID : null;
+                info.GroupID = ParentGroup != null ? ParentGroup.ID : null;
             }
             else
             {

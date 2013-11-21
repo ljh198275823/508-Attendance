@@ -69,22 +69,23 @@
             // rdVer10
             // 
             this.rdVer10.AutoSize = true;
-            this.rdVer10.Checked = true;
             this.rdVer10.Location = new System.Drawing.Point(151, 13);
             this.rdVer10.Name = "rdVer10";
             this.rdVer10.Size = new System.Drawing.Size(47, 16);
             this.rdVer10.TabIndex = 11;
-            this.rdVer10.TabStop = true;
             this.rdVer10.Text = "10.0";
             this.rdVer10.UseVisualStyleBackColor = true;
+            this.rdVer10.CheckedChanged += new System.EventHandler(this.rdVer10_CheckedChanged);
             // 
             // rdVer9
             // 
             this.rdVer9.AutoSize = true;
+            this.rdVer9.Checked = true;
             this.rdVer9.Location = new System.Drawing.Point(201, 13);
             this.rdVer9.Name = "rdVer9";
             this.rdVer9.Size = new System.Drawing.Size(41, 16);
             this.rdVer9.TabIndex = 12;
+            this.rdVer9.TabStop = true;
             this.rdVer9.Text = "9.0";
             this.rdVer9.UseVisualStyleBackColor = true;
             // 

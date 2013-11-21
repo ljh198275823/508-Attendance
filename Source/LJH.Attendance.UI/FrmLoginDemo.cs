@@ -17,7 +17,6 @@ namespace LJH.Attendance.UI
 {
     public partial class FrmLoginDemo : Form
     {
-        private bool _Adance = false;
         private SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
 
         public FrmLoginDemo()

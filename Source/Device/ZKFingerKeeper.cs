@@ -306,6 +306,16 @@ namespace LJH.Attendance.Device
                 LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "设置IP失败，ErrorCode=" + idwErrorCode.ToString());
             }
         }
+
+        public void EnableDevice(bool enable)
+        {
+            axCZKEM1.EnableDevice(iMachineNumber, enable);
+        }
+
+        public void RefreshData()
+        {
+            axCZKEM1.RefreshData(iMachineNumber);//the data in the device should be refreshed
+        }
         #endregion
     }
 }
