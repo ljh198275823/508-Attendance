@@ -5,10 +5,13 @@ using System.Text;
 
 namespace LJH.Attendance.Model
 {
-    public class Department
+    /// <summary>
+    /// 表示设备组
+    /// </summary>
+    public class DeviceGroup
     {
         #region 构造函数
-        public Department()
+        public DeviceGroup()
         {
         }
         #endregion

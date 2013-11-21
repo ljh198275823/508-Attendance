@@ -77,6 +77,12 @@
     <Compile Include="Controls\DepartmentTreeview.Designer.cs">
       <DependentUpon>DepartmentTreeview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DeviceTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeviceTree.Designer.cs">
+      <DependentUpon>DeviceTree.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FunctionTree.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -113,6 +119,12 @@
     </Compile>
     <Compile Include="FrmAttendanceLogReport.Designer.cs">
       <DependentUpon>FrmAttendanceLogReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeviceGroupDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeviceGroupDetail.Designer.cs">
+      <DependentUpon>FrmDeviceGroupDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmFingerResgister.cs">
       <SubType>Form</SubType>
@@ -432,6 +444,9 @@
     <EmbeddedResource Include="Controls\DepartmentTreeview.resx">
       <DependentUpon>DepartmentTreeview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DeviceTree.resx">
+      <DependentUpon>DeviceTree.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\FunctionTree.resx">
       <DependentUpon>FunctionTree.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAttendanceLogReport.resx">
       <DependentUpon>FrmAttendanceLogReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeviceGroupDetail.resx">
+      <DependentUpon>FrmDeviceGroupDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFingerResgister.resx">
       <DependentUpon>FrmFingerResgister.cs</DependentUpon>

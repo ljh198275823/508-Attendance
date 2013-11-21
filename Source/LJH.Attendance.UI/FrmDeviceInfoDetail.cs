@@ -19,6 +19,10 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
+        #region 公共属性
+        public DeviceGroup Parent { get; set; }
+        #endregion
+
         #region 重写基类方法
         protected override void InitControls()
         {
@@ -98,6 +102,7 @@ namespace LJH.Attendance.UI
             {
                 info = new DeviceInfo();
                 info.ForAttendance = true;
+                info.GroupID = Parent != null ? Parent.ID : null;
             }
             else
             {

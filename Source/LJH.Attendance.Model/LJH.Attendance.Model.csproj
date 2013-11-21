@@ -85,6 +85,7 @@
     <Compile Include="AttendanceUnit.cs" />
     <Compile Include="CommunicationType.cs" />
     <Compile Include="DeviceType.cs" />
+    <Compile Include="DeviceGroup.cs" />
     <Compile Include="HolidaySetting.cs" />
     <Compile Include="MyTime.cs" />
     <Compile Include="AttendanceAnalyst.cs" />

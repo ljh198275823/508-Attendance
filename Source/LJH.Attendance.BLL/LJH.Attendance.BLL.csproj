@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttendanceLogBLL.cs" />
+    <Compile Include="DeviceGroupBLL.cs" />
     <Compile Include="HolidayBLL.cs" />
     <Compile Include="OTTypeBLL.cs" />
     <Compile Include="ParameterBLL.cs" />

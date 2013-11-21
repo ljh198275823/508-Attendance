@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDAL\IAttendanceLogProvider.cs" />
+    <Compile Include="IDAL\IDeviceGroupProvider.cs" />
     <Compile Include="IDAL\IIntegerCreater.cs" />
     <Compile Include="IDAL\IStaffBioTemplateProvider.cs" />
     <Compile Include="IDAL\IStaffCategoryProvider.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="IDAL\ITASheetProvider.cs" />
     <Compile Include="IDAL\IVacationTypeProvider.cs" />
     <Compile Include="LinqDataProvider\AttendanceLogProvider.cs" />
+    <Compile Include="LinqDataProvider\DeviceGroupProvider.cs" />
     <Compile Include="LinqDataProvider\IntegerIDCreater.cs" />
     <Compile Include="LinqDataProvider\StaffBioTemplateProvider.cs" />
     <Compile Include="LinqDataProvider\StaffCategoryProvider.cs" />

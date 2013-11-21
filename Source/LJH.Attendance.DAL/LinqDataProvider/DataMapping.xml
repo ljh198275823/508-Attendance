@@ -13,9 +13,17 @@
     <Column Name="Value" Member="Value"  DbType="int not null" UpdateCheck="Never"/>
   </Type>
   </Table>
+  <Table Name="TADeviceGroup" Member="LJH.Attendance.Model.DeviceGroup">
+    <Type Name="LJH.Attendance.Model.DeviceGroup">
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="ParentID" Member="ParentID"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
+      <Column Name="Memo" Member="Memo"  DbType="nvarchar(200)" UpdateCheck="Never"/>
+    </Type>
+  </Table>
   <Table Name="TADeviceInfo" Member="LJH.Attendance.Model.DeviceInfo">
     <Type Name="LJH.Attendance.Model.DeviceInfo">
-      <Column Name="ID" Member="ID"  DbType="nvarchar(20) NOT NULL" IsPrimaryKey="true"/>
+      <Column Name="ID" Member="ID"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
       <Column Name="Name" Member="Name"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
       <Column Name="DeviceType" Member="DeviceType"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="Serial" Member="Serial"  DbType="nvarchar(50) not null" UpdateCheck="Never"/>
@@ -29,6 +37,7 @@
       <Column Name="Baud" Member="Baud"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="Address" Member="Address"  DbType="int not null" UpdateCheck="Never"/>
       <Column Name="ForAttendance" Member="ForAttendance"  DbType="bit null" UpdateCheck="Never"/>
+      <Column Name="GroupID" Member="GroupID"  DbType="nvarchar(50)" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="TADepartment" Member="LJH.Attendance.Model.Department">

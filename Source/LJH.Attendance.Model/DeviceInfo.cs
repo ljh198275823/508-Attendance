@@ -77,6 +77,10 @@ namespace LJH.Attendance.Model
         /// 获取或设置是否用于考勤
         /// </summary>
         public bool ForAttendance { get; set; }
+        /// <summary>
+        /// 获取或设置设备组ID
+        /// </summary>
+        public string GroupID { get; set; }
         #endregion
     }
 }

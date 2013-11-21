@@ -38,6 +38,14 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnu_AddGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_AddDevice = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Property = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.deviceTree1 = new LJH.Attendance.UI.Controls.DeviceTree(this.components);
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,8 +58,10 @@
             this.colCommport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBaud = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnu_Fresh = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,6 +143,75 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 46);
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu_AddGroup,
+            this.mnu_AddDevice,
+            this.mnu_Fresh,
+            this.mnu_Delete,
+            this.mnu_Property});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 136);
+            // 
+            // mnu_AddGroup
+            // 
+            this.mnu_AddGroup.Name = "mnu_AddGroup";
+            this.mnu_AddGroup.Size = new System.Drawing.Size(152, 22);
+            this.mnu_AddGroup.Text = "增加设备组";
+            this.mnu_AddGroup.Click += new System.EventHandler(this.mnu_AddGroup_Click);
+            // 
+            // mnu_AddDevice
+            // 
+            this.mnu_AddDevice.Name = "mnu_AddDevice";
+            this.mnu_AddDevice.Size = new System.Drawing.Size(152, 22);
+            this.mnu_AddDevice.Text = "增加设备";
+            this.mnu_AddDevice.Click += new System.EventHandler(this.mnu_AddDevice_Click);
+            // 
+            // mnu_Delete
+            // 
+            this.mnu_Delete.Name = "mnu_Delete";
+            this.mnu_Delete.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Delete.Text = "删除";
+            this.mnu_Delete.Click += new System.EventHandler(this.mnu_Delete_Click);
+            // 
+            // mnu_Property
+            // 
+            this.mnu_Property.Name = "mnu_Property";
+            this.mnu_Property.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Property.Text = "属性";
+            this.mnu_Property.Click += new System.EventHandler(this.mnu_Property_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.deviceTree1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(266, 295);
+            this.panel1.TabIndex = 60;
+            // 
+            // deviceTree1
+            // 
+            this.deviceTree1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.deviceTree1.ContextMenuStrip = this.contextMenuStrip2;
+            this.deviceTree1.Location = new System.Drawing.Point(4, 4);
+            this.deviceTree1.Name = "deviceTree1";
+            this.deviceTree1.Size = new System.Drawing.Size(259, 288);
+            this.deviceTree1.TabIndex = 0;
+            this.deviceTree1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.deviceTree1_NodeMouseClick);
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.splitter1.Location = new System.Drawing.Point(266, 50);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(6, 295);
+            this.splitter1.TabIndex = 61;
+            this.splitter1.TabStop = false;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -152,13 +231,13 @@
             this.colBaud,
             this.colAddress});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 50);
+            this.dataGridView1.Location = new System.Drawing.Point(272, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1100, 295);
-            this.dataGridView1.TabIndex = 59;
+            this.dataGridView1.Size = new System.Drawing.Size(828, 295);
+            this.dataGridView1.TabIndex = 62;
             // 
             // colCheck
             // 
@@ -231,10 +310,12 @@
             this.colAddress.Name = "colAddress";
             this.colAddress.ReadOnly = true;
             // 
-            // contextMenuStrip2
+            // mnu_Fresh
             // 
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            this.mnu_Fresh.Name = "mnu_Fresh";
+            this.mnu_Fresh.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Fresh.Text = "刷新";
+            this.mnu_Fresh.Click += new System.EventHandler(this.mnu_Fresh_Click);
             // 
             // FrmDeviceInfoMaster
             // 
@@ -242,6 +323,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 367);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.splitter1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -249,9 +332,13 @@
             this.Name = "FrmDeviceInfoMaster";
             this.Text = "考勤设备";
             this.Controls.SetChildIndex(this.menu, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.splitter1, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            this.contextMenuStrip2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -269,8 +356,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox txtKeyword;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.Panel panel1;
+        private Controls.DeviceTree deviceTree1;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
@@ -282,6 +372,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCommport;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBaud;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
+        private System.Windows.Forms.ToolStripMenuItem mnu_AddGroup;
+        private System.Windows.Forms.ToolStripMenuItem mnu_AddDevice;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Delete;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Property;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Fresh;
 
     }
 }
