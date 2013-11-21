@@ -37,9 +37,9 @@
             // 
             this.images.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("images.ImageStream")));
             this.images.TransparentColor = System.Drawing.Color.Transparent;
-            this.images.Images.SetKeyName(0, "Cards.png");
-            this.images.Images.SetKeyName(1, "Card.ICO");
-            this.images.Images.SetKeyName(2, "department.png");
+            this.images.Images.SetKeyName(0, "department.png");
+            this.images.Images.SetKeyName(1, "DeviceGroup.png");
+            this.images.Images.SetKeyName(2, "fingerprint_reader.png");
             this.ResumeLayout(false);
 
         }

@@ -262,27 +262,27 @@ namespace LJH.Attendance.UI.Controls
             this.AfterCheck += Node_Checked;
         }
 
-        public void FreshNode( TreeNode node)
+        public void FreshNode(TreeNode node)
         {
             if (node.Tag == null)
             {
                 node.Text = "所有设备";
-                node.ImageIndex = 2;
-                node.SelectedImageIndex = 2;
+                node.ImageIndex = 0;
+                node.SelectedImageIndex = 0;
             }
             else if (node.Tag is DeviceGroup)
             {
                 DeviceGroup group = node.Tag as DeviceGroup;
                 node.Text = string.Format("[{0}] {1}", group.ID, group.Name);
-                node.ImageIndex = 0;
-                node.SelectedImageIndex = 0;
+                node.ImageIndex = 1;
+                node.SelectedImageIndex = 1;
             }
             else if (node.Tag is DeviceInfo)
             {
                 DeviceInfo device = node.Tag as DeviceInfo;
                 node.Text = device.Name;
-                node.ImageIndex = 1;
-                node.SelectedImageIndex = 1;
+                node.ImageIndex = 2;
+                node.SelectedImageIndex = 2;
             }
         }
         #endregion

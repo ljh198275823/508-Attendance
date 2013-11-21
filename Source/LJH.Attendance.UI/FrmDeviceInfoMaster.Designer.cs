@@ -29,7 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.menu = new System.Windows.Forms.MenuStrip();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnu_AddGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_AddDevice = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Fresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Rename = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Property = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,50 +45,74 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnu_AddGroup = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_AddDevice = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_Property = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.deviceTree1 = new LJH.Attendance.UI.Controls.DeviceTree(this.components);
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDeviceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCommunication = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCommport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBaud = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mnu_Fresh = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            this.menu.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // menu
+            // contextMenuStrip2
             // 
-            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.menu.ImageScalingSize = new System.Drawing.Size(25, 25);
-            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Add,
-            this.btn_Delete,
-            this.btn_Export,
-            this.btn_Fresh,
-            this.btn_SelectColumns,
-            this.toolStripSeparator1,
-            this.txtKeyword,
-            this.toolStripSeparator2});
-            this.menu.Location = new System.Drawing.Point(0, 0);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1100, 50);
-            this.menu.TabIndex = 58;
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu_AddGroup,
+            this.mnu_AddDevice,
+            this.mnu_Fresh,
+            this.mnu_Rename,
+            this.toolStripSeparator3,
+            this.mnu_Delete,
+            this.mnu_Property});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(137, 142);
+            // 
+            // mnu_AddGroup
+            // 
+            this.mnu_AddGroup.Name = "mnu_AddGroup";
+            this.mnu_AddGroup.Size = new System.Drawing.Size(152, 22);
+            this.mnu_AddGroup.Text = "增加设备组";
+            this.mnu_AddGroup.Click += new System.EventHandler(this.mnu_AddGroup_Click);
+            // 
+            // mnu_AddDevice
+            // 
+            this.mnu_AddDevice.Name = "mnu_AddDevice";
+            this.mnu_AddDevice.Size = new System.Drawing.Size(152, 22);
+            this.mnu_AddDevice.Text = "增加设备";
+            this.mnu_AddDevice.Click += new System.EventHandler(this.mnu_AddDevice_Click);
+            // 
+            // mnu_Fresh
+            // 
+            this.mnu_Fresh.Name = "mnu_Fresh";
+            this.mnu_Fresh.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Fresh.Text = "刷新";
+            this.mnu_Fresh.Click += new System.EventHandler(this.mnu_Fresh_Click);
+            // 
+            // mnu_Rename
+            // 
+            this.mnu_Rename.Name = "mnu_Rename";
+            this.mnu_Rename.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Rename.Text = "重命名";
+            this.mnu_Rename.Click += new System.EventHandler(this.mnu_Rename_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            // 
+            // mnu_Delete
+            // 
+            this.mnu_Delete.Name = "mnu_Delete";
+            this.mnu_Delete.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Delete.Text = "删除";
+            this.mnu_Delete.Click += new System.EventHandler(this.mnu_Delete_Click);
+            // 
+            // mnu_Property
+            // 
+            this.mnu_Property.Name = "mnu_Property";
+            this.mnu_Property.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Property.Text = "属性";
+            this.mnu_Property.Click += new System.EventHandler(this.mnu_Property_Click);
             // 
             // btn_Add
             // 
@@ -143,44 +174,32 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 46);
             // 
-            // contextMenuStrip2
+            // menu
             // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnu_AddGroup,
-            this.mnu_AddDevice,
-            this.mnu_Fresh,
-            this.mnu_Delete,
-            this.mnu_Property});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 136);
+            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.menu.ImageScalingSize = new System.Drawing.Size(25, 25);
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Add,
+            this.btn_Delete,
+            this.btn_Export,
+            this.btn_Fresh,
+            this.btn_SelectColumns,
+            this.toolStripSeparator1,
+            this.txtKeyword,
+            this.toolStripSeparator2});
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(1100, 50);
+            this.menu.TabIndex = 58;
             // 
-            // mnu_AddGroup
+            // splitter1
             // 
-            this.mnu_AddGroup.Name = "mnu_AddGroup";
-            this.mnu_AddGroup.Size = new System.Drawing.Size(152, 22);
-            this.mnu_AddGroup.Text = "增加设备组";
-            this.mnu_AddGroup.Click += new System.EventHandler(this.mnu_AddGroup_Click);
-            // 
-            // mnu_AddDevice
-            // 
-            this.mnu_AddDevice.Name = "mnu_AddDevice";
-            this.mnu_AddDevice.Size = new System.Drawing.Size(152, 22);
-            this.mnu_AddDevice.Text = "增加设备";
-            this.mnu_AddDevice.Click += new System.EventHandler(this.mnu_AddDevice_Click);
-            // 
-            // mnu_Delete
-            // 
-            this.mnu_Delete.Name = "mnu_Delete";
-            this.mnu_Delete.Size = new System.Drawing.Size(152, 22);
-            this.mnu_Delete.Text = "删除";
-            this.mnu_Delete.Click += new System.EventHandler(this.mnu_Delete_Click);
-            // 
-            // mnu_Property
-            // 
-            this.mnu_Property.Name = "mnu_Property";
-            this.mnu_Property.Size = new System.Drawing.Size(152, 22);
-            this.mnu_Property.Text = "属性";
-            this.mnu_Property.Click += new System.EventHandler(this.mnu_Property_Click);
+            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.splitter1.Location = new System.Drawing.Point(288, 50);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(6, 317);
+            this.splitter1.TabIndex = 63;
+            this.splitter1.TabStop = false;
             // 
             // panel1
             // 
@@ -188,8 +207,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 295);
-            this.panel1.TabIndex = 60;
+            this.panel1.Size = new System.Drawing.Size(288, 317);
+            this.panel1.TabIndex = 62;
             // 
             // deviceTree1
             // 
@@ -199,130 +218,17 @@
             this.deviceTree1.ContextMenuStrip = this.contextMenuStrip2;
             this.deviceTree1.Location = new System.Drawing.Point(4, 4);
             this.deviceTree1.Name = "deviceTree1";
-            this.deviceTree1.Size = new System.Drawing.Size(259, 288);
+            this.deviceTree1.Size = new System.Drawing.Size(281, 310);
             this.deviceTree1.TabIndex = 0;
+            this.deviceTree1.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.deviceTree1_AfterLabelEdit);
             this.deviceTree1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.deviceTree1_NodeMouseClick);
-            // 
-            // splitter1
-            // 
-            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.splitter1.Location = new System.Drawing.Point(266, 50);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(6, 295);
-            this.splitter1.TabIndex = 61;
-            this.splitter1.TabStop = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCheck,
-            this.colID,
-            this.colName,
-            this.colDeviceType,
-            this.colSerial,
-            this.colCommunication,
-            this.colIP,
-            this.colPort,
-            this.colCommport,
-            this.colBaud,
-            this.colAddress});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(272, 50);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(828, 295);
-            this.dataGridView1.TabIndex = 62;
-            // 
-            // colCheck
-            // 
-            this.colCheck.HeaderText = "";
-            this.colCheck.Name = "colCheck";
-            this.colCheck.ReadOnly = true;
-            this.colCheck.Width = 40;
-            // 
-            // colID
-            // 
-            this.colID.HeaderText = "编号";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            // 
-            // colName
-            // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colName.HeaderText = "名称";
-            this.colName.MinimumWidth = 150;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colName.Width = 150;
-            // 
-            // colDeviceType
-            // 
-            this.colDeviceType.HeaderText = "产品类型";
-            this.colDeviceType.Name = "colDeviceType";
-            this.colDeviceType.ReadOnly = true;
-            // 
-            // colSerial
-            // 
-            this.colSerial.HeaderText = "序列号";
-            this.colSerial.Name = "colSerial";
-            this.colSerial.ReadOnly = true;
-            // 
-            // colCommunication
-            // 
-            this.colCommunication.HeaderText = "通讯方式";
-            this.colCommunication.Name = "colCommunication";
-            this.colCommunication.ReadOnly = true;
-            // 
-            // colIP
-            // 
-            this.colIP.HeaderText = "IP";
-            this.colIP.Name = "colIP";
-            this.colIP.ReadOnly = true;
-            // 
-            // colPort
-            // 
-            this.colPort.HeaderText = "端口号";
-            this.colPort.Name = "colPort";
-            this.colPort.ReadOnly = true;
-            // 
-            // colCommport
-            // 
-            this.colCommport.HeaderText = "串口号";
-            this.colCommport.Name = "colCommport";
-            this.colCommport.ReadOnly = true;
-            // 
-            // colBaud
-            // 
-            this.colBaud.HeaderText = "波特率";
-            this.colBaud.Name = "colBaud";
-            this.colBaud.ReadOnly = true;
-            // 
-            // colAddress
-            // 
-            this.colAddress.HeaderText = "地址";
-            this.colAddress.Name = "colAddress";
-            this.colAddress.ReadOnly = true;
-            // 
-            // mnu_Fresh
-            // 
-            this.mnu_Fresh.Name = "mnu_Fresh";
-            this.mnu_Fresh.Size = new System.Drawing.Size(152, 22);
-            this.mnu_Fresh.Text = "刷新";
-            this.mnu_Fresh.Click += new System.EventHandler(this.mnu_Fresh_Click);
             // 
             // FrmDeviceInfoMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1100, 367);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menu);
@@ -331,15 +237,11 @@
             this.MinimizeBox = false;
             this.Name = "FrmDeviceInfoMaster";
             this.Text = "考勤设备";
-            this.Controls.SetChildIndex(this.menu, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.splitter1, 0);
-            this.Controls.SetChildIndex(this.dataGridView1, 0);
+            this.Load += new System.EventHandler(this.FrmDeviceInfoMaster_Load);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
-            this.contextMenuStrip2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,7 +249,12 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem mnu_AddGroup;
+        private System.Windows.Forms.ToolStripMenuItem mnu_AddDevice;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Delete;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Property;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Fresh;
         private System.Windows.Forms.ToolStripMenuItem btn_Add;
         private System.Windows.Forms.ToolStripMenuItem btn_Delete;
         private System.Windows.Forms.ToolStripMenuItem btn_Export;
@@ -356,27 +263,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox txtKeyword;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel1;
         private Controls.DeviceTree deviceTree1;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDeviceType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSerial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCommunication;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCommport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBaud;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
-        private System.Windows.Forms.ToolStripMenuItem mnu_AddGroup;
-        private System.Windows.Forms.ToolStripMenuItem mnu_AddDevice;
-        private System.Windows.Forms.ToolStripMenuItem mnu_Delete;
-        private System.Windows.Forms.ToolStripMenuItem mnu_Property;
-        private System.Windows.Forms.ToolStripMenuItem mnu_Fresh;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Rename;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 
     }
 }

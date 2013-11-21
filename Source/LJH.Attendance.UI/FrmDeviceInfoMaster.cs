@@ -12,59 +12,19 @@ using LJH.Attendance.BLL;
 
 namespace LJH.Attendance.UI
 {
-    public partial class FrmDeviceInfoMaster : FrmMasterBase
+    public partial class FrmDeviceInfoMaster : Form
     {
         public FrmDeviceInfoMaster()
         {
             InitializeComponent();
         }
 
-        #region 重写基类方法
-        protected override void Init()
-        {
-            base.Init();
-            deviceTree1.Init();
-            //btn_Add.Enabled = Operator.CurrentOperator.Permit(Permission.EditReader);
-            //btn_Delete.Enabled = Operator.CurrentOperator.Permit(Permission.EditReader);
-        }
-
-        protected override FrmDetailBase GetDetailForm()
-        {
-            return new FrmDeviceInfoDetail();
-        }
-
-        protected override List<object> GetDataSource()
-        {
-            List<DeviceInfo> items = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
-            return (from item in items
-                    select (object)item).ToList();
-        }
-
-        protected override void ShowItemInGridViewRow(DataGridViewRow row, object item)
-        {
-            DeviceInfo reader = item as DeviceInfo;
-            row.Tag = item;
-            row.Cells["colCheck"].Value = reader.ForAttendance;
-            row.Cells["colID"].Value = reader.ID;
-            row.Cells["colName"].Value = reader.Name;
-            row.Cells["colDeviceType"].Value = reader.DeviceType;
-            row.Cells["colSerial"].Value = reader.Serial;
-            row.Cells["colCommunication"].Value = reader.Communication;
-            row.Cells["colIP"].Value = reader.IP;
-            row.Cells["colPort"].Value = reader.ControlPort;
-            row.Cells["colCommport"].Value = reader.Commport;
-            row.Cells["colBaud"].Value = reader.Baud;
-            row.Cells["colAddress"].Value = reader.Address;
-        }
-
-        protected override bool DeletingItem(object item)
-        {
-            CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as DeviceInfo);
-            return ret.Result == ResultCode.Successful;
-        }
-        #endregion
-
         #region 事件处理程序
+        private void FrmDeviceInfoMaster_Load(object sender, EventArgs e)
+        {
+            deviceTree1.Init();
+        }
+
         private void deviceTree1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             deviceTree1.SelectedNode = e.Node;
@@ -78,6 +38,7 @@ namespace LJH.Attendance.UI
                 mnu_AddDevice.Enabled = true;
                 mnu_AddGroup.Enabled = true;
             }
+            mnu_Rename.Enabled = e.Node.Tag != null;
         }
 
         private void mnu_AddGroup_Click(object sender, EventArgs e)
@@ -203,6 +164,48 @@ namespace LJH.Attendance.UI
         {
             deviceTree1.Init();
         }
-        #endregion 
+        #endregion
+
+        private void mnu_Rename_Click(object sender, EventArgs e)
+        {
+            TreeNode node = this.deviceTree1.SelectedNode;
+            deviceTree1.LabelEdit = true;
+            if (node.Tag is DeviceGroup)
+            {
+                node.Text = (node.Tag as DeviceGroup).Name;
+            }
+            else if (node.Tag is DeviceInfo)
+            {
+                node.Text = (node.Tag as DeviceInfo).Name;
+            }
+            node.BeginEdit();
+        }
+
+        private void deviceTree1_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(e.Label))
+            {
+                TreeNode node = e.Node;
+                if (node.Tag is DeviceGroup)
+                {
+                    DeviceGroup group = node.Tag as DeviceGroup;
+                    group.Name = e.Label;
+                    CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectString)).Update(group);
+                }
+                else if (node.Tag is DeviceInfo)
+                {
+                    DeviceInfo device = node.Tag as DeviceInfo;
+                    device.Name = e.Label;
+                    CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Update(device);
+                }
+                deviceTree1.FreshNode(node);
+                e.CancelEdit = true; //这一行不能省
+                deviceTree1.LabelEdit = false;
+            }
+            else
+            {
+                e.CancelEdit = true;
+            }
+        }
     }
 }
