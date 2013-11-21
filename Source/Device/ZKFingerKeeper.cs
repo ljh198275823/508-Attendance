@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 using zkemkeeper;
 using LJH.Attendance.Model;
@@ -10,14 +12,14 @@ namespace LJH.Attendance.Device
     /// <summary>
     /// 表示中控彩屏指纹读卡器
     /// </summary>
-    public class ZKTFTFingerKeeper : IReader
+    public class ZKFingerKeeper : IReader
     {
         #region 构造函数
-        public ZKTFTFingerKeeper()
+        public ZKFingerKeeper()
         {
         }
 
-        public ZKTFTFingerKeeper(LJH.Attendance.Model.DeviceInfo para)
+        public ZKFingerKeeper(LJH.Attendance.Model.DeviceInfo para)
         {
             Parameter = para;
         }
@@ -29,6 +31,31 @@ namespace LJH.Attendance.Device
         private bool _Connected = false;
 
         private int iMachineNumber = 1;
+        #endregion
+
+        #region 私有方法
+        /// <summary>
+        /// 查看设置是否能ping通
+        /// </summary>
+        /// <returns></returns>
+        private bool Pingable(string strIp)
+        {
+            try
+            {
+                Ping ping = new Ping();
+                IPAddress ip;
+                if (IPAddress.TryParse(strIp, out ip))
+                {
+                    PingReply reply = ping.Send(ip, 200);  //超时间设置成200毫秒
+                    return reply.Status == IPStatus.Success;
+                }
+            }
+            catch (Exception ex)
+            {
+                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+            }
+            return false;
+        }
         #endregion
 
         #region 公共属性
@@ -48,7 +75,14 @@ namespace LJH.Attendance.Device
             {
                 if (Parameter.Communication == CommunicationType.TCP_IP && !string.IsNullOrEmpty(Parameter.IP) && Parameter.ControlPort != null)
                 {
-                    _Connected = axCZKEM1.Connect_Net(Parameter.IP, Parameter.ControlPort.Value);
+                    if (Pingable(Parameter.IP))
+                    {
+                        _Connected = axCZKEM1.Connect_Net(Parameter.IP, Parameter.ControlPort.Value);
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
                 else if (Parameter.Communication == CommunicationType.RS232_485 && Parameter.Commport != null && Parameter.Baud != null)
                 {
@@ -84,7 +118,10 @@ namespace LJH.Attendance.Device
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<AttendanceLog> GetAttendanceLogs()
         {
             throw new NotImplementedException();
@@ -100,12 +137,46 @@ namespace LJH.Attendance.Device
                 LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "保存用户信息失败，未连接设备");
                 return;
             }
-            bool ret = axCZKEM1.SSR_SetUserInfo(iMachineNumber, staff.ID.ToString(), staff.Name, "8888", 0, true);
+            bool ret = axCZKEM1.SetUserInfo(iMachineNumber, staff.ID, staff.Name, "8888", 0, true);
             if (!ret)
             {
                 int idwErrorCode = 0;
                 axCZKEM1.GetLastError(ref idwErrorCode);
                 LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "保存用户信息失败，ErrorCode=" + idwErrorCode.ToString());
+            }
+        }
+        /// <summary>
+        /// 保存用户指纹
+        /// </summary>
+        /// <param name="template"></param>
+        public void SetUserTemplate(StaffBioTemplate template)
+        {
+            if (!_Connected)
+            {
+                LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "保存用户指纹失败，未连接设备");
+                return;
+            }
+            string temp = string.Empty;
+            int size = 0;
+            if (axCZKEM1.FPTempConvertNewStr(template.Template, ref temp, ref size)) //biokey模板转换成指纹机模板
+            {
+                int fingerIndex = (int)template.BioSource;
+                if (fingerIndex >= 0 && fingerIndex <= 9) //指纹
+                {
+                    bool ret = axCZKEM1.SetUserTmpStr(iMachineNumber, template.StaffID, fingerIndex, temp);
+                    if (!ret)
+                    {
+                        int idwErrorCode = 0;
+                        axCZKEM1.GetLastError(ref idwErrorCode);
+                        LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "保存用户指纹失败，ErrorCode=" + idwErrorCode.ToString());
+                    }
+                }
+            }
+            else
+            {
+                int idwErrorCode = 0;
+                axCZKEM1.GetLastError(ref idwErrorCode);
+                LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "转换指纹模板失败，ErrorCode=" + idwErrorCode.ToString());
             }
         }
         /// <summary>

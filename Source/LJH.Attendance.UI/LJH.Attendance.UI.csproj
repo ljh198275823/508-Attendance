@@ -785,6 +785,10 @@
     <None Include="Resources\img15.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Device\LJH.Attendance.Device.csproj">
+      <Project>{6DFC3818-0828-4F65-93AC-ED164379DFC1}</Project>
+      <Name>LJH.Attendance.Device</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LJH.Attendance.BLL\LJH.Attendance.BLL.csproj">
       <Project>{BAB9FBE7-1614-41D5-9404-0B9982819E32}</Project>
       <Name>LJH.Attendance.BLL</Name>

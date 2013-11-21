@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using LJH.Attendance.Model;
 using LJH.Attendance.Model.Result;
 using LJH.Attendance.BLL;
+using LJH.Attendance.Device;
 
 namespace LJH.Attendance.UI
 {
@@ -35,11 +37,18 @@ namespace LJH.Attendance.UI
             if (node != null) deviceTree1.SelectedNode = node;
             if (e.Button == MouseButtons.Right)
             {
-                mnu_AddGroup.Enabled = (node != null && (node.Tag == null || node.Tag is DeviceGroup));
-                mnu_AddDevice.Enabled = (node != null && (node.Tag == null || node.Tag is DeviceGroup));
-                mnu_Property.Enabled = (node != null && node.Tag != null);
-                mnu_Rename.Enabled = (node != null && node.Tag != null);
-                mnu_Delete.Enabled = (node != null && node.Tag != null);
+                if (node == null || node.Tag == null)
+                {
+                    deviceTree1.ContextMenuStrip = rootMenu;
+                }
+                else if (node.Tag is DeviceGroup)
+                {
+                    deviceTree1.ContextMenuStrip = groupMenu;
+                }
+                else if (node.Tag is DeviceInfo)
+                {
+                    deviceTree1.ContextMenuStrip = deviceMenu;
+                }
             }
             else if (e.Button == MouseButtons.Left)
             {
@@ -221,7 +230,6 @@ namespace LJH.Attendance.UI
         {
             deviceTree1.Init();
         }
-        #endregion
 
         private void mnu_Rename_Click(object sender, EventArgs e)
         {
@@ -255,14 +263,84 @@ namespace LJH.Attendance.UI
                     device.Name = e.Label;
                     CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Update(device);
                 }
-                deviceTree1.FreshNode(node);
-                e.CancelEdit = true; //这一行不能省
-                deviceTree1.LabelEdit = false;
             }
-            else
+            deviceTree1.FreshNode(e.Node);
+            e.CancelEdit = true; //这一行不能省
+            deviceTree1.LabelEdit = false;
+        }
+        #endregion
+
+        private void mnu_UploadAll_Click(object sender, EventArgs e)
+        {
+            TreeNode node = deviceTree1.SelectedNode;
+            DeviceInfo device = node.Tag as DeviceInfo;
+            if (device == null) return;
+            ZKFingerKeeper keeper = new ZKFingerKeeper(device);
+            FrmProcessing frm = new FrmProcessing();
+            Action action = delegate()
             {
-                e.CancelEdit = true;
+                keeper.Connect();
+                if (keeper.IsConnected)
+                {
+                    try
+                    {
+                        //清空控制器
+                        frm.ShowProgress("正在清空设备...", 0);
+                        keeper.ClearData(ClearDataFlag.All);
+                        frm.ShowProgress("清空设备成功", 0.1m);
+                        decimal count = 0;
+                        frm.ShowProgress("开始上传人员...", 0);
+                        List<Staff> staff = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+                        List<StaffBioTemplate> templates = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetBioTemplates(null).QueryObjects;
+                        for (int i = 0; i < staff.Count; i++)
+                        {
+                            keeper.SetUserInfo(staff[i]);
+                            List<StaffBioTemplate> temp = templates.Where(item => item.StaffID == staff[i].ID).ToList();
+                            if (temp != null && temp.Count > 0)
+                            {
+                                foreach (StaffBioTemplate template in temp)
+                                {
+                                    keeper.SetUserTemplate(template);
+                                }
+                            }
+                            count++;
+                            frm.ShowProgress(string.Format("上传人员 {0}", staff[i].Name), count / staff.Count);
+                        }
+                    }
+                    catch (ThreadAbortException)
+                    {
+                    }
+                    catch (Exception ex)
+                    {
+                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                    }
+                    finally
+                    {
+                        keeper.Disconnect();
+                    }
+                }
+                else
+                {
+                    frm.ShowProgress("连接设备失败", 1);
+                }
+            };
+            Thread t = new Thread(new ThreadStart(action));
+            t.Start();
+            frm.ShowDialog();
+        }
+
+        private void mnu_SyncTime_Click(object sender, EventArgs e)
+        {
+            TreeNode node = deviceTree1.SelectedNode;
+            DeviceInfo device = node.Tag as DeviceInfo;
+            if (device == null) return;
+            ZKFingerKeeper keeper = new ZKFingerKeeper(device);
+            keeper.Connect();
+            if (keeper.IsConnected)
+            {
+                keeper.SetTime(DateTime.Now);
             }
+            keeper.Disconnect();
         }
     }
 }

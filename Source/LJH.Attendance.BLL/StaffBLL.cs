@@ -100,6 +100,12 @@ namespace LJH.Attendance.BLL
             con.StaffID = staffID;
             return ProviderFactory.Create<IStaffBioTemplateProvider>(_RepoUri).GetItems(con);
         }
+
+        public QueryResultList<StaffBioTemplate> GetBioTemplates(SearchCondition con)
+        {
+            return ProviderFactory.Create<IStaffBioTemplateProvider>(_RepoUri).GetItems(con);
+        }
+
         /// <summary>
         /// 保存生物识别模板，如果有系统中已经存在此模板，则替换
         /// </summary>
