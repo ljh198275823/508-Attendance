@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using zkemkeeper;
+using ZKFPEngXControl;
 using LJH.Attendance.Model;
 
 namespace LJH.Attendance.Device
@@ -27,6 +28,7 @@ namespace LJH.Attendance.Device
 
         #region 私有变量
         private zkemkeeper.CZKEM axCZKEM1 = new zkemkeeper.CZKEM();
+        ZKFPEngXControl.ZKFPEngX _ZKEngine = new ZKFPEngX();
 
         private bool _Connected = false;
 
@@ -78,6 +80,7 @@ namespace LJH.Attendance.Device
                     if (Pingable(Parameter.IP))
                     {
                         _Connected = axCZKEM1.Connect_Net(Parameter.IP, Parameter.ControlPort.Value);
+                        axCZKEM1.BASE64 = 1;
                     }
                     else
                     {
@@ -156,7 +159,7 @@ namespace LJH.Attendance.Device
                 LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "保存用户指纹失败，未连接设备");
                 return;
             }
-            string temp = string.Empty;
+            string temp = null;
             int size = 0;
             if (axCZKEM1.FPTempConvertNewStr(template.Template, ref temp, ref size)) //biokey模板转换成指纹机模板
             {

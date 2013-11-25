@@ -91,6 +91,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmProcessing";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "进度控制";
             this.Load += new System.EventHandler(this.FrmProcessing_Load);

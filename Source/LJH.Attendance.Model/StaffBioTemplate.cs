@@ -38,6 +38,10 @@ namespace LJH.Attendance.Model
         /// </summary>
         public string Version { get; set; }
         /// <summary>
+        /// 获取或设置是否是由指纹识别仪获取的指纹
+        /// </summary>
+        public bool IsBiokey { get; set; }
+        /// <summary>
         /// 获取或设置生物识别模板
         /// </summary>
         public string Template { get; set; }

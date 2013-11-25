@@ -50,22 +50,32 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.deviceTree1 = new LJH.Attendance.UI.Controls.DeviceTree(this.components);
             this.rootMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Fresh1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deviceMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_UploadAll = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Upload = new System.Windows.Forms.ToolStripMenuItem();
             this.获取考勤记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_SyncTime = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnu_Fresh2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_SyncTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupMenu.SuspendLayout();
             this.menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.rootMenu.SuspendLayout();
             this.deviceMenu.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupMenu
@@ -243,14 +253,30 @@
             // rootMenu
             // 
             this.rootMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
             this.mnu_Fresh1});
             this.rootMenu.Name = "rootMenu";
-            this.rootMenu.Size = new System.Drawing.Size(101, 26);
+            this.rootMenu.Size = new System.Drawing.Size(153, 92);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Text = "增加设备组";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.mnu_AddGroup_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Text = "增加设备";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.mnu_AddDevice_Click);
             // 
             // mnu_Fresh1
             // 
             this.mnu_Fresh1.Name = "mnu_Fresh1";
-            this.mnu_Fresh1.Size = new System.Drawing.Size(100, 22);
+            this.mnu_Fresh1.Size = new System.Drawing.Size(152, 22);
             this.mnu_Fresh1.Text = "刷新";
             this.mnu_Fresh1.Click += new System.EventHandler(this.mnu_Fresh_Click);
             // 
@@ -288,6 +314,13 @@
             this.获取考勤记录ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.获取考勤记录ToolStripMenuItem.Text = "获取考勤记录";
             // 
+            // mnu_SyncTime
+            // 
+            this.mnu_SyncTime.Name = "mnu_SyncTime";
+            this.mnu_SyncTime.Size = new System.Drawing.Size(152, 22);
+            this.mnu_SyncTime.Text = "同步时间";
+            this.mnu_SyncTime.Click += new System.EventHandler(this.mnu_SyncTime_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -321,12 +354,63 @@
             this.toolStripMenuItem6.Text = "属性";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.mnu_Property_Click);
             // 
-            // mnu_SyncTime
+            // panel2
             // 
-            this.mnu_SyncTime.Name = "mnu_SyncTime";
-            this.mnu_SyncTime.Size = new System.Drawing.Size(152, 22);
-            this.mnu_SyncTime.Text = "同步时间";
-            this.mnu_SyncTime.Click += new System.EventHandler(this.mnu_SyncTime_Click);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(294, 50);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(503, 175);
+            this.panel2.TabIndex = 64;
+            // 
+            // splitter2
+            // 
+            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitter2.Location = new System.Drawing.Point(294, 225);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(503, 6);
+            this.splitter2.TabIndex = 65;
+            this.splitter2.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.tabControl1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(294, 231);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(503, 136);
+            this.panel3.TabIndex = 66;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(503, 136);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(495, 110);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "实时考勤记录";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(495, 185);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "报警信息";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FrmDeviceInfoMaster
             // 
@@ -334,6 +418,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(797, 367);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.splitter2);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menu);
@@ -349,6 +436,8 @@
             this.panel1.ResumeLayout(false);
             this.rootMenu.ResumeLayout(false);
             this.deviceMenu.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,6 +477,14 @@
         private System.Windows.Forms.ToolStripMenuItem mnu_Upload;
         private System.Windows.Forms.ToolStripMenuItem 获取考勤记录ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnu_SyncTime;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
 
     }
 }

@@ -88,7 +88,7 @@ namespace LJH.Attendance.UI
             {
                 foreach (Department child in children)
                 {
-                    if (OnlyShowCurrentOperatorDepts && !Operator.CurrentOperator.IsAdmin && !Operator.CurrentOperator.Depts.Exists(item => item == child.ID))
+                    if (OnlyShowCurrentOperatorDepts  && !Operator.CurrentOperator.Depts.Exists(item => item == child.ID))
                     {
                     }
                     else
@@ -279,7 +279,7 @@ namespace LJH.Attendance.UI
                 {
                     if (string.IsNullOrEmpty(dept.ParentID))
                     {
-                        if (OnlyShowCurrentOperatorDepts && !Operator.CurrentOperator.IsAdmin && !Operator.CurrentOperator.Depts.Exists(item => item == dept.ID))
+                        if (OnlyShowCurrentOperatorDepts  && !Operator.CurrentOperator.Depts.Exists(item => item == dept.ID))
                         {
                         }
                         else

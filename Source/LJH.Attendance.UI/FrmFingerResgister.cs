@@ -98,10 +98,29 @@ namespace LJH.Attendance.UI
                 _ZKEngine.BeginEnroll();
                 label1.Text = string.Format("开始登记指纹 用户需要按 {0} 次指纹", _ZKEngine.EnrollCount);
             }
+            else if (ret == 1)
+            {
+                _ZKEngine.EndEngine();
+                label1.Text = "指纹识别仪驱动程序加载失败";
+                label1.ForeColor = Color.Red;
+            }
+            else if (ret == 2)
+            {
+                _ZKEngine.EndEngine();
+                label1.Text = "未连接指纹识别仪";
+                label1.ForeColor = Color.Red;
+            }
+            else if (ret == 3)
+            {
+                _ZKEngine.EndEngine();
+                label1.Text = "属性SensorIndex指定的指纹识别仪不存在";
+                label1.ForeColor = Color.Red;
+            }
             else
             {
                 _ZKEngine.EndEngine();
-                label1.Text = "指纹仪初始化失败";
+                label1.Text = "指纹识别仪初始化失败";
+                label1.ForeColor = Color.Red;
             }
         }
 

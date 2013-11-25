@@ -317,7 +317,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmDeviceInfoDetail";
-            this.Text = "考勤机";
+            this.Text = ",";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.gpTCPIP, 0);

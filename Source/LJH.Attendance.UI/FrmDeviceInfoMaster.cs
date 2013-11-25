@@ -287,7 +287,8 @@ namespace LJH.Attendance.UI
                         keeper.EnableDevice(false);
                         //清空控制器
                         frm.ShowProgress("正在清空设备...", 0);
-                        keeper.ClearData(ClearDataFlag.All);
+                        keeper.ClearData(ClearDataFlag.UserInfo);
+                        keeper.ClearData(ClearDataFlag.FPTemplate);
                         frm.ShowProgress("清空设备成功", 0.1m);
                         decimal count = 0;
                         frm.ShowProgress("开始上传人员...", 0);

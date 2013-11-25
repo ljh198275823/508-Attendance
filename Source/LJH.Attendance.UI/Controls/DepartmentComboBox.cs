@@ -25,7 +25,7 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
-
+        #region 公共方法
         public void Init()
         {
             DepartmentBLL bll = new DepartmentBLL(AppSettings.CurrentSetting.ConnectString);
@@ -75,37 +75,6 @@ namespace LJH.Attendance.UI
         [Browsable(false)]
         [Localizable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public string DepartmentName
-        {
-            get
-            {
-                if (this.SelectedIndex <= 0)
-                {
-                    return string.Empty;
-                }
-                else
-                {
-                    Department info = this.Items[SelectedIndex] as Department;
-                    return info.Name;
-                }
-            }
-            set
-            {
-                for (int i = 0; i < this.Items.Count; i++)
-                {
-                    Department info = this.Items[i] as Department;
-                    if (info != null && info.Name == value)
-                    {
-                        this.SelectedIndex = i;
-                        break;
-                    }
-                }
-            }
-        }
-
-        [Browsable(false)]
-        [Localizable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Department SelectecDepartment
         {
             get
@@ -117,5 +86,6 @@ namespace LJH.Attendance.UI
                 return this.Items[SelectedIndex] as Department;
             }
         }
+        #endregion
     }
 }
