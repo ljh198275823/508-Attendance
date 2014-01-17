@@ -87,6 +87,7 @@ namespace LJH.Attendance.UI
                     List<AttendanceLog> rets = (from it in arranges where it.StaffID == s.ID orderby it.ReadDateTime ascending select it).ToList();
                     if (rets != null && rets.Count > 0)
                     {
+                        rets.ForEach(it => it.StaffName = s.Name);
                         List<IGrouping<string, AttendanceLog>> groups = rets.GroupBy(item => item.ReadDateTime.ToString("yyyy-MM-dd")).ToList();
                         List<object> sas = (from g in groups select (object)g).ToList();
                         items.AddRange(sas);
@@ -104,7 +105,7 @@ namespace LJH.Attendance.UI
             row.Tag = records;
             row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(records[0].StaffID);
             row.Cells["colStaff"].Value = records[0].StaffName;
-            row.Cells["colReadDate"].Value = records[0].ReadDateTime.ToString("yyyy-MM-dd");
+            row.Cells["colReadDate"].Value = records[0].ReadDateTime.ToString("yyyy-MM-dd dddd");
             row.Cells["colReadTime"].Value = GetAttendanceTime(records);
             row.DefaultCellStyle.ForeColor = records.Exists(it => it.IsManual) ? Color.Red : Color.Black;
         }

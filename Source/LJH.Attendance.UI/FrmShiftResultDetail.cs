@@ -179,6 +179,7 @@ namespace LJH.Attendance.UI
                     List<AttendanceResult> rets = (from it in arranges where it.StaffID == s.ID orderby it.StartTime ascending select it).ToList();
                     if (rets != null && rets.Count > 0)
                     {
+                        rets.ForEach(it => it.StaffName = s.Name);
                         List<IGrouping<DateTime, AttendanceResult>> groups = rets.GroupBy(item => item.ShiftDate).ToList();
                         List<object> sas = (from g in groups select (object)g).ToList();
                         items.AddRange(sas);
@@ -197,7 +198,7 @@ namespace LJH.Attendance.UI
             row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(sar[0].StaffID);
             row.Cells["colStaff"].Value = sar[0].StaffName;
             row.Cells["colShift"].Value = sar[0].ShiftName;
-            row.Cells["colShiftDate"].Value = sar[0].ShiftDate.ToString("yyyy-MM-dd");
+            row.Cells["colShiftDate"].Value = sar[0].ShiftDate.ToString("yyyy-MM-dd dddd");
             if (sar.Count >= 1)
             {
                 row.Cells["colShiftDuty1"].Value = sar[0].StartTime.ToString("HH:mm") + "--" + sar[0].EndTime.ToString("HH:mm");

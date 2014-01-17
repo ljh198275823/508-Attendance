@@ -206,14 +206,15 @@
             // 
             // colReadDate
             // 
-            this.colReadDate.HeaderText = "考勤日期";
+            this.colReadDate.HeaderText = "日期";
             this.colReadDate.Name = "colReadDate";
             this.colReadDate.ReadOnly = true;
+            this.colReadDate.Width = 130;
             // 
             // colReadTime
             // 
             this.colReadTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colReadTime.HeaderText = "考勤时间";
+            this.colReadTime.HeaderText = "考勤情况";
             this.colReadTime.MinimumWidth = 150;
             this.colReadTime.Name = "colReadTime";
             this.colReadTime.ReadOnly = true;

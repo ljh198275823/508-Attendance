@@ -44,19 +44,20 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.plnLeft = new System.Windows.Forms.Panel();
             this.GridView = new System.Windows.Forms.DataGridView();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.colDept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShiftTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPresent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAbsent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBelateCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLeaveEarlyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colForgetCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu = new System.Windows.Forms.MenuStrip();
-            this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -171,6 +172,7 @@
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDept,
             this.colStaff,
+            this.colDate,
             this.colShiftTime,
             this.colPresent,
             this.colAbsent,
@@ -178,13 +180,55 @@
             this.colLeaveEarlyCount,
             this.colForgetCount});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridView.Location = new System.Drawing.Point(330, 40);
+            this.GridView.Location = new System.Drawing.Point(330, 45);
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridView.Size = new System.Drawing.Size(635, 320);
+            this.GridView.Size = new System.Drawing.Size(635, 315);
             this.GridView.TabIndex = 60;
+            // 
+            // menu
+            // 
+            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Export,
+            this.btn_SelectColumns,
+            this.toolStripSeparator1,
+            this.txtKeyword});
+            this.menu.Location = new System.Drawing.Point(330, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(635, 45);
+            this.menu.TabIndex = 59;
+            // 
+            // btn_Export
+            // 
+            this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
+            this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Export.Name = "btn_Export";
+            this.btn_Export.Size = new System.Drawing.Size(59, 41);
+            this.btn_Export.Text = "导出(&E)";
+            this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // btn_SelectColumns
+            // 
+            this.btn_SelectColumns.Image = global::LJH.Attendance.UI.Properties.Resources.columns;
+            this.btn_SelectColumns.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_SelectColumns.Name = "btn_SelectColumns";
+            this.btn_SelectColumns.Size = new System.Drawing.Size(70, 41);
+            this.btn_SelectColumns.Text = "选择列(&L)";
+            this.btn_SelectColumns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            // 
+            // txtKeyword
+            // 
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(200, 41);
             // 
             // colDept
             // 
@@ -197,6 +241,13 @@
             this.colStaff.HeaderText = "人员";
             this.colStaff.Name = "colStaff";
             this.colStaff.ReadOnly = true;
+            // 
+            // colDate
+            // 
+            this.colDate.HeaderText = "日期";
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            this.colDate.Width = 150;
             // 
             // colShiftTime
             // 
@@ -252,48 +303,6 @@
             this.colForgetCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colForgetCount.Width = 50;
             // 
-            // menu
-            // 
-            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Export,
-            this.btn_SelectColumns,
-            this.toolStripSeparator1,
-            this.txtKeyword});
-            this.menu.Location = new System.Drawing.Point(330, 0);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(635, 40);
-            this.menu.TabIndex = 59;
-            // 
-            // btn_Export
-            // 
-            this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
-            this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(59, 36);
-            this.btn_Export.Text = "导出(&E)";
-            this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // btn_SelectColumns
-            // 
-            this.btn_SelectColumns.Image = global::LJH.Attendance.UI.Properties.Resources.columns;
-            this.btn_SelectColumns.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_SelectColumns.Name = "btn_SelectColumns";
-            this.btn_SelectColumns.Size = new System.Drawing.Size(71, 36);
-            this.btn_SelectColumns.Text = "选择列(&L)";
-            this.btn_SelectColumns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 36);
-            // 
-            // txtKeyword
-            // 
-            this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(200, 36);
-            // 
             // FrmShiftResultStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -342,6 +351,7 @@
         private System.Windows.Forms.ToolStripTextBox txtKeyword;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDept;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShiftTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPresent;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAbsent;

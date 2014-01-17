@@ -198,7 +198,7 @@
             this.txtKeyword});
             this.menu.Location = new System.Drawing.Point(330, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(848, 40);
+            this.menu.Size = new System.Drawing.Size(848, 45);
             this.menu.TabIndex = 60;
             // 
             // btn_Export
@@ -206,19 +206,19 @@
             this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
             this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(59, 36);
+            this.btn_Export.Size = new System.Drawing.Size(59, 41);
             this.btn_Export.Text = "导出(&E)";
             this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 36);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
             // 
             // txtKeyword
             // 
             this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(200, 36);
+            this.txtKeyword.Size = new System.Drawing.Size(200, 41);
             // 
             // GridView
             // 
@@ -266,12 +266,12 @@
             this.colLeaveEarlyCount,
             this.colForgetCount});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridView.Location = new System.Drawing.Point(330, 40);
+            this.GridView.Location = new System.Drawing.Point(330, 45);
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridView.Size = new System.Drawing.Size(848, 268);
+            this.GridView.Size = new System.Drawing.Size(848, 263);
             this.GridView.TabIndex = 61;
             // 
             // colDept

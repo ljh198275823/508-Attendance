@@ -161,6 +161,7 @@ namespace LJH.Attendance.UI
             row.Tag = group;
             row.Cells["colDept"].Value = departmentTreeview1.GetDepartmentName(group.First().StaffID);
             row.Cells["colStaff"].Value = group.First().StaffName;
+            row.Cells["colDate"].Value = ucDateTimeInterval1.StartDateTime.ToString("yyyy-MM-dd") + "   " + ucDateTimeInterval1.EndDateTime.ToString("yyyy-MM-dd");
             decimal shiftTime = group.Where(sar => !string.IsNullOrEmpty(sar.ShiftID)).Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.ShiftTime, false).Value).Trim();
             decimal present = group.Where(sar => !string.IsNullOrEmpty(sar.ShiftID)).Sum(sar => AttendanceRules.Current.GetDuarationFrom(sar.Present, false).Value).Trim();
             row.Cells["colShiftTime"].Value = shiftTime;
