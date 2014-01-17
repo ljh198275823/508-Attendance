@@ -61,7 +61,7 @@
             this.toolStripSeparator2});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(934, 45);
+            this.menu.Size = new System.Drawing.Size(934, 50);
             this.menu.TabIndex = 57;
             // 
             // btn_Add
@@ -69,7 +69,7 @@
             this.btn_Add.Image = global::LJH.Attendance.UI.Properties.Resources.add;
             this.btn_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(59, 41);
+            this.btn_Add.Size = new System.Drawing.Size(62, 46);
             this.btn_Add.Text = "新建(&N)";
             this.btn_Add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -78,7 +78,7 @@
             this.btn_Delete.Image = global::LJH.Attendance.UI.Properties.Resources.delete;
             this.btn_Delete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(59, 41);
+            this.btn_Delete.Size = new System.Drawing.Size(61, 46);
             this.btn_Delete.Text = "删除(&D)";
             this.btn_Delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -87,7 +87,7 @@
             this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
             this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(59, 41);
+            this.btn_Export.Size = new System.Drawing.Size(59, 46);
             this.btn_Export.Text = "导出(&E)";
             this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -96,7 +96,7 @@
             this.btn_Fresh.Image = global::LJH.Attendance.UI.Properties.Resources.refresh;
             this.btn_Fresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Fresh.Name = "btn_Fresh";
-            this.btn_Fresh.Size = new System.Drawing.Size(59, 41);
+            this.btn_Fresh.Size = new System.Drawing.Size(58, 46);
             this.btn_Fresh.Text = "刷新(&F)";
             this.btn_Fresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -105,24 +105,24 @@
             this.btn_SelectColumns.Image = global::LJH.Attendance.UI.Properties.Resources.columns;
             this.btn_SelectColumns.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_SelectColumns.Name = "btn_SelectColumns";
-            this.btn_SelectColumns.Size = new System.Drawing.Size(71, 41);
+            this.btn_SelectColumns.Size = new System.Drawing.Size(70, 46);
             this.btn_SelectColumns.Text = "选择列(&L)";
             this.btn_SelectColumns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 46);
             // 
             // txtKeyword
             // 
             this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(200, 41);
+            this.txtKeyword.Size = new System.Drawing.Size(200, 46);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 41);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 46);
             // 
             // dataGridView1
             // 
@@ -136,12 +136,12 @@
             this.colWeekendToWorkday,
             this.colMemo});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 45);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(934, 214);
+            this.dataGridView1.Size = new System.Drawing.Size(934, 209);
             this.dataGridView1.TabIndex = 58;
             // 
             // colStartDate

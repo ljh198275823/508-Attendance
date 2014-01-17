@@ -30,24 +30,46 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMasterBase));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_Fresh = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Export = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.contextMenuStrip1.SuspendLayout();
+            this.ContextMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // contextMenuStrip1
+            // ContextMenu
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnu_Fresh,
             this.mnu_Add,
-            this.mnu_Delete});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            this.mnu_Delete,
+            this.mnu_Export});
+            this.ContextMenu.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.ContextMenu, "ContextMenu");
+            // 
+            // mnu_Fresh
+            // 
+            this.mnu_Fresh.Name = "mnu_Fresh";
+            resources.ApplyResources(this.mnu_Fresh, "mnu_Fresh");
+            // 
+            // mnu_Add
+            // 
+            this.mnu_Add.Name = "mnu_Add";
+            resources.ApplyResources(this.mnu_Add, "mnu_Add");
+            // 
+            // mnu_Delete
+            // 
+            this.mnu_Delete.Name = "mnu_Delete";
+            resources.ApplyResources(this.mnu_Delete, "mnu_Delete");
+            // 
+            // mnu_Export
+            // 
+            this.mnu_Export.Name = "mnu_Export";
+            resources.ApplyResources(this.mnu_Export, "mnu_Export");
             // 
             // statusStrip1
             // 
@@ -71,7 +93,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Name = "FrmMasterBase";
             this.Load += new System.EventHandler(this.FrmMasterBase_Load);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.ContextMenu.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -85,8 +107,9 @@
         private System.Windows.Forms.ToolStripMenuItem mnu_Delete;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        protected System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        protected System.Windows.Forms.ContextMenuStrip ContextMenu;
         private System.Windows.Forms.ToolStripMenuItem mnu_Fresh;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Export;
 
     }
 }

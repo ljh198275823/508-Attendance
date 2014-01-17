@@ -24,6 +24,7 @@ namespace LJH.Attendance.UI
         protected override void Init()
         {
             base.Init();
+            this.dataGridView1.ContextMenuStrip = null; //不要显示右键菜单
             btn_OTSheet.Enabled = Operator.CurrentOperator.Permit(Permission.EditTASheet);
             btn_VacationSheet.Enabled = Operator.CurrentOperator.Permit(Permission.EditTASheet);
             btn_TripSheet.Enabled = Operator.CurrentOperator.Permit(Permission.EditTASheet);

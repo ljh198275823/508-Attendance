@@ -57,6 +57,7 @@ namespace LJH.Attendance.UI
         protected override void Init()
         {
             base.Init();
+            this.GridView.ContextMenuStrip = null;  //不要显示右键菜单
             this.ucDateTimeInterval1.Init();
             this.ucDateTimeInterval1.SelectThisMonth();
 

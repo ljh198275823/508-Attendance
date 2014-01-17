@@ -26,9 +26,21 @@ namespace LJH.Attendance.UI
         #endregion
 
         #region 重写基类方法和处理事件
+        protected override void Init()
+        {
+            base.Init();
+            departmentTreeview1.Init();
+            this.ContextMenu.Items["mnu_Add"].Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
+            this.ContextMenu.Items["mnu_Delete"].Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
+            btn_Add.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
+            btn_Delete.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
+        }
+
         protected override FrmDetailBase GetDetailForm()
         {
-            return new FrmStaffDetail();
+            FrmStaffDetail frm = new FrmStaffDetail();
+            if (departmentTreeview1.SelectedNode != null) frm.Department = departmentTreeview1.SelectedNode.Tag as Department;
+            return frm;
         }
 
         protected override List<object> GetDataSource()
@@ -73,14 +85,6 @@ namespace LJH.Attendance.UI
                 MessageBox.Show(ret.Message, LJH.Attendance.UI.Properties.Resources.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return ret.Result == ResultCode.Successful;
-        }
-
-        protected override void Init()
-        {
-            base.Init();
-            departmentTreeview1.Init();
-            btn_Add.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
-            btn_Delete.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
         }
         #endregion
 

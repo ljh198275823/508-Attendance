@@ -32,6 +32,10 @@ namespace LJH.Attendance.UI
         }
         #endregion
 
+        #region 公共属性
+        public Department Department { get; set; }
+        #endregion
+
         #region 重写基类方法
         protected override void ItemShowing()
         {
@@ -147,10 +151,12 @@ namespace LJH.Attendance.UI
         {
             base.InitControls();
             this.departmentComboBox1.Init();
+            if (Department != null) this.departmentComboBox1.DepartmentID = Department.ID;
             this.btnOk.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
         }
         #endregion
 
+        #region 事件处理程序
         private void btnDelPhoto_Click(object sender, EventArgs e)
         {
             if (UpdatingItem != null)
@@ -254,5 +260,6 @@ namespace LJH.Attendance.UI
 
             }
         }
+        #endregion
     }
 }

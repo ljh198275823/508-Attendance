@@ -23,6 +23,8 @@ namespace LJH.Attendance.UI
         protected override void Init()
         {
             base.Init();
+            this.ContextMenu.Items["mnu_Add"].Enabled = Operator.CurrentOperator.Permit(Permission.EditStaffCategory);
+            this.ContextMenu.Items["mnu_Delete"].Enabled = Operator.CurrentOperator.Permit(Permission.EditStaffCategory);
             btn_Add.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaffCategory);
             btn_Delete.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaffCategory);
         }

@@ -156,6 +156,7 @@ namespace LJH.Attendance.UI
             this.departmentTreeview1.Init();
             InitGridViewColumns();
             base.Init(); //放在后面是想让某些不想显示的列生效
+            this.GridView.ContextMenuStrip = null;  //不要显示右键菜单
         }
 
         protected override FrmDetailBase GetDetailForm()

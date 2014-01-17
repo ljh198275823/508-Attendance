@@ -139,6 +139,7 @@ namespace LJH.Attendance.UI
             this.departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             this.departmentTreeview1.Init();
             base.Init();
+            this.GridView.ContextMenuStrip = null;  //不要显示右键菜单
         }
 
         protected override FrmDetailBase GetDetailForm()

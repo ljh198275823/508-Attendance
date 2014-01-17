@@ -48,7 +48,7 @@ namespace LJH.Attendance.UI
         {
             get
             {
-                if (this.SelectedIndex <=0)
+                if (this.SelectedIndex <= 0)
                 {
                     return string.Empty;
                 }
@@ -60,10 +60,11 @@ namespace LJH.Attendance.UI
             }
             set
             {
+                this.SelectedIndex = -1;
                 for (int i = 0; i < this.Items.Count; i++)
                 {
                     Department info = this.Items[i] as Department;
-                    if (info!=null && info.ID  == value)
+                    if (info != null && info.ID == value)
                     {
                         this.SelectedIndex = i;
                         break;

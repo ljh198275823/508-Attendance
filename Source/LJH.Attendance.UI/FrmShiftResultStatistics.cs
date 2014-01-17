@@ -126,6 +126,7 @@ namespace LJH.Attendance.UI
 
             InitGridViewColumns();
             base.Init();
+            this.GridView.ContextMenuStrip = null;  //不要显示右键菜单
         }
 
         protected override FrmDetailBase GetDetailForm()

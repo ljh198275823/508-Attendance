@@ -87,6 +87,14 @@ namespace LJH.Attendance.UI
             }
         }
 
+        private void InitMenu()
+        {
+            mnu_Add.Click += btnAdd_Click;
+            mnu_Delete.Click += btnDelete_Click;
+            mnu_Export.Click += btnExport_Click;
+            mnu_Fresh.Click += btnFresh_Click;
+        }
+
         private void InitGridView()
         {
             if (GridView != null)
@@ -99,6 +107,7 @@ namespace LJH.Attendance.UI
                 {
                     GridView.CellDoubleClick += GridView_DoubleClick;
                 }
+                GridView.ContextMenuStrip = ContextMenu;
                 GridView.CellMouseDown += GridView_CellMouseDown;
                 GridView.Sorted += new EventHandler(GridView_Sorted);
             }
@@ -228,6 +237,7 @@ namespace LJH.Attendance.UI
         #region 子类要重写的方法
         protected virtual void Init()
         {
+            InitMenu();
             InitToolbar();
             InitGridView();
             ShowVisableColumns();
