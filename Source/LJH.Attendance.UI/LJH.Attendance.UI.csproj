@@ -781,6 +781,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="attendance.ico" />
+    <None Include="Resources\drag.png" />
     <None Include="Resources\template.png" />
     <None Include="Resources\img15.jpg" />
   </ItemGroup>

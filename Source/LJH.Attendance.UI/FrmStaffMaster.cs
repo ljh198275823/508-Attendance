@@ -131,7 +131,7 @@ namespace LJH.Attendance.UI
 
         private void GridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && e.ColumnIndex == 0 && e.RowIndex >= 0) //按住网格第一列时才可以拖动
             {
                 List<Staff> staff = new List<Staff>();
                 foreach (DataGridViewRow row in GridView.SelectedRows)

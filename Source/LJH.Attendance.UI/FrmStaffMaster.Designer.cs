@@ -42,6 +42,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.GridView = new System.Windows.Forms.DataGridView();
+            this.colDrag = new System.Windows.Forms.DataGridViewImageColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -175,6 +176,7 @@
             this.GridView.AllowUserToResizeRows = false;
             this.GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDrag,
             this.colName,
             this.colDepartment,
             this.colCertificate,
@@ -192,6 +194,18 @@
             this.GridView.Size = new System.Drawing.Size(866, 328);
             this.GridView.TabIndex = 63;
             this.GridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridView_CellMouseDown);
+            // 
+            // colDrag
+            // 
+            this.colDrag.Frozen = true;
+            this.colDrag.HeaderText = "";
+            this.colDrag.Image = global::LJH.Attendance.UI.Properties.Resources.drag;
+            this.colDrag.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colDrag.Name = "colDrag";
+            this.colDrag.ReadOnly = true;
+            this.colDrag.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colDrag.ToolTipText = "按住此列可以拖动";
+            this.colDrag.Width = 30;
             // 
             // colName
             // 
@@ -288,6 +302,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.DataGridView GridView;
+        private System.Windows.Forms.DataGridViewImageColumn colDrag;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCertificate;
