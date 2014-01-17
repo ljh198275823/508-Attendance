@@ -25,7 +25,42 @@ namespace LJH.Attendance.UI
         private List<Staff> _AllStaff;
         #endregion
 
-        #region 重写基类方法和处理事件
+        #region 私有方法
+        private void SelectNode(TreeNode node)
+        {
+            if (!object.ReferenceEquals(departmentTreeview1.SelectedNode, node))
+            {
+                if (departmentTreeview1.SelectedNode != null)
+                {
+                    departmentTreeview1.SelectedNode.BackColor = Color.White;
+                    departmentTreeview1.SelectedNode.ForeColor = Color.Black;
+                }
+                departmentTreeview1.SelectedNode = node;
+                departmentTreeview1.SelectedNode.BackColor = Color.Blue;  //Color.FromArgb(128, 128, 255);
+                departmentTreeview1.SelectedNode.ForeColor = Color.White;
+
+                Department dept = node.Tag as Department;
+                _SelectedDept = dept != null ? dept.ID : null;
+                List<object> items = null;
+                if (!string.IsNullOrEmpty(_SelectedDept))
+                {
+                    items = (from staff in _AllStaff
+                             where staff.DepartmentID == _SelectedDept
+                             orderby staff.Name ascending
+                             select (object)staff).ToList();
+                }
+                else
+                {
+                    items = (from staff in _AllStaff
+                             orderby staff.Name ascending
+                             select (object)staff).ToList();
+                }
+                ShowItemsOnGrid(items);
+            }
+        }
+        #endregion
+
+        #region 重写基类方法
         protected override void Init()
         {
             base.Init();
@@ -88,37 +123,62 @@ namespace LJH.Attendance.UI
         }
         #endregion
 
+        #region 事件处理程序
         private void departmentTreeview1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (!object.ReferenceEquals(departmentTreeview1.SelectedNode, e.Node))
-            {
-                if (departmentTreeview1.SelectedNode != null)
-                {
-                    departmentTreeview1.SelectedNode.BackColor = Color.White;
-                    departmentTreeview1.SelectedNode.ForeColor = Color.Black;
-                }
-                departmentTreeview1.SelectedNode = e.Node;
-                departmentTreeview1.SelectedNode.BackColor = Color.Blue;  //Color.FromArgb(128, 128, 255);
-                departmentTreeview1.SelectedNode.ForeColor = Color.White;
+            SelectNode(e.Node);
+        }
 
-                Department dept = e.Node.Tag as Department;
-                _SelectedDept = dept != null ? dept.ID : null;
-                List<object> items = null;
-                if (!string.IsNullOrEmpty(_SelectedDept))
+        private void GridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                List<Staff> staff = new List<Staff>();
+                foreach (DataGridViewRow row in GridView.SelectedRows)
                 {
-                    items = (from staff in _AllStaff
-                             where staff.DepartmentID == _SelectedDept
-                             orderby staff.Name ascending
-                             select (object)staff).ToList();
+                    if (row.Tag != null) staff.Add(row.Tag as Staff);
                 }
-                else
+                if (staff.Count > 0)
                 {
-                    items = (from staff in _AllStaff
-                             orderby staff.Name ascending
-                             select (object)staff).ToList();
+                    GridView.DoDragDrop((object)staff, DragDropEffects.Copy | DragDropEffects.Move);
                 }
-                ShowItemsOnGrid(items);
             }
         }
+
+        private void departmentTreeview1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.AllowedEffect != DragDropEffects.None) e.Effect = DragDropEffects.Copy;
+        }
+
+        private void departmentTreeview1_DragDrop(object sender, DragEventArgs e)
+        {
+            Point p = departmentTreeview1.PointToClient(new Point(e.X, e.Y));
+            TreeNode node = departmentTreeview1.GetNodeAt(p);
+            if (node != null && (node.Tag == null || node.Tag is Department))
+            {
+                string[] s = e.Data.GetFormats();
+                if (s.Length > 0)
+                {
+                    object o = e.Data.GetData(s[0]);
+                    if (o is List<Staff>)
+                    {
+                        Department dept = node.Tag as Department;
+                        List<Staff> staff = o as List<Staff>;
+                        if (staff != null && staff.Count > 0)
+                        {
+                            StaffBLL bll = new StaffBLL(AppSettings.CurrentSetting.ConnectString);
+                            foreach (Staff st in staff)
+                            {
+                                st.DepartmentID = dept.ID;
+                                st.Department = dept;
+                                bll.Update(st);
+                            }
+                        }
+                    }
+                }
+                SelectNode(node);
+            }
+        }
+        #endregion
     }
 }

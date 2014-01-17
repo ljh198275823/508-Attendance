@@ -135,6 +135,7 @@
             // 
             // departmentTreeview1
             // 
+            this.departmentTreeview1.AllowDrop = true;
             this.departmentTreeview1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -146,6 +147,8 @@
             this.departmentTreeview1.Size = new System.Drawing.Size(250, 322);
             this.departmentTreeview1.TabIndex = 60;
             this.departmentTreeview1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.departmentTreeview1_NodeMouseClick);
+            this.departmentTreeview1.DragDrop += new System.Windows.Forms.DragEventHandler(this.departmentTreeview1_DragDrop);
+            this.departmentTreeview1.DragEnter += new System.Windows.Forms.DragEventHandler(this.departmentTreeview1_DragEnter);
             // 
             // panel1
             // 
@@ -188,6 +191,7 @@
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridView.Size = new System.Drawing.Size(866, 328);
             this.GridView.TabIndex = 63;
+            this.GridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridView_CellMouseDown);
             // 
             // colName
             // 
