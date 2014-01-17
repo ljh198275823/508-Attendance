@@ -11,7 +11,7 @@ namespace LJH.Attendance.Device
         void Connect();
         void Disconnect();
         bool IsConnected { get; }
-        List<AttendanceLog> GetAttendanceLogs();
+        List<AttendanceLog> GetAttendanceLogs(DatetimeRange range);
         void SetUserInfo(Staff staff);
     }
 }

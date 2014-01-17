@@ -48,7 +48,6 @@
             this.menu = new System.Windows.Forms.MenuStrip();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.deviceTree1 = new LJH.Attendance.UI.Controls.DeviceTree(this.components);
             this.rootMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +55,7 @@
             this.deviceMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_UploadAll = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Upload = new System.Windows.Forms.ToolStripMenuItem();
-            this.获取考勤记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_GetAttendanceLog = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_SyncTime = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnu_Fresh2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +68,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.deviceTree1 = new LJH.Attendance.UI.Controls.DeviceTree(this.components);
             this.groupMenu.SuspendLayout();
             this.menu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -215,6 +215,7 @@
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(797, 50);
             this.menu.TabIndex = 58;
+            this.menu.Visible = false;
             // 
             // splitter1
             // 
@@ -234,22 +235,6 @@
             this.panel1.Size = new System.Drawing.Size(288, 317);
             this.panel1.TabIndex = 62;
             // 
-            // deviceTree1
-            // 
-            this.deviceTree1.AllowDrop = true;
-            this.deviceTree1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.deviceTree1.ContextMenuStrip = this.groupMenu;
-            this.deviceTree1.Location = new System.Drawing.Point(4, 4);
-            this.deviceTree1.Name = "deviceTree1";
-            this.deviceTree1.Size = new System.Drawing.Size(281, 310);
-            this.deviceTree1.TabIndex = 0;
-            this.deviceTree1.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.deviceTree1_AfterLabelEdit);
-            this.deviceTree1.DragDrop += new System.Windows.Forms.DragEventHandler(this.deviceTree1_DragDrop);
-            this.deviceTree1.DragEnter += new System.Windows.Forms.DragEventHandler(this.deviceTree1_DragEnter);
-            this.deviceTree1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.deviceTree1_MouseDown);
-            // 
             // rootMenu
             // 
             this.rootMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -257,26 +242,26 @@
             this.toolStripMenuItem2,
             this.mnu_Fresh1});
             this.rootMenu.Name = "rootMenu";
-            this.rootMenu.Size = new System.Drawing.Size(153, 92);
+            this.rootMenu.Size = new System.Drawing.Size(137, 70);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItem1.Text = "增加设备组";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.mnu_AddGroup_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItem2.Text = "增加设备";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.mnu_AddDevice_Click);
             // 
             // mnu_Fresh1
             // 
             this.mnu_Fresh1.Name = "mnu_Fresh1";
-            this.mnu_Fresh1.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Fresh1.Size = new System.Drawing.Size(136, 22);
             this.mnu_Fresh1.Text = "刷新";
             this.mnu_Fresh1.Click += new System.EventHandler(this.mnu_Fresh_Click);
             // 
@@ -285,7 +270,7 @@
             this.deviceMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnu_UploadAll,
             this.mnu_Upload,
-            this.获取考勤记录ToolStripMenuItem,
+            this.mnu_GetAttendanceLog,
             this.mnu_SyncTime,
             this.toolStripSeparator4,
             this.mnu_Fresh2,
@@ -293,64 +278,66 @@
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.deviceMenu.Name = "contextMenuStrip2";
-            this.deviceMenu.Size = new System.Drawing.Size(153, 208);
+            this.deviceMenu.Size = new System.Drawing.Size(149, 186);
             // 
             // mnu_UploadAll
             // 
             this.mnu_UploadAll.Name = "mnu_UploadAll";
-            this.mnu_UploadAll.Size = new System.Drawing.Size(152, 22);
+            this.mnu_UploadAll.Size = new System.Drawing.Size(148, 22);
             this.mnu_UploadAll.Text = "同步所有人员";
             this.mnu_UploadAll.Click += new System.EventHandler(this.mnu_UploadAll_Click);
             // 
             // mnu_Upload
             // 
             this.mnu_Upload.Name = "mnu_Upload";
-            this.mnu_Upload.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Upload.Size = new System.Drawing.Size(148, 22);
             this.mnu_Upload.Text = "下发人员信息";
+            this.mnu_Upload.Click += new System.EventHandler(this.mnu_Upload_Click);
             // 
-            // 获取考勤记录ToolStripMenuItem
+            // mnu_GetAttendanceLog
             // 
-            this.获取考勤记录ToolStripMenuItem.Name = "获取考勤记录ToolStripMenuItem";
-            this.获取考勤记录ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.获取考勤记录ToolStripMenuItem.Text = "获取考勤记录";
+            this.mnu_GetAttendanceLog.Name = "mnu_GetAttendanceLog";
+            this.mnu_GetAttendanceLog.Size = new System.Drawing.Size(148, 22);
+            this.mnu_GetAttendanceLog.Text = "获取考勤记录";
+            this.mnu_GetAttendanceLog.Click += new System.EventHandler(this.mnu_GetAttendanceLog_Click);
             // 
             // mnu_SyncTime
             // 
             this.mnu_SyncTime.Name = "mnu_SyncTime";
-            this.mnu_SyncTime.Size = new System.Drawing.Size(152, 22);
+            this.mnu_SyncTime.Size = new System.Drawing.Size(148, 22);
             this.mnu_SyncTime.Text = "同步时间";
             this.mnu_SyncTime.Click += new System.EventHandler(this.mnu_SyncTime_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(145, 6);
             // 
             // mnu_Fresh2
             // 
             this.mnu_Fresh2.Name = "mnu_Fresh2";
-            this.mnu_Fresh2.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Fresh2.Size = new System.Drawing.Size(148, 22);
             this.mnu_Fresh2.Text = "刷新";
             this.mnu_Fresh2.Click += new System.EventHandler(this.mnu_Fresh_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItem4.Text = "重命名";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.mnu_Rename_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItem5.Text = "删除";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.mnu_Delete_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItem6.Text = "属性";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.mnu_Property_Click);
             // 
@@ -371,6 +358,7 @@
             this.splitter2.Size = new System.Drawing.Size(503, 6);
             this.splitter2.TabIndex = 65;
             this.splitter2.TabStop = false;
+            this.splitter2.Visible = false;
             // 
             // panel3
             // 
@@ -391,6 +379,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(503, 136);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Visible = false;
             // 
             // tabPage1
             // 
@@ -407,10 +396,26 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(495, 185);
+            this.tabPage2.Size = new System.Drawing.Size(495, 110);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "报警信息";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // deviceTree1
+            // 
+            this.deviceTree1.AllowDrop = true;
+            this.deviceTree1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.deviceTree1.ContextMenuStrip = this.groupMenu;
+            this.deviceTree1.Location = new System.Drawing.Point(4, 4);
+            this.deviceTree1.Name = "deviceTree1";
+            this.deviceTree1.Size = new System.Drawing.Size(281, 310);
+            this.deviceTree1.TabIndex = 0;
+            this.deviceTree1.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.deviceTree1_AfterLabelEdit);
+            this.deviceTree1.DragDrop += new System.Windows.Forms.DragEventHandler(this.deviceTree1_DragDrop);
+            this.deviceTree1.DragEnter += new System.Windows.Forms.DragEventHandler(this.deviceTree1_DragEnter);
+            this.deviceTree1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.deviceTree1_MouseDown);
             // 
             // FrmDeviceInfoMaster
             // 
@@ -475,7 +480,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem mnu_UploadAll;
         private System.Windows.Forms.ToolStripMenuItem mnu_Upload;
-        private System.Windows.Forms.ToolStripMenuItem 获取考勤记录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnu_GetAttendanceLog;
         private System.Windows.Forms.ToolStripMenuItem mnu_SyncTime;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;

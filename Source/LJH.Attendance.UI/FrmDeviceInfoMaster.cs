@@ -268,7 +268,6 @@ namespace LJH.Attendance.UI
             e.CancelEdit = true; //这一行不能省
             deviceTree1.LabelEdit = false;
         }
-        #endregion
 
         private void mnu_UploadAll_Click(object sender, EventArgs e)
         {
@@ -346,5 +345,62 @@ namespace LJH.Attendance.UI
             }
             keeper.Disconnect();
         }
+
+        private void mnu_Upload_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnu_GetAttendanceLog_Click(object sender, EventArgs e)
+        {
+            TreeNode node = deviceTree1.SelectedNode;
+            DeviceInfo device = node.Tag as DeviceInfo;
+            if (device == null) return;
+            ZKFingerKeeper keeper = new ZKFingerKeeper(device);
+            FrmProcessing frm = new FrmProcessing();
+            Action action = delegate()
+            {
+                keeper.Connect();
+                if (keeper.IsConnected)
+                {
+                    try
+                    {
+                        //清空控制器
+                        frm.ShowProgress("正在获取考勤记录...", 0);
+                        List<AttendanceLog> logs = keeper.GetAttendanceLogs(null);
+                        if (logs == null || logs.Count == 0) frm.ShowProgress("没有获取到考勤记录,请查看相关的日志文件查看错误信息", 1);
+                        frm.ShowProgress(string.Format("获取到 {0} 条考勤记录,正在努力保存考勤记录...", logs.Count), 0.99m);
+                        AttendanceLogBLL bll = new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString);
+                        int count = 0;
+                        foreach (AttendanceLog log in logs)
+                        {
+                            count++;
+                            frm.ShowProgress(string.Format("正在保存第 {0} 条记录", count), (decimal)count / logs.Count);
+                            CommandResult ret = bll.Add(log);
+                        }
+                        frm.ShowProgress("完成", 1);
+                    }
+                    catch (ThreadAbortException)
+                    {
+                    }
+                    catch (Exception ex)
+                    {
+                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                    }
+                    finally
+                    {
+                        keeper.Disconnect();
+                    }
+                }
+                else
+                {
+                    frm.ShowProgress("连接设备失败", 1);
+                }
+            };
+            Thread t = new Thread(new ThreadStart(action));
+            t.Start();
+            frm.ShowDialog();
+        }
+        #endregion
     }
 }

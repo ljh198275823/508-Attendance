@@ -122,13 +122,72 @@ namespace LJH.Attendance.Device
         }
 
         /// <summary>
-        /// 
+        /// 获取机器上的考勤记录
         /// </summary>
+        /// <param name="range">考勤记录的日期时间范围,为null表示获取所有记录</param>
         /// <returns></returns>
-        public List<AttendanceLog> GetAttendanceLogs()
+        public List<AttendanceLog> GetAttendanceLogs(DatetimeRange range)
         {
-            throw new NotImplementedException();
+            int idwErrorCode = 0;
+            List<AttendanceLog> logs = new List<AttendanceLog>();
+            try
+            {
+                axCZKEM1.EnableDevice(iMachineNumber, false);//disable the device
+                if (axCZKEM1.ReadGeneralLogData(iMachineNumber))//read all the attendance records to the memory
+                {
+                    int idwTMachineNumber = 0;
+                    int idwEnrollNumber = 0;
+                    int idwEMachineNumber = 0;
+                    int idwVerifyMode = 0;
+                    int idwInOutMode = 0;
+                    int idwYear = 0;
+                    int idwMonth = 0;
+                    int idwDay = 0;
+                    int idwHour = 0;
+                    int idwMinute = 0;
+                    while (axCZKEM1.GetGeneralLogData(iMachineNumber, ref idwTMachineNumber, ref idwEnrollNumber,
+                            ref idwEMachineNumber, ref idwVerifyMode, ref idwInOutMode, ref idwYear, ref idwMonth, ref idwDay, ref idwHour, ref idwMinute))//get records from the memory
+                    {
+                        DateTime dt = new DateTime(idwYear, idwMonth, idwDay, idwHour, idwMinute, 0);
+                        if (range == null || range.Contain(dt))
+                        {
+                            AttendanceLog log = new AttendanceLog()
+                            {
+                                StaffID = idwEnrollNumber,
+                                StaffName = string.Empty,
+                                ReaderID = Parameter.ID,
+                                ReaderName = Parameter.Name,
+                                ReadDateTime = dt,
+                            };
+                            logs.Add(log);
+                        }
+                    }
+                }
+                else
+                {
+                    axCZKEM1.GetLastError(ref idwErrorCode);
+
+                    if (idwErrorCode != 0)
+                    {
+                        LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "获取考勤记录失败，ErrorCode=" + idwErrorCode.ToString());
+                    }
+                    else
+                    {
+                        LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "无考勤记录，ErrorCode=" + idwErrorCode.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                axCZKEM1.EnableDevice(iMachineNumber, true);//enable the device
+            }
+            return logs;
         }
+
         /// <summary>
         /// 保存用户
         /// </summary>

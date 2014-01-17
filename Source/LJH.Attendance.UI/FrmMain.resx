@@ -562,7 +562,7 @@
     <value>60, 61</value>
   </data>
   <data name="btnAttendanceLog.Text" xml:space="preserve">
-    <value>原始考勤</value>
+    <value>打卡记录</value>
   </data>
   <data name="btnAttendanceLog.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
