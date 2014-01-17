@@ -3068,6 +3068,13 @@
             获取或设置两条指令下发间隔(ms)
             </summary>
         </member>
+        <member name="M:LJH.GeneralLibrary.DecimalHelper.Trim(System.Decimal)">
+            <summary>
+            去掉实数小数点后不必要的0,比如12.500 会变成12.5,12.00会变成12等
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
         <member name="T:LJH.GeneralLibrary.CardReader.CardOperationResultCode">
             <summary>
             卡片操作结果代码枚举
@@ -3113,12 +3120,133 @@
             初始化密钥失败
             </summary>
         </member>
-        <member name="M:LJH.GeneralLibrary.DecimalHelper.Trim(System.Decimal)">
+        <member name="T:LJH.GeneralLibrary.SQLHelper.SqlClient">
             <summary>
-            去掉实数小数点后不必要的0,比如12.500 会变成12.5,12.00会变成12等
+            SQL客户端
             </summary>
-            <param name="d"></param>
+        </member>
+        <member name="M:LJH.GeneralLibrary.SQLHelper.SqlClient.Connect">
+            <summary>
+            连接SQL服务器
+            </summary>
+            <param name="connStr">连接字符串</param>
             <returns></returns>
+        </member>
+        <member name="M:LJH.GeneralLibrary.SQLHelper.SqlClient.ChangeDataBase(System.String)">
+            <summary>
+            改变当前连接的数据库
+            </summary>
+            <param name="newDateBase"></param>
+        </member>
+        <member name="M:LJH.GeneralLibrary.SQLHelper.SqlClient.GetAllDataBase">
+            <summary>
+            获取所有数据库名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LJH.GeneralLibrary.SQLHelper.SqlClient.GetDefaultDataBasePath">
+            <summary>
+            获取数据库默认的路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LJH.GeneralLibrary.SQLHelper.SqlClient.CreateDataBase(System.String,System.String,System.String,System.String)">
+            <summary>
+            创建数据库,不成功的话返回原因,成功返回空
+            </summary>
+            <param name="name">创建的数据库名称</param>
+            <param name="sqlFile">创建数据库的脚本文件</param>
+            <param name="dataFile">创建的数据库的数据文件路径</param>
+            <param name="logFile">创建的数据库的日志文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LJH.GeneralLibrary.SQLHelper.SqlClient.ExecuteSQLFile(System.String)">
+            <summary>
+            执行文件中的所有语句
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LJH.GeneralLibrary.SQLHelper.SqlClient.BackupDataBase(System.String,System.String)">
+            <summary>
+            备份数据库
+            </summary>
+            <param name="name"></param>
+            <param name="bakFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LJH.GeneralLibrary.SQLHelper.SqlClient.RestoreDataBase(System.String,System.String)">
+            <summary>
+            还原数据库
+            </summary>
+            <param name="name"></param>
+            <param name="bakFile"></param>
+            <returns></returns>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.SqlClient.DataBase">
+            <summary>
+            获取当前连接的数据库
+            </summary>
+        </member>
+        <member name="T:LJH.GeneralLibrary.SQLHelper.InitialCatalog">
+            <summary>
+            表示一个数据库
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.DatabaseObject.ID">
+            <summary>
+            ID号
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.DatabaseObject.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.InitialCatalog.IsUserDatabase">
+            <summary>
+            是否是系统数据库
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.InitialCatalog.Tables">
+            <summary>
+            数据库的所有表
+            </summary>
+        </member>
+        <member name="T:LJH.GeneralLibrary.SQLHelper.DatabaseTable">
+            <summary>
+            表示一个数据表
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.DatabaseTable.IsUserTable">
+            <summary>
+            是否是用户自建的表,否则是系统创建的表
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.DatabaseTable.Columns">
+            <summary>
+            表的所有列
+            </summary>
+        </member>
+        <member name="T:LJH.GeneralLibrary.SQLHelper.DatabaseColumn">
+            <summary>
+            表示数据表的一个例
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.DatabaseColumn.IsPrimaryKey">
+            <summary>
+            是否是主键
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.DatabaseColumn.DBType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:LJH.GeneralLibrary.SQLHelper.DatabaseColumn.CanBeNull">
+            <summary>
+            是否可空
+            </summary>
         </member>
     </members>
 </doc>

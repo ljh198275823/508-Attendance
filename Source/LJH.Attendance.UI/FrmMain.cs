@@ -9,8 +9,8 @@ using System.Windows.Forms;
 using LJH.GeneralLibrary.SoftDog;
 using LJH.Attendance.BLL;
 using LJH.Attendance.Model;
-using SqlClientHelper;
 using LJH.Attendance.Model.SearchCondition;
+using LJH.GeneralLibrary.SQLHelper;
 
 namespace LJH.Attendance.UI
 {
@@ -379,7 +379,7 @@ namespace LJH.Attendance.UI
                 {
                     try
                     {
-                        SqlClientHelper.SqlClient client = new SqlClientHelper.SqlClient(AppSettings.CurrentSetting.ConnectString);
+                        SqlClient client = new SqlClient(AppSettings.CurrentSetting.ConnectString);
                         client.Connect();
                         client.ExecuteSQLFile(path);
                         MessageBox.Show("数据库升级成功!");

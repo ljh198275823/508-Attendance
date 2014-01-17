@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LJH.Attendance.Model;
+using LJH.GeneralLibrary.SQLHelper;
 
 namespace LJH.Attendance.BLL
 {
@@ -16,7 +17,7 @@ namespace LJH.Attendance.BLL
             bool ret = false;
             try
             {
-                SqlClientHelper.SqlClient client = new SqlClientHelper.SqlClient(repoUri);
+                SqlClient client = new SqlClient(repoUri);
                 client.Connect();
                 client.ExecuteSQLFile(path);
                 ret = true;

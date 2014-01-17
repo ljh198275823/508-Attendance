@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LJH.Attendance.Model;
+using LJH.GeneralLibrary.SQLHelper;
 
 namespace LJH.Attendance.UI
 {
@@ -21,7 +22,7 @@ namespace LJH.Attendance.UI
         private string _BakPath;
         private string _Message;
 
-        private SqlClientHelper.SqlClient _DBClient = new SqlClientHelper.SqlClient(AppSettings.CurrentSetting.ConnectString);
+        private SqlClient _DBClient = new SqlClient(AppSettings.CurrentSetting.ConnectString);
 
         private bool CheckInput()
         {
