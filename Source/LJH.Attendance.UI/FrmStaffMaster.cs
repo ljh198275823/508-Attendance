@@ -131,16 +131,19 @@ namespace LJH.Attendance.UI
 
         private void GridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left && e.ColumnIndex == 0 && e.RowIndex >= 0) //按住网格第一列时才可以拖动
+            if (Operator.CurrentOperator.Permit(Permission.EditStaff))  //是否有编辑员工信息的权限
             {
-                List<Staff> staff = new List<Staff>();
-                foreach (DataGridViewRow row in GridView.SelectedRows)
+                if (e.Button == MouseButtons.Left && e.ColumnIndex == 0 && e.RowIndex >= 0) //按住网格第一列时才可以拖动
                 {
-                    if (row.Tag != null) staff.Add(row.Tag as Staff);
-                }
-                if (staff.Count > 0)
-                {
-                    GridView.DoDragDrop((object)staff, DragDropEffects.Copy | DragDropEffects.Move);
+                    List<Staff> staff = new List<Staff>();
+                    foreach (DataGridViewRow row in GridView.SelectedRows)
+                    {
+                        if (row.Tag != null) staff.Add(row.Tag as Staff);
+                    }
+                    if (staff.Count > 0)
+                    {
+                        GridView.DoDragDrop((object)staff, DragDropEffects.Copy | DragDropEffects.Move);
+                    }
                 }
             }
         }

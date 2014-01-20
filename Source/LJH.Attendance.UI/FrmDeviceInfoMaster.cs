@@ -21,14 +21,19 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
-        #region 私有变量
-
+        #region 私有方法
+        private void ShowOperatorRights()
+        {
+            Operator opt = Operator.CurrentOperator;
+            if (opt == null) return;
+        }
         #endregion
 
         #region 事件处理程序
         private void FrmDeviceInfoMaster_Load(object sender, EventArgs e)
         {
             deviceTree1.Init();
+            ShowOperatorRights();
         }
 
         private void deviceTree1_MouseDown(object sender, MouseEventArgs e)
@@ -52,7 +57,7 @@ namespace LJH.Attendance.UI
             }
             else if (e.Button == MouseButtons.Left)
             {
-                if (node != null && node.Tag is DeviceInfo)
+                if (node != null && node.Tag is DeviceInfo && Operator.CurrentOperator.Permit(Permission.EditAttendanceDevice))
                 {
                     deviceTree1.DoDragDrop(node, DragDropEffects.Copy | DragDropEffects.Move);
                 }

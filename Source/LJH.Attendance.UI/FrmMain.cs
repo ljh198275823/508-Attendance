@@ -106,6 +106,9 @@ namespace LJH.Attendance.UI
             btnAttendanceDevice.Enabled = opt.Permit(Permission.SelectAttendanceReader);
             mnu_Options.Enabled = opt.Permit(Permission.ReadOptions) || opt.Permit(Permission.EditOptions);
             mnu_StaffCategory.Enabled = opt.Permit(Permission.ReadStaffCategory) || opt.Permit(Permission.EditStaffCategory);
+            mnu_AttendanceDevice.Enabled = opt.Permit(Permission.ReadAttendanceDevice) || opt.Permit(Permission.EditAttendanceDevice);
+            btnAttendanceDevice.Enabled = opt.Permit(Permission.ReadAttendanceDevice) || opt.Permit(Permission.EditAttendanceDevice);
+
             //考勤管理
             mnu_Shifts.Enabled = opt.Permit(Permission.ReadShift) || opt.Permit(Permission.EditShift);
             btnShift.Enabled = opt.Permit(Permission.ReadShift) || opt.Permit(Permission.EditShift);
