@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using LJH.GeneralLibrary.SoftDog;
 using LJH.Attendance.BLL;
 using LJH.Attendance.Model;
-using SqlClientHelper;
 using LJH.Attendance.Model.SearchCondition;
 
 namespace LJH.Attendance.UI
@@ -356,29 +355,6 @@ namespace LJH.Attendance.UI
         {
             FrmBackUp frm = new FrmBackUp();
             frm.ShowDialog();
-        }
-
-        private void mnu_UpdateDB_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("是否要升级数据库?", "询问", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                string path = System.IO.Path.Combine(Application.StartupPath, "DbUpdate.sql");
-                if (System.IO.File.Exists(path))
-                {
-                    try
-                    {
-                        SqlClientHelper.SqlClient client = new SqlClientHelper.SqlClient(AppSettings.CurrentSetting.ConnectString);
-                        client.Connect();
-                        client.ExecuteSQLFile(path);
-                        MessageBox.Show("数据库升级成功!");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
-                    }
-                }
-            }
         }
 
         private void mnu_StaffCategory_Click(object sender, EventArgs e)
