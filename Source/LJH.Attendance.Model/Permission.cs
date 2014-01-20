@@ -116,6 +116,16 @@ namespace LJH.Attendance.Model
         /// </summary>
         [OperatorRight(Catalog = "基本资料", Description = "编辑设备信息")]
         EditAttendanceDevice = 21,
+        /// <summary>
+        /// 查看人员类别
+        /// </summary>
+        [OperatorRight(Catalog = "基本资料", Description = "查看设备组")]
+        ReadDeviceGroup = 22,
+        /// <summary>
+        /// 编辑人员类别
+        /// </summary>
+        [OperatorRight(Catalog = "基本资料", Description = "编辑设备组")]
+        EditDeviceGroup = 23,
         #endregion
 
         #region 考勤管理 100-199

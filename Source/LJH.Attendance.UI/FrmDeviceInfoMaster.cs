@@ -26,6 +26,17 @@ namespace LJH.Attendance.UI
         {
             Operator opt = Operator.CurrentOperator;
             if (opt == null) return;
+            menu.Items["btn_Add"].Enabled = Operator.CurrentOperator.Permit(Permission.EditAttendanceDevice);
+            menu.Items["btn_Delete"].Enabled = Operator.CurrentOperator.Permit(Permission.EditAttendanceDevice);
+
+            mnu_AddDevice1.Enabled = Operator.CurrentOperator.Permit(Permission.EditAttendanceDevice);
+            mnu_AddGroup1.Enabled = Operator.CurrentOperator.Permit(Permission.EditDeviceGroup);
+
+            mnu_AddGroup2.Enabled = Operator.CurrentOperator.Permit(Permission.EditDeviceGroup);
+            mnu_AddDevice2.Enabled = Operator.CurrentOperator.Permit(Permission.EditAttendanceDevice);
+            mnu_Rename2.Enabled = Operator.CurrentOperator.Permit(Permission.EditDeviceGroup);
+            mnu_Delete2.Enabled = Operator.CurrentOperator.Permit(Permission.EditDeviceGroup);
+            
         }
         #endregion
 

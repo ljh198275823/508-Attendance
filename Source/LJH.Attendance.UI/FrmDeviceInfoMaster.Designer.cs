@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnu_AddGroup = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_AddDevice = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_AddGroup2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_AddDevice2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Fresh = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_Rename = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Rename2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_Property = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Delete2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Property2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,8 +50,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.deviceTree1 = new LJH.Attendance.UI.Controls.DeviceTree(this.components);
             this.rootMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_AddGroup1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_AddDevice1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Fresh1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deviceMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_UploadAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,62 +81,62 @@
             // groupMenu
             // 
             this.groupMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnu_AddGroup,
-            this.mnu_AddDevice,
+            this.mnu_AddGroup2,
+            this.mnu_AddDevice2,
             this.mnu_Fresh,
-            this.mnu_Rename,
+            this.mnu_Rename2,
             this.toolStripSeparator3,
-            this.mnu_Delete,
-            this.mnu_Property});
+            this.mnu_Delete2,
+            this.mnu_Property2});
             this.groupMenu.Name = "contextMenuStrip2";
-            this.groupMenu.Size = new System.Drawing.Size(137, 142);
+            this.groupMenu.Size = new System.Drawing.Size(153, 164);
             // 
-            // mnu_AddGroup
+            // mnu_AddGroup2
             // 
-            this.mnu_AddGroup.Name = "mnu_AddGroup";
-            this.mnu_AddGroup.Size = new System.Drawing.Size(136, 22);
-            this.mnu_AddGroup.Text = "增加设备组";
-            this.mnu_AddGroup.Click += new System.EventHandler(this.mnu_AddGroup_Click);
+            this.mnu_AddGroup2.Name = "mnu_AddGroup2";
+            this.mnu_AddGroup2.Size = new System.Drawing.Size(152, 22);
+            this.mnu_AddGroup2.Text = "增加设备组";
+            this.mnu_AddGroup2.Click += new System.EventHandler(this.mnu_AddGroup_Click);
             // 
-            // mnu_AddDevice
+            // mnu_AddDevice2
             // 
-            this.mnu_AddDevice.Name = "mnu_AddDevice";
-            this.mnu_AddDevice.Size = new System.Drawing.Size(136, 22);
-            this.mnu_AddDevice.Text = "增加设备";
-            this.mnu_AddDevice.Click += new System.EventHandler(this.mnu_AddDevice_Click);
+            this.mnu_AddDevice2.Name = "mnu_AddDevice2";
+            this.mnu_AddDevice2.Size = new System.Drawing.Size(152, 22);
+            this.mnu_AddDevice2.Text = "增加设备";
+            this.mnu_AddDevice2.Click += new System.EventHandler(this.mnu_AddDevice_Click);
             // 
             // mnu_Fresh
             // 
             this.mnu_Fresh.Name = "mnu_Fresh";
-            this.mnu_Fresh.Size = new System.Drawing.Size(136, 22);
+            this.mnu_Fresh.Size = new System.Drawing.Size(152, 22);
             this.mnu_Fresh.Text = "刷新";
             this.mnu_Fresh.Click += new System.EventHandler(this.mnu_Fresh_Click);
             // 
-            // mnu_Rename
+            // mnu_Rename2
             // 
-            this.mnu_Rename.Name = "mnu_Rename";
-            this.mnu_Rename.Size = new System.Drawing.Size(136, 22);
-            this.mnu_Rename.Text = "重命名";
-            this.mnu_Rename.Click += new System.EventHandler(this.mnu_Rename_Click);
+            this.mnu_Rename2.Name = "mnu_Rename2";
+            this.mnu_Rename2.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Rename2.Text = "重命名";
+            this.mnu_Rename2.Click += new System.EventHandler(this.mnu_Rename_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
-            // mnu_Delete
+            // mnu_Delete2
             // 
-            this.mnu_Delete.Name = "mnu_Delete";
-            this.mnu_Delete.Size = new System.Drawing.Size(136, 22);
-            this.mnu_Delete.Text = "删除";
-            this.mnu_Delete.Click += new System.EventHandler(this.mnu_Delete_Click);
+            this.mnu_Delete2.Name = "mnu_Delete2";
+            this.mnu_Delete2.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Delete2.Text = "删除";
+            this.mnu_Delete2.Click += new System.EventHandler(this.mnu_Delete_Click);
             // 
-            // mnu_Property
+            // mnu_Property2
             // 
-            this.mnu_Property.Name = "mnu_Property";
-            this.mnu_Property.Size = new System.Drawing.Size(136, 22);
-            this.mnu_Property.Text = "属性";
-            this.mnu_Property.Click += new System.EventHandler(this.mnu_Property_Click);
+            this.mnu_Property2.Name = "mnu_Property2";
+            this.mnu_Property2.Size = new System.Drawing.Size(152, 22);
+            this.mnu_Property2.Text = "属性";
+            this.mnu_Property2.Click += new System.EventHandler(this.mnu_Property_Click);
             // 
             // btn_Add
             // 
@@ -254,25 +254,25 @@
             // rootMenu
             // 
             this.rootMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
+            this.mnu_AddGroup1,
+            this.mnu_AddDevice1,
             this.mnu_Fresh1});
             this.rootMenu.Name = "rootMenu";
             this.rootMenu.Size = new System.Drawing.Size(137, 70);
             // 
-            // toolStripMenuItem1
+            // mnu_AddGroup1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMenuItem1.Text = "增加设备组";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.mnu_AddGroup_Click);
+            this.mnu_AddGroup1.Name = "mnu_AddGroup1";
+            this.mnu_AddGroup1.Size = new System.Drawing.Size(136, 22);
+            this.mnu_AddGroup1.Text = "增加设备组";
+            this.mnu_AddGroup1.Click += new System.EventHandler(this.mnu_AddGroup_Click);
             // 
-            // toolStripMenuItem2
+            // mnu_AddDevice1
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMenuItem2.Text = "增加设备";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.mnu_AddDevice_Click);
+            this.mnu_AddDevice1.Name = "mnu_AddDevice1";
+            this.mnu_AddDevice1.Size = new System.Drawing.Size(136, 22);
+            this.mnu_AddDevice1.Text = "增加设备";
+            this.mnu_AddDevice1.Click += new System.EventHandler(this.mnu_AddDevice_Click);
             // 
             // mnu_Fresh1
             // 
@@ -412,7 +412,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(495, 110);
+            this.tabPage2.Size = new System.Drawing.Size(495, 160);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "报警信息";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -451,10 +451,10 @@
         #endregion
 
         private System.Windows.Forms.ContextMenuStrip groupMenu;
-        private System.Windows.Forms.ToolStripMenuItem mnu_AddGroup;
-        private System.Windows.Forms.ToolStripMenuItem mnu_AddDevice;
-        private System.Windows.Forms.ToolStripMenuItem mnu_Delete;
-        private System.Windows.Forms.ToolStripMenuItem mnu_Property;
+        private System.Windows.Forms.ToolStripMenuItem mnu_AddGroup2;
+        private System.Windows.Forms.ToolStripMenuItem mnu_AddDevice2;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Delete2;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Property2;
         private System.Windows.Forms.ToolStripMenuItem mnu_Fresh;
         private System.Windows.Forms.ToolStripMenuItem btn_Add;
         private System.Windows.Forms.ToolStripMenuItem btn_Delete;
@@ -468,7 +468,7 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel1;
         private Controls.DeviceTree deviceTree1;
-        private System.Windows.Forms.ToolStripMenuItem mnu_Rename;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Rename2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ContextMenuStrip rootMenu;
         private System.Windows.Forms.ToolStripMenuItem mnu_Fresh1;
@@ -482,8 +482,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnu_Upload;
         private System.Windows.Forms.ToolStripMenuItem mnu_GetAttendanceLog;
         private System.Windows.Forms.ToolStripMenuItem mnu_SyncTime;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem mnu_AddGroup1;
+        private System.Windows.Forms.ToolStripMenuItem mnu_AddDevice1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Panel panel3;
