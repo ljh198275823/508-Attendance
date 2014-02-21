@@ -1,6 +1,6 @@
 ﻿namespace LJH.Attendance.UI
 {
-    partial class FrmShiftResultDetail_Old
+    partial class FrmShiftResultMaster
     {
         /// <summary>
         /// Required designer variable.

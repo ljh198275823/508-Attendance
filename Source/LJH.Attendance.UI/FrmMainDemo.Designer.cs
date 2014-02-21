@@ -90,6 +90,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblOperator = new System.Windows.Forms.ToolStripStatusLabel();
             this.ucFormViewMain = new LJH.GeneralLibrary.WinformControl.UCFormView();
+            this.mnu_ShiftResultMaster = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -314,6 +315,7 @@
             this.mnu_ShiftResultStatistics,
             this.mnu_ShiftResultStatistics2,
             this.mnu_ResultDetail,
+            this.mnu_ShiftResultMaster,
             this.toolStripSeparator3,
             this.mnu_AttendanceLogReport});
             this.报表ToolStripMenuItem.Name = "报表ToolStripMenuItem";
@@ -523,6 +525,12 @@
             this.ucFormViewMain.FormHeaderLength = 135;
             this.ucFormViewMain.Name = "ucFormViewMain";
             // 
+            // mnu_ShiftResultMaster
+            // 
+            this.mnu_ShiftResultMaster.Name = "mnu_ShiftResultMaster";
+            resources.ApplyResources(this.mnu_ShiftResultMaster, "mnu_ShiftResultMaster");
+            this.mnu_ShiftResultMaster.Click += new System.EventHandler(this.mnu_ShiftResultMaster_Click);
+            // 
             // FrmMainDemo
             // 
             resources.ApplyResources(this, "$this");
@@ -610,6 +618,7 @@
         private GeneralLibrary.WinformControl.UCFormView ucFormViewMain;
         private System.Windows.Forms.ToolStripButton btnShiftTemplate;
         private System.Windows.Forms.ToolStripMenuItem mnu_StaffCategory;
+        private System.Windows.Forms.ToolStripMenuItem mnu_ShiftResultMaster;
 
     }
 }

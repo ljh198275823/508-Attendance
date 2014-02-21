@@ -13,9 +13,9 @@ using LJH.Attendance.BLL;
 
 namespace LJH.Attendance.UI
 {
-    public partial class FrmShiftResultDetail_Old : FrmMasterBase
+    public partial class FrmShiftResultMaster : FrmMasterBase
     {
-        public FrmShiftResultDetail_Old()
+        public FrmShiftResultMaster()
         {
             InitializeComponent();
         }

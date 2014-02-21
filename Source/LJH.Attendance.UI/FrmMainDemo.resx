@@ -309,7 +309,13 @@
     <value>172, 22</value>
   </data>
   <data name="mnu_ResultDetail.Text" xml:space="preserve">
-    <value>日考勤明细表</value>
+    <value>日考勤统计</value>
+  </data>
+  <data name="mnu_ShiftResultMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="mnu_ShiftResultMaster.Text" xml:space="preserve">
+    <value>考勤结果明细</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 6</value>
@@ -3432,6 +3438,12 @@
   </data>
   <data name="&gt;&gt;lblOperator.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnu_ShiftResultMaster.Name" xml:space="preserve">
+    <value>mnu_ShiftResultMaster</value>
+  </data>
+  <data name="&gt;&gt;mnu_ShiftResultMaster.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMainDemo</value>

@@ -373,5 +373,10 @@ namespace LJH.Attendance.UI
                 if (result != DialogResult.OK) e.Cancel = true;
             }
         }
+
+        private void mnu_ShiftResultMaster_Click(object sender, EventArgs e)
+        {
+            ShowSingleForm<FrmShiftResultMaster>();
+        }
     }
 }
