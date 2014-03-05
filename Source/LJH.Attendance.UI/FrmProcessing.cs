@@ -16,6 +16,8 @@ namespace LJH.Attendance.UI
             InitializeComponent();
         }
 
+        private DateTime _dt = DateTime.Now;
+
         public void ShowProgress(string message, decimal completeRation)
         {
             try
@@ -45,12 +47,25 @@ namespace LJH.Attendance.UI
 
         private void FrmProcessing_Load(object sender, EventArgs e)
         {
-
+            this.timer1.Interval = 1000;
+            this.timer1.Enabled = true;
+            _dt = DateTime.Now;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimeSpan ts = new TimeSpan(DateTime.Now.Ticks - _dt.Ticks);
+            this.Text = string.Format("用时 {0}分{1}秒", (int)(ts.TotalSeconds / 60), (int)(ts.TotalSeconds % 60));
+        }
+
+        private void FrmProcessing_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.timer1.Enabled = false;
         }
     }
 }

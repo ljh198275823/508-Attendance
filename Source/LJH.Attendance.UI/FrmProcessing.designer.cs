@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new LJH.GeneralLibrary.WinformControl.PercentageProgressBar(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnCancel
@@ -76,6 +77,10 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmProcessing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -94,6 +99,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "进度控制";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmProcessing_FormClosed);
             this.Load += new System.EventHandler(this.FrmProcessing_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -106,5 +112,6 @@
         private System.Windows.Forms.Label label1;
         private LJH.GeneralLibrary.WinformControl.PercentageProgressBar progressBar1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
