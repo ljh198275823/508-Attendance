@@ -23,19 +23,21 @@ namespace LJH.Attendance.UI
         private void SystemOptions_Load(object sender, EventArgs e)
         {
             this.btnOk.Enabled = Operator.CurrentOperator.Permit(Permission.EditOptions);
+
+            this.chkAutoCreate.Checked = AppSettings.CurrentSetting.AutoGenerateResult;
+            MyTime mt = AppSettings.CurrentSetting.AutoGenerateTime;
+            if (mt != null)
+            {
+                dtAutoGenerateResultTime.Value = new DateTime(2011, 1, 1, mt.Hour, mt.Minute, mt.Second);
+            }
+            this.btnOk.Enabled = Operator.CurrentOperator.Permit(Permission.EditOptions);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            CommandResult ret = (new ParameterBLL(AppSettings.CurrentSetting.ConnectString)).Save<SystemOptions>(SystemOptions.Current);
-            if (ret.Result != ResultCode.Successful)
-            {
-                MessageBox.Show(ret.Message);
-            }
-            else
-            {
-                this.DialogResult = DialogResult.OK;
-            }
+            AppSettings.CurrentSetting.AutoGenerateResult = chkAutoCreate.Checked;
+            AppSettings.CurrentSetting.AutoGenerateTime = new MyTime(dtAutoGenerateResultTime.Value.Hour, dtAutoGenerateResultTime.Value.Minute, 0);
+            this.DialogResult = DialogResult.OK;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -43,9 +45,5 @@ namespace LJH.Attendance.UI
             this.Close();
         }
         #endregion
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-                    }
     }
 }

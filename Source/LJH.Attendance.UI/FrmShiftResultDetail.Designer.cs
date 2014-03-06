@@ -28,355 +28,232 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.重新生成结果ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.查看所有刷卡记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.btnFresh = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ucDateTimeInterval1 = new LJH.Attendance.UI.UCDateTimeInterval();
-            this.plnLeft = new System.Windows.Forms.Panel();
-            this.departmentTreeview1 = new LJH.Attendance.UI.DepartmentTreeview(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.menu = new System.Windows.Forms.MenuStrip();
-            this.btn_Export = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_SelectColumns = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
-            this.GridView = new System.Windows.Forms.DataGridView();
-            this.colDept = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftDuty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOnduty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftDuty2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOnduty2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftDuty3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOnduty3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShiftTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPresent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBelateCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLeaveEarlyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colForgetCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.plnLeft.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDept = new System.Windows.Forms.TextBox();
+            this.txtCertificate = new System.Windows.Forms.TextBox();
+            this.txtShiftTime = new System.Windows.Forms.TextBox();
+            this.txtRealTime = new System.Windows.Forms.TextBox();
+            this.cmbShiftResult = new System.Windows.Forms.ComboBox();
+            this.txtOperator = new System.Windows.Forms.TextBox();
+            this.txtMemo = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtShiftDate = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // 重新生成结果ToolStripMenuItem
+            // btnOk
             // 
-            this.重新生成结果ToolStripMenuItem.Name = "重新生成结果ToolStripMenuItem";
-            this.重新生成结果ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.重新生成结果ToolStripMenuItem.Text = "重新生成结果";
+            this.btnOk.Location = new System.Drawing.Point(246, 264);
             // 
-            // 查看所有刷卡记录ToolStripMenuItem
+            // btnClose
             // 
-            this.查看所有刷卡记录ToolStripMenuItem.Name = "查看所有刷卡记录ToolStripMenuItem";
-            this.查看所有刷卡记录ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.查看所有刷卡记录ToolStripMenuItem.Text = "查看所有刷卡记录";
+            this.btnClose.Location = new System.Drawing.Point(339, 264);
             // 
-            // mnu_SelectColumns
+            // label1
             // 
-            this.mnu_SelectColumns.Name = "mnu_SelectColumns";
-            this.mnu_SelectColumns.Size = new System.Drawing.Size(166, 22);
-            this.mnu_SelectColumns.Text = "选择列";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "部门";
             // 
-            // contextMenuStrip2
+            // label2
             // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnu_SelectColumns,
-            this.查看所有刷卡记录ToolStripMenuItem,
-            this.重新生成结果ToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(167, 70);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "员工编号";
             // 
-            // splitter1
+            // label3
             // 
-            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.splitter1.Location = new System.Drawing.Point(324, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(6, 323);
-            this.splitter1.TabIndex = 21;
-            this.splitter1.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "应上下班时间";
             // 
-            // btnFresh
+            // label5
             // 
-            this.btnFresh.Location = new System.Drawing.Point(244, 13);
-            this.btnFresh.Name = "btnFresh";
-            this.btnFresh.Size = new System.Drawing.Size(75, 67);
-            this.btnFresh.TabIndex = 1;
-            this.btnFresh.Text = "刷新(&F)";
-            this.btnFresh.UseVisualStyleBackColor = true;
-            this.btnFresh.Click += new System.EventHandler(this.btnFresh_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(223, 133);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 12);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "实上下班时间";
             // 
-            // groupBox1
+            // label6
             // 
-            this.groupBox1.Controls.Add(this.ucDateTimeInterval1);
-            this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(233, 76);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "排班日期";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 172);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "考勤结果";
             // 
-            // ucDateTimeInterval1
+            // label7
             // 
-            this.ucDateTimeInterval1.EndDateTime = new System.DateTime(2013, 9, 10, 7, 36, 20, 189);
-            this.ucDateTimeInterval1.Location = new System.Drawing.Point(9, 14);
-            this.ucDateTimeInterval1.Name = "ucDateTimeInterval1";
-            this.ucDateTimeInterval1.Size = new System.Drawing.Size(215, 56);
-            this.ucDateTimeInterval1.StartDateTime = new System.DateTime(2013, 9, 10, 7, 36, 20, 192);
-            this.ucDateTimeInterval1.TabIndex = 0;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(223, 172);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 12);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "上次修改操作员";
             // 
-            // plnLeft
+            // label8
             // 
-            this.plnLeft.Controls.Add(this.departmentTreeview1);
-            this.plnLeft.Controls.Add(this.panel2);
-            this.plnLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.plnLeft.Location = new System.Drawing.Point(0, 0);
-            this.plnLeft.Name = "plnLeft";
-            this.plnLeft.Size = new System.Drawing.Size(324, 323);
-            this.plnLeft.TabIndex = 20;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 213);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "备注";
             // 
-            // departmentTreeview1
+            // txtDept
             // 
-            this.departmentTreeview1.CheckBoxes = true;
-            this.departmentTreeview1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.departmentTreeview1.LoadUser = false;
-            this.departmentTreeview1.Location = new System.Drawing.Point(0, 86);
-            this.departmentTreeview1.Name = "departmentTreeview1";
-            this.departmentTreeview1.OnlyShowCurrentOperatorDepts = false;
-            this.departmentTreeview1.ShowResigedStaff = false;
-            this.departmentTreeview1.Size = new System.Drawing.Size(324, 237);
-            this.departmentTreeview1.TabIndex = 3;
+            this.txtDept.Enabled = false;
+            this.txtDept.Location = new System.Drawing.Point(13, 29);
+            this.txtDept.Name = "txtDept";
+            this.txtDept.Size = new System.Drawing.Size(191, 21);
+            this.txtDept.TabIndex = 10;
             // 
-            // panel2
+            // txtCertificate
             // 
-            this.panel2.Controls.Add(this.btnFresh);
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(324, 86);
-            this.panel2.TabIndex = 2;
+            this.txtCertificate.Enabled = false;
+            this.txtCertificate.Location = new System.Drawing.Point(13, 68);
+            this.txtCertificate.Name = "txtCertificate";
+            this.txtCertificate.Size = new System.Drawing.Size(191, 21);
+            this.txtCertificate.TabIndex = 12;
             // 
-            // menu
+            // txtShiftTime
             // 
-            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Export,
-            this.btn_SelectColumns,
-            this.toolStripSeparator1,
-            this.txtKeyword});
-            this.menu.Location = new System.Drawing.Point(330, 0);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(856, 45);
-            this.menu.TabIndex = 57;
+            this.txtShiftTime.Enabled = false;
+            this.txtShiftTime.Location = new System.Drawing.Point(13, 148);
+            this.txtShiftTime.Name = "txtShiftTime";
+            this.txtShiftTime.Size = new System.Drawing.Size(191, 21);
+            this.txtShiftTime.TabIndex = 13;
             // 
-            // btn_Export
+            // txtRealTime
             // 
-            this.btn_Export.Image = global::LJH.Attendance.UI.Properties.Resources.export;
-            this.btn_Export.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(59, 41);
-            this.btn_Export.Text = "导出(&E)";
-            this.btn_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.txtRealTime.Enabled = false;
+            this.txtRealTime.Location = new System.Drawing.Point(223, 148);
+            this.txtRealTime.Name = "txtRealTime";
+            this.txtRealTime.Size = new System.Drawing.Size(191, 21);
+            this.txtRealTime.TabIndex = 14;
             // 
-            // btn_SelectColumns
+            // cmbShiftResult
             // 
-            this.btn_SelectColumns.Image = global::LJH.Attendance.UI.Properties.Resources.columns;
-            this.btn_SelectColumns.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_SelectColumns.Name = "btn_SelectColumns";
-            this.btn_SelectColumns.Size = new System.Drawing.Size(70, 41);
-            this.btn_SelectColumns.Text = "选择列(&L)";
-            this.btn_SelectColumns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.cmbShiftResult.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbShiftResult.FormattingEnabled = true;
+            this.cmbShiftResult.Location = new System.Drawing.Point(13, 187);
+            this.cmbShiftResult.Name = "cmbShiftResult";
+            this.cmbShiftResult.Size = new System.Drawing.Size(191, 20);
+            this.cmbShiftResult.TabIndex = 15;
             // 
-            // toolStripSeparator1
+            // txtOperator
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            this.txtOperator.Enabled = false;
+            this.txtOperator.Location = new System.Drawing.Point(223, 187);
+            this.txtOperator.Name = "txtOperator";
+            this.txtOperator.Size = new System.Drawing.Size(191, 21);
+            this.txtOperator.TabIndex = 16;
             // 
-            // txtKeyword
+            // txtMemo
             // 
-            this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(200, 41);
+            this.txtMemo.Location = new System.Drawing.Point(13, 229);
+            this.txtMemo.Name = "txtMemo";
+            this.txtMemo.Size = new System.Drawing.Size(401, 21);
+            this.txtMemo.TabIndex = 17;
             // 
-            // GridView
+            // txtName
             // 
-            this.GridView.AllowUserToAddRows = false;
-            this.GridView.AllowUserToDeleteRows = false;
-            this.GridView.AllowUserToResizeRows = false;
-            this.GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colDept,
-            this.colStaff,
-            this.colShiftDate,
-            this.colShift,
-            this.colShiftDuty1,
-            this.colOnduty1,
-            this.colShiftDuty2,
-            this.colOnduty2,
-            this.colShiftDuty3,
-            this.colOnduty3,
-            this.colShiftTime,
-            this.colPresent,
-            this.colBelateCount,
-            this.colLeaveEarlyCount,
-            this.colForgetCount});
-            this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridView.Location = new System.Drawing.Point(330, 45);
-            this.GridView.Name = "GridView";
-            this.GridView.RowHeadersVisible = false;
-            this.GridView.RowTemplate.Height = 23;
-            this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.GridView.Size = new System.Drawing.Size(856, 278);
-            this.GridView.TabIndex = 58;
+            this.txtName.Enabled = false;
+            this.txtName.Location = new System.Drawing.Point(223, 68);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(191, 21);
+            this.txtName.TabIndex = 19;
             // 
-            // colDept
+            // label9
             // 
-            this.colDept.HeaderText = "部门";
-            this.colDept.Name = "colDept";
-            this.colDept.ReadOnly = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(223, 53);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 12);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "员工姓名";
             // 
-            // colStaff
+            // txtShiftDate
             // 
-            this.colStaff.HeaderText = "人员";
-            this.colStaff.Name = "colStaff";
-            this.colStaff.ReadOnly = true;
+            this.txtShiftDate.Enabled = false;
+            this.txtShiftDate.Location = new System.Drawing.Point(14, 107);
+            this.txtShiftDate.Name = "txtShiftDate";
+            this.txtShiftDate.Size = new System.Drawing.Size(191, 21);
+            this.txtShiftDate.TabIndex = 22;
             // 
-            // colShiftDate
+            // label11
             // 
-            this.colShiftDate.HeaderText = "日期";
-            this.colShiftDate.Name = "colShiftDate";
-            this.colShiftDate.ReadOnly = true;
-            this.colShiftDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftDate.Width = 130;
-            // 
-            // colShift
-            // 
-            this.colShift.HeaderText = "班次";
-            this.colShift.Name = "colShift";
-            this.colShift.ReadOnly = true;
-            this.colShift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShift.Width = 60;
-            // 
-            // colShiftDuty1
-            // 
-            this.colShiftDuty1.HeaderText = "应上下班1";
-            this.colShiftDuty1.Name = "colShiftDuty1";
-            this.colShiftDuty1.ReadOnly = true;
-            this.colShiftDuty1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftDuty1.Width = 80;
-            // 
-            // colOnduty1
-            // 
-            this.colOnduty1.HeaderText = "实上下班1";
-            this.colOnduty1.Name = "colOnduty1";
-            this.colOnduty1.ReadOnly = true;
-            this.colOnduty1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colOnduty1.Width = 80;
-            // 
-            // colShiftDuty2
-            // 
-            this.colShiftDuty2.HeaderText = "应上下班2";
-            this.colShiftDuty2.Name = "colShiftDuty2";
-            this.colShiftDuty2.ReadOnly = true;
-            this.colShiftDuty2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftDuty2.Width = 80;
-            // 
-            // colOnduty2
-            // 
-            this.colOnduty2.HeaderText = "实上下班2";
-            this.colOnduty2.Name = "colOnduty2";
-            this.colOnduty2.ReadOnly = true;
-            this.colOnduty2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colOnduty2.Width = 80;
-            // 
-            // colShiftDuty3
-            // 
-            this.colShiftDuty3.HeaderText = "应上下班3";
-            this.colShiftDuty3.Name = "colShiftDuty3";
-            this.colShiftDuty3.ReadOnly = true;
-            this.colShiftDuty3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftDuty3.Width = 80;
-            // 
-            // colOnduty3
-            // 
-            this.colOnduty3.HeaderText = "实上下班3";
-            this.colOnduty3.Name = "colOnduty3";
-            this.colOnduty3.ReadOnly = true;
-            this.colOnduty3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colOnduty3.Width = 80;
-            // 
-            // colShiftTime
-            // 
-            this.colShiftTime.HeaderText = "应出勤";
-            this.colShiftTime.Name = "colShiftTime";
-            this.colShiftTime.ReadOnly = true;
-            this.colShiftTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colShiftTime.Width = 60;
-            // 
-            // colPresent
-            // 
-            this.colPresent.HeaderText = "实出勤";
-            this.colPresent.Name = "colPresent";
-            this.colPresent.ReadOnly = true;
-            this.colPresent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colPresent.Width = 60;
-            // 
-            // colBelateCount
-            // 
-            this.colBelateCount.HeaderText = "迟到(次)";
-            this.colBelateCount.Name = "colBelateCount";
-            this.colBelateCount.ReadOnly = true;
-            this.colBelateCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colBelateCount.Width = 40;
-            // 
-            // colLeaveEarlyCount
-            // 
-            this.colLeaveEarlyCount.HeaderText = "早退(次)";
-            this.colLeaveEarlyCount.Name = "colLeaveEarlyCount";
-            this.colLeaveEarlyCount.ReadOnly = true;
-            this.colLeaveEarlyCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colLeaveEarlyCount.Width = 40;
-            // 
-            // colForgetCount
-            // 
-            this.colForgetCount.HeaderText = "漏打卡(次)";
-            this.colForgetCount.Name = "colForgetCount";
-            this.colForgetCount.ReadOnly = true;
-            this.colForgetCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colForgetCount.Width = 50;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 92);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "考勤日期";
             // 
             // FrmShiftResultDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 345);
-            this.Controls.Add(this.GridView);
-            this.Controls.Add(this.menu);
-            this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.plnLeft);
+            this.ClientSize = new System.Drawing.Size(430, 299);
+            this.Controls.Add(this.txtShiftDate);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtMemo);
+            this.Controls.Add(this.txtOperator);
+            this.Controls.Add(this.cmbShiftResult);
+            this.Controls.Add(this.txtRealTime);
+            this.Controls.Add(this.txtShiftTime);
+            this.Controls.Add(this.txtCertificate);
+            this.Controls.Add(this.txtDept);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Name = "FrmShiftResultDetail";
-            this.Text = "日考勤明细表";
-            this.Controls.SetChildIndex(this.plnLeft, 0);
-            this.Controls.SetChildIndex(this.splitter1, 0);
-            this.Controls.SetChildIndex(this.menu, 0);
-            this.Controls.SetChildIndex(this.GridView, 0);
-            this.contextMenuStrip2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.plnLeft.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.menu.ResumeLayout(false);
-            this.menu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridView)).EndInit();
+            this.Text = "考勤结果明细";
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.btnClose, 0);
+            this.Controls.SetChildIndex(this.btnOk, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
+            this.Controls.SetChildIndex(this.txtDept, 0);
+            this.Controls.SetChildIndex(this.txtCertificate, 0);
+            this.Controls.SetChildIndex(this.txtShiftTime, 0);
+            this.Controls.SetChildIndex(this.txtRealTime, 0);
+            this.Controls.SetChildIndex(this.cmbShiftResult, 0);
+            this.Controls.SetChildIndex(this.txtOperator, 0);
+            this.Controls.SetChildIndex(this.txtMemo, 0);
+            this.Controls.SetChildIndex(this.label9, 0);
+            this.Controls.SetChildIndex(this.txtName, 0);
+            this.Controls.SetChildIndex(this.label11, 0);
+            this.Controls.SetChildIndex(this.txtShiftDate, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,37 +261,23 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStripMenuItem 重新生成结果ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 查看所有刷卡记录ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mnu_SelectColumns;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Button btnFresh;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private UCDateTimeInterval ucDateTimeInterval1;
-        private System.Windows.Forms.Panel plnLeft;
-        private DepartmentTreeview departmentTreeview1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.MenuStrip menu;
-        private System.Windows.Forms.ToolStripMenuItem btn_Export;
-        private System.Windows.Forms.ToolStripMenuItem btn_SelectColumns;
-        private System.Windows.Forms.DataGridView GridView;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripTextBox txtKeyword;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDept;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShift;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftDuty1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOnduty1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftDuty2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOnduty2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftDuty3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOnduty3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colShiftTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPresent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBelateCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLeaveEarlyCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colForgetCount;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtDept;
+        private System.Windows.Forms.TextBox txtCertificate;
+        private System.Windows.Forms.TextBox txtShiftTime;
+        private System.Windows.Forms.TextBox txtRealTime;
+        private System.Windows.Forms.ComboBox cmbShiftResult;
+        private System.Windows.Forms.TextBox txtOperator;
+        private System.Windows.Forms.TextBox txtMemo;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtShiftDate;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -48,9 +48,30 @@ namespace LJH.Attendance.UI
         #endregion
 
         #region 公共属性
-        public List<int> Staffs { get; set; }
+        public List<Staff> Staffs
+        {
+            get
+            {
+                return departmentTreeview1.SelectedStaff;
+            }
+            set
+            {
+                departmentTreeview1.SelectedStaff = value;
+            }
+        }
 
-        public DatetimeRange DateRange { get; set; }
+        public DatetimeRange DateRange
+        {
+            get
+            {
+                return new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime.AddDays(1).AddSeconds(-1));
+            }
+            set
+            {
+                ucDateTimeInterval1.StartDateTime = value.Begin;
+                ucDateTimeInterval1.EndDateTime = value.End;
+            }
+        }
         #endregion
 
         #region 事件处理程序
@@ -71,57 +92,6 @@ namespace LJH.Attendance.UI
                 MessageBox.Show("请至少选择一个人员用于生成考勤结果");
                 return;
             }
-            FrmProcessing frm = new FrmProcessing();
-            DatetimeRange dr = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime.AddDays(1).AddSeconds(-1));
-            List<DeviceInfo> attendanceReaders = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).GetAttendanceReaders().QueryObjects;
-            if (attendanceReaders == null || attendanceReaders.Count == 0)
-            {
-                MessageBox.Show("还没有指定考勤点，请先在 \"考勤点选择\" 上指定考勤点");
-                return;
-            }
-            List<string> readers = attendanceReaders.Select(it => it.ID).ToList();
-
-            Action action = delegate()
-            {
-                decimal count = 0;
-                try
-                {
-                    foreach (Staff staff in staffs)
-                    {
-                        try
-                        {
-                            frm.ShowProgress(string.Format("正在生成考勤结果 {0}...", staff.Name), count / staffs.Count);
-                            count++;
-                            bool ret = CreateAttendanceResults(staff, dr, readers);
-                            if (ret)
-                            {
-                                frm.ShowProgress(string.Format("生成考勤结果成功 {0}", staff.Name), count / staffs.Count);
-                            }
-                            else
-                            {
-                                frm.ShowProgress(string.Format("生成考勤结果失败 {0}", staff.Name), count / staffs.Count);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
-                        }
-                    }
-                }
-                catch (ThreadAbortException)
-                {
-                }
-            };
-
-            Thread t = new Thread(new ThreadStart(action));
-            t.IsBackground = true;
-            t.Start();
-            if (frm.ShowDialog() != DialogResult.OK)
-            {
-                t.Abort();
-            }
-            this.Staffs = staffs.Select(item => item.ID).ToList();
-            this.DateRange = dr;
             this.DialogResult = DialogResult.OK;
         }
         #endregion

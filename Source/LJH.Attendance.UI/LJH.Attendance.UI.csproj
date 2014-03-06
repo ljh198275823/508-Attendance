@@ -260,6 +260,12 @@
     <Compile Include="FrmShiftItemDetail.Designer.cs">
       <DependentUpon>FrmShiftItemDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmShiftResultDayReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftResultDayReport.designer.cs">
+      <DependentUpon>FrmShiftResultDayReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmShiftResultDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,11 +368,11 @@
     <Compile Include="FrmShiftResultMaster.Designer.cs">
       <DependentUpon>FrmShiftResultMaster.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmShiftResultMonthDetail.cs">
+    <Compile Include="FrmShiftResultMonthReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmShiftResultMonthDetail.Designer.cs">
-      <DependentUpon>FrmShiftResultMonthDetail.cs</DependentUpon>
+    <Compile Include="FrmShiftResultMonthReport.Designer.cs">
+      <DependentUpon>FrmShiftResultMonthReport.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShiftResultStatistics.cs">
       <SubType>Form</SubType>
@@ -581,6 +587,9 @@
     <EmbeddedResource Include="FrmShiftItemDetail.resx">
       <DependentUpon>FrmShiftItemDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftResultDayReport.resx">
+      <DependentUpon>FrmShiftResultDayReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmShiftResultDetail.resx">
       <DependentUpon>FrmShiftResultDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -644,8 +653,8 @@
     <EmbeddedResource Include="FrmShiftMaster.resx">
       <DependentUpon>FrmShiftMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmShiftResultMonthDetail.resx">
-      <DependentUpon>FrmShiftResultMonthDetail.cs</DependentUpon>
+    <EmbeddedResource Include="FrmShiftResultMonthReport.resx">
+      <DependentUpon>FrmShiftResultMonthReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShiftResultMaster.resx">
       <DependentUpon>FrmShiftResultMaster.cs</DependentUpon>

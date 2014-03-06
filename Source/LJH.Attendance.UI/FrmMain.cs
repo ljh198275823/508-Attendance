@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using LJH.GeneralLibrary.SoftDog;
 using LJH.Attendance.BLL;
 using LJH.Attendance.Model;
+using LJH.Attendance.Model.Result;
 using LJH.Attendance.Model.SearchCondition;
 using LJH.GeneralLibrary.SQLHelper;
 
@@ -23,6 +25,7 @@ namespace LJH.Attendance.UI
 
         #region 私有变量
         private List<Form> _openedForms = new List<Form>();
+        private bool _HasGenerateResult = false; //是否已经自动生成了考勤结果,用于自动生成考勤结果
         #endregion
 
         #region 私有方法
@@ -118,6 +121,7 @@ namespace LJH.Attendance.UI
             btnManualLog.Enabled = opt.Permit(Permission.ManualLog);
             mnu_AttendanceAnalyst.Enabled = opt.Permit(Permission.AttendanceAnalyst);
             btnAttendanceAnalyst.Enabled = opt.Permit(Permission.AttendanceAnalyst);
+            mnu_ShiftResultMaster.Enabled = opt.Permit(Permission.ReadShiftResult) || opt.Permit(Permission.EditShiftResult);
             //安全管理
             mnu_Operator.Enabled = opt.Permit(Permission.ReadOperaotor) || opt.Permit(Permission.EditOperator);
             mnu_Role.Enabled = opt.Permit(Permission.ReadRole) || opt.Permit(Permission.EditRole);
@@ -125,9 +129,9 @@ namespace LJH.Attendance.UI
             //报表
             mnu_ShiftResultStatistics.Enabled = opt.Permit(Permission.ShiftResultStatistics);
             btnShiftResultStatistics.Enabled = opt.Permit(Permission.ShiftResultStatistics);
-            mnu_ShiftResultStatistics2.Enabled = opt.Permit(Permission.ShiftResultStatistics2);
+            mnu_ResultMonthReport.Enabled = opt.Permit(Permission.ShiftResultStatistics2);
             btnShiftResultStatistics2.Enabled = opt.Permit(Permission.ShiftResultStatistics2);
-            mnu_ResultDetail.Enabled = opt.Permit(Permission.ResultDetail);
+            mnu_ResultDayReport.Enabled = opt.Permit(Permission.ResultDetail);
             btnResultDetail.Enabled = opt.Permit(Permission.ResultDetail);
             mnu_AttendanceLogReport.Enabled = opt.Permit(Permission.AttendanceLogReport);
             btnAttendanceLog.Enabled = opt.Permit(Permission.AttendanceLogReport);
@@ -222,6 +226,7 @@ namespace LJH.Attendance.UI
             AttendanceRules.Current = (new ParameterBLL(AppSettings.CurrentSetting.ConnectString)).GetOrDefaultParameter<AttendanceRules>();
 
             if (Operator.CurrentOperator != null) this.lblOperator.Text = string.Format(LJH.Attendance.UI.Properties.Resources.FrmMain_lblOperator, Operator.CurrentOperator.Name);
+            tmrAutoGenerateResult.Enabled = AppSettings.CurrentSetting.AutoGenerateResult; //
         }
 
         private void mnu_Exit_Click(object sender, EventArgs e)
@@ -270,6 +275,7 @@ namespace LJH.Attendance.UI
         {
             FrmSystemOptions frm = new FrmSystemOptions();
             frm.ShowDialog();
+            tmrAutoGenerateResult.Enabled = AppSettings.CurrentSetting.AutoGenerateResult;
         }
 
         private void mnu_Holiday_Click(object sender, EventArgs e)
@@ -298,14 +304,14 @@ namespace LJH.Attendance.UI
             ShowSingleForm(typeof(FrmShiftResultStatistics));
         }
 
-        private void mnu_ResultDetail_Click(object sender, EventArgs e)
+        private void mnu_ResultDayReport_Click(object sender, EventArgs e)
         {
-            ShowSingleForm(typeof(FrmShiftResultDetail));
+            ShowSingleForm(typeof(FrmShiftResultDayReport));
         }
 
-        private void mnu_ShiftResultStatistics2_Click(object sender, EventArgs e)
+        private void mnu_ResultMonthReport_Click(object sender, EventArgs e)
         {
-            ShowSingleForm(typeof(FrmShiftResultMonthDetail));
+            ShowSingleForm(typeof(FrmShiftResultMonthReport));
         }
 
         private void mnu_Logout_Click(object sender, EventArgs e)
@@ -325,13 +331,22 @@ namespace LJH.Attendance.UI
 
         private void mnu_AttendanceAnalyst_Click(object sender, EventArgs e)
         {
+            List<string> readers = GetAttendanceReaders();
+            if (readers == null || readers.Count == 0)
+            {
+                MessageBox.Show("还未指定考勤点");
+                return;
+            }
             FrmAttendanceAnalyst frm = new FrmAttendanceAnalyst();
             if (frm.ShowDialog() == DialogResult.OK)
             {
+                List<Staff> staffs = frm.Staffs;
+                CreateAttendanceResults(staffs, frm.DateRange, readers);
+
                 StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
                 con.ShiftDate = frm.DateRange;
-                con.Staff = frm.Staffs;
-                FrmShiftResultDetail form = ShowSingleForm<FrmShiftResultDetail>();
+                con.Staff = staffs.Select(it => it.ID).ToList();
+                FrmShiftResultDayReport form = ShowSingleForm<FrmShiftResultDayReport>();
                 if (form != null)
                 {
                     form.Fresh(con);
@@ -354,7 +369,6 @@ namespace LJH.Attendance.UI
         {
             ShowSingleForm(typeof(FrmTripTypeMaster));
         }
-        #endregion
 
         private void mnu_AttendanceRules_Click(object sender, EventArgs e)
         {
@@ -415,5 +429,115 @@ namespace LJH.Attendance.UI
         {
             ShowSingleForm<FrmShiftResultMaster>();
         }
+        #endregion
+
+        #region 自动生成考勤结果相关
+        private void tmrAutoGenerateResult_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            MyTime mt = AppSettings.CurrentSetting.AutoGenerateTime;
+            if (mt != null && mt.Hour == dt.Hour && mt.Minute == dt.Minute)
+            {
+                if (!_HasGenerateResult)
+                {
+                    _HasGenerateResult = true;
+                    List<string> readers = GetAttendanceReaders();
+                    if (readers == null || readers.Count == 0)
+                    {
+                        MessageBox.Show("还未指定考勤点");
+                        return;
+                    }
+                    LJH.GeneralLibrary.LOG.FileLog.Log("自动生成考勤结果", "开始生成考勤结果......");
+                    DatetimeRange dr = new DatetimeRange(dt.Date.AddDays(-1), dt.Date.AddSeconds(-1)); //前一天的时间范围
+                    List<Staff> staffs = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+                    CreateAttendanceResults(staffs, dr, readers);
+                }
+            }
+            else
+            {
+                _HasGenerateResult = false;
+            }
+        }
+
+        private List<string> GetAttendanceReaders()
+        {
+            List<string> readers = null;
+            List<DeviceInfo> attendanceReaders = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).GetAttendanceReaders().QueryObjects;
+            if (attendanceReaders == null || attendanceReaders.Count == 0)
+            {
+                readers = attendanceReaders.Where(it => it.ForAttendance).Select(it => it.ID).ToList();
+            }
+            return readers;
+        }
+
+        private bool CreateAttendanceResult(Staff staff, DatetimeRange dr, List<string> readers)
+        {
+            ShiftArrangeSearchCondition con1 = new ShiftArrangeSearchCondition();
+            con1.StaffID = staff.ID;
+            con1.ShiftDate = dr;
+            List<ShiftArrange> sas = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con1).QueryObjects;
+
+            TASheetSearchCondition con2 = new TASheetSearchCondition();
+            con2.StaffID = staff.ID;
+            List<TASheet> sheets = (new TASheetBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con2).QueryObjects;
+
+            AttendanceLogSearchCondition con3 = new AttendanceLogSearchCondition();
+            con3.Staff = new List<int>();
+            con3.Staff.Add(staff.ID);
+            con3.Readers = readers;
+            con3.ReadDateTime = dr;
+            con3.ContainManualLogs = true;
+            List<AttendanceLog> records = (new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con3).QueryObjects;
+
+            List<AttendanceResult> results = (new AttendanceAnalyst()).Analist(staff, sas, records, sheets, dr);
+            CommandResult ret = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).Add(staff.ID, dr, results);
+            return ret.Result == ResultCode.Successful;
+        }
+
+        private void CreateAttendanceResults(List<Staff> staffs, DatetimeRange dr, List<string> readers)
+        {
+            FrmProcessing frm = new FrmProcessing();
+            Action action = delegate()
+            {
+                decimal count = 0;
+                try
+                {
+                    foreach (Staff staff in staffs)
+                    {
+                        try
+                        {
+                            frm.ShowProgress(string.Format("正在生成考勤结果 {0}...", staff.Name), count / staffs.Count);
+                            count++;
+                            bool ret = CreateAttendanceResult(staff, dr, readers);
+                            if (ret)
+                            {
+                                frm.ShowProgress(string.Format("生成考勤结果成功 {0}", staff.Name), count / staffs.Count);
+                            }
+                            else
+                            {
+                                frm.ShowProgress(string.Format("生成考勤结果失败 {0}", staff.Name), count / staffs.Count);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                        }
+                    }
+                }
+                catch (ThreadAbortException)
+                {
+                }
+            };
+
+            Thread t = new Thread(new ThreadStart(action));
+            t.IsBackground = true;
+            t.Start();
+            if (frm.ShowDialog() != DialogResult.OK)
+            {
+                t.Abort();
+            }
+            this.DialogResult = DialogResult.OK;
+        }
+        #endregion
     }
 }

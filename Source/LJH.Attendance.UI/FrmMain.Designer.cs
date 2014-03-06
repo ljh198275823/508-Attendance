@@ -63,8 +63,8 @@
             this.mnu_ChangePWD = new System.Windows.Forms.ToolStripMenuItem();
             this.报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_ShiftResultStatistics = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_ShiftResultStatistics2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnu_ResultDetail = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_ResultMonthReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_ResultDayReport = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnu_AttendanceLogReport = new System.Windows.Forms.ToolStripMenuItem();
             this.维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,6 +93,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblOperator = new System.Windows.Forms.ToolStripStatusLabel();
             this.ucFormViewMain = new LJH.GeneralLibrary.WinformControl.UCFormView();
+            this.tmrAutoGenerateResult = new System.Windows.Forms.Timer(this.components);
             this.mnu_ShiftResultMaster = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -235,7 +236,8 @@
             this.mnu_ShiftArrange,
             this.toolStripSeparator7,
             this.mnu_ManualLog,
-            this.mnu_AttendanceAnalyst});
+            this.mnu_AttendanceAnalyst,
+            this.mnu_ShiftResultMaster});
             this.考勤管理ToolStripMenuItem.Name = "考勤管理ToolStripMenuItem";
             resources.ApplyResources(this.考勤管理ToolStripMenuItem, "考勤管理ToolStripMenuItem");
             // 
@@ -317,9 +319,8 @@
             // 
             this.报表ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnu_ShiftResultStatistics,
-            this.mnu_ShiftResultStatistics2,
-            this.mnu_ResultDetail,
-            this.mnu_ShiftResultMaster,
+            this.mnu_ResultMonthReport,
+            this.mnu_ResultDayReport,
             this.toolStripSeparator3,
             this.mnu_AttendanceLogReport});
             this.报表ToolStripMenuItem.Name = "报表ToolStripMenuItem";
@@ -331,17 +332,17 @@
             resources.ApplyResources(this.mnu_ShiftResultStatistics, "mnu_ShiftResultStatistics");
             this.mnu_ShiftResultStatistics.Click += new System.EventHandler(this.mnu_ShiftResultStatistics_Click);
             // 
-            // mnu_ShiftResultStatistics2
+            // mnu_ResultMonthReport
             // 
-            this.mnu_ShiftResultStatistics2.Name = "mnu_ShiftResultStatistics2";
-            resources.ApplyResources(this.mnu_ShiftResultStatistics2, "mnu_ShiftResultStatistics2");
-            this.mnu_ShiftResultStatistics2.Click += new System.EventHandler(this.mnu_ShiftResultStatistics2_Click);
+            this.mnu_ResultMonthReport.Name = "mnu_ResultMonthReport";
+            resources.ApplyResources(this.mnu_ResultMonthReport, "mnu_ResultMonthReport");
+            this.mnu_ResultMonthReport.Click += new System.EventHandler(this.mnu_ResultMonthReport_Click);
             // 
-            // mnu_ResultDetail
+            // mnu_ResultDayReport
             // 
-            this.mnu_ResultDetail.Name = "mnu_ResultDetail";
-            resources.ApplyResources(this.mnu_ResultDetail, "mnu_ResultDetail");
-            this.mnu_ResultDetail.Click += new System.EventHandler(this.mnu_ResultDetail_Click);
+            this.mnu_ResultDayReport.Name = "mnu_ResultDayReport";
+            resources.ApplyResources(this.mnu_ResultDayReport, "mnu_ResultDayReport");
+            this.mnu_ResultDayReport.Click += new System.EventHandler(this.mnu_ResultDayReport_Click);
             // 
             // toolStripSeparator3
             // 
@@ -509,14 +510,14 @@
             this.btnShiftResultStatistics2.Image = global::LJH.Attendance.UI.Properties.Resources.blocks_mm_device_wired;
             resources.ApplyResources(this.btnShiftResultStatistics2, "btnShiftResultStatistics2");
             this.btnShiftResultStatistics2.Name = "btnShiftResultStatistics2";
-            this.btnShiftResultStatistics2.Click += new System.EventHandler(this.mnu_ShiftResultStatistics2_Click);
+            this.btnShiftResultStatistics2.Click += new System.EventHandler(this.mnu_ResultMonthReport_Click);
             // 
             // btnResultDetail
             // 
             this.btnResultDetail.Image = global::LJH.Attendance.UI.Properties.Resources.reportDetail;
             resources.ApplyResources(this.btnResultDetail, "btnResultDetail");
             this.btnResultDetail.Name = "btnResultDetail";
-            this.btnResultDetail.Click += new System.EventHandler(this.mnu_ResultDetail_Click);
+            this.btnResultDetail.Click += new System.EventHandler(this.mnu_ResultDayReport_Click);
             // 
             // btnAttendanceLog
             // 
@@ -548,6 +549,11 @@
             resources.ApplyResources(this.ucFormViewMain, "ucFormViewMain");
             this.ucFormViewMain.FormHeaderLength = 135;
             this.ucFormViewMain.Name = "ucFormViewMain";
+            // 
+            // tmrAutoGenerateResult
+            // 
+            this.tmrAutoGenerateResult.Interval = 30000;
+            this.tmrAutoGenerateResult.Tick += new System.EventHandler(this.tmrAutoGenerateResult_Tick);
             // 
             // mnu_ShiftResultMaster
             // 
@@ -602,7 +608,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnu_ChangePWD;
         private System.Windows.Forms.ToolStripMenuItem 报表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnu_ShiftResultStatistics;
-        private System.Windows.Forms.ToolStripMenuItem mnu_ResultDetail;
+        private System.Windows.Forms.ToolStripMenuItem mnu_ResultDayReport;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 用户手册ToolStripMenuItem;
@@ -617,7 +623,7 @@
         private System.Windows.Forms.ToolStripButton btnAttendanceDevice;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnShiftResultStatistics;
-        private System.Windows.Forms.ToolStripMenuItem mnu_ShiftResultStatistics2;
+        private System.Windows.Forms.ToolStripMenuItem mnu_ResultMonthReport;
         private System.Windows.Forms.ToolStripMenuItem mnu_ManualLog;
         private System.Windows.Forms.ToolStripButton btnShiftArrange;
         private System.Windows.Forms.ToolStripButton btnHoliday;
@@ -645,6 +651,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnu_BackupData;
         private System.Windows.Forms.ToolStripMenuItem mnu_UpdateDB;
         private System.Windows.Forms.ToolStripMenuItem mnu_StaffCategory;
+        private System.Windows.Forms.Timer tmrAutoGenerateResult;
         private System.Windows.Forms.ToolStripMenuItem mnu_ShiftResultMaster;
 
     }

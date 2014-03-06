@@ -368,6 +368,23 @@ namespace LJH.Attendance.UI
             }
             return string.Empty;
         }
+        /// <summary>
+        /// 通过员工ID获取员工信息
+        /// </summary>
+        /// <param name="staffID"></param>
+        /// <returns></returns>
+        public Staff GetStaff(int staffID)
+        {
+            if (_AllUserNodes != null && _AllUserNodes.Count > 0)
+            {
+                foreach (TreeNode node in _AllUserNodes)
+                {
+                    Staff staff = node.Tag as Staff;
+                    if (staff.ID == staffID) return staff;
+                }
+            }
+            return null;
+        }
         #endregion
     }
 }

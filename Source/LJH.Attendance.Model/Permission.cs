@@ -169,6 +169,16 @@ namespace LJH.Attendance.Model
         /// </summary>
         [OperatorRight(Catalog = "考勤管理", Description = "编辑排班模板")]
         EditShiftTemplate = 107,
+        /// <summary>
+        /// 查看考勤结果
+        /// </summary>
+        [OperatorRight(Catalog = "考勤管理", Description = "查看考勤结果")]
+        ReadShiftResult = 108,
+        /// <summary>
+        /// 编辑考勤结果
+        /// </summary>
+        [OperatorRight(Catalog = "考勤管理", Description = "编辑考勤结果")]
+        EditShiftResult = 109,
         #endregion
 
         #region 安全管理 200-299

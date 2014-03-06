@@ -1,6 +1,6 @@
 ﻿namespace LJH.Attendance.UI
 {
-    partial class FrmShiftResultMonthDetail
+    partial class FrmShiftResultMonthReport
     {
         /// <summary>
         /// Required designer variable.

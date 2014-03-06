@@ -53,6 +53,7 @@
             this.comCommunication = new System.Windows.Forms.ComboBox();
             this.comDeviceType = new System.Windows.Forms.ComboBox();
             this.txtSerial = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.chkForAttendance = new System.Windows.Forms.CheckBox();
             this.gpTCPIP.SuspendLayout();
             this.gpRS232.SuspendLayout();
             this.SuspendLayout();
@@ -301,11 +302,24 @@
             this.txtSerial.Size = new System.Drawing.Size(162, 21);
             this.txtSerial.TabIndex = 11;
             // 
+            // chkForAttendance
+            // 
+            this.chkForAttendance.AutoSize = true;
+            this.chkForAttendance.Checked = true;
+            this.chkForAttendance.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkForAttendance.Location = new System.Drawing.Point(12, 245);
+            this.chkForAttendance.Name = "chkForAttendance";
+            this.chkForAttendance.Size = new System.Drawing.Size(72, 16);
+            this.chkForAttendance.TabIndex = 12;
+            this.chkForAttendance.Text = "用于考勤";
+            this.chkForAttendance.UseVisualStyleBackColor = true;
+            // 
             // FrmDeviceInfoDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 296);
+            this.Controls.Add(this.chkForAttendance);
             this.Controls.Add(this.txtSerial);
             this.Controls.Add(this.comDeviceType);
             this.Controls.Add(this.comCommunication);
@@ -317,7 +331,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmDeviceInfoDetail";
-            this.Text = ",";
+            this.Text = "考勤设备";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.gpTCPIP, 0);
@@ -330,6 +344,7 @@
             this.Controls.SetChildIndex(this.comCommunication, 0);
             this.Controls.SetChildIndex(this.comDeviceType, 0);
             this.Controls.SetChildIndex(this.txtSerial, 0);
+            this.Controls.SetChildIndex(this.chkForAttendance, 0);
             this.gpTCPIP.ResumeLayout(false);
             this.gpTCPIP.PerformLayout();
             this.gpRS232.ResumeLayout(false);
@@ -365,5 +380,6 @@
         private System.Windows.Forms.ComboBox comCommunication;
         private System.Windows.Forms.ComboBox comDeviceType;
         private LJH.GeneralLibrary.WinformControl.DBCTextBox txtSerial;
+        private System.Windows.Forms.CheckBox chkForAttendance;
     }
 }

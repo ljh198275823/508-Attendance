@@ -14,9 +14,9 @@ using LJH.GeneralLibrary;
 
 namespace LJH.Attendance.UI
 {
-    public partial class FrmShiftResultMonthDetail : FrmMasterBase
+    public partial class FrmShiftResultMonthReport : FrmMasterBase
     {
-        public FrmShiftResultMonthDetail()
+        public FrmShiftResultMonthReport()
         {
             InitializeComponent();
         }

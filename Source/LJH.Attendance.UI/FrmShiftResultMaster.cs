@@ -69,6 +69,15 @@ namespace LJH.Attendance.UI
 
         protected override FrmDetailBase GetDetailForm()
         {
+            if (GridView.SelectedRows.Count == 1)
+            {
+                FrmShiftResultDetail frm = new FrmShiftResultDetail();
+                AttendanceResult sar = GridView.SelectedRows[0].Tag as AttendanceResult;
+                frm.DeptName = departmentTreeview1.GetDepartmentName(sar.StaffID);
+                Staff s = departmentTreeview1.GetStaff(sar.StaffID);
+                frm.Staff = s;
+                return frm;
+            }
             return null;
         }
 

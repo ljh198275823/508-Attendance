@@ -39,6 +39,8 @@ namespace LJH.Attendance.Model
         private bool _NeedPasswordWhenExit;
         private string _Language;
         private bool _RememberLogID;
+        private bool _AutoGenerateResult;
+        private string _AutoGenerateTime;
         #endregion
 
         #region 构造函数
@@ -66,6 +68,11 @@ namespace LJH.Attendance.Model
 
                     temp = GetConfigContent("RememberLogID");
                     bool.TryParse(temp, out _RememberLogID);
+
+                    temp = GetConfigContent("AutoGenerateResult");
+                    bool.TryParse(temp, out _AutoGenerateResult);
+
+                    _AutoGenerateTime = GetConfigContent("AutoGenerateTime");
                 }
                 catch
                 {
@@ -75,7 +82,6 @@ namespace LJH.Attendance.Model
         #endregion
 
         #region 公共属性
-      
         /// <summary>
         /// 获取当前选择数据库的数据库连接字符串
         /// </summary>
@@ -123,7 +129,6 @@ namespace LJH.Attendance.Model
                 }
             }
         }
-
         /// <summary>
         /// 获取或设置系统的语言
         /// </summary>
@@ -154,7 +159,58 @@ namespace LJH.Attendance.Model
                 }
             }
         }
-
+        /// <summary>
+        /// 获取或设置是否自动生成考勤结果
+        /// </summary>
+        public bool AutoGenerateResult
+        {
+            get { return _AutoGenerateResult; }
+            set
+            {
+                if (_AutoGenerateResult != value)
+                {
+                    _AutoGenerateResult = value;
+                    SaveConfig("AutoGenerateResult", value.ToString());
+                }
+            }
+        }
+        /// <summary>
+        /// 获取或设置自动生成考勤结果的时间点
+        /// </summary>
+        public MyTime AutoGenerateTime
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_AutoGenerateTime))
+                {
+                    string[] temp = _AutoGenerateTime.Split(':');
+                    if (temp.Length == 3)
+                    {
+                        int hour = 0;
+                        int minute = 0;
+                        int second = 0;
+                        if ((int.TryParse(temp[0], out hour) && hour >= 0 && hour < 24) &&
+                            (int.TryParse(temp[1], out minute) && minute >= 0 && minute < 60) &&
+                            (int.TryParse(temp[2], out second) && second >= 0 && second < 60))
+                        {
+                            return new MyTime(hour, minute, second);
+                        }
+                    }
+                }
+                return null;
+            }
+            set
+            {
+                _AutoGenerateTime = value.ToString();
+                SaveConfig("AutoGenerateTime", value.ToString());
+            }
+        }
+        /// <summary>
+        /// 保存配置项
+        /// </summary>
+        /// <param name="configName"></param>
+        /// <param name="configContent"></param>
+        /// <returns></returns>
         public bool SaveConfig(string configName, string configContent)
         {
             if (_parent != null)
@@ -200,7 +256,11 @@ namespace LJH.Attendance.Model
             }
             return false;
         }
-
+        /// <summary>
+        /// 获取配置项
+        /// </summary>
+        /// <param name="configName"></param>
+        /// <returns></returns>
         public string GetConfigContent(string configName)
         {
             if (_parent != null)

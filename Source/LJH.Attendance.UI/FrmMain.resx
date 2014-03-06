@@ -212,9 +212,6 @@
   <data name="mnu_Options.Text" xml:space="preserve">
     <value>选项</value>
   </data>
-  <data name="mnu_Options.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="mnu_基本资料.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 21</value>
   </data>
@@ -222,43 +219,49 @@
     <value>基本资料</value>
   </data>
   <data name="mnu_AttendanceRules.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_AttendanceRules.Text" xml:space="preserve">
     <value>考勤规则</value>
   </data>
   <data name="mnu_Shifts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_Shifts.Text" xml:space="preserve">
     <value>班次管理</value>
   </data>
   <data name="mnu_ShiftTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_ShiftTemplate.Text" xml:space="preserve">
     <value>排班模板</value>
   </data>
   <data name="mnu_ShiftArrange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_ShiftArrange.Text" xml:space="preserve">
     <value>人员排班</value>
   </data>
   <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="mnu_ManualLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_ManualLog.Text" xml:space="preserve">
     <value>补签</value>
   </data>
   <data name="mnu_AttendanceAnalyst.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnu_AttendanceAnalyst.Text" xml:space="preserve">
     <value>生成考勤结果</value>
+  </data>
+  <data name="mnu_ShiftResultMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="mnu_ShiftResultMaster.Text" xml:space="preserve">
+    <value>考勤结果明细</value>
   </data>
   <data name="考勤管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 21</value>
@@ -299,23 +302,17 @@
   <data name="mnu_ShiftResultStatistics.Text" xml:space="preserve">
     <value>月考勤统计表</value>
   </data>
-  <data name="mnu_ShiftResultStatistics2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="mnu_ResultMonthReport.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 22</value>
   </data>
-  <data name="mnu_ShiftResultStatistics2.Text" xml:space="preserve">
+  <data name="mnu_ResultMonthReport.Text" xml:space="preserve">
     <value>月考勤明细表</value>
   </data>
-  <data name="mnu_ResultDetail.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="mnu_ResultDayReport.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 22</value>
   </data>
-  <data name="mnu_ResultDetail.Text" xml:space="preserve">
+  <data name="mnu_ResultDayReport.Text" xml:space="preserve">
     <value>日考勤统计表</value>
-  </data>
-  <data name="mnu_ShiftResultMaster.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
-  </data>
-  <data name="mnu_ShiftResultMaster.Text" xml:space="preserve">
-    <value>考勤结果明细</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 6</value>
@@ -657,6 +654,9 @@
   <data name="&gt;&gt;ucFormViewMain.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="tmrAutoGenerateResult.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>364, 18</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -3313,16 +3313,16 @@
   <data name="&gt;&gt;mnu_ShiftResultStatistics.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnu_ShiftResultStatistics2.Name" xml:space="preserve">
-    <value>mnu_ShiftResultStatistics2</value>
+  <data name="&gt;&gt;mnu_ResultMonthReport.Name" xml:space="preserve">
+    <value>mnu_ResultMonthReport</value>
   </data>
-  <data name="&gt;&gt;mnu_ShiftResultStatistics2.Type" xml:space="preserve">
+  <data name="&gt;&gt;mnu_ResultMonthReport.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnu_ResultDetail.Name" xml:space="preserve">
-    <value>mnu_ResultDetail</value>
+  <data name="&gt;&gt;mnu_ResultDayReport.Name" xml:space="preserve">
+    <value>mnu_ResultDayReport</value>
   </data>
-  <data name="&gt;&gt;mnu_ResultDetail.Type" xml:space="preserve">
+  <data name="&gt;&gt;mnu_ResultDayReport.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
@@ -3474,6 +3474,12 @@
   </data>
   <data name="&gt;&gt;lblOperator.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tmrAutoGenerateResult.Name" xml:space="preserve">
+    <value>tmrAutoGenerateResult</value>
+  </data>
+  <data name="&gt;&gt;tmrAutoGenerateResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mnu_ShiftResultMaster.Name" xml:space="preserve">
     <value>mnu_ShiftResultMaster</value>

@@ -58,6 +58,19 @@ namespace LJH.Attendance.BLL
             return unitWork.Commit();
         }
 
+        public CommandResult Update(AttendanceResult info)
+        {
+            AttendanceResult org = ProviderFactory.Create<IAttendanceResultProvider>(_RepoUri).GetByID(info.ID).QueryObject;
+            if (org != null)
+            {
+                return ProviderFactory.Create<IAttendanceResultProvider>(_RepoUri).Update(info, org);
+            }
+            else
+            {
+                return new CommandResult(ResultCode.NoRecord, ResultCodeDecription.GetDescription(ResultCode.NoRecord));
+            }
+        }
+
         public CommandResult Delete(AttendanceResult info)
         {
             return ProviderFactory.Create<IAttendanceResultProvider>(_RepoUri).Delete(info);

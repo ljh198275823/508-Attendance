@@ -93,6 +93,7 @@ namespace LJH.Attendance.UI
                 txtBaud.IntergerValue = info.Baud != null ? info.Baud.Value : 0;
                 txtAddress.IntergerValue = info.Address != null ? info.Address.Value : 0;
             }
+            chkForAttendance.Checked = info.ForAttendance;
         }
 
         protected override Object GetItemFromInput()
@@ -125,6 +126,7 @@ namespace LJH.Attendance.UI
                 info.Baud = txtBaud.IntergerValue;
                 info.Address = txtAddress.IntergerValue;
             }
+            info.ForAttendance = chkForAttendance.Checked;
             return info;
         }
 
