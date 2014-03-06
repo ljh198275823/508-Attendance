@@ -45,6 +45,11 @@ namespace LJH.Attendance.UI
 
         protected override bool CheckInput()
         {
+            if (string.IsNullOrEmpty(txtMemo.Text))
+            {
+                MessageBox.Show("修改考勤结果需要填写备注");
+                return false;
+            }
             return true;
         }
 

@@ -64,6 +64,7 @@ namespace LJH.Attendance.UI
         protected override void Init()
         {
             base.Init();
+            departmentTreeview1.OnlyShowCurrentOperatorDepts = true;
             departmentTreeview1.Init();
             this.ContextMenu.Items["mnu_Add"].Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
             this.ContextMenu.Items["mnu_Delete"].Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
@@ -81,6 +82,10 @@ namespace LJH.Attendance.UI
         protected override List<object> GetDataSource()
         {
             _AllStaff = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects.ToList();
+            if (Operator.CurrentOperator.ID.ToUpper() != "ADMIN" && Operator.CurrentOperator.Depts != null)
+            {
+                _AllStaff = _AllStaff.Where(it => Operator.CurrentOperator.Depts.Contains(it.DepartmentID)).ToList();
+            }
             if (!string.IsNullOrEmpty(_SelectedDept))
             {
                 return (from staff in _AllStaff
