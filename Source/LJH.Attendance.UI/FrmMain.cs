@@ -532,11 +532,15 @@ namespace LJH.Attendance.UI
             Thread t = new Thread(new ThreadStart(action));
             t.IsBackground = true;
             t.Start();
-            if (frm.ShowDialog() != DialogResult.OK)
+            DialogResult sdr = frm.ShowDialog();
+            if (sdr != DialogResult.OK)
             {
                 t.Abort();
             }
-            this.DialogResult = DialogResult.OK;
+            else
+            {
+                LJH.GeneralLibrary.LOG.FileLog.Log("自动生成考勤结果", "自动生成考勤结果完成");
+            }
         }
         #endregion
     }
