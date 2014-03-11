@@ -294,6 +294,7 @@ namespace LJH.Attendance.UI
             FrmProcessing frm = new FrmProcessing();
             Action action = delegate()
             {
+                frm.ShowProgress("正在连接考勤机...", 0);
                 keeper.Connect();
                 if (keeper.IsConnected)
                 {
@@ -336,6 +337,7 @@ namespace LJH.Attendance.UI
                     {
                         keeper.EnableDevice(true);
                         keeper.Disconnect();
+                        frm.ShowProgress(string.Empty, 1);
                     }
                 }
                 else
@@ -354,12 +356,40 @@ namespace LJH.Attendance.UI
             DeviceInfo device = node.Tag as DeviceInfo;
             if (device == null) return;
             ZKFingerKeeper keeper = new ZKFingerKeeper(device);
-            keeper.Connect();
-            if (keeper.IsConnected)
+            FrmProcessing frm = new FrmProcessing();
+            Action action = delegate()
             {
-                keeper.SetTime(DateTime.Now);
-            }
-            keeper.Disconnect();
+                frm.ShowProgress("正在连接考勤机...", 0);
+                keeper.Connect();
+                if (keeper.IsConnected)
+                {
+                    try
+                    {
+                        keeper.SetTime(DateTime.Now);
+                        frm.ShowProgress("同步时间完成", 1);
+                    }
+                    catch (ThreadAbortException)
+                    {
+                    }
+                    catch (Exception ex)
+                    {
+                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                    }
+                    finally
+                    {
+                        keeper.EnableDevice(true);
+                        keeper.Disconnect();
+                        frm.ShowProgress(string.Empty, 1);
+                    }
+                }
+                else
+                {
+                    frm.ShowProgress("连接设备失败", 1);
+                }
+            };
+            Thread t = new Thread(new ThreadStart(action));
+            t.Start();
+            frm.ShowDialog();
         }
 
         private void mnu_Upload_Click(object sender, EventArgs e)
@@ -376,6 +406,7 @@ namespace LJH.Attendance.UI
             FrmProcessing frm = new FrmProcessing();
             Action action = delegate()
             {
+                frm.ShowProgress("正在连接考勤机...", 0);
                 keeper.Connect();
                 if (keeper.IsConnected)
                 {

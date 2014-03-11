@@ -220,7 +220,15 @@ namespace LJH.Attendance.Device
             }
             string temp = null;
             int size = 0;
-            if (axCZKEM1.FPTempConvertNewStr(template.Template, ref temp, ref size)) //biokey模板转换成指纹机模板
+            if (template.IsBiokey)
+            {
+                axCZKEM1.FPTempConvertNewStr(template.Template, ref temp, ref size);
+            }
+            else
+            {
+                temp = template.Template;
+            }
+            if (!string.IsNullOrEmpty(temp))
             {
                 int fingerIndex = (int)template.BioSource;
                 if (fingerIndex >= 0 && fingerIndex <= 9) //指纹
@@ -233,12 +241,6 @@ namespace LJH.Attendance.Device
                         LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "保存用户指纹失败，ErrorCode=" + idwErrorCode.ToString());
                     }
                 }
-            }
-            else
-            {
-                int idwErrorCode = 0;
-                axCZKEM1.GetLastError(ref idwErrorCode);
-                LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "转换指纹模板失败，ErrorCode=" + idwErrorCode.ToString());
             }
         }
         /// <summary>

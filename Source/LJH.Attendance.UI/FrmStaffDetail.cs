@@ -212,6 +212,7 @@ namespace LJH.Attendance.UI
                 sbt.BioSource = (BioSource)frm.BioSource;
                 sbt.Version = frm.Version;
                 sbt.Template = frm.Template;
+                sbt.IsBiokey = true;
                 if (UpdatingItem != null)
                 {
                     Staff staff = UpdatingItem as Staff;
