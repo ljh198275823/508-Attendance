@@ -43,6 +43,8 @@ namespace LJH.Attendance.UI
             txtName.Text = staff.Name;
             txtCertificate.Text = staff.Certificate;
             if (staff.Department != null) departmentComboBox1.DepartmentID = staff.Department.ID;
+            txtCardID.Text = !string.IsNullOrEmpty (staff.CardID)?staff.CardID:string.Empty;
+            txtPassword.Text = !string.IsNullOrEmpty(staff.Password) ? staff.Password : string.Empty;
             txtUserPosition.Text = staff.UserPosition;
             rdMale.Checked = staff.Sex == "男";
             rdFemale.Checked = staff.Sex == "女";
@@ -135,6 +137,8 @@ namespace LJH.Attendance.UI
             info.Name = txtName.Text;
             info.Certificate = txtCertificate.Text;
             Department dept = departmentComboBox1.SelectecDepartment;
+            info.CardID = txtCardID.Text;
+            info.Password = txtPassword.Text;
             if (dept != null)
             {
                 info.DepartmentID = dept.ID;
@@ -151,6 +155,7 @@ namespace LJH.Attendance.UI
         {
             base.InitControls();
             this.departmentComboBox1.Init();
+            this.txtCardID.Text = string.Empty;
             if (Department != null) this.departmentComboBox1.DepartmentID = Department.ID;
             this.btnOk.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
         }

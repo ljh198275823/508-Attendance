@@ -31,6 +31,14 @@ namespace LJH.Attendance.Model
         /// </summary>
         public Department Department { get; set; }
         /// <summary>
+        /// 获取或设置
+        /// </summary>
+        public string CardID { get; set; }
+        /// <summary>
+        /// 获取或设置密码
+        /// </summary>
+        public string Password { get; set; }
+        /// <summary>
         /// 获取或设置员工姓别 1表示男，2表示女
         /// </summary>
         public string Sex { get; set; }

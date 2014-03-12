@@ -199,7 +199,11 @@ namespace LJH.Attendance.Device
                 LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "保存用户信息失败，未连接设备");
                 return;
             }
-            bool ret = axCZKEM1.SetUserInfo(iMachineNumber, staff.ID, staff.Name, "8888", 0, true);
+
+            bool ret = false;
+            byte[] reserved = new byte[1];
+            if (!string.IsNullOrEmpty(staff.CardID)) ret = axCZKEM1.SetStrCardNumber(staff.CardID);
+            if (ret) ret = axCZKEM1.SetUserInfo(iMachineNumber, staff.ID, staff.Name, !string.IsNullOrEmpty(staff.Password) ? staff.Password : "8888", 0, true);
             if (!ret)
             {
                 int idwErrorCode = 0;
@@ -222,7 +226,13 @@ namespace LJH.Attendance.Device
             int size = 0;
             if (template.IsBiokey)
             {
-                axCZKEM1.FPTempConvertNewStr(template.Template, ref temp, ref size);
+                bool r = axCZKEM1.FPTempConvertNewStr(template.Template, ref temp, ref size);
+                if (!r)
+                {
+                    int idwErrorCode = 0;
+                    axCZKEM1.GetLastError(ref idwErrorCode);
+                    LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "biokey指纹转换失败，ErrorCode=" + idwErrorCode.ToString());
+                }
             }
             else
             {
@@ -233,7 +243,7 @@ namespace LJH.Attendance.Device
                 int fingerIndex = (int)template.BioSource;
                 if (fingerIndex >= 0 && fingerIndex <= 9) //指纹
                 {
-                    bool ret = axCZKEM1.SetUserTmpStr(iMachineNumber, template.StaffID, fingerIndex, temp);
+                    bool ret = axCZKEM1.SetUserTmpExStr(iMachineNumber, template.StaffID.ToString(), fingerIndex, 1, temp);
                     if (!ret)
                     {
                         int idwErrorCode = 0;

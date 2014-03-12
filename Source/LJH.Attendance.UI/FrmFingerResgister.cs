@@ -72,7 +72,8 @@ namespace LJH.Attendance.UI
         {
             if (ActionResult)
             {
-                Template = _ZKEngine.GetTemplateAsString();
+                string ver = rdVer10.Checked ? "10" : "9";
+                Template = _ZKEngine.GetTemplateAsStringEx(ver);
                 this.DialogResult = DialogResult.OK;
             }
             else
@@ -85,6 +86,7 @@ namespace LJH.Attendance.UI
 
         private void FrmFingerResgister_Load(object sender, EventArgs e)
         {
+            this.comBiosource.SelectedIndex = 0;
             int ret = _ZKEngine.InitEngine();
             if (ret == 0)
             {
@@ -134,6 +136,8 @@ namespace LJH.Attendance.UI
         {
             if (rdVer10.Checked) _ZKEngine.FPEngineVersion = "10";
             if (rdVer9.Checked) _ZKEngine.FPEngineVersion = "9";
+            _ZKEngine.EndEngine();
+            _ZKEngine.InitEngine();
         }
     }
 }
