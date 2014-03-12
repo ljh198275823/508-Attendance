@@ -54,17 +54,19 @@
             this.comDeviceType = new System.Windows.Forms.ComboBox();
             this.txtSerial = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.chkForAttendance = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.verifyCodeComboBox1 = new LJH.Attendance.UI.Controls.VerifyCodeComboBox(this.components);
             this.gpTCPIP.SuspendLayout();
             this.gpRS232.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(361, 261);
+            this.btnOk.Location = new System.Drawing.Point(361, 236);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(470, 261);
+            this.btnClose.Location = new System.Drawing.Point(470, 236);
             // 
             // label1
             // 
@@ -78,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 50);
+            this.label2.Location = new System.Drawing.Point(18, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
@@ -94,7 +96,7 @@
             this.gpTCPIP.Controls.Add(this.label7);
             this.gpTCPIP.Controls.Add(this.label6);
             this.gpTCPIP.Controls.Add(this.label5);
-            this.gpTCPIP.Location = new System.Drawing.Point(12, 82);
+            this.gpTCPIP.Location = new System.Drawing.Point(12, 75);
             this.gpTCPIP.Name = "gpTCPIP";
             this.gpTCPIP.Size = new System.Drawing.Size(541, 84);
             this.gpTCPIP.TabIndex = 4;
@@ -110,7 +112,7 @@
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(100, 21);
             this.txtPort.TabIndex = 15;
-            this.txtPort.Text = "0";
+            this.txtPort.Text = "4370";
             // 
             // txtGateway
             // 
@@ -177,7 +179,7 @@
             this.gpRS232.Controls.Add(this.label11);
             this.gpRS232.Controls.Add(this.label10);
             this.gpRS232.Controls.Add(this.label9);
-            this.gpRS232.Location = new System.Drawing.Point(12, 188);
+            this.gpRS232.Location = new System.Drawing.Point(12, 171);
             this.gpRS232.Name = "gpRS232";
             this.gpRS232.Size = new System.Drawing.Size(541, 50);
             this.gpRS232.TabIndex = 5;
@@ -256,7 +258,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(283, 50);
+            this.label4.Location = new System.Drawing.Point(283, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 7;
@@ -277,7 +279,7 @@
             this.comCommunication.Items.AddRange(new object[] {
             "TCP/IP",
             "RS232/485"});
-            this.comCommunication.Location = new System.Drawing.Point(79, 46);
+            this.comCommunication.Location = new System.Drawing.Point(79, 39);
             this.comCommunication.Name = "comCommunication";
             this.comCommunication.Size = new System.Drawing.Size(161, 20);
             this.comCommunication.TabIndex = 9;
@@ -297,7 +299,7 @@
             // txtSerial
             // 
             this.txtSerial.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtSerial.Location = new System.Drawing.Point(332, 46);
+            this.txtSerial.Location = new System.Drawing.Point(332, 39);
             this.txtSerial.Name = "txtSerial";
             this.txtSerial.Size = new System.Drawing.Size(162, 21);
             this.txtSerial.TabIndex = 11;
@@ -307,18 +309,38 @@
             this.chkForAttendance.AutoSize = true;
             this.chkForAttendance.Checked = true;
             this.chkForAttendance.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkForAttendance.Location = new System.Drawing.Point(12, 245);
+            this.chkForAttendance.Location = new System.Drawing.Point(12, 232);
             this.chkForAttendance.Name = "chkForAttendance";
             this.chkForAttendance.Size = new System.Drawing.Size(72, 16);
             this.chkForAttendance.TabIndex = 12;
             this.chkForAttendance.Text = "用于考勤";
             this.chkForAttendance.UseVisualStyleBackColor = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(102, 234);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "验证方式";
+            // 
+            // verifyCodeComboBox1
+            // 
+            this.verifyCodeComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.verifyCodeComboBox1.FormattingEnabled = true;
+            this.verifyCodeComboBox1.Location = new System.Drawing.Point(161, 230);
+            this.verifyCodeComboBox1.Name = "verifyCodeComboBox1";
+            this.verifyCodeComboBox1.Size = new System.Drawing.Size(121, 20);
+            this.verifyCodeComboBox1.TabIndex = 14;
+            // 
             // FrmDeviceInfoDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 296);
+            this.ClientSize = new System.Drawing.Size(560, 271);
+            this.Controls.Add(this.verifyCodeComboBox1);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.chkForAttendance);
             this.Controls.Add(this.txtSerial);
             this.Controls.Add(this.comDeviceType);
@@ -345,6 +367,8 @@
             this.Controls.SetChildIndex(this.comDeviceType, 0);
             this.Controls.SetChildIndex(this.txtSerial, 0);
             this.Controls.SetChildIndex(this.chkForAttendance, 0);
+            this.Controls.SetChildIndex(this.label12, 0);
+            this.Controls.SetChildIndex(this.verifyCodeComboBox1, 0);
             this.gpTCPIP.ResumeLayout(false);
             this.gpTCPIP.PerformLayout();
             this.gpRS232.ResumeLayout(false);
@@ -381,5 +405,7 @@
         private System.Windows.Forms.ComboBox comDeviceType;
         private LJH.GeneralLibrary.WinformControl.DBCTextBox txtSerial;
         private System.Windows.Forms.CheckBox chkForAttendance;
+        private System.Windows.Forms.Label label12;
+        private Controls.VerifyCodeComboBox verifyCodeComboBox1;
     }
 }

@@ -201,9 +201,10 @@ namespace LJH.Attendance.Device
             }
 
             bool ret = false;
-            byte[] reserved = new byte[1];
+            byte[] reserved = new byte[10];
             if (!string.IsNullOrEmpty(staff.CardID)) ret = axCZKEM1.SetStrCardNumber(staff.CardID);
             if (ret) ret = axCZKEM1.SetUserInfo(iMachineNumber, staff.ID, staff.Name, !string.IsNullOrEmpty(staff.Password) ? staff.Password : "8888", 0, true);
+            if (ret) ret = axCZKEM1.SetUserInfoEx(iMachineNumber, staff.ID, 128 + (int)Parameter.VerifyCode, ref reserved[0]); //0-15是验证模式，但设置组的验证方式的时候用0-15，用户的验证方式用128-143
             if (!ret)
             {
                 int idwErrorCode = 0;

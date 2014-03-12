@@ -136,6 +136,7 @@
     <Compile Include="TASheetGroup.cs" />
     <Compile Include="TripType.cs" />
     <Compile Include="VacationType.cs" />
+    <Compile Include="VerifyCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource\Resource1.resx">

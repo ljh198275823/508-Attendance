@@ -104,6 +104,12 @@
     <Compile Include="Controls\UCDateTimeInterval.designer.cs">
       <DependentUpon>UCDateTimeInterval.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\VerifyCodeComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\VerifyCodeComboBox.Designer.cs">
+      <DependentUpon>VerifyCodeComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAboat.cs">
       <SubType>Form</SubType>
     </Compile>

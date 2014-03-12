@@ -37,6 +37,7 @@
       <Column Name="Baud" Member="Baud"  DbType="int null" UpdateCheck="Never"/>
       <Column Name="Address" Member="Address"  DbType="int null" UpdateCheck="Never"/>
       <Column Name="ForAttendance" Member="ForAttendance"  DbType="bit not null" UpdateCheck="Never"/>
+      <Column Name="VerifyCode" Member="VerifyCode"  DbType="tinyint not null" UpdateCheck="Never"/>
       <Column Name="GroupID" Member="GroupID"  DbType="nvarchar(50)" UpdateCheck="Never"/>
     </Type>
   </Table>
