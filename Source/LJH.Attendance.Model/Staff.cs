@@ -17,7 +17,7 @@ namespace LJH.Attendance.Model
         /// <summary>
         /// 获取或设置ID
         /// </summary>
-        public int  ID { get; set; }
+        public int ID { get; set; }
         /// <summary>
         /// 获取或设置姓名
         /// </summary>
@@ -38,6 +38,10 @@ namespace LJH.Attendance.Model
         /// 获取或设置密码
         /// </summary>
         public string Password { get; set; }
+        /// <summary>
+        /// 获取或设置是否是管理员(考勤机相关)
+        /// </summary>
+        public bool? IsAdmin { get; set; }
         /// <summary>
         /// 获取或设置员工姓别 1表示男，2表示女
         /// </summary>

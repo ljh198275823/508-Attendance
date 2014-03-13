@@ -57,6 +57,7 @@
             this.mnu_UploadAll = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_Upload = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_GetAttendanceLog = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_GetAllAttendancelog = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_SyncTime = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnu_Fresh2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +70,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.mnu_Reset = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu_Opendoor = new System.Windows.Forms.ToolStripMenuItem();
             this.groupMenu.SuspendLayout();
             this.menu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -287,73 +290,84 @@
             this.mnu_UploadAll,
             this.mnu_Upload,
             this.mnu_GetAttendanceLog,
+            this.mnu_GetAllAttendancelog,
             this.mnu_SyncTime,
+            this.mnu_Opendoor,
+            this.mnu_Reset,
             this.toolStripSeparator4,
             this.mnu_Fresh2,
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.deviceMenu.Name = "contextMenuStrip2";
-            this.deviceMenu.Size = new System.Drawing.Size(149, 186);
+            this.deviceMenu.Size = new System.Drawing.Size(173, 274);
             // 
             // mnu_UploadAll
             // 
             this.mnu_UploadAll.Name = "mnu_UploadAll";
-            this.mnu_UploadAll.Size = new System.Drawing.Size(148, 22);
-            this.mnu_UploadAll.Text = "同步所有人员";
+            this.mnu_UploadAll.Size = new System.Drawing.Size(172, 22);
+            this.mnu_UploadAll.Text = "下发所有人员";
             this.mnu_UploadAll.Click += new System.EventHandler(this.mnu_UploadAll_Click);
             // 
             // mnu_Upload
             // 
             this.mnu_Upload.Name = "mnu_Upload";
-            this.mnu_Upload.Size = new System.Drawing.Size(148, 22);
+            this.mnu_Upload.Size = new System.Drawing.Size(172, 22);
             this.mnu_Upload.Text = "下发人员信息";
+            this.mnu_Upload.Visible = false;
             this.mnu_Upload.Click += new System.EventHandler(this.mnu_Upload_Click);
             // 
             // mnu_GetAttendanceLog
             // 
             this.mnu_GetAttendanceLog.Name = "mnu_GetAttendanceLog";
-            this.mnu_GetAttendanceLog.Size = new System.Drawing.Size(148, 22);
-            this.mnu_GetAttendanceLog.Text = "获取考勤记录";
+            this.mnu_GetAttendanceLog.Size = new System.Drawing.Size(172, 22);
+            this.mnu_GetAttendanceLog.Text = "获取最新考勤记录";
             this.mnu_GetAttendanceLog.Click += new System.EventHandler(this.mnu_GetAttendanceLog_Click);
+            // 
+            // mnu_GetAllAttendancelog
+            // 
+            this.mnu_GetAllAttendancelog.Name = "mnu_GetAllAttendancelog";
+            this.mnu_GetAllAttendancelog.Size = new System.Drawing.Size(172, 22);
+            this.mnu_GetAllAttendancelog.Text = "获取所有考勤记录";
+            this.mnu_GetAllAttendancelog.Click += new System.EventHandler(this.mnu_GetAllAttendancelog_Click);
             // 
             // mnu_SyncTime
             // 
             this.mnu_SyncTime.Name = "mnu_SyncTime";
-            this.mnu_SyncTime.Size = new System.Drawing.Size(148, 22);
+            this.mnu_SyncTime.Size = new System.Drawing.Size(172, 22);
             this.mnu_SyncTime.Text = "同步时间";
             this.mnu_SyncTime.Click += new System.EventHandler(this.mnu_SyncTime_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(169, 6);
             // 
             // mnu_Fresh2
             // 
             this.mnu_Fresh2.Name = "mnu_Fresh2";
-            this.mnu_Fresh2.Size = new System.Drawing.Size(148, 22);
+            this.mnu_Fresh2.Size = new System.Drawing.Size(172, 22);
             this.mnu_Fresh2.Text = "刷新";
             this.mnu_Fresh2.Click += new System.EventHandler(this.mnu_Fresh_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(172, 22);
             this.toolStripMenuItem4.Text = "重命名";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.mnu_Rename_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(172, 22);
             this.toolStripMenuItem5.Text = "删除";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.mnu_Delete_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(172, 22);
             this.toolStripMenuItem6.Text = "属性";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.mnu_Property_Click);
             // 
@@ -416,6 +430,20 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "报警信息";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // mnu_Reset
+            // 
+            this.mnu_Reset.Name = "mnu_Reset";
+            this.mnu_Reset.Size = new System.Drawing.Size(172, 22);
+            this.mnu_Reset.Text = "重启设备";
+            this.mnu_Reset.Click += new System.EventHandler(this.mnu_Reset_Click);
+            // 
+            // mnu_Opendoor
+            // 
+            this.mnu_Opendoor.Name = "mnu_Opendoor";
+            this.mnu_Opendoor.Size = new System.Drawing.Size(172, 22);
+            this.mnu_Opendoor.Text = "开门";
+            this.mnu_Opendoor.Visible = false;
             // 
             // FrmDeviceInfoMaster
             // 
@@ -490,6 +518,9 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ToolStripMenuItem mnu_GetAllAttendancelog;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Reset;
+        private System.Windows.Forms.ToolStripMenuItem mnu_Opendoor;
 
     }
 }

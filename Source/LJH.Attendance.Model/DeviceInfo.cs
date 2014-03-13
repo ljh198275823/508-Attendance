@@ -86,6 +86,10 @@ namespace LJH.Attendance.Model
         /// 获取或设置设备组ID
         /// </summary>
         public string GroupID { get; set; }
+        /// <summary>
+        /// 获取或设置已经从设备中获取的最后一条事件的时间
+        /// </summary>
+        public DateTime? LastEventDt { get; set; }
         #endregion
     }
 }

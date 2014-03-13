@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chkIsAdmin = new System.Windows.Forms.CheckBox();
             this.txtPassword = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -76,11 +77,11 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(339, 344);
+            this.btnOk.Location = new System.Drawing.Point(339, 269);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(448, 344);
+            this.btnClose.Location = new System.Drawing.Point(448, 269);
             // 
             // tabControl1
             // 
@@ -92,11 +93,12 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(517, 315);
+            this.tabControl1.Size = new System.Drawing.Size(517, 251);
             this.tabControl1.TabIndex = 35;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.chkIsAdmin);
             this.tabPage1.Controls.Add(this.txtPassword);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.panel2);
@@ -121,28 +123,38 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(509, 289);
+            this.tabPage1.Size = new System.Drawing.Size(509, 225);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本资料";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // chkIsAdmin
+            // 
+            this.chkIsAdmin.AutoSize = true;
+            this.chkIsAdmin.Location = new System.Drawing.Point(215, 134);
+            this.chkIsAdmin.Name = "chkIsAdmin";
+            this.chkIsAdmin.Size = new System.Drawing.Size(60, 16);
+            this.chkIsAdmin.TabIndex = 9;
+            this.chkIsAdmin.Text = "管理员";
+            this.chkIsAdmin.UseVisualStyleBackColor = true;
+            // 
             // txtPassword
             // 
             this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtPassword.Location = new System.Drawing.Point(48, 157);
+            this.txtPassword.Location = new System.Drawing.Point(215, 103);
             this.txtPassword.MaxLength = 20;
             this.txtPassword.MaxValue = 99999;
             this.txtPassword.MinValue = 0;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(215, 21);
-            this.txtPassword.TabIndex = 55;
+            this.txtPassword.Size = new System.Drawing.Size(121, 21);
+            this.txtPassword.TabIndex = 7;
             this.txtPassword.Text = "8888";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(12, 161);
+            this.label9.Location = new System.Drawing.Point(182, 107);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 56;
@@ -152,9 +164,9 @@
             // 
             this.panel2.Controls.Add(this.rdFemale);
             this.panel2.Controls.Add(this.rdMale);
-            this.panel2.Location = new System.Drawing.Point(48, 184);
+            this.panel2.Location = new System.Drawing.Point(218, 71);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 24);
+            this.panel2.Size = new System.Drawing.Size(118, 24);
             this.panel2.TabIndex = 54;
             // 
             // rdFemale
@@ -163,7 +175,7 @@
             this.rdFemale.Location = new System.Drawing.Point(55, 4);
             this.rdFemale.Name = "rdFemale";
             this.rdFemale.Size = new System.Drawing.Size(35, 16);
-            this.rdFemale.TabIndex = 42;
+            this.rdFemale.TabIndex = 5;
             this.rdFemale.Text = "女";
             this.rdFemale.UseVisualStyleBackColor = true;
             // 
@@ -174,7 +186,7 @@
             this.rdMale.Location = new System.Drawing.Point(2, 4);
             this.rdMale.Name = "rdMale";
             this.rdMale.Size = new System.Drawing.Size(35, 16);
-            this.rdMale.TabIndex = 41;
+            this.rdMale.TabIndex = 4;
             this.rdMale.TabStop = true;
             this.rdMale.Text = "男";
             this.rdMale.UseVisualStyleBackColor = true;
@@ -183,9 +195,9 @@
             // 
             this.panel1.Controls.Add(this.rdResign);
             this.panel1.Controls.Add(this.rdUnResign);
-            this.panel1.Location = new System.Drawing.Point(48, 249);
+            this.panel1.Location = new System.Drawing.Point(48, 161);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 24);
+            this.panel1.Size = new System.Drawing.Size(121, 24);
             this.panel1.TabIndex = 53;
             // 
             // rdResign
@@ -194,7 +206,7 @@
             this.rdResign.Location = new System.Drawing.Point(57, 4);
             this.rdResign.Name = "rdResign";
             this.rdResign.Size = new System.Drawing.Size(47, 16);
-            this.rdResign.TabIndex = 42;
+            this.rdResign.TabIndex = 12;
             this.rdResign.Text = "离职";
             this.rdResign.UseVisualStyleBackColor = true;
             // 
@@ -205,7 +217,7 @@
             this.rdUnResign.Location = new System.Drawing.Point(2, 4);
             this.rdUnResign.Name = "rdUnResign";
             this.rdUnResign.Size = new System.Drawing.Size(47, 16);
-            this.rdUnResign.TabIndex = 41;
+            this.rdUnResign.TabIndex = 10;
             this.rdUnResign.TabStop = true;
             this.rdUnResign.Text = "在职";
             this.rdUnResign.UseVisualStyleBackColor = true;
@@ -214,7 +226,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(12, 190);
+            this.label8.Location = new System.Drawing.Point(182, 77);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 12);
             this.label8.TabIndex = 52;
@@ -222,16 +234,16 @@
             // 
             // dtHireDate
             // 
-            this.dtHireDate.Location = new System.Drawing.Point(71, 218);
+            this.dtHireDate.Location = new System.Drawing.Point(69, 132);
             this.dtHireDate.Name = "dtHireDate";
-            this.dtHireDate.Size = new System.Drawing.Size(192, 21);
-            this.dtHireDate.TabIndex = 49;
+            this.dtHireDate.Size = new System.Drawing.Size(105, 21);
+            this.dtHireDate.TabIndex = 8;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(12, 222);
+            this.label7.Location = new System.Drawing.Point(12, 136);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 48;
@@ -239,20 +251,20 @@
             // 
             // btnDelPhoto
             // 
-            this.btnDelPhoto.Location = new System.Drawing.Point(278, 187);
+            this.btnDelPhoto.Location = new System.Drawing.Point(345, 187);
             this.btnDelPhoto.Name = "btnDelPhoto";
             this.btnDelPhoto.Size = new System.Drawing.Size(75, 23);
-            this.btnDelPhoto.TabIndex = 47;
+            this.btnDelPhoto.TabIndex = 13;
             this.btnDelPhoto.Text = "删除相片";
             this.btnDelPhoto.UseVisualStyleBackColor = true;
             this.btnDelPhoto.Click += new System.EventHandler(this.btnDelPhoto_Click);
             // 
             // btnBrowserPhoto
             // 
-            this.btnBrowserPhoto.Location = new System.Drawing.Point(359, 188);
+            this.btnBrowserPhoto.Location = new System.Drawing.Point(426, 188);
             this.btnBrowserPhoto.Name = "btnBrowserPhoto";
             this.btnBrowserPhoto.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowserPhoto.TabIndex = 46;
+            this.btnBrowserPhoto.TabIndex = 14;
             this.btnBrowserPhoto.Text = "查找相片";
             this.btnBrowserPhoto.UseVisualStyleBackColor = true;
             this.btnBrowserPhoto.Click += new System.EventHandler(this.btnBrowserPhoto_Click);
@@ -260,7 +272,7 @@
             // picPhoto
             // 
             this.picPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picPhoto.Location = new System.Drawing.Point(278, 12);
+            this.picPhoto.Location = new System.Drawing.Point(345, 12);
             this.picPhoto.Name = "picPhoto";
             this.picPhoto.Size = new System.Drawing.Size(150, 166);
             this.picPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -270,20 +282,20 @@
             // txtCardID
             // 
             this.txtCardID.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtCardID.Location = new System.Drawing.Point(48, 130);
+            this.txtCardID.Location = new System.Drawing.Point(48, 103);
             this.txtCardID.MaxLength = 20;
             this.txtCardID.MaxValue = 2147483647;
             this.txtCardID.MinValue = 0;
             this.txtCardID.Name = "txtCardID";
-            this.txtCardID.Size = new System.Drawing.Size(215, 21);
-            this.txtCardID.TabIndex = 43;
+            this.txtCardID.Size = new System.Drawing.Size(121, 21);
+            this.txtCardID.TabIndex = 6;
             this.txtCardID.Text = "0";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(12, 134);
+            this.label2.Location = new System.Drawing.Point(12, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 44;
@@ -293,7 +305,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(9, 255);
+            this.label6.Location = new System.Drawing.Point(12, 167);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 40;
@@ -303,16 +315,16 @@
             // 
             this.departmentComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.departmentComboBox1.FormattingEnabled = true;
-            this.departmentComboBox1.Location = new System.Drawing.Point(48, 69);
+            this.departmentComboBox1.Location = new System.Drawing.Point(48, 43);
             this.departmentComboBox1.Name = "departmentComboBox1";
-            this.departmentComboBox1.Size = new System.Drawing.Size(215, 20);
-            this.departmentComboBox1.TabIndex = 39;
+            this.departmentComboBox1.Size = new System.Drawing.Size(288, 20);
+            this.departmentComboBox1.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(12, 72);
+            this.label5.Location = new System.Drawing.Point(12, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 38;
@@ -321,17 +333,17 @@
             // txtUserPosition
             // 
             this.txtUserPosition.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtUserPosition.Location = new System.Drawing.Point(48, 100);
+            this.txtUserPosition.Location = new System.Drawing.Point(48, 73);
             this.txtUserPosition.MaxLength = 20;
             this.txtUserPosition.Name = "txtUserPosition";
-            this.txtUserPosition.Size = new System.Drawing.Size(215, 21);
-            this.txtUserPosition.TabIndex = 36;
+            this.txtUserPosition.Size = new System.Drawing.Size(121, 21);
+            this.txtUserPosition.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(12, 104);
+            this.label4.Location = new System.Drawing.Point(12, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 37;
@@ -340,17 +352,17 @@
             // txtCertificate
             // 
             this.txtCertificate.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtCertificate.Location = new System.Drawing.Point(48, 39);
+            this.txtCertificate.Location = new System.Drawing.Point(215, 11);
             this.txtCertificate.MaxLength = 20;
             this.txtCertificate.Name = "txtCertificate";
-            this.txtCertificate.Size = new System.Drawing.Size(215, 21);
-            this.txtCertificate.TabIndex = 34;
+            this.txtCertificate.Size = new System.Drawing.Size(121, 21);
+            this.txtCertificate.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(12, 43);
+            this.label3.Location = new System.Drawing.Point(182, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 35;
@@ -362,8 +374,8 @@
             this.txtName.Location = new System.Drawing.Point(48, 11);
             this.txtName.MaxLength = 20;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(215, 21);
-            this.txtName.TabIndex = 32;
+            this.txtName.Size = new System.Drawing.Size(121, 21);
+            this.txtName.TabIndex = 0;
             // 
             // label1
             // 
@@ -381,7 +393,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(509, 289);
+            this.tabPage2.Size = new System.Drawing.Size(509, 225);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "指纹";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -403,7 +415,7 @@
             this.templateGrid.RowHeadersVisible = false;
             this.templateGrid.RowTemplate.Height = 23;
             this.templateGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.templateGrid.Size = new System.Drawing.Size(503, 266);
+            this.templateGrid.Size = new System.Drawing.Size(503, 219);
             this.templateGrid.TabIndex = 59;
             // 
             // colBioSource
@@ -453,7 +465,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 379);
+            this.ClientSize = new System.Drawing.Size(536, 304);
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmStaffDetail";
             this.Text = "员工信息";
@@ -512,5 +524,6 @@
         private System.Windows.Forms.Panel panel1;
         private GeneralLibrary.WinformControl.IntergerTextBox txtPassword;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox chkIsAdmin;
     }
 }

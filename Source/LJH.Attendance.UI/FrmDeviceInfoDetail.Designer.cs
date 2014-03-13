@@ -56,17 +56,18 @@
             this.chkForAttendance = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.verifyCodeComboBox1 = new LJH.Attendance.UI.Controls.VerifyCodeComboBox(this.components);
+            this.lblLastEventDt = new System.Windows.Forms.Label();
             this.gpTCPIP.SuspendLayout();
             this.gpRS232.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(361, 236);
+            this.btnOk.Location = new System.Drawing.Point(361, 253);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(470, 236);
+            this.btnClose.Location = new System.Drawing.Point(470, 253);
             // 
             // label1
             // 
@@ -334,11 +335,22 @@
             this.verifyCodeComboBox1.Size = new System.Drawing.Size(121, 20);
             this.verifyCodeComboBox1.TabIndex = 14;
             // 
+            // lblLastEventDt
+            // 
+            this.lblLastEventDt.AutoSize = true;
+            this.lblLastEventDt.ForeColor = System.Drawing.Color.Blue;
+            this.lblLastEventDt.Location = new System.Drawing.Point(13, 264);
+            this.lblLastEventDt.Name = "lblLastEventDt";
+            this.lblLastEventDt.Size = new System.Drawing.Size(197, 12);
+            this.lblLastEventDt.TabIndex = 15;
+            this.lblLastEventDt.Text = "已上传的最后一条考勤记录时间：无";
+            // 
             // FrmDeviceInfoDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 271);
+            this.ClientSize = new System.Drawing.Size(560, 288);
+            this.Controls.Add(this.lblLastEventDt);
             this.Controls.Add(this.verifyCodeComboBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.chkForAttendance);
@@ -369,6 +381,7 @@
             this.Controls.SetChildIndex(this.chkForAttendance, 0);
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.verifyCodeComboBox1, 0);
+            this.Controls.SetChildIndex(this.lblLastEventDt, 0);
             this.gpTCPIP.ResumeLayout(false);
             this.gpTCPIP.PerformLayout();
             this.gpRS232.ResumeLayout(false);
@@ -407,5 +420,6 @@
         private System.Windows.Forms.CheckBox chkForAttendance;
         private System.Windows.Forms.Label label12;
         private Controls.VerifyCodeComboBox verifyCodeComboBox1;
+        private System.Windows.Forms.Label lblLastEventDt;
     }
 }

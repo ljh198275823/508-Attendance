@@ -36,8 +36,69 @@ namespace LJH.Attendance.UI
             mnu_AddDevice2.Enabled = Operator.CurrentOperator.Permit(Permission.EditAttendanceDevice);
             mnu_Rename2.Enabled = Operator.CurrentOperator.Permit(Permission.EditDeviceGroup);
             mnu_Delete2.Enabled = Operator.CurrentOperator.Permit(Permission.EditDeviceGroup);
-            
         }
+
+        private void GetAttendanceLog(DeviceInfo device, bool onlyLatest)
+        {
+            ZKFingerKeeper keeper = new ZKFingerKeeper(device);
+            FrmProcessing frm = new FrmProcessing();
+            Action action = delegate()
+            {
+                frm.ShowProgress("正在连接考勤机...", 0);
+                keeper.Connect();
+                if (keeper.IsConnected)
+                {
+                    try
+                    {
+                        //清空控制器
+                        frm.ShowProgress("正在获取考勤记录...", 0);
+                        DatetimeRange dr = null;
+                        if (onlyLatest && device.LastEventDt != null)
+                        {
+                            dr = new DatetimeRange(device.LastEventDt.Value.AddSeconds(1), new DateTime(2099, 12, 31)); //从最后那个时间开始获取
+                        }
+                        List<AttendanceLog> logs = keeper.GetAttendanceLogs(dr);
+                        if (logs == null || logs.Count == 0)
+                        {
+                            frm.ShowProgress(string.Empty , 1);
+                        }
+                        else
+                        {
+                            frm.ShowProgress(string.Format("获取到 {0} 条考勤记录,正在努力保存考勤记录...", logs.Count), 0.99m);
+                            AttendanceLogBLL bll = new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString);
+                            int count = 0;
+                            foreach (AttendanceLog log in logs)
+                            {
+                                count++;
+                                frm.ShowProgress(string.Format("正在保存第 {0} 条记录", count), (decimal)count / logs.Count);
+                                CommandResult ret = bll.Add(log);
+                            }
+                            frm.ShowProgress(string.Empty , 1);
+                            device.LastEventDt = logs.Max(it => it.ReadDateTime);
+                            (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Update(device);
+                        }
+                    }
+                    catch (ThreadAbortException)
+                    {
+                    }
+                    catch (Exception ex)
+                    {
+                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                    }
+                    finally
+                    {
+                        keeper.Disconnect();
+                    }
+                }
+                else
+                {
+                    frm.ShowProgress("连接设备失败", 1);
+                }
+            };
+            Thread t = new Thread(new ThreadStart(action));
+            t.Start();
+            frm.ShowDialog();
+       }
         #endregion
 
         #region 事件处理程序
@@ -306,6 +367,7 @@ namespace LJH.Attendance.UI
                         keeper.ClearData(ClearDataFlag.UserInfo);
                         keeper.ClearData(ClearDataFlag.FPTemplate);
                         frm.ShowProgress("清空设备成功", 0.1m);
+                        keeper.SetTime(DateTime.Now);
                         decimal count = 0;
                         frm.ShowProgress("开始上传人员...", 0);
                         List<Staff> staff = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
@@ -366,7 +428,6 @@ namespace LJH.Attendance.UI
                     try
                     {
                         keeper.SetTime(DateTime.Now);
-                        frm.ShowProgress("同步时间完成", 1);
                     }
                     catch (ThreadAbortException)
                     {
@@ -402,6 +463,23 @@ namespace LJH.Attendance.UI
             TreeNode node = deviceTree1.SelectedNode;
             DeviceInfo device = node.Tag as DeviceInfo;
             if (device == null) return;
+            GetAttendanceLog(device, true);
+        }
+
+        private void mnu_GetAllAttendancelog_Click(object sender, EventArgs e)
+        {
+            TreeNode node = deviceTree1.SelectedNode;
+            DeviceInfo device = node.Tag as DeviceInfo;
+            if (device == null) return;
+            GetAttendanceLog(device, false);
+        }
+        #endregion
+
+        private void mnu_Reset_Click(object sender, EventArgs e)
+        {
+            TreeNode node = deviceTree1.SelectedNode;
+            DeviceInfo device = node.Tag as DeviceInfo;
+            if (device == null) return;
             ZKFingerKeeper keeper = new ZKFingerKeeper(device);
             FrmProcessing frm = new FrmProcessing();
             Action action = delegate()
@@ -412,20 +490,8 @@ namespace LJH.Attendance.UI
                 {
                     try
                     {
-                        //清空控制器
-                        frm.ShowProgress("正在获取考勤记录...", 0);
-                        List<AttendanceLog> logs = keeper.GetAttendanceLogs(null);
-                        if (logs == null || logs.Count == 0) frm.ShowProgress("没有获取到考勤记录,请查看相关的日志文件查看错误信息", 1);
-                        frm.ShowProgress(string.Format("获取到 {0} 条考勤记录,正在努力保存考勤记录...", logs.Count), 0.99m);
-                        AttendanceLogBLL bll = new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString);
-                        int count = 0;
-                        foreach (AttendanceLog log in logs)
-                        {
-                            count++;
-                            frm.ShowProgress(string.Format("正在保存第 {0} 条记录", count), (decimal)count / logs.Count);
-                            CommandResult ret = bll.Add(log);
-                        }
-                        frm.ShowProgress("完成", 1);
+                        frm.ShowProgress("正在重启设备....", 0.2m);
+                        keeper.Restart();
                     }
                     catch (ThreadAbortException)
                     {
@@ -436,18 +502,17 @@ namespace LJH.Attendance.UI
                     }
                     finally
                     {
-                        keeper.Disconnect();
+                        frm.ShowProgress(string.Empty, 1);
                     }
                 }
                 else
                 {
-                    frm.ShowProgress("连接设备失败", 1);
+                    frm.ShowProgress(string.Empty, 1);
                 }
             };
             Thread t = new Thread(new ThreadStart(action));
             t.Start();
             frm.ShowDialog();
         }
-        #endregion
     }
 }

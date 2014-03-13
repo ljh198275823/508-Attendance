@@ -15,16 +15,16 @@ namespace LJH.Attendance.Model
         /// </summary>
         None = 0,
         /// <summary>
-        /// 卡加指纹
-        /// </summary>
-        PIN_AND_FP = 8,
-        /// <summary>
         /// 指纹加密码
         /// </summary>
         FP_AND_PW = 9,
         /// <summary>
+        /// 卡加指纹
+        /// </summary>
+        FP_AND_RF=10,
+        /// <summary>
         /// 指纹加卡加密码
         /// </summary>
-        FP_AND_PW_AND_PIN = 13
+        FP_AND_PW_AND_RF = 12
     }
 }

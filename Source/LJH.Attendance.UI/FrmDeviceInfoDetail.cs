@@ -96,6 +96,7 @@ namespace LJH.Attendance.UI
             }
             chkForAttendance.Checked = info.ForAttendance;
             verifyCodeComboBox1.SelectedVerifyCode = info.VerifyCode;
+            if (info.LastEventDt != null) lblLastEventDt.Text = "已上传的最后一条考勤记录时间：" + info.LastEventDt.Value.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
         protected override Object GetItemFromInput()

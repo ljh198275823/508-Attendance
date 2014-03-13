@@ -30,8 +30,8 @@ namespace LJH.Attendance.UI.Controls
             TextValueItem<VerifyCode>[] items = new TextValueItem<VerifyCode>[]{
             new TextValueItem<VerifyCode>(VerifyCode.None , string.Empty ),
             new TextValueItem <VerifyCode>(VerifyCode.FP_AND_PW ,"指纹加密码"),
-            new TextValueItem<VerifyCode>(VerifyCode.PIN_AND_FP,"指纹加卡"),
-            new TextValueItem<VerifyCode>(VerifyCode.FP_AND_PW_AND_PIN, "指纹加卡加密码"),
+            new TextValueItem<VerifyCode>(VerifyCode.FP_AND_RF,"指纹加卡"),
+            new TextValueItem<VerifyCode>(VerifyCode.FP_AND_PW_AND_RF, "指纹加卡加密码"),
             };
             this.DataSource = items;
             this.DisplayMember = "Text";

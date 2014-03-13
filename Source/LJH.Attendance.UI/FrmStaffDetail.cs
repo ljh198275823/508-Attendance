@@ -51,7 +51,7 @@ namespace LJH.Attendance.UI
             dtHireDate.Value = staff.HireDate;
             rdUnResign.Checked = !staff.Resigned;
             rdResign.Checked = staff.Resigned;
-
+            chkIsAdmin.Checked = (staff.IsAdmin != null && staff.IsAdmin.Value);
             StaffPhoto sp = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetPhoto(staff.ID).QueryObject;
             if (sp != null)
             {
@@ -148,6 +148,7 @@ namespace LJH.Attendance.UI
             info.UserPosition = txtUserPosition.Text;
             info.HireDate = dtHireDate.Value;
             info.Resigned = rdResign.Checked;
+            info.IsAdmin = chkIsAdmin.Checked;
             return info;
         }
 
