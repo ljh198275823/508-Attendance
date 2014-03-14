@@ -40,6 +40,7 @@
       <Column Name="VerifyCode" Member="VerifyCode"  DbType="tinyint not null" UpdateCheck="Never"/>
       <Column Name="GroupID" Member="GroupID"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="LastEventDt" Member="LastEventDt"  DbType="datetime" UpdateCheck="Never"/>
+      <Column Name="FPVersion" Member="FPVersion"  DbType="int" UpdateCheck="Never"/>
     </Type>
   </Table>
   <Table Name="TADepartment" Member="LJH.Attendance.Model.Department">

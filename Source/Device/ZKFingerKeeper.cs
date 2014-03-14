@@ -109,7 +109,6 @@ namespace LJH.Attendance.Device
                 axCZKEM1.Disconnect();
             }
         }
-
         /// <summary>
         /// 获取是否连接成功
         /// </summary>
@@ -120,7 +119,6 @@ namespace LJH.Attendance.Device
                 return _Connected;
             }
         }
-
         /// <summary>
         /// 获取机器上的考勤记录
         /// </summary>
@@ -187,7 +185,6 @@ namespace LJH.Attendance.Device
             }
             return logs;
         }
-
         /// <summary>
         /// 保存用户
         /// </summary>
@@ -227,7 +224,7 @@ namespace LJH.Attendance.Device
             }
             string temp = null;
             int size = 0;
-            if (template.IsBiokey)
+            if (template.IsBiokey && template.Version == "9.0")
             {
                 bool r = axCZKEM1.FPTempConvertNewStr(template.Template, ref temp, ref size);
                 if (!r)
@@ -246,6 +243,7 @@ namespace LJH.Attendance.Device
                 int fingerIndex = (int)template.BioSource;
                 if (fingerIndex >= 0 && fingerIndex <= 9) //指纹
                 {
+                    bool isTFT = axCZKEM1.IsTFTMachine(iMachineNumber);
                     bool ret = axCZKEM1.SetUserTmpExStr(iMachineNumber, template.StaffID.ToString(), fingerIndex, 1, temp);
                     if (!ret)
                     {
@@ -383,12 +381,17 @@ namespace LJH.Attendance.Device
                 LJH.GeneralLibrary.LOG.FileLog.Log(Parameter.Name, "设置IP失败，ErrorCode=" + idwErrorCode.ToString());
             }
         }
-
+        /// <summary>
+        /// 启用或禁用设备
+        /// </summary>
+        /// <param name="enable"></param>
         public void EnableDevice(bool enable)
         {
             axCZKEM1.EnableDevice(iMachineNumber, enable);
         }
-
+        /// <summary>
+        /// 更新数据,一般在保存了用户信息等后,调用此方法使数据生效
+        /// </summary>
         public void RefreshData()
         {
             axCZKEM1.RefreshData(iMachineNumber);//the data in the device should be refreshed

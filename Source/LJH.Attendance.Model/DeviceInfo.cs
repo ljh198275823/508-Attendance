@@ -90,6 +90,10 @@ namespace LJH.Attendance.Model
         /// 获取或设置已经从设备中获取的最后一条事件的时间
         /// </summary>
         public DateTime? LastEventDt { get; set; }
+        /// <summary>
+        /// 获取或设置指纹算法版本,如果为9则表示用的算法9.0 为10表示用的算法10.0
+        /// </summary>
+        public int? FPVersion { get; set; }
         #endregion
     }
 }

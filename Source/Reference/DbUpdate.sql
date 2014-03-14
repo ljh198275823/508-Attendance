@@ -31,3 +31,9 @@ BEGIN
 	exec ('alter table TADeviceInfo add LastEventDt datetime null')
 end
 go
+
+if not exists (SELECT * FROM dbo.syscolumns WHERE name ='FPVersion' AND id = OBJECT_ID(N'[dbo].[TADeviceInfo]')) 
+BEGIN
+	exec ('alter table TADeviceInfo add FPVersion int null')
+end
+go
