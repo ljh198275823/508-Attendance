@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0D46486C77F54651A4BBB97125D78753"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_16DB407385C556BB00C9127BD5680746"
         "OwnerKey" = "8:_899BA414FB9749B4823A7B663B0B9220"
         "MsmSig" = "8:_UNDEFINED"
@@ -51,6 +57,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_339071B6ED444327ACBD51AFD37B7137"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5583E17055B74D81B3E1F8BBE9B8F70E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6006D491A1BF4E9FB6DB41299A371F3C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_64364C0A1DB341DCA80D6982B9B1F39F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -64,6 +88,12 @@
         "Entry"
         {
         "MsmKey" = "8:_7199A19170FB4982B938D38CED9542C2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_767BE80FD4D24AD1A0117AD40F1DC878"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -106,25 +136,7 @@
         "Entry"
         {
         "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
-        "OwnerKey" = "8:_A4BC6249B3084B94A68438249E48D71F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
-        "OwnerKey" = "8:_899BA414FB9749B4823A7B663B0B9220"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
-        "OwnerKey" = "8:_65148AF04B338E50B8575EEECD14CAD7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
-        "OwnerKey" = "8:_1E47A09AF2903E4627B99C53FA21671E"
+        "OwnerKey" = "8:_86A78676F9FE50D05D5F69C9BC7C7CC9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -136,12 +148,36 @@
         "Entry"
         {
         "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
-        "OwnerKey" = "8:_86A78676F9FE50D05D5F69C9BC7C7CC9"
+        "OwnerKey" = "8:_1E47A09AF2903E4627B99C53FA21671E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
+        "OwnerKey" = "8:_65148AF04B338E50B8575EEECD14CAD7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
+        "OwnerKey" = "8:_899BA414FB9749B4823A7B663B0B9220"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_86EE56F28A1C850164057504DEB28628"
+        "OwnerKey" = "8:_A4BC6249B3084B94A68438249E48D71F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_899BA414FB9749B4823A7B663B0B9220"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A49B08AFDB95473FA19F3E8ACD3A2DB3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -159,6 +195,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D9BF2549371D484D839CAE9B34364608"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E6C7718126834975A2B56BAF9A54AAC1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EC645741DCD641C9A52528FFECD1B1C6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -171,6 +219,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_FF049BA2C0CE4800923F61227A50471E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_FF409A38E8A8C7060C7612EE63C850C5"
         "OwnerKey" = "8:_86A78676F9FE50D05D5F69C9BC7C7CC9"
         "MsmSig" = "8:_UNDEFINED"
@@ -178,13 +232,7 @@
         "Entry"
         {
         "MsmKey" = "8:_FF409A38E8A8C7060C7612EE63C850C5"
-        "OwnerKey" = "8:_65148AF04B338E50B8575EEECD14CAD7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FF409A38E8A8C7060C7612EE63C850C5"
-        "OwnerKey" = "8:_899BA414FB9749B4823A7B663B0B9220"
+        "OwnerKey" = "8:_16DB407385C556BB00C9127BD5680746"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -196,7 +244,13 @@
         "Entry"
         {
         "MsmKey" = "8:_FF409A38E8A8C7060C7612EE63C850C5"
-        "OwnerKey" = "8:_16DB407385C556BB00C9127BD5680746"
+        "OwnerKey" = "8:_899BA414FB9749B4823A7B663B0B9220"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FF409A38E8A8C7060C7612EE63C850C5"
+        "OwnerKey" = "8:_65148AF04B338E50B8575EEECD14CAD7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -208,43 +262,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_003537DC47074D97AEA46231CC148178"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_899BA414FB9749B4823A7B663B0B9220"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_65148AF04B338E50B8575EEECD14CAD7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1E47A09AF2903E4627B99C53FA21671E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_16DB407385C556BB00C9127BD5680746"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_86A78676F9FE50D05D5F69C9BC7C7CC9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7D6CD8B5DF601E9E1DAC2DA8807A62E5"
+        "OwnerKey" = "8:_86EE56F28A1C850164057504DEB28628"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -256,7 +274,43 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_86EE56F28A1C850164057504DEB28628"
+        "OwnerKey" = "8:_7D6CD8B5DF601E9E1DAC2DA8807A62E5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_86A78676F9FE50D05D5F69C9BC7C7CC9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_16DB407385C556BB00C9127BD5680746"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1E47A09AF2903E4627B99C53FA21671E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_65148AF04B338E50B8575EEECD14CAD7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_899BA414FB9749B4823A7B663B0B9220"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_003537DC47074D97AEA46231CC148178"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -395,6 +449,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0D46486C77F54651A4BBB97125D78753"
+            {
+            "SourcePath" = "8:..\\Reference\\CardReaderDll\\RC500USB.dll"
+            "TargetName" = "8:RC500USB.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_16DB407385C556BB00C9127BD5680746"
             {
             "AssemblyRegister" = "3:1"
@@ -402,11 +476,6 @@
             "AssemblyAsmDisplayName" = "8:LJH.Attendance.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_16DB407385C556BB00C9127BD5680746"
-                    {
-                    "Name" = "8:LJH.Attendance.BLL.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LJH.Attendance.BLL.dll"
             "TargetName" = "8:"
@@ -433,11 +502,6 @@
             "AssemblyAsmDisplayName" = "8:LJH.Attendance.Device, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_1E47A09AF2903E4627B99C53FA21671E"
-                    {
-                    "Name" = "8:LJH.Attendance.Device.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LJH.Attendance.Device.dll"
             "TargetName" = "8:"
@@ -461,6 +525,66 @@
             {
             "SourcePath" = "8:..\\Reference\\attendance.ico"
             "TargetName" = "8:attendance.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_339071B6ED444327ACBD51AFD37B7137"
+            {
+            "SourcePath" = "8:..\\Reference\\CardReaderDll\\RC500USB.h"
+            "TargetName" = "8:RC500USB.h"
+            "Tag" = "8:"
+            "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5583E17055B74D81B3E1F8BBE9B8F70E"
+            {
+            "SourcePath" = "8:..\\Reference\\CardReaderDll\\RC500USB.lib"
+            "TargetName" = "8:RC500USB.lib"
+            "Tag" = "8:"
+            "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6006D491A1BF4E9FB6DB41299A371F3C"
+            {
+            "SourcePath" = "8:..\\Reference\\CardReaderDll\\EasyD12_500.dll"
+            "TargetName" = "8:EasyD12_500.dll"
             "Tag" = "8:"
             "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
             "Condition" = "8:"
@@ -504,11 +628,6 @@
             "AssemblyAsmDisplayName" = "8:LJH.Attendance.UI, Version=1.0.2013.1011, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_65148AF04B338E50B8575EEECD14CAD7"
-                    {
-                    "Name" = "8:LJH.Attendance.UI.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LJH.Attendance.UI.dll"
             "TargetName" = "8:"
@@ -548,6 +667,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_767BE80FD4D24AD1A0117AD40F1DC878"
+            {
+            "SourcePath" = "8:..\\Reference\\CardReaderDll\\wiegreader.dll"
+            "TargetName" = "8:wiegreader.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7D6CD8B5DF601E9E1DAC2DA8807A62E5"
             {
             "AssemblyRegister" = "3:1"
@@ -555,11 +694,6 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite, Version=1.0.80.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_7D6CD8B5DF601E9E1DAC2DA8807A62E5"
-                    {
-                    "Name" = "8:System.Data.SQLite.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.dll"
             "TargetName" = "8:"
@@ -606,11 +740,6 @@
             "AssemblyAsmDisplayName" = "8:LJH.Attendance.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_86A78676F9FE50D05D5F69C9BC7C7CC9"
-                    {
-                    "Name" = "8:LJH.Attendance.DAL.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LJH.Attendance.DAL.dll"
             "TargetName" = "8:"
@@ -637,11 +766,6 @@
             "AssemblyAsmDisplayName" = "8:LJH.GeneralLibrary, Version=2.0.2013.1110, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_86EE56F28A1C850164057504DEB28628"
-                    {
-                    "Name" = "8:LJH.GeneralLibrary.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LJH.GeneralLibrary.dll"
             "TargetName" = "8:"
@@ -659,6 +783,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A49B08AFDB95473FA19F3E8ACD3A2DB3"
+            {
+            "SourcePath" = "8:..\\Reference\\CardReaderDll\\MUR200.dll"
+            "TargetName" = "8:MUR200.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A4BC6249B3084B94A68438249E48D71F"
@@ -698,6 +842,46 @@
             "TargetName" = "8:Attendance.sql"
             "Tag" = "8:"
             "Folder" = "8:_C291C852FA034B048C6A4DA61275E34F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D9BF2549371D484D839CAE9B34364608"
+            {
+            "SourcePath" = "8:..\\Reference\\CardReaderDll\\ZHidApi.dll"
+            "TargetName" = "8:ZHidApi.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6C7718126834975A2B56BAF9A54AAC1"
+            {
+            "SourcePath" = "8:..\\Reference\\CardReaderDll\\EasyZUSBMulti.dll"
+            "TargetName" = "8:EasyZUSBMulti.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -752,6 +936,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FF049BA2C0CE4800923F61227A50471E"
+            {
+            "SourcePath" = "8:..\\Reference\\CardReaderDll\\RC500_232.dll"
+            "TargetName" = "8:RC500_232.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_948A5A76FEF24D03AF3893CC89D7C50F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FF409A38E8A8C7060C7612EE63C850C5"
             {
             "AssemblyRegister" = "3:1"
@@ -759,11 +963,6 @@
             "AssemblyAsmDisplayName" = "8:LJH.Attendance.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_FF409A38E8A8C7060C7612EE63C850C5"
-                    {
-                    "Name" = "8:LJH.Attendance.Model.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LJH.Attendance.Model.dll"
             "TargetName" = "8:"
