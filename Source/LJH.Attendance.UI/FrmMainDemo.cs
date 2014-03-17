@@ -332,7 +332,7 @@ namespace LJH.Attendance.UI
                 StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
                 con.ShiftDate = frm.DateRange;
                 con.Staff = staffs.Select(it => it.ID).ToList();
-                FrmShiftResultDayReport form = ShowSingleForm<FrmShiftResultDayReport>();
+                FrmShiftResultMaster form = ShowSingleForm<FrmShiftResultMaster>();
                 if (form != null)
                 {
                     form.Fresh(con);
