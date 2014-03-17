@@ -469,6 +469,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmStaffDetail";
             this.Text = "员工信息";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmStaffDetail_FormClosed);
             this.Controls.SetChildIndex(this.btnOk, 0);
             this.Controls.SetChildIndex(this.btnClose, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);

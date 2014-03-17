@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using LJH.Attendance.Model;
 using LJH.Attendance.Model.Result;
 using LJH.Attendance.BLL;
+using LJH.GeneralLibrary.CardReader;
 
 namespace LJH.Attendance.UI
 {
@@ -43,7 +44,7 @@ namespace LJH.Attendance.UI
             txtName.Text = staff.Name;
             txtCertificate.Text = staff.Certificate;
             if (staff.Department != null) departmentComboBox1.DepartmentID = staff.Department.ID;
-            txtCardID.Text = !string.IsNullOrEmpty (staff.CardID)?staff.CardID:string.Empty;
+            txtCardID.Text = !string.IsNullOrEmpty(staff.CardID) ? staff.CardID : string.Empty;
             txtPassword.Text = !string.IsNullOrEmpty(staff.Password) ? staff.Password : string.Empty;
             txtUserPosition.Text = staff.UserPosition;
             rdMale.Checked = staff.Sex == "男";
@@ -158,6 +159,7 @@ namespace LJH.Attendance.UI
             this.departmentComboBox1.Init();
             this.txtCardID.Text = string.Empty;
             if (Department != null) this.departmentComboBox1.DepartmentID = Department.ID;
+            LJH.GeneralLibrary.CardReader.CardReaderManager.GetInstance(WegenType.Wengen26).PushCardReadRequest(CardReadEventHandler);
             this.btnOk.Enabled = Operator.CurrentOperator.Permit(Permission.EditStaff);
         }
         #endregion
@@ -265,6 +267,30 @@ namespace LJH.Attendance.UI
                     templateGrid.Rows.Remove(row);
                 }
 
+            }
+        }
+
+        private void FrmStaffDetail_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LJH.GeneralLibrary.CardReader.CardReaderManager.GetInstance(WegenType.Wengen26).PopCardReadRequest(CardReadEventHandler);
+        }
+
+        private void CardReadEventHandler(object sender, CardReadEventArgs e)
+        {
+            Action action = delegate()
+            {
+                if (!string.IsNullOrEmpty(e.CardID))
+                {
+                    this.txtCardID.Text = e.CardID;
+                }
+            };
+            if (this.InvokeRequired)
+            {
+                this.Invoke(action);
+            }
+            else
+            {
+                action();
             }
         }
         #endregion
