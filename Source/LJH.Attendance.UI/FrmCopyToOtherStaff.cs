@@ -86,16 +86,24 @@ namespace LJH.Attendance.UI
                     {
                         foreach (Staff staff in copyees)
                         {
+                            List<ShiftArrange> sas = new List<ShiftArrange>();
                             if (items != null && items.Count > 0)
                             {
                                 foreach (ShiftArrange sa in items)
                                 {
-                                    sa.StaffID = staff.ID;
+                                    if (staff.HireDate.Date <= sa.ShiftDate.Date)
+                                    {
+                                        sa.StaffID = staff.ID;
+                                        sas.Add(sa);
+                                    }
                                 }
                             }
                             count++;
                             frm.ShowProgress(string.Format("正在复制到 {0}...", staff.Name), count / copyees.Count);
-                            CommandResult ret = bll.ShiftArrange(staff.ID, new DatetimeRange(dtBegin.Value, dtEnd.Value), items);
+                            if (sas.Count > 0)
+                            {
+                                CommandResult ret = bll.ShiftArrange(staff.ID, new DatetimeRange(dtBegin.Value, dtEnd.Value), sas);
+                            }
                         }
                     }
                     catch (ThreadAbortException)

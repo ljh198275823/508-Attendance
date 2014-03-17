@@ -161,6 +161,7 @@ namespace LJH.Attendance.UI
             if (!Operator.CurrentOperator.Permit(Permission.ShiftArrange)) return;
             Staff staff = GridView.Rows[e.RowIndex].Tag as Staff;
             DateTime dt = Convert.ToDateTime(GridView.Columns[e.ColumnIndex].Tag);
+            if (staff.HireDate.Date > dt.Date) return;  //人员入职日期之前不必排班
             List<Shift> shifts = GridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag as List<Shift>;
             FrmShiftSelection frm = new FrmShiftSelection();
             frm.SelectedShifts = shifts;

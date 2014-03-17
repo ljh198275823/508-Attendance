@@ -67,7 +67,7 @@ namespace LJH.Attendance.Model
                             else
                             {
                                 duration++;
-                                if (item.Shifts != null && item.Shifts.Count > 0)
+                                if (item.Shifts != null && item.Shifts.Count > 0 && staff.HireDate.Date <= dt.Date) //考虑到员工入职日期,入职日期之前排班无意义
                                 {
                                     foreach (Shift shift in item.Shifts)
                                     {
