@@ -37,3 +37,12 @@ BEGIN
 	exec ('alter table TADeviceInfo add FPVersion int null')
 end
 go
+
+--2014-3-21
+if not exists (SELECT * FROM dbo.syscolumns WHERE name ='VerifyCode' AND id = OBJECT_ID(N'[dbo].[TAStaff]')) 
+BEGIN
+	exec ('alter table TAStaff add VerifyCode tinyint null')
+	exec ('update TAStaff set VerifyCode=0')
+	exec ('alter table TAStaff alter column VerifyCode tinyint not null')
+end
+go

@@ -53,6 +53,7 @@ namespace LJH.Attendance.UI
             rdUnResign.Checked = !staff.Resigned;
             rdResign.Checked = staff.Resigned;
             chkIsAdmin.Checked = (staff.IsAdmin != null && staff.IsAdmin.Value);
+            verifyCodeComboBox1.SelectedVerifyCode = staff.VerifyCode;
             StaffPhoto sp = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetPhoto(staff.ID).QueryObject;
             if (sp != null)
             {
@@ -150,6 +151,7 @@ namespace LJH.Attendance.UI
             info.HireDate = dtHireDate.Value;
             info.Resigned = rdResign.Checked;
             info.IsAdmin = chkIsAdmin.Checked;
+            info.VerifyCode = verifyCodeComboBox1.SelectedVerifyCode;
             return info;
         }
 
@@ -157,6 +159,7 @@ namespace LJH.Attendance.UI
         {
             base.InitControls();
             this.departmentComboBox1.Init();
+            this.verifyCodeComboBox1.Init();
             this.txtCardID.Text = string.Empty;
             if (Department != null) this.departmentComboBox1.DepartmentID = Department.ID;
             LJH.GeneralLibrary.CardReader.CardReaderManager.GetInstance(WegenType.Wengen26).PushCardReadRequest(CardReadEventHandler);

@@ -203,7 +203,7 @@ namespace LJH.Attendance.Device
             string pwd = !string.IsNullOrEmpty(staff.Password) ? staff.Password : "8888";
             int pri = staff.IsAdmin != null && staff.IsAdmin.Value ? 3 : 0;
             if (ret) ret = axCZKEM1.SetUserInfo(iMachineNumber, staff.ID, staff.Name, pwd, pri, true);
-            if (ret && ((int)Parameter.VerifyCode) > 0) ret = axCZKEM1.SetUserInfoEx(iMachineNumber, staff.ID, 128 + (int)Parameter.VerifyCode, ref reserved[0]); //0-15是验证模式，但设置组的验证方式的时候用0-15，用户的验证方式用128-143
+            if (ret && ((int)Parameter.VerifyCode) > 0) ret = axCZKEM1.SetUserInfoEx(iMachineNumber, staff.ID, 128 + (int)staff.VerifyCode, ref reserved[0]); //0-15是验证模式，但设置组的验证方式的时候用0-15，用户的验证方式用128-143
             if (!ret)
             {
                 int idwErrorCode = 0;

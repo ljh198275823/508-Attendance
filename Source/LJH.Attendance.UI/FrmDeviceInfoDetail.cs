@@ -27,7 +27,6 @@ namespace LJH.Attendance.UI
         protected override void InitControls()
         {
             txtIPMask.IP = "255.255.255.0";
-            this.verifyCodeComboBox1.Init();
         }
 
         protected override bool CheckInput()
@@ -95,7 +94,6 @@ namespace LJH.Attendance.UI
                 txtAddress.IntergerValue = info.Address != null ? info.Address.Value : 0;
             }
             chkForAttendance.Checked = info.ForAttendance;
-            verifyCodeComboBox1.SelectedVerifyCode = info.VerifyCode;
             if (info.LastEventDt != null) lblLastEventDt.Text = "已上传的最后一条考勤记录时间：" + info.LastEventDt.Value.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
@@ -130,7 +128,6 @@ namespace LJH.Attendance.UI
                 info.Address = txtAddress.IntergerValue;
             }
             info.ForAttendance = chkForAttendance.Checked;
-            info.VerifyCode = verifyCodeComboBox1.SelectedVerifyCode;
             return info;
         }
 

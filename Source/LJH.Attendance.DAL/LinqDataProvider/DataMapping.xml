@@ -66,6 +66,7 @@
       <Column Name="CardID" Member="CardID"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="Password" Member="Password"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="IsAdmin" Member="IsAdmin" DbType="bit" UpdateCheck="Never"/>
+      <Column Name="VerifyCode" Member="VerifyCode"  DbType="tinyint not null" UpdateCheck="Never"/>
       <Column Name="Sex" Member="Sex"  DbType="nvarchar(50)" UpdateCheck="Never"/>
       <Column Name="BirthDate" Member="BirthDate"  DbType="datetime" UpdateCheck="Never"/>
       <Column Name="Certificate" Member="Certificate"  DbType="nvarchar(50)" UpdateCheck="Never"/>

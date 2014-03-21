@@ -43,6 +43,10 @@ namespace LJH.Attendance.Model
         /// </summary>
         public bool? IsAdmin { get; set; }
         /// <summary>
+        /// 获取或设置指纹机的验证方式
+        /// </summary>
+        public VerifyCode VerifyCode { get; set; }
+        /// <summary>
         /// 获取或设置员工姓别 1表示男，2表示女
         /// </summary>
         public string Sex { get; set; }

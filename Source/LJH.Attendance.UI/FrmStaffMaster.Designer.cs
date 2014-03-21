@@ -44,13 +44,14 @@
             this.GridView = new System.Windows.Forms.DataGridView();
             this.colDrag = new System.Windows.Forms.DataGridViewImageColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCardID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUserPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIsAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHireDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colResigned = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
@@ -71,7 +72,7 @@
             this.toolStripSeparator2});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1128, 50);
+            this.menu.Size = new System.Drawing.Size(1197, 50);
             this.menu.TabIndex = 58;
             // 
             // btn_Add
@@ -178,20 +179,21 @@
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDrag,
             this.colName,
+            this.colCardID,
             this.colDepartment,
             this.colCertificate,
             this.colUserPosition,
+            this.colIsAdmin,
             this.colSex,
             this.colHireDate,
-            this.colResigned,
-            this.colMemo});
+            this.colResigned});
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridView.Location = new System.Drawing.Point(262, 50);
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridView.Size = new System.Drawing.Size(866, 328);
+            this.GridView.Size = new System.Drawing.Size(935, 328);
             this.GridView.TabIndex = 63;
             this.GridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridView_CellMouseDown);
             // 
@@ -213,14 +215,20 @@
             this.colName.MinimumWidth = 100;
             this.colName.Name = "colName";
             this.colName.ReadOnly = true;
-            this.colName.Width = 150;
+            this.colName.Width = 130;
+            // 
+            // colCardID
+            // 
+            this.colCardID.HeaderText = "卡号";
+            this.colCardID.Name = "colCardID";
+            this.colCardID.ReadOnly = true;
             // 
             // colDepartment
             // 
             this.colDepartment.HeaderText = "部门";
             this.colDepartment.Name = "colDepartment";
             this.colDepartment.ReadOnly = true;
-            this.colDepartment.Width = 200;
+            this.colDepartment.Width = 150;
             // 
             // colCertificate
             // 
@@ -234,6 +242,13 @@
             this.colUserPosition.MinimumWidth = 100;
             this.colUserPosition.Name = "colUserPosition";
             this.colUserPosition.ReadOnly = true;
+            // 
+            // colIsAdmin
+            // 
+            this.colIsAdmin.HeaderText = "管理员";
+            this.colIsAdmin.Name = "colIsAdmin";
+            this.colIsAdmin.ReadOnly = true;
+            this.colIsAdmin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // colSex
             // 
@@ -255,19 +270,11 @@
             this.colResigned.ReadOnly = true;
             this.colResigned.Width = 60;
             // 
-            // colMemo
-            // 
-            this.colMemo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMemo.HeaderText = "备注";
-            this.colMemo.Name = "colMemo";
-            this.colMemo.ReadOnly = true;
-            this.colMemo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // FrmStaffMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 400);
+            this.ClientSize = new System.Drawing.Size(1197, 400);
             this.Controls.Add(this.GridView);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
@@ -304,13 +311,14 @@
         private System.Windows.Forms.DataGridView GridView;
         private System.Windows.Forms.DataGridViewImageColumn colDrag;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCardID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCertificate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUserPosition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIsAdmin;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHireDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResigned;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
 
     }
 }

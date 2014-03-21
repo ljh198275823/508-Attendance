@@ -65,6 +65,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnu_AddTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_DelTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.verifyCodeComboBox1 = new LJH.Attendance.UI.Controls.VerifyCodeComboBox(this.components);
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -98,6 +100,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.verifyCodeComboBox1);
+            this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.chkIsAdmin);
             this.tabPage1.Controls.Add(this.txtPassword);
             this.tabPage1.Controls.Add(this.label9);
@@ -461,6 +465,24 @@
             this.mnu_DelTemplate.Text = "删除";
             this.mnu_DelTemplate.Click += new System.EventHandler(this.mnu_DelTemplate_Click);
             // 
+            // verifyCodeComboBox1
+            // 
+            this.verifyCodeComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.verifyCodeComboBox1.FormattingEnabled = true;
+            this.verifyCodeComboBox1.Location = new System.Drawing.Point(239, 161);
+            this.verifyCodeComboBox1.Name = "verifyCodeComboBox1";
+            this.verifyCodeComboBox1.Size = new System.Drawing.Size(97, 20);
+            this.verifyCodeComboBox1.TabIndex = 58;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(180, 165);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.TabIndex = 57;
+            this.label12.Text = "验证方式";
+            // 
             // FrmStaffDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -526,5 +548,7 @@
         private GeneralLibrary.WinformControl.IntergerTextBox txtPassword;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox chkIsAdmin;
+        private Controls.VerifyCodeComboBox verifyCodeComboBox1;
+        private System.Windows.Forms.Label label12;
     }
 }

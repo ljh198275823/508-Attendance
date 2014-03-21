@@ -54,8 +54,6 @@
             this.comDeviceType = new System.Windows.Forms.ComboBox();
             this.txtSerial = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.chkForAttendance = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.verifyCodeComboBox1 = new LJH.Attendance.UI.Controls.VerifyCodeComboBox(this.components);
             this.lblLastEventDt = new System.Windows.Forms.Label();
             this.gpTCPIP.SuspendLayout();
             this.gpRS232.SuspendLayout();
@@ -317,24 +315,6 @@
             this.chkForAttendance.Text = "用于考勤";
             this.chkForAttendance.UseVisualStyleBackColor = true;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(102, 234);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 12);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "验证方式";
-            // 
-            // verifyCodeComboBox1
-            // 
-            this.verifyCodeComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.verifyCodeComboBox1.FormattingEnabled = true;
-            this.verifyCodeComboBox1.Location = new System.Drawing.Point(161, 230);
-            this.verifyCodeComboBox1.Name = "verifyCodeComboBox1";
-            this.verifyCodeComboBox1.Size = new System.Drawing.Size(121, 20);
-            this.verifyCodeComboBox1.TabIndex = 14;
-            // 
             // lblLastEventDt
             // 
             this.lblLastEventDt.AutoSize = true;
@@ -351,8 +331,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 288);
             this.Controls.Add(this.lblLastEventDt);
-            this.Controls.Add(this.verifyCodeComboBox1);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.chkForAttendance);
             this.Controls.Add(this.txtSerial);
             this.Controls.Add(this.comDeviceType);
@@ -379,8 +357,6 @@
             this.Controls.SetChildIndex(this.comDeviceType, 0);
             this.Controls.SetChildIndex(this.txtSerial, 0);
             this.Controls.SetChildIndex(this.chkForAttendance, 0);
-            this.Controls.SetChildIndex(this.label12, 0);
-            this.Controls.SetChildIndex(this.verifyCodeComboBox1, 0);
             this.Controls.SetChildIndex(this.lblLastEventDt, 0);
             this.gpTCPIP.ResumeLayout(false);
             this.gpTCPIP.PerformLayout();
@@ -418,8 +394,6 @@
         private System.Windows.Forms.ComboBox comDeviceType;
         private LJH.GeneralLibrary.WinformControl.DBCTextBox txtSerial;
         private System.Windows.Forms.CheckBox chkForAttendance;
-        private System.Windows.Forms.Label label12;
-        private Controls.VerifyCodeComboBox verifyCodeComboBox1;
         private System.Windows.Forms.Label lblLastEventDt;
     }
 }
