@@ -19,7 +19,7 @@ namespace LJH.Attendance.Model
             get
             {
                 if (_instance == null)
-                    _instance = new AppSettings(Application.ExecutablePath + ".config");
+                    _instance = new AppSettings("AppConf" + ".config");
                 return _instance;
             }
             set
