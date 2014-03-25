@@ -48,6 +48,9 @@
     <Reference Include="LJH.GeneralLibrary">
       <HintPath>..\Reference\LJH.GeneralLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
@@ -110,6 +113,8 @@
     <Compile Include="Controls\VerifyCodeComboBox.Designer.cs">
       <DependentUpon>VerifyCodeComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExcelExport\AttendanceDailyReportExporter.cs" />
+    <Compile Include="ExcelExport\AttendanceMonthReportExporter.cs" />
     <Compile Include="frmAboat.cs">
       <SubType>Form</SubType>
     </Compile>
