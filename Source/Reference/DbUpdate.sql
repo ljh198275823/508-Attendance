@@ -46,3 +46,14 @@ BEGIN
 	exec ('alter table TAStaff alter column VerifyCode tinyint not null')
 end
 go
+
+--2014-3-26 人员信息增加几个唯一值约束
+if not exists (SELECT * FROM sysobjects WHERE name = 'Certificate_Uniq' and type='K')
+BEGIN
+	exec('alter table tastaff add constraint Certificate_Uniq Unique ([Certificate])')
+END
+
+if not exists (SELECT * FROM sysobjects WHERE name = 'CardID_Uniq' and type='K')
+BEGIN
+	exec('alter table tastaff add constraint CardID_Uniq Unique (CardID)')
+END
