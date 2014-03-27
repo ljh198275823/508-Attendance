@@ -65,7 +65,7 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            List<DeviceInfo> attendanceReaders = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).GetAttendanceReaders().QueryObjects;
+            List<DeviceInfo> attendanceReaders = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectUri)).GetAttendanceReaders().QueryObjects;
             if (attendanceReaders == null || attendanceReaders.Count == 0)
             {
                 MessageBox.Show("还没有指定考勤点，请先在 \"考勤点选择\" 上指定考勤点");
@@ -81,7 +81,7 @@ namespace LJH.Attendance.UI
                 con.ContainManualLogs = true;
                 con.Readers = readers;
                 con.ReadDateTime = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime.Date.AddDays(1).AddSeconds(-1));
-                List<AttendanceLog> arranges = (new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
+                List<AttendanceLog> arranges = (new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con).QueryObjects;
                 List<object> items = new List<object>();
                 foreach (Staff s in users)
                 {
@@ -113,7 +113,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as OTType);
+            CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(item as OTType);
             return ret.Result == ResultCode.Successful;
         }
         #endregion

@@ -33,13 +33,13 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as DeviceGroup);
+            CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectUri)).Add(addingItem as DeviceGroup);
             return ret;
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as DeviceGroup);
+            CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectUri)).Update(updatingItem as DeviceGroup);
             return ret;
         }
 

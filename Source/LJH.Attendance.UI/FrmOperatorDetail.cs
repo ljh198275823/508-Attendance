@@ -14,7 +14,7 @@ namespace LJH.Attendance.UI
 {
     public partial class FrmOperatorDetail:FrmDetailBase 
     {
-        private OperatorBll bll = new OperatorBll(AppSettings.CurrentSetting.ConnectString); 
+        private OperatorBll bll = new OperatorBll(AppSettings.CurrentSetting.ConnectUri); 
         private string _subPwd = new string('*', 10);
 
         public FrmOperatorDetail()

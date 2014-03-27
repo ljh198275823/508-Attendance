@@ -27,7 +27,7 @@ namespace LJH.Attendance.UI
 
         public void Init()
         {
-            RoleBll bll = new RoleBll(LJH.Attendance.Model.AppSettings.CurrentSetting.ConnectString);
+            RoleBll bll = new RoleBll(LJH.Attendance.Model.AppSettings.CurrentSetting.ConnectUri);
             this.DataSource = bll.GetAllRoles().QueryObjects;
             this.DisplayMember = "Name";
             this.ValueMember = "ID";

@@ -71,7 +71,7 @@ namespace LJH.Attendance.UI
         {
             if (CheckInput())
             {
-                ShiftArrangeBLL bll = new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString);
+                ShiftArrangeBLL bll = new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectUri);
                 ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
                 con.StaffID = (txtStaff.Tag as Staff).ID;
                 con.ShiftDate = new DatetimeRange(dtBegin.Value, dtEnd.Value);

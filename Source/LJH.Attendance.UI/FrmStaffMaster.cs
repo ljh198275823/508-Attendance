@@ -81,7 +81,7 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            _AllStaff = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects.ToList();
+            _AllStaff = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects.ToList();
             if (Operator.CurrentOperator.ID.ToUpper() != "ADMIN" && Operator.CurrentOperator.Depts != null)
             {
                 _AllStaff = _AllStaff.Where(it => Operator.CurrentOperator.Depts.Contains(it.DepartmentID)).ToList();
@@ -120,7 +120,7 @@ namespace LJH.Attendance.UI
         protected override bool DeletingItem(object item)
         {
             Staff info = (Staff)item;
-            CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).Delete(info);
+            CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(info);
             if (ret.Result != ResultCode.Successful)
             {
                 MessageBox.Show(ret.Message, LJH.Attendance.UI.Properties.Resources.Form_Alert, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -175,7 +175,7 @@ namespace LJH.Attendance.UI
                         List<Staff> staff = o as List<Staff>;
                         if (staff != null && staff.Count > 0)
                         {
-                            StaffBLL bll = new StaffBLL(AppSettings.CurrentSetting.ConnectString);
+                            StaffBLL bll = new StaffBLL(AppSettings.CurrentSetting.ConnectUri);
                             foreach (Staff st in staff)
                             {
                                 st.DepartmentID = dept.ID;

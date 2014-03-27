@@ -35,7 +35,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtAutoGenerateResultTime = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkAutoGetAttendanceLog = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -43,7 +46,7 @@
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClose.Location = new System.Drawing.Point(271, 89);
+            this.btnClose.Location = new System.Drawing.Point(271, 158);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 3;
@@ -55,7 +58,7 @@
             // 
             this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOk.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnOk.Location = new System.Drawing.Point(177, 89);
+            this.btnOk.Location = new System.Drawing.Point(177, 158);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 2;
@@ -113,13 +116,34 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "每天";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.chkAutoGetAttendanceLog);
+            this.groupBox1.Location = new System.Drawing.Point(4, 83);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(359, 61);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "考勤设备选项";
+            // 
+            // chkAutoGetAttendanceLog
+            // 
+            this.chkAutoGetAttendanceLog.AutoSize = true;
+            this.chkAutoGetAttendanceLog.Location = new System.Drawing.Point(14, 29);
+            this.chkAutoGetAttendanceLog.Name = "chkAutoGetAttendanceLog";
+            this.chkAutoGetAttendanceLog.Size = new System.Drawing.Size(192, 16);
+            this.chkAutoGetAttendanceLog.TabIndex = 3;
+            this.chkAutoGetAttendanceLog.Text = "自动从考勤设备中获取考勤记录";
+            this.chkAutoGetAttendanceLog.UseVisualStyleBackColor = true;
+            // 
             // FrmSystemOptions
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(366, 124);
+            this.ClientSize = new System.Drawing.Size(366, 193);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnOk);
@@ -132,6 +156,8 @@
             this.Load += new System.EventHandler(this.SystemOptions_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -145,5 +171,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtAutoGenerateResultTime;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox chkAutoGetAttendanceLog;
     }
 }

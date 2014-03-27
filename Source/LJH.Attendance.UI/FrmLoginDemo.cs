@@ -28,7 +28,7 @@ namespace LJH.Attendance.UI
         private void SaveConnectString()
         {
             string p = "Data Source=" + Path.Combine(Application.StartupPath, "Attendance.db");
-            AppSettings.CurrentSetting.ConnectString = "SQLITE:" + p;
+            AppSettings.CurrentSetting.ConnectUri = "SQLITE:" + p;
         }
 
         private bool UpGradeDataBase()
@@ -36,7 +36,7 @@ namespace LJH.Attendance.UI
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, "DbUpdate.sql");
             if (System.IO.File.Exists(path))
             {
-                return DatabaseUpgrader.ExeSQLFile(AppSettings.CurrentSetting.ConnectString, path);
+                return DatabaseUpgrader.ExeSQLFile(AppSettings.CurrentSetting.ConnectUri, path);
             }
             return false;
         }
@@ -152,7 +152,7 @@ namespace LJH.Attendance.UI
             }
             SaveConnectString();
 
-            OperatorBll authen = new OperatorBll(AppSettings.CurrentSetting.ConnectString);
+            OperatorBll authen = new OperatorBll(AppSettings.CurrentSetting.ConnectUri);
             if (authen.Authentication(logName, pwd))
             {
                 this.DialogResult = DialogResult.OK;

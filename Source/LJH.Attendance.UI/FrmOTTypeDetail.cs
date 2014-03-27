@@ -61,12 +61,12 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            return (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as OTType);
+            return (new OTTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Add(addingItem as OTType);
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            return (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as OTType);
+            return (new OTTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Update(updatingItem as OTType);
         }
         #endregion
     }

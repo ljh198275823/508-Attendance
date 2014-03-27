@@ -47,7 +47,7 @@ namespace LJH.Attendance.UI
         private void Init()
         {
             this.treeView1.Nodes.Clear();
-            List<Shift> items = (new ShiftBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<Shift> items = (new ShiftBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             foreach (Shift item in items)
             {
                 TreeNode node = new TreeNode(string.Format("{0}({1})", item.Name, item.ShortName));

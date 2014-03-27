@@ -65,7 +65,7 @@ namespace LJH.Attendance.UI
                         else
                         {
                             frm.ShowProgress(string.Format("获取到 {0} 条考勤记录,正在努力保存考勤记录...", logs.Count), 0.99m);
-                            AttendanceLogBLL bll = new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString);
+                            AttendanceLogBLL bll = new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectUri);
                             int count = 0;
                             foreach (AttendanceLog log in logs)
                             {
@@ -75,7 +75,7 @@ namespace LJH.Attendance.UI
                             }
                             frm.ShowProgress(string.Empty , 1);
                             device.LastEventDt = logs.Max(it => it.ReadDateTime);
-                            (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Update(device);
+                            (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectUri)).Update(device);
                         }
                     }
                     catch (ThreadAbortException)
@@ -160,7 +160,7 @@ namespace LJH.Attendance.UI
                             DeviceInfo device = copy.Tag as DeviceInfo;
                             DeviceGroup group = node.Tag as DeviceGroup;
                             device.GroupID = group != null ? group.ID : null;
-                            CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Update(device);
+                            CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectUri)).Update(device);
                             if (ret.Result == ResultCode.Successful)
                             {
                                 copy.Parent.Nodes.Remove(copy);
@@ -172,7 +172,7 @@ namespace LJH.Attendance.UI
                             DeviceGroup cg = copy.Tag as DeviceGroup;
                             DeviceGroup group = node.Tag as DeviceGroup;
                             cg.ParentID = group != null ? group.ID : null;
-                            CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectString)).Update(cg);
+                            CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectUri)).Update(cg);
                             if (ret.Result == ResultCode.Successful)
                             {
                                 copy.Parent.Nodes.Remove(copy);
@@ -239,7 +239,7 @@ namespace LJH.Attendance.UI
                     {
                         if (MessageBox.Show("是否要删除？", "询问", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectString)).Delete(node.Tag as DeviceGroup);
+                            CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(node.Tag as DeviceGroup);
                             if (ret.Result == ResultCode.Successful)
                             {
                                 node.Parent.Nodes.Remove(node);
@@ -259,7 +259,7 @@ namespace LJH.Attendance.UI
                 {
                     if (MessageBox.Show("是否要删除？", "询问", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Delete(node.Tag as DeviceInfo);
+                        CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(node.Tag as DeviceInfo);
                         if (ret.Result == ResultCode.Successful)
                         {
                             node.Parent.Nodes.Remove(node);
@@ -332,13 +332,13 @@ namespace LJH.Attendance.UI
                 {
                     DeviceGroup group = node.Tag as DeviceGroup;
                     group.Name = e.Label;
-                    CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectString)).Update(group);
+                    CommandResult ret = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectUri)).Update(group);
                 }
                 else if (node.Tag is DeviceInfo)
                 {
                     DeviceInfo device = node.Tag as DeviceInfo;
                     device.Name = e.Label;
-                    CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).Update(device);
+                    CommandResult ret = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectUri)).Update(device);
                 }
             }
             deviceTree1.FreshNode(e.Node);
@@ -370,8 +370,8 @@ namespace LJH.Attendance.UI
                         keeper.SetTime(DateTime.Now);
                         decimal count = 0;
                         frm.ShowProgress("开始上传人员...", 0);
-                        List<Staff> staff = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
-                        List<StaffBioTemplate> templates = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetBioTemplates(null).QueryObjects;
+                        List<Staff> staff = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
+                        List<StaffBioTemplate> templates = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).GetBioTemplates(null).QueryObjects;
                         for (int i = 0; i < staff.Count; i++)
                         {
                             keeper.SetUserInfo(staff[i]);

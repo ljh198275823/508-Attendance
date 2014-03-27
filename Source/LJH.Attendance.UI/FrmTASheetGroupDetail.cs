@@ -64,7 +64,7 @@ namespace LJH.Attendance.UI
             if (UpdatingItem != null) SheetType = (UpdatingItem as TASheetGroup).SheetType;
             if (SheetType == "A")
             {
-                List<OTType> items = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+                List<OTType> items = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
                 if (items != null && items.Count > 0)
                 {
                     foreach (OTType item in items)
@@ -79,7 +79,7 @@ namespace LJH.Attendance.UI
             }
             else if (SheetType == "B")
             {
-                List<VacationType> items = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+                List<VacationType> items = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
                 if (items != null && items.Count > 0)
                 {
                     foreach (VacationType item in items)
@@ -94,7 +94,7 @@ namespace LJH.Attendance.UI
             }
             else if (SheetType == "C")
             {
-                List<TripType> items = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+                List<TripType> items = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
                 if (items != null && items.Count > 0)
                 {
                     foreach (TripType item in items)
@@ -263,12 +263,12 @@ namespace LJH.Attendance.UI
 
         protected override Model.Result.CommandResult AddItem(object addingItem)
         {
-            return (new TASheetBLL(AppSettings.CurrentSetting.ConnectString)).Save(addingItem as TASheetGroup);
+            return (new TASheetBLL(AppSettings.CurrentSetting.ConnectUri)).Save(addingItem as TASheetGroup);
         }
 
         protected override Model.Result.CommandResult UpdateItem(object updatingItem)
         {
-            return (new TASheetBLL(AppSettings.CurrentSetting.ConnectString)).Save(updatingItem as TASheetGroup);
+            return (new TASheetBLL(AppSettings.CurrentSetting.ConnectUri)).Save(updatingItem as TASheetGroup);
         }
         #endregion
 

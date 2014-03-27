@@ -89,7 +89,7 @@ namespace LJH.Attendance.UI
                             frm.ShowProgress(string.Format("正在应用模板 {0}...", staff.Name), count / staffs.Count);
                             count++;
                             List<ShiftArrange> items = template.ApplyTemplateTo(staff, dr);
-                            CommandResult ret = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString)).ShiftArrange(staff.ID, dr, items);
+                            CommandResult ret = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectUri)).ShiftArrange(staff.ID, dr, items);
                             if (ret.Result == ResultCode.Successful)
                             {
                                 frm.ShowProgress(string.Format("应用模板成功 {0}", staff.Name), count / staffs.Count);

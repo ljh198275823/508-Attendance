@@ -14,7 +14,7 @@ namespace LJH.Attendance.UI
 {
     public partial class FrmRoleDetail : FrmDetailBase
     {
-        private RoleBll bll = new RoleBll(AppSettings.CurrentSetting.ConnectString);
+        private RoleBll bll = new RoleBll(AppSettings.CurrentSetting.ConnectUri);
 
         public FrmRoleDetail()
         {

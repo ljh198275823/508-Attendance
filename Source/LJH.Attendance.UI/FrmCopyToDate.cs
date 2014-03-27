@@ -104,7 +104,7 @@ namespace LJH.Attendance.UI
             }
             DatetimeRange dr = new DatetimeRange(dtBegin.Value, dtEnd.Value);
             List<ShiftArrange> items = GetShiftArranges();
-            CommandResult ret = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString)).ShiftArrange(Staff.ID, dr, items);
+            CommandResult ret = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectUri)).ShiftArrange(Staff.ID, dr, items);
             if (ret.Result == ResultCode.Successful)
             {
                 ShiftArranges = items;

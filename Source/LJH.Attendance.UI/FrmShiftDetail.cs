@@ -111,12 +111,12 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            return (new ShiftBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as Shift);
+            return (new ShiftBLL(AppSettings.CurrentSetting.ConnectUri)).Add(addingItem as Shift);
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            return (new ShiftBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as Shift);
+            return (new ShiftBLL(AppSettings.CurrentSetting.ConnectUri)).Update(updatingItem as Shift);
         }
         #endregion
 

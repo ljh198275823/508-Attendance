@@ -35,7 +35,7 @@ namespace LJH.Attendance.UI
             sb.Password = this.txtPasswd.Text;
 
             sb.PersistSecurityInfo = true;
-            AppSettings.CurrentSetting.ConnectString = "MSSQL:" + sb.ConnectionString;
+            AppSettings.CurrentSetting.ConnectUri = "MSSQL:" + sb.ConnectionString;
 
             UpGradeDataBase(sb.ConnectionString); //升级数据库
         }
@@ -114,11 +114,11 @@ namespace LJH.Attendance.UI
             this.gpDB.Visible = false;
             this.Height = 148;
 
-            if (!string.IsNullOrEmpty(AppSettings.CurrentSetting.ConnectString))
+            if (!string.IsNullOrEmpty(AppSettings.CurrentSetting.ConnectUri))
             {
                 try
                 {
-                    string connStr = AppSettings.CurrentSetting.ConnectString;
+                    string connStr = AppSettings.CurrentSetting.ConnectUri;
                     if (!string.IsNullOrEmpty(connStr))
                     {
                         int p = connStr.IndexOf(':');
@@ -212,7 +212,7 @@ namespace LJH.Attendance.UI
             SaveConnectString();
            
 
-            OperatorBll authen = new OperatorBll(AppSettings.CurrentSetting.ConnectString);
+            OperatorBll authen = new OperatorBll(AppSettings.CurrentSetting.ConnectUri);
             if (authen.Authentication(logName, pwd))
             {
                 this.DialogResult = DialogResult.OK;

@@ -36,7 +36,7 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            List<TripType> items = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<TripType> items = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             return (from item in items
                     select (object)item).ToList();
         }
@@ -51,7 +51,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as TripType);
+            CommandResult ret = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(item as TripType);
             return ret.Result == ResultCode.Successful;
         }
         #endregion

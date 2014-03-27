@@ -10,7 +10,7 @@
   <Table Name="IntegerID" Member="LJH.Attendance.DAL.LinqDataProvider.IntegerID">
   <Type Name="LJH.Attendance.DAL.LinqDataProvider.IntegerID">
     <Column Name="Entity" Member="Entity"  DbType="nvarchar(50) NOT NULL" IsPrimaryKey="true"/>
-    <Column Name="Value" Member="Value"  DbType="int not null" UpdateCheck="Never"/>
+    <Column Name="Value" Member="Value"  DbType="bigint not null" UpdateCheck="Never"/>
   </Type>
   </Table>
   <Table Name="TADeviceGroup" Member="LJH.Attendance.Model.DeviceGroup">

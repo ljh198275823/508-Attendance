@@ -59,12 +59,12 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            return (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as TripType);
+            return (new TripTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Add(addingItem as TripType);
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            return (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as TripType);
+            return (new TripTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Update(updatingItem as TripType);
         }
         #endregion
     }

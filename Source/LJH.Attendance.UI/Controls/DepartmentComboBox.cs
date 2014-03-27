@@ -28,7 +28,7 @@ namespace LJH.Attendance.UI
         #region 公共方法
         public void Init()
         {
-            DepartmentBLL bll = new DepartmentBLL(AppSettings.CurrentSetting.ConnectString);
+            DepartmentBLL bll = new DepartmentBLL(AppSettings.CurrentSetting.ConnectUri);
             List<Department> items = bll.GetItems(null).QueryObjects;
             this.Items.Clear();
             this.Items.Add("");

@@ -90,7 +90,7 @@ namespace LJH.Attendance.UI
                 StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
                 con.Staff = staff;
                 con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
-                List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
+                List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con).QueryObjects;
                 return (from item in arranges
                         orderby item.StaffName ascending, item.ShiftDate ascending
                         select (object)item).ToList();
@@ -121,7 +121,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as OTType);
+            CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(item as OTType);
             return ret.Result == ResultCode.Successful;
         }
 

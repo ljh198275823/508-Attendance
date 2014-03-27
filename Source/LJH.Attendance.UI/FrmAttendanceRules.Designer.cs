@@ -83,6 +83,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.chkShiftTimeExclueLateAndLeaveEarly = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tab基本.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinutesOfWorkDay)).BeginInit();
@@ -107,6 +108,7 @@
             // 
             // tab基本
             // 
+            this.tab基本.Controls.Add(this.chkShiftTimeExclueLateAndLeaveEarly);
             this.tab基本.Controls.Add(this.comAttendanceUnit);
             this.tab基本.Controls.Add(this.txtMinAttendanceTime);
             this.tab基本.Controls.Add(this.label15);
@@ -155,7 +157,7 @@
             // 
             this.comAttendanceUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comAttendanceUnit.FormattingEnabled = true;
-            this.comAttendanceUnit.Location = new System.Drawing.Point(119, 265);
+            this.comAttendanceUnit.Location = new System.Drawing.Point(119, 286);
             this.comAttendanceUnit.Name = "comAttendanceUnit";
             this.comAttendanceUnit.Size = new System.Drawing.Size(100, 20);
             this.comAttendanceUnit.TabIndex = 74;
@@ -163,7 +165,7 @@
             // txtMinAttendanceTime
             // 
             this.txtMinAttendanceTime.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMinAttendanceTime.Location = new System.Drawing.Point(272, 265);
+            this.txtMinAttendanceTime.Location = new System.Drawing.Point(272, 286);
             this.txtMinAttendanceTime.MaxValue = new decimal(new int[] {
             -1,
             -1,
@@ -183,7 +185,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(225, 269);
+            this.label15.Location = new System.Drawing.Point(225, 290);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 12);
             this.label15.TabIndex = 72;
@@ -192,7 +194,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 269);
+            this.label16.Location = new System.Drawing.Point(15, 290);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(101, 12);
             this.label16.TabIndex = 71;
@@ -200,7 +202,7 @@
             // 
             // txtMinutesOfWorkDay
             // 
-            this.txtMinutesOfWorkDay.Location = new System.Drawing.Point(107, 238);
+            this.txtMinutesOfWorkDay.Location = new System.Drawing.Point(107, 259);
             this.txtMinutesOfWorkDay.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -219,7 +221,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(165, 240);
+            this.label5.Location = new System.Drawing.Point(165, 261);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 69;
@@ -228,7 +230,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 240);
+            this.label6.Location = new System.Drawing.Point(14, 261);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 12);
             this.label6.TabIndex = 67;
@@ -237,7 +239,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(364, 207);
+            this.label32.Location = new System.Drawing.Point(364, 228);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(29, 12);
             this.label32.TabIndex = 65;
@@ -245,7 +247,7 @@
             // 
             // txtOTAfterEndTime
             // 
-            this.txtOTAfterEndTime.Location = new System.Drawing.Point(304, 203);
+            this.txtOTAfterEndTime.Location = new System.Drawing.Point(304, 224);
             this.txtOTAfterEndTime.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -264,7 +266,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(209, 207);
+            this.label31.Location = new System.Drawing.Point(209, 228);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(89, 12);
             this.label31.TabIndex = 63;
@@ -273,7 +275,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(166, 207);
+            this.label29.Location = new System.Drawing.Point(166, 228);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(29, 12);
             this.label29.TabIndex = 62;
@@ -281,7 +283,7 @@
             // 
             // txtOTBeforeStartTime
             // 
-            this.txtOTBeforeStartTime.Location = new System.Drawing.Point(107, 203);
+            this.txtOTBeforeStartTime.Location = new System.Drawing.Point(107, 224);
             this.txtOTBeforeStartTime.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -300,7 +302,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(14, 207);
+            this.label30.Location = new System.Drawing.Point(14, 228);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(89, 12);
             this.label30.TabIndex = 60;
@@ -309,7 +311,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(109, 146);
+            this.label27.Location = new System.Drawing.Point(109, 167);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(101, 12);
             this.label27.TabIndex = 59;
@@ -318,7 +320,7 @@
             // txtMinShiftMinute
             // 
             this.txtMinShiftMinute.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMinShiftMinute.Location = new System.Drawing.Point(49, 143);
+            this.txtMinShiftMinute.Location = new System.Drawing.Point(49, 164);
             this.txtMinShiftMinute.MaxValue = 10000;
             this.txtMinShiftMinute.MinValue = 1;
             this.txtMinShiftMinute.Name = "txtMinShiftMinute";
@@ -329,7 +331,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(13, 148);
+            this.label28.Location = new System.Drawing.Point(13, 169);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(29, 12);
             this.label28.TabIndex = 57;
@@ -438,7 +440,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(109, 175);
+            this.label4.Location = new System.Drawing.Point(109, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 12);
             this.label4.TabIndex = 29;
@@ -447,7 +449,7 @@
             // txtMinOTMinute
             // 
             this.txtMinOTMinute.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMinOTMinute.Location = new System.Drawing.Point(49, 172);
+            this.txtMinOTMinute.Location = new System.Drawing.Point(49, 193);
             this.txtMinOTMinute.MaxValue = 10000;
             this.txtMinOTMinute.MinValue = 1;
             this.txtMinOTMinute.Name = "txtMinOTMinute";
@@ -458,7 +460,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 177);
+            this.label1.Location = new System.Drawing.Point(13, 198);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 27;
@@ -701,6 +703,18 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // chkShiftTimeExclueLateAndLeaveEarly
+            // 
+            this.chkShiftTimeExclueLateAndLeaveEarly.AutoSize = true;
+            this.chkShiftTimeExclueLateAndLeaveEarly.Checked = true;
+            this.chkShiftTimeExclueLateAndLeaveEarly.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkShiftTimeExclueLateAndLeaveEarly.Location = new System.Drawing.Point(13, 139);
+            this.chkShiftTimeExclueLateAndLeaveEarly.Name = "chkShiftTimeExclueLateAndLeaveEarly";
+            this.chkShiftTimeExclueLateAndLeaveEarly.Size = new System.Drawing.Size(180, 16);
+            this.chkShiftTimeExclueLateAndLeaveEarly.TabIndex = 75;
+            this.chkShiftTimeExclueLateAndLeaveEarly.Text = "迟到早退时间不计为出勤时间";
+            this.chkShiftTimeExclueLateAndLeaveEarly.UseVisualStyleBackColor = true;
+            // 
             // FrmAttendanceRules
             // 
             this.AcceptButton = this.btnOk;
@@ -784,5 +798,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox chkShiftTimeExclueLateAndLeaveEarly;
     }
 }

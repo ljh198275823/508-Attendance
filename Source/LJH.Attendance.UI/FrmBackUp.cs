@@ -22,7 +22,7 @@ namespace LJH.Attendance.UI
         private string _BakPath;
         private string _Message;
 
-        private SqlClient _DBClient = new SqlClient(AppSettings.CurrentSetting.ConnectString);
+        private SqlClient _DBClient = new SqlClient(AppSettings.CurrentSetting.GetConnectString());
 
         private bool CheckInput()
         {

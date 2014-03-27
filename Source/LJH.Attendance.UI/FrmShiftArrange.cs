@@ -142,7 +142,7 @@ namespace LJH.Attendance.UI
             {
                 ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
                 con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
-                List<ShiftArrange> arranges = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
+                List<ShiftArrange> arranges = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con).QueryObjects;
                 foreach (Staff user in users)
                 {
                     int row = GridView.Rows.Add();
@@ -173,7 +173,7 @@ namespace LJH.Attendance.UI
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 List<Shift> selectedItems = frm.SelectedShifts;
-                CommandResult ret = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString)).ShiftArrange(staff.ID, dt, selectedItems);
+                CommandResult ret = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectUri)).ShiftArrange(staff.ID, dt, selectedItems);
                 if (ret.Result == ResultCode.Successful)
                 {
                     GridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = GetShiftString(selectedItems);
@@ -205,7 +205,7 @@ namespace LJH.Attendance.UI
                         ShiftArrangeSearchCondition con = new ShiftArrangeSearchCondition();
                         con.StaffID = staff.ID;
                         con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
-                        List<ShiftArrange> items = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
+                        List<ShiftArrange> items = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con).QueryObjects;
                         ShowUserShiftArrangesOnRow(staff, items, GridView.Rows[cell.RowIndex]);
                     }
                 }
@@ -233,7 +233,7 @@ namespace LJH.Attendance.UI
                     }
                 }
             }
-            ShiftArrangeBLL bll = new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString);
+            ShiftArrangeBLL bll = new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectUri);
             CommandResult ret = bll.Delete(sas);
             btnFresh_Click(btnFresh, EventArgs.Empty);
         }

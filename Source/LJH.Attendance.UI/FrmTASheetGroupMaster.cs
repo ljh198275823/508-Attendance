@@ -40,7 +40,7 @@ namespace LJH.Attendance.UI
         protected override List<object> GetDataSource()
         {
             TASheetSearchCondition con = new TASheetSearchCondition();
-            List<TASheet> items = (new TASheetBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
+            List<TASheet> items = (new TASheetBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con).QueryObjects;
             List<TASheetGroup> groups = TASheetGroup.Group(items);
             if (groups != null)
             {
@@ -67,7 +67,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new TASheetBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as TASheetGroup);
+            CommandResult ret = (new TASheetBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(item as TASheetGroup);
             return ret.Result == ResultCode.Successful;
         }
         #endregion

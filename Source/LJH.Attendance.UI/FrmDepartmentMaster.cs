@@ -69,7 +69,7 @@ namespace LJH.Attendance.UI
             _UpdatingItem = null;
             Department parent = null;
             if (departmentTreeview1.SelectedNode != null) parent = departmentTreeview1.SelectedNode.Tag as Department;
-            txtDeptID.Text = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectString)).CreateADeptID(parent);
+            txtDeptID.Text = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectUri)).CreateADeptID(parent);
             txtDeptName.Text = string.Empty;
             txtDeptName.Focus();
             txtMemo.Text = string.Empty;
@@ -84,7 +84,7 @@ namespace LJH.Attendance.UI
                 if (ret == DialogResult.Yes)
                 {
                     Department dept = departmentTreeview1.SelectedNode.Tag as Department;
-                    CommandResult result = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectString)).Delete(dept);
+                    CommandResult result = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(dept);
                     if (result.Result == ResultCode.Successful)
                     {
                         departmentTreeview1.SelectedNode.Parent.Nodes.Remove(departmentTreeview1.SelectedNode);
@@ -111,7 +111,7 @@ namespace LJH.Attendance.UI
             dept.ParentID = txtParentID.Text;
             if (_UpdatingItem == null)
             {
-                CommandResult ret = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectString)).Add(dept);
+                CommandResult ret = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectUri)).Add(dept);
                 if (ret.Result == ResultCode.Successful)
                 {
                     TreeNode node = new TreeNode(string.Format("[{0}] {1}", dept.ID, dept.Name));
@@ -129,7 +129,7 @@ namespace LJH.Attendance.UI
                     if (!Operator.CurrentOperator.IsAdmin)
                     {
                         Operator.CurrentOperator.Depts.Add(dept.ID);
-                        (new OperatorBll(AppSettings.CurrentSetting.ConnectString)).Update(Operator.CurrentOperator);
+                        (new OperatorBll(AppSettings.CurrentSetting.ConnectUri)).Update(Operator.CurrentOperator);
                     }
                     _UpdatingItem = dept;
                     this.departmentTreeview1.SelectedNode = node;
@@ -141,7 +141,7 @@ namespace LJH.Attendance.UI
             }
             else
             {
-                CommandResult ret = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectString)).Update(dept);
+                CommandResult ret = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectUri)).Update(dept);
                 if (ret.Result == ResultCode.Successful)
                 {
                     this.departmentTreeview1.SelectedNode.Text = string.Format("[{0}] {1}", dept.ID, dept.Name);

@@ -15,7 +15,7 @@ namespace LJH.Attendance.UI
     public partial class FrmOperators:FrmMasterBase
     {
         private List<Operator> operators;
-        private OperatorBll bll = new OperatorBll(AppSettings.CurrentSetting.ConnectString); 
+        private OperatorBll bll = new OperatorBll(AppSettings.CurrentSetting.ConnectUri); 
 
         public FrmOperators()
         {

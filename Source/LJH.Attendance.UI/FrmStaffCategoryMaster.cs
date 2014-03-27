@@ -36,7 +36,7 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            List<StaffCategory> items = (new StaffCategoryBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<StaffCategory> items = (new StaffCategoryBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             return (from item in items
                     select (object)item).ToList();
         }
@@ -51,7 +51,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new StaffCategoryBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as StaffCategory);
+            CommandResult ret = (new StaffCategoryBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(item as StaffCategory);
             return ret.Result == ResultCode.Successful;
         }
         #endregion

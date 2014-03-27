@@ -205,11 +205,11 @@ namespace LJH.Attendance.UI
             Authenticate();
             ShowOperatorRights();
 
-            SystemOptions.Current = (new ParameterBLL(AppSettings.CurrentSetting.ConnectString)).GetOrDefaultParameter<SystemOptions>();
+            SystemOptions.Current = (new ParameterBLL(AppSettings.CurrentSetting.ConnectUri)).GetOrDefaultParameter<SystemOptions>();
             HolidaySetting.Current = new HolidaySetting();
-            List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             HolidaySetting.Current.Holidays = holidays;
-            AttendanceRules.Current = (new ParameterBLL(AppSettings.CurrentSetting.ConnectString)).GetOrDefaultParameter<AttendanceRules>();
+            AttendanceRules.Current = (new ParameterBLL(AppSettings.CurrentSetting.ConnectUri)).GetOrDefaultParameter<AttendanceRules>();
 
             if (Operator.CurrentOperator != null) this.lblOperator.Text = string.Format(LJH.Attendance.UI.Properties.Resources.FrmMain_lblOperator, Operator.CurrentOperator.Name);
             tmrAutoGenerateResult.Enabled = AppSettings.CurrentSetting.AutoGenerateResult; //
@@ -412,7 +412,7 @@ namespace LJH.Attendance.UI
                     }
                     LJH.GeneralLibrary.LOG.FileLog.Log("自动生成考勤结果", "开始生成考勤结果......");
                     DatetimeRange dr = new DatetimeRange(dt.Date.AddDays(-1), dt.Date.AddSeconds(-1)); //前一天的时间范围
-                    List<Staff> staffs = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+                    List<Staff> staffs = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
                     CreateAttendanceResults(staffs, dr, readers);
                 }
             }
@@ -424,7 +424,7 @@ namespace LJH.Attendance.UI
 
         private List<string> GetAttendanceReaders()
         {
-            List<DeviceInfo> attendanceReaders = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).GetAttendanceReaders().QueryObjects;
+            List<DeviceInfo> attendanceReaders = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectUri)).GetAttendanceReaders().QueryObjects;
             if (attendanceReaders == null || attendanceReaders.Count == 0)
             {
                 return null;
@@ -437,11 +437,11 @@ namespace LJH.Attendance.UI
             ShiftArrangeSearchCondition con1 = new ShiftArrangeSearchCondition();
             con1.StaffID = staff.ID;
             con1.ShiftDate = dr;
-            List<ShiftArrange> sas = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con1).QueryObjects;
+            List<ShiftArrange> sas = (new ShiftArrangeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con1).QueryObjects;
 
             TASheetSearchCondition con2 = new TASheetSearchCondition();
             con2.StaffID = staff.ID;
-            List<TASheet> sheets = (new TASheetBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con2).QueryObjects;
+            List<TASheet> sheets = (new TASheetBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con2).QueryObjects;
 
             AttendanceLogSearchCondition con3 = new AttendanceLogSearchCondition();
             con3.Staff = new List<int>();
@@ -449,10 +449,10 @@ namespace LJH.Attendance.UI
             con3.Readers = readers;
             con3.ReadDateTime = dr;
             con3.ContainManualLogs = true;
-            List<AttendanceLog> records = (new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con3).QueryObjects;
+            List<AttendanceLog> records = (new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con3).QueryObjects;
 
             List<AttendanceResult> results = (new AttendanceAnalyst()).Analist(staff, sas, records, sheets, dr);
-            CommandResult ret = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).Add(staff.ID, dr, results);
+            CommandResult ret = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectUri)).Add(staff.ID, dr, results);
             return ret.Result == ResultCode.Successful;
         }
 

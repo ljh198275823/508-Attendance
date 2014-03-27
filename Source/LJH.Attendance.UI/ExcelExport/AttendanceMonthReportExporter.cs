@@ -46,13 +46,13 @@ namespace LJH.Attendance.UI.ExcelExport
 
                 if (users != null && users.Count > 0)
                 {
-                    List<Department> depts = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+                    List<Department> depts = (new DepartmentBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
                     List<int> staff = users.Select(item => item.ID).ToList();
                     StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
                     con.Staff = staff;
                     DateTime dt = new DateTime(year, month, 1);
                     con.ShiftDate = new DatetimeRange(dt, dt.AddMonths(1).AddSeconds(-1));
-                    List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
+                    List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con).QueryObjects;
                     int row = 1;
                     foreach (Staff s in users)
                     {

@@ -15,18 +15,14 @@ namespace LJH.Attendance.DAL.LinqDataProvider
             IDbConnection connection = null;
             Stream stream = typeof(AttendanceDataContextFactory).Assembly.GetManifestResourceStream("LJH.Attendance.DAL.LinqDataProvider.DataMapping.xml");
             XmlMappingSource mappingSource = XmlMappingSource.FromStream(stream);
-            int p = connStr.IndexOf(':');
-            if (p > 0)
+            string sqlType = AppSettings.CurrentSetting.GetSQLType();
+            if (sqlType == "MSSQL")
             {
-                string sqlType = connStr.Substring(0, p);
-                if (sqlType.ToUpper() == "MSSQL")
-                {
-                    connection = new SqlConnection(connStr.Substring(p + 1));
-                }
-                else if (sqlType.ToUpper() == "SQLITE")
-                {
-                    connection = new SQLiteConnection(connStr.Substring(p + 1));
-                }
+                connection = new SqlConnection(AppSettings.CurrentSetting.GetConnectString());
+            }
+            else if (sqlType == "SQLITE")
+            {
+                connection = new SQLiteConnection(AppSettings.CurrentSetting.GetConnectString());
             }
             System.Diagnostics.Debug.Assert(connection != null, "没有找到有效的数据库连接!");
             AttendanceDataContext attendance = new AttendanceDataContext(connection, mappingSource);

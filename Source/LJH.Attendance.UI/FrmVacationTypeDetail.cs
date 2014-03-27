@@ -59,12 +59,12 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            return (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as VacationType);
+            return (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Add(addingItem as VacationType);
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            return (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as VacationType);
+            return (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Update(updatingItem as VacationType);
         }
         #endregion
     }

@@ -54,13 +54,13 @@ namespace LJH.Attendance.UI
             rdResign.Checked = staff.Resigned;
             chkIsAdmin.Checked = (staff.IsAdmin != null && staff.IsAdmin.Value);
             verifyCodeComboBox1.SelectedVerifyCode = staff.VerifyCode;
-            StaffPhoto sp = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetPhoto(staff.ID).QueryObject;
+            StaffPhoto sp = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).GetPhoto(staff.ID).QueryObject;
             if (sp != null)
             {
                 picPhoto.Image = sp.Photo;
             }
 
-            _BioTemplates = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).GetBioTemplates(staff.ID).QueryObjects;
+            _BioTemplates = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).GetBioTemplates(staff.ID).QueryObjects;
             if (_BioTemplates != null && _BioTemplates.Count > 0)
             {
                 templateGrid.Rows.Clear();
@@ -74,10 +74,10 @@ namespace LJH.Attendance.UI
         protected override CommandResult AddItem(object addingItem)
         {
             Staff staff = addingItem as Staff;
-            CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).Add(staff);
+            CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).Add(staff);
             if (ret.Result == ResultCode.Successful && picPhoto.Tag != null)
             {
-                CommandResult ret1 = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).SavePhoto(staff.ID, picPhoto.Tag.ToString());
+                CommandResult ret1 = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).SavePhoto(staff.ID, picPhoto.Tag.ToString());
                 if (ret1.Result != ResultCode.Successful)
                 {
                     MessageBox.Show("人员信息增加成功，但人员照片保存失败，失败原因:" + ret1.Message);
@@ -89,7 +89,7 @@ namespace LJH.Attendance.UI
                 {
                     StaffBioTemplate sbt = row.Tag as StaffBioTemplate;
                     sbt.StaffID = staff.ID;
-                    CommandResult ret1 = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).SaveTemplate(sbt);
+                    CommandResult ret1 = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).SaveTemplate(sbt);
                 }
             }
             return ret;
@@ -98,10 +98,10 @@ namespace LJH.Attendance.UI
         protected override CommandResult UpdateItem(object updatingItem)
         {
             Staff staff = updatingItem as Staff;
-            CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).Update(staff);
+            CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).Update(staff);
             if (ret.Result == ResultCode.Successful && picPhoto.Tag != null)
             {
-                CommandResult ret1 = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).SavePhoto(staff.ID, picPhoto.Tag.ToString());
+                CommandResult ret1 = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).SavePhoto(staff.ID, picPhoto.Tag.ToString());
                 if (ret1.Result != ResultCode.Successful)
                 {
                     MessageBox.Show("人员信息增加成功，但人员照片保存失败，失败原因:" + ret1.Message);
@@ -148,7 +148,7 @@ namespace LJH.Attendance.UI
             }
             info.Sex = rdMale.Checked ? "男" : "女";
             info.UserPosition = txtUserPosition.Text;
-            info.HireDate = dtHireDate.Value;
+            info.HireDate = dtHireDate.Value.Date;
             info.Resigned = rdResign.Checked;
             info.IsAdmin = chkIsAdmin.Checked;
             info.VerifyCode = verifyCodeComboBox1.SelectedVerifyCode;
@@ -173,7 +173,7 @@ namespace LJH.Attendance.UI
             if (UpdatingItem != null)
             {
                 Staff staff = UpdatingItem as Staff;
-                CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).DeletePhoto(staff.ID);
+                CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).DeletePhoto(staff.ID);
                 if (ret.Result == ResultCode.Successful)
                 {
                     picPhoto.Image = null;
@@ -228,7 +228,7 @@ namespace LJH.Attendance.UI
                 {
                     Staff staff = UpdatingItem as Staff;
                     sbt.StaffID = staff.ID;
-                    CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).SaveTemplate(sbt);
+                    CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).SaveTemplate(sbt);
                     if (ret.Result != ResultCode.Successful)
                     {
                         MessageBox.Show(ret.Message);
@@ -252,7 +252,7 @@ namespace LJH.Attendance.UI
                 foreach (DataGridViewRow row in templateGrid.SelectedRows)
                 {
                     StaffBioTemplate sbt = row.Tag as StaffBioTemplate;
-                    CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectString)).DeleteTemplate(sbt);
+                    CommandResult ret = (new StaffBLL(AppSettings.CurrentSetting.ConnectUri)).DeleteTemplate(sbt);
                     if (ret.Result != ResultCode.Successful)
                     {
                         MessageBox.Show(ret.Message);

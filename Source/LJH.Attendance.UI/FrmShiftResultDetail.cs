@@ -91,7 +91,7 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            return (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as AttendanceResult);
+            return (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectUri)).Update(updatingItem as AttendanceResult);
         }
         #endregion
     }

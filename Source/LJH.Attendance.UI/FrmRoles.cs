@@ -28,7 +28,7 @@ namespace LJH.Attendance.UI
         }
         protected override bool DeletingItem(object item)
         {
-            RoleBll bll = new RoleBll(AppSettings.CurrentSetting.ConnectString);
+            RoleBll bll = new RoleBll(AppSettings.CurrentSetting.ConnectUri);
             Role info = (Role)item;
             CommandResult result = bll.Delete(info);
             if (result.Result != ResultCode.Successful)
@@ -40,7 +40,7 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            RoleBll roleBll = new RoleBll(AppSettings.CurrentSetting.ConnectString);
+            RoleBll roleBll = new RoleBll(AppSettings.CurrentSetting.ConnectUri);
             roles = roleBll.GetAllRoles().QueryObjects.ToList();
             List<object> source = new List<object>();
             foreach (object o in roles)

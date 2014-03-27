@@ -60,16 +60,16 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            CommandResult ret = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as Holiday);
-            List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            CommandResult ret = (new HolidayBLL(AppSettings.CurrentSetting.ConnectUri)).Add(addingItem as Holiday);
+            List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             HolidaySetting.Current.Holidays = holidays;
             return ret;
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            CommandResult ret = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as Holiday);
-            List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            CommandResult ret = (new HolidayBLL(AppSettings.CurrentSetting.ConnectUri)).Update(updatingItem as Holiday);
+            List<Holiday> holidays = (new HolidayBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             HolidaySetting.Current.Holidays = holidays;
             return ret;
         }

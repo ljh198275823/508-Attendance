@@ -185,8 +185,8 @@ namespace LJH.Attendance.UI.Controls
         {
             _AllDeviceNodes.Clear();
             _AllGroupNodes.Clear();
-            _Groups = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
-            _Devices = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            _Groups = (new DeviceGroupBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
+            _Devices = (new DeviceInfoBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             if (_Groups != null && _Groups.Count > 0)
             {
                 _Groups = (from dept in _Groups orderby dept.ID ascending select dept).ToList();

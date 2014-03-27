@@ -137,12 +137,12 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            return (new ShiftTemplateBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as ShiftTemplate);
+            return (new ShiftTemplateBLL(AppSettings.CurrentSetting.ConnectUri)).Add(addingItem as ShiftTemplate);
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            return (new ShiftTemplateBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as ShiftTemplate);
+            return (new ShiftTemplateBLL(AppSettings.CurrentSetting.ConnectUri)).Update(updatingItem as ShiftTemplate);
         }
         #endregion
 

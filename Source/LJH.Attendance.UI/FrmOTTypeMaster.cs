@@ -36,7 +36,7 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            List<OTType> items = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<OTType> items = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             return (from item in items
                     select (object)item).ToList();
         }
@@ -52,7 +52,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as OTType);
+            CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(item as OTType);
             return ret.Result == ResultCode.Successful;
         }
         #endregion

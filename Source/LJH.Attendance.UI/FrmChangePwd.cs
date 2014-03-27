@@ -30,7 +30,7 @@ namespace LJH.Attendance.UI
         {
             if (CheckInput())
             {
-                OperatorBll bll = new OperatorBll(AppSettings.CurrentSetting.ConnectString );
+                OperatorBll bll = new OperatorBll(AppSettings.CurrentSetting.ConnectUri );
                 Operator.Password = txtNewPwd.Text;
                 CommandResult result = bll.Update(Operator);
                 if (result.Result == ResultCode.Successful)

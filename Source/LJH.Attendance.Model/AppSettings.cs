@@ -41,6 +41,7 @@ namespace LJH.Attendance.Model
         private bool _RememberLogID;
         private bool _AutoGenerateResult;
         private string _AutoGenerateTime;
+        private bool _AutoGetAttendanceLog;
         #endregion
 
         #region 构造函数
@@ -73,6 +74,9 @@ namespace LJH.Attendance.Model
                     bool.TryParse(temp, out _AutoGenerateResult);
 
                     _AutoGenerateTime = GetConfigContent("AutoGenerateTime");
+
+                    temp = GetConfigContent("AutoGetAttendanceLog");
+                    bool.TryParse(temp, out _AutoGetAttendanceLog);
                 }
                 catch
                 {
@@ -83,12 +87,10 @@ namespace LJH.Attendance.Model
 
         #region 公共属性
         /// <summary>
-        /// 获取当前选择数据库的数据库连接字符串
+        /// 获取当前选择数据库的资源uri,目前支持多种类型的数据库，所以这个属性并不完全等价于连接字符串
         /// </summary>
-        public string ConnectString
+        public string ConnectUri
         {
-            //连接字串分两段加密，首先前8个字符为加密的日期，做为实际连接字符串信息的加密密码。
-            //解密连接字串：先用默认加密密码的加密类型解密出前8个字符的明文，再用一个密码为此明文的加密类解密出后续字符，得到连接字符的明文。
             get
             {
                 string con = string.Empty;
@@ -206,6 +208,24 @@ namespace LJH.Attendance.Model
             }
         }
         /// <summary>
+        /// 获取或设置是否自动从考勤设备获取考勤记录
+        /// </summary>
+        public bool AutoGetAttendanceLog
+        {
+            get { return _AutoGetAttendanceLog; }
+            set
+            {
+                if (_AutoGetAttendanceLog != value)
+                {
+                    _AutoGetAttendanceLog = value;
+                    SaveConfig("AutoGetAttendanceLog", value.ToString());
+                }
+            }
+        }
+        #endregion
+
+        #region
+        /// <summary>
         /// 保存配置项
         /// </summary>
         /// <param name="configName"></param>
@@ -269,7 +289,7 @@ namespace LJH.Attendance.Model
                 {
                     XmlNodeList nodeList = _parent.ChildNodes;
                     foreach (XmlNode xn in nodeList)
-                    {                        
+                    {
                         if (xn is XmlElement)
                         {
                             XmlElement xe = (XmlElement)xn;
@@ -286,6 +306,38 @@ namespace LJH.Attendance.Model
                 }
             }
             return "";
+        }
+        /// <summary>
+        ///  从数据库连接资源uri获取数据库连接字符串
+        /// </summary>
+        /// <returns></returns>
+        public string GetConnectString()
+        {
+            if (!string.IsNullOrEmpty(ConnectUri))
+            {
+                int p = ConnectUri.IndexOf(':');
+                if (p > 0)
+                {
+                    return ConnectUri.Substring(p + 1);
+                }
+            }
+            return string.Empty;
+        }
+        /// <summary>
+        /// 从数据库连接资源uri中获取数据库类型
+        /// </summary>
+        /// <returns></returns>
+        public string GetSQLType()
+        {
+            if (!string.IsNullOrEmpty(ConnectUri))
+            {
+                int p = ConnectUri.IndexOf(':');
+                if (p > 0)
+                {
+                    return ConnectUri.Substring(0, p);
+                }
+            }
+            return string.Empty;
         }
         #endregion
     }

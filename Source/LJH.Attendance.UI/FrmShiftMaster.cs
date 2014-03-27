@@ -36,7 +36,7 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            List<Shift> items = (new ShiftBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<Shift> items = (new ShiftBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             return (from item in items
                     orderby item.ID ascending
                     select (object)item).ToList();
@@ -53,7 +53,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new ShiftBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as Shift);
+            CommandResult ret = (new ShiftBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(item as Shift);
             if (ret.Result != ResultCode.Successful) MessageBox.Show(ret.Message);
             return ret.Result == ResultCode.Successful;
         }

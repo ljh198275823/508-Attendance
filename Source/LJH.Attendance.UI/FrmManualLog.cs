@@ -63,7 +63,7 @@ namespace LJH.Attendance.UI
                     FrmProcessing frm = new FrmProcessing();
                     Action action = delegate()
                     {
-                        AttendanceLogBLL bll = new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectString);
+                        AttendanceLogBLL bll = new AttendanceLogBLL(AppSettings.CurrentSetting.ConnectUri);
                         int count = logs.Count;
                         int added = 0;
                         foreach (AttendanceLog log in logs)

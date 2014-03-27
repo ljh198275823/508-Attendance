@@ -30,13 +30,14 @@ namespace LJH.Attendance.UI
             {
                 dtAutoGenerateResultTime.Value = new DateTime(2011, 1, 1, mt.Hour, mt.Minute, mt.Second);
             }
-            this.btnOk.Enabled = Operator.CurrentOperator.Permit(Permission.EditOptions);
+            this.chkAutoGetAttendanceLog.Checked = AppSettings.CurrentSetting.AutoGetAttendanceLog;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             AppSettings.CurrentSetting.AutoGenerateResult = chkAutoCreate.Checked;
             AppSettings.CurrentSetting.AutoGenerateTime = new MyTime(dtAutoGenerateResultTime.Value.Hour, dtAutoGenerateResultTime.Value.Minute, 0);
+            AppSettings.CurrentSetting.AutoGetAttendanceLog = chkAutoGetAttendanceLog.Checked;
             this.DialogResult = DialogResult.OK;
         }
 

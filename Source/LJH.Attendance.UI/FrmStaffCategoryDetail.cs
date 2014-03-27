@@ -59,12 +59,12 @@ namespace LJH.Attendance.UI
 
         protected override CommandResult AddItem(object addingItem)
         {
-            return (new StaffCategoryBLL(AppSettings.CurrentSetting.ConnectString)).Add(addingItem as StaffCategory);
+            return (new StaffCategoryBLL(AppSettings.CurrentSetting.ConnectUri)).Add(addingItem as StaffCategory);
         }
 
         protected override CommandResult UpdateItem(object updatingItem)
         {
-            return (new StaffCategoryBLL(AppSettings.CurrentSetting.ConnectString)).Update(updatingItem as StaffCategory);
+            return (new StaffCategoryBLL(AppSettings.CurrentSetting.ConnectUri)).Update(updatingItem as StaffCategory);
         }
         #endregion
     }

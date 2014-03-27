@@ -38,6 +38,7 @@ namespace LJH.Attendance.UI
             chkLeaveEarlyAsAbsent.Checked = item.LeaveEarlyAsAbsent != null;
             if (item.LeaveEarlyAsAbsent != null) txtLeaveEarlyAsAbsent.IntergerValue = item.LeaveEarlyAsAbsent.Value;
             chkShiftTimeIncludeWaiChu.Checked = item.ShiftTimeIncludeWaiChu;
+            chkShiftTimeExclueLateAndLeaveEarly.Checked = !item.ShiftTimeIncludeLateOrLeaveEarly;
             txtMinOTMinute.IntergerValue = item.MinOTMinute;
             txtMinShiftMinute.IntergerValue = item.MinShiftMinute;
             txtOTBeforeStartTime.Value = item.BeforeOTStartTime;
@@ -73,6 +74,7 @@ namespace LJH.Attendance.UI
             if (chkLateAsAbsent.Checked) item.LateAsAbsent = txtLateAsAbsent.IntergerValue;
             if (chkLeaveEarlyAsAbsent.Checked) item.LeaveEarlyAsAbsent = txtLeaveEarlyAsAbsent.IntergerValue;
             item.ShiftTimeIncludeWaiChu = chkShiftTimeIncludeWaiChu.Checked;
+            item.ShiftTimeIncludeLateOrLeaveEarly = !chkShiftTimeExclueLateAndLeaveEarly.Checked;
             item.MinShiftMinute = txtMinShiftMinute.IntergerValue;
             item.MinOTMinute = txtMinOTMinute.IntergerValue;
             item.BeforeOTStartTime = (int)txtOTBeforeStartTime.Value;
@@ -101,7 +103,7 @@ namespace LJH.Attendance.UI
         private void btnOk_Click(object sender, EventArgs e)
         {
             AttendanceRules.Current = GetFromInput();
-            CommandResult ret = (new ParameterBLL(AppSettings.CurrentSetting.ConnectString)).Save<AttendanceRules>(AttendanceRules.Current);
+            CommandResult ret = (new ParameterBLL(AppSettings.CurrentSetting.ConnectUri)).Save<AttendanceRules>(AttendanceRules.Current);
             if (ret.Result == ResultCode.Successful)
             {
                 this.Close();

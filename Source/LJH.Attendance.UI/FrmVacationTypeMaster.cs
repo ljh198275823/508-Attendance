@@ -36,7 +36,7 @@ namespace LJH.Attendance.UI
 
         protected override List<object> GetDataSource()
         {
-            List<VacationType> items = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<VacationType> items = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             return (from item in items
                     select (object)item).ToList();
         }
@@ -51,7 +51,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as VacationType);
+            CommandResult ret = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(item as VacationType);
             return ret.Result == ResultCode.Successful;
         }
         #endregion

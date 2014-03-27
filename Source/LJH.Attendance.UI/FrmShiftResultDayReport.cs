@@ -33,7 +33,7 @@ namespace LJH.Attendance.UI
             _OTCols.Clear();
             _TripCols.Clear();
             _VacationCols.Clear();
-            List<OTType> ots = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<OTType> ots = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             if (ots != null && ots.Count > 0)
             {
                 foreach (OTType ot in ots)
@@ -42,7 +42,7 @@ namespace LJH.Attendance.UI
                     _OTCols.Add(col);
                 }
             }
-            List<VacationType> vts = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<VacationType> vts = (new VacationTypeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             if (vts != null && vts.Count > 0)
             {
                 foreach (VacationType vt in vts)
@@ -51,7 +51,7 @@ namespace LJH.Attendance.UI
                     _VacationCols.Add(col);
                 }
             }
-            List<TripType> tts = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(null).QueryObjects;
+            List<TripType> tts = (new TripTypeBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(null).QueryObjects;
             if (tts != null && tts.Count > 0)
             {
                 foreach (TripType tt in tts)
@@ -173,7 +173,7 @@ namespace LJH.Attendance.UI
                 StaffAttendanceResultSearchCondition con = new StaffAttendanceResultSearchCondition();
                 con.Staff = staff;
                 con.ShiftDate = new DatetimeRange(ucDateTimeInterval1.StartDateTime, ucDateTimeInterval1.EndDateTime);
-                List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectString)).GetItems(con).QueryObjects;
+                List<AttendanceResult> arranges = (new AttendanceResultBLL(AppSettings.CurrentSetting.ConnectUri)).GetItems(con).QueryObjects;
                 List<object> items = new List<object>();
                 foreach (Staff s in users)
                 {
@@ -250,7 +250,7 @@ namespace LJH.Attendance.UI
 
         protected override bool DeletingItem(object item)
         {
-            CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectString)).Delete(item as OTType);
+            CommandResult ret = (new OTTypeBLL(AppSettings.CurrentSetting.ConnectUri)).Delete(item as OTType);
             return ret.Result == ResultCode.Successful;
         }
 
