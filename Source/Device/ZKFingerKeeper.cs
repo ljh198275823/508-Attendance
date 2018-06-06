@@ -197,7 +197,7 @@ namespace LJH.Attendance.Device
                 return;
             }
 
-            bool ret = false;
+            bool ret =true;
             byte[] reserved = new byte[10];
             if (!string.IsNullOrEmpty(staff.CardID)) ret = axCZKEM1.SetStrCardNumber(staff.CardID);
             string pwd = !string.IsNullOrEmpty(staff.Password) ? staff.Password : "8888";
